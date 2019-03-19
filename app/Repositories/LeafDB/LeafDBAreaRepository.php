@@ -39,8 +39,8 @@ implements AreaRepository {
 		return $this->getByCriteria('id', $id);
 	}
 
-	function getByIDCard(int $idCard): ?Area {
-		return $this->getByCriteria('codigo', $idCard);
+	function getByIDCard(int $int): ?Area {
+		return $this->getByCriteria('codigo', $int);
 	}
 
 	function save(Area $area): bool {
@@ -51,6 +51,7 @@ implements AreaRepository {
 				->insert('Areas')
 				->params([
 					'nombres'      => $area->name,
+					'codigo'      => $area->code,
 				])
 				->execute();
 
@@ -66,7 +67,7 @@ implements AreaRepository {
 		$area = new Area;
 		$area->id        = $info['id'];
 		$area->name      = $info['nombres'];
-		$area->name      = $info['codigo'];
+		$area->code      = $info['codigo'];
 
 		return $area;
 	}

@@ -26,6 +26,7 @@ class AreaController {
 		$area = new Area;
 
 		$area->name = $areaInfo['nombres'];
+		$area->code = $areaInfo['codigo'];
 
 		Dependencies::getAreaRepository()->save($area);
 		Flight::redirect('/areas');
