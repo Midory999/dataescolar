@@ -1,0 +1,5 @@
+vendor 
+data_escolar
+*.lock
+*.sublime*
+.env.local

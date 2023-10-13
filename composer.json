@@ -1,0 +1,12 @@
+{
+	"require": {
+		"mikecao/flight": "^2.0",
+		"symfony/uid": "^6.3",
+		"symfony/dotenv": "^6.3"
+	},
+	"autoload": {
+		"psr-4": {
+			"App\\": "app"
+		}
+	}
+}
