@@ -1,5 +1,7 @@
 <?php
-	/** @var array<string, string> $roles */
+	/** @var \App\Models\Role[] $roles */
+	/** @var string $root */
+	/** @var ?string $error */
 ?>
 
 <main>
@@ -19,23 +21,23 @@
 		<!--Formulario de login y Registro-->
 		<div class="contenedor__login-register">
 			<!-- login -->
-			<form class="formulario__login">
+			<form method="post" class="formulario__login">
 				<h2>Iniciar Sesión</h2>
 				<input name="cedula" placeholder="Cédula" />
 				<input name="clave" type="password" placeholder="Contraseña" />
 				<button>Entrar</button>
 			</form>
 			<!-- registro -->
-			<form action="/usuarios" method="POST" class="formulario__register">
+			<form action="<?= $root ?>/usuarios" method="POST" class="formulario__register">
 				<h2>Registrarse</h2>
 				<input name="nombre" placeholder="Nombre" />
 				<input name="apellido" placeholder="Apellido" />
 				<input name="cedula" placeholder="Cédula" />
-				<input name="clave" placeholder="Contraseña" />
+				<input name="clave" type="password" placeholder="Contraseña" />
 				<select name="rol">
 					<option selected disabled>Seleccione un rol</option>
-					<?php foreach ($roles as $idRol => $rol) echo <<<HTML
-						<option value="$idRol">$rol</option>
+					<?php foreach ($roles as $rol) echo <<<HTML
+						<option value="$rol->value">$rol->value/a</option>
 					HTML ?>
 				</select>
 				<hr />
@@ -46,3 +48,7 @@
 		</div>
 	</div>
 </main>
+
+<?php if ($error) echo <<<HTML
+	<script>alert('$error')</script>
+HTML ?>

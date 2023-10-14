@@ -1,36 +1,71 @@
 <?php
 
+use App\Core\Dependencies;
 use App\Core\Session;
 use App\Core\UI;
+use App\Core\UUID;
+use App\Models\Role;
+use App\Models\User;
 
 Flight::route('GET /', function () {
-	if (Session::get('userID') === null) {
+	$userID = Session::get('userID');
+	if (!$userID) {
 		Flight::redirect('/ingresar');
+		return;
 	}
+
+	$userLogged = Dependencies::getUserRepository()->getByID(new UUID($userID));
+	UI::render('home', ['user' => $userLogged]);
 });
 
 Flight::route('GET /ingresar', function () {
-	UI::render('login-and-user-register', ['roles' => [
-		'Administrador' => 'Administrador/a',
-		'Director' => 'Director/a',
-		'Secretario' => 'Secretario/a',
-		'Profesor' => 'Profesor/a'
-	]]);
+	UI::render('login-and-user-register', [
+		'roles' => Role::cases(),
+		'error' => Flight::request()->query['error']
+	]);
 });
 
 Flight::route('POST /ingresar', function () {
-	$userInfo = Flight::request()->data;
+	$post = Flight::request()->data->getData();
+	$user = Dependencies::getUserRepository()->getByIDCard((int) $post['cedula']);
 
-	$nombre = $userInfo['nombre'];
-	$apellido = $_POST['apellido'];
-	$usuario = $_POST['usuario'];
-	$rol = $_POST['rol'];
-	$clave = $_POST['clave'];
-	$pregunta_de_seguridad = $_POST['pregunta_de_seguridad'];
-	$respuesta_de_seguridad = $_POST['respuesta_de_seguridad'];
-	//CONDICIONAL PARA NO DUPLICAR USUARIOS
-	$query = "INSERT INTO usuarios(nombre, apellido, usuario, rol, clave, pregunta_de_seguridad, respuesta_de_seguridad)
-	VALUES('$nombre', '$apellido', '$usuario', '$rol', '$clave', '$pregunta_de_seguridad', '$respuesta_de_seguridad')";
+	$denyAccess = function (): never {
+		$error = urlencode('Cédula o contraseña incorrecta');
+		Flight::redirect("/ingresar?error=$error");
+		exit;
+	};
 
-	$ejecutar = mysqli_query($conexion, $query);
+	if (!$user) {
+		$denyAccess();
+	}
+
+	if (!$user->isValidPassword($post['clave'])) {
+		$denyAccess();
+	}
+
+	Session::set('userID', $user->id);
+	Flight::redirect('/');
+});
+
+Flight::route('GET /usuarios', function () {
+	UI::render('users', ['users' => Dependencies::getUserRepository()->getAll()]);
+});
+
+Flight::route('POST /usuarios', function () {
+	$post = Flight::request()->data->getData();
+	$user = User::fromPOST($post);
+	$result = Dependencies::getUserRepository()->save($user);
+
+	if ($result) {
+		Flight::redirect('/usuarios');
+		return;
+	}
+
+	$error = urlencode('Ha ocurrido un error');
+	Flight::redirect("/ingresar?error=$error");
+});
+
+Flight::route('/salir', function () {
+	Session::clean();
+	Flight::redirect('/ingresar');
 });

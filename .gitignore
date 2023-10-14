@@ -3,3 +3,4 @@ data_escolar
 *.lock
 *.sublime*
 .env.local
+sftp*.json
