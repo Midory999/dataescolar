@@ -1,0 +1,63 @@
+{
+	"$schema": "./node_modules/rome/configuration_schema.json",
+	"files": {
+		"ignore": [
+			"node_modules",
+			"vendor"
+		]
+	},
+	"javascript": {
+		"globals": [
+			"JSX",
+			"React"
+		],
+		"formatter": {
+			"quoteStyle": "single",
+			"semicolons": "asNeeded",
+			"trailingComma": "none"
+		}
+	},
+	"formatter": {
+		"lineWidth": 90
+	},
+	"linter": {
+		"rules": {
+			"a11y": {
+				"all": true
+			},
+			"complexity": {
+				"all": true
+			},
+			"correctness": {
+				"all": true
+			},
+			"nursery": {
+				"useExhaustiveDependencies": "off",
+				"noAccumulatingSpread": "warn",
+				"noAriaUnsupportedElements": "warn",
+				"noBannedTypes": "warn",
+				"noConfusingArrow": "warn",
+				"noConstantCondition": "warn",
+				"noNoninteractiveTabindex": "warn",
+				"noRedundantRoles": "warn",
+				"noSelfAssign": "warn",
+				"useAriaPropTypes": "warn",
+				"useGroupedTypeImport": "warn",
+				"useHookAtTopLevel": "warn",
+				"useLiteralEnumMembers": "warn"
+			},
+			"performance": {
+				"all": true
+			},
+			"security": {
+				"all": true
+			},
+			"style": {
+				"all": true
+			},
+			"suspicious": {
+				"all": true
+			}
+		}
+	}
+}

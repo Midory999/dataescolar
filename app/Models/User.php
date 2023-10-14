@@ -6,6 +6,7 @@ use App\Core\Dependencies;
 use App\Core\UUID;
 
 /**
+ * Un usuario del sistema
  * @property-read string $id
  * @property-read string $name
  * @property-read string $lastname
@@ -27,6 +28,7 @@ class User {
 		private string $answer
 	) {}
 
+	/** Permite leer las propiedades privadas */
 	function __get(string $property): ?string {
 		return match ($property) {
 			'id' => $this->id,
@@ -35,15 +37,23 @@ class User {
 		};
 	}
 
+	/** Asigna una contraseña encriptada */
 	function setEncryptedPassword(string $hash): void {
 		$this->password = $hash;
 	}
 
+	/**
+	 * Verifica que una contraseña sin encriptar coincida con la contraseña de este
+	 * usuario
+	 */
 	function isValidPassword(string $raw): bool {
 		return Dependencies::getEncryptor()->verify($raw, $this->password);
 	}
 
-	/** @param array<string, string> $post */
+	/**
+	 * Crea un Usuario partiendo de datos provenientes de una petición POST
+	 * @param array<string, string> $post
+	 */
 	static function fromPOST(array $post): self {
 		return new self(
 			new UUID,
@@ -57,7 +67,10 @@ class User {
 		);
 	}
 
-	/** @param array<string, string> $info */
+	/**
+	 * Crea un Usuario partiendo de datos provenientes de un sistema de persistencia
+	 * @param array<string, string> $info
+	 */
 	static function fromDB(array $info): self {
 		return new self(
 			new UUID($info['id']),

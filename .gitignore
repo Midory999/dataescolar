@@ -4,3 +4,6 @@ data_escolar
 *.sublime*
 .env.local
 sftp*.json
+*lock.json
+node_modules
+*.cache

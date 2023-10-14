@@ -10,6 +10,7 @@ use mysqli;
 use mysqli_result;
 use mysqli_sql_exception;
 
+/** Implmentación de Persistencia de Usuarios en MySQL */
 class MySQLUserRepository implements UserRepository {
 	private static ?mysqli $db = null;
 

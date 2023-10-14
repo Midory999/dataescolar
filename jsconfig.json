@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"strict": true,
+		"strictNullChecks": true,
+		"noImplicitAny": true
+	},
+	"exclude": [
+		"node_modules/**/*",
+		"data_escolar/**/*"
+	]
+}

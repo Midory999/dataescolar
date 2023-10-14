@@ -1,33 +1,28 @@
-//////////////////////////
-// Ejecutando funciones //
-//////////////////////////
-document.getElementById('btn__iniciar-sesion').addEventListener('click', iniciarSesion)
-document.getElementById('btn__registrarse').addEventListener('click', register)
-window.addEventListener('resize', anchoPage)
+const $ = (selector = '') => document.querySelector(selector)
 
 //////////////////////////
 // Declarando variables //
 //////////////////////////
-const formulario_login = document.querySelector('.formulario__login')
-const formulario_register = document.querySelector('.formulario__register')
-const contenedor_login_register = document.querySelector('.contenedor__login-register')
-const caja_trasera_login = document.querySelector('.caja__trasera-login')
-const caja_trasera_register = document.querySelector('.caja__trasera-register')
+const $loginForm = $('.formulario__login')
+const $registerForm = $('.formulario__register')
+const $loginFormRegister = $('.contenedor__login-register')
+const $loginTriggerContainer = $('.caja__trasera-login')
+const $registerTriggerContainer = $('.caja__trasera-register')
 
 ///////////////
 // FUNCIONES //
 ///////////////
 function anchoPage() {
 	if (window.innerWidth > 850) {
-		caja_trasera_register.style.display = 'block'
-		caja_trasera_login.style.display = 'block'
+		$registerTriggerContainer.style.display = 'block'
+		$loginTriggerContainer.style.display = 'block'
 	} else {
-		caja_trasera_register.style.display = 'block'
-		caja_trasera_register.style.opacity = '1'
-		caja_trasera_login.style.display = 'none'
-		formulario_login.style.display = 'block'
-		contenedor_login_register.style.left = '0px'
-		formulario_register.style.display = 'none'
+		$registerTriggerContainer.style.display = 'block'
+		$registerTriggerContainer.style.opacity = '1'
+		$loginTriggerContainer.style.display = 'none'
+		$loginForm.style.display = 'block'
+		$loginFormRegister.style.left = '0px'
+		$registerForm.style.display = 'none'
 	}
 }
 
@@ -35,33 +30,40 @@ anchoPage()
 
 function iniciarSesion() {
 	if (window.innerWidth > 850) {
-		formulario_login.style.display = 'block'
-		contenedor_login_register.style.left = '10px'
-		formulario_register.style.display = 'none'
-		caja_trasera_register.style.opacity = '1'
-		caja_trasera_login.style.opacity = '0'
+		$loginForm.style.display = 'block'
+		$loginFormRegister.style.left = '10px'
+		$registerForm.style.display = 'none'
+		$registerTriggerContainer.style.opacity = '1'
+		$loginTriggerContainer.style.opacity = '0'
 	} else {
-		formulario_login.style.display = 'block'
-		contenedor_login_register.style.left = '0px'
-		formulario_register.style.display = 'none'
-		caja_trasera_register.style.display = 'block'
-		caja_trasera_login.style.display = 'none'
+		$loginForm.style.display = 'block'
+		$loginFormRegister.style.left = '0px'
+		$registerForm.style.display = 'none'
+		$registerTriggerContainer.style.display = 'block'
+		$loginTriggerContainer.style.display = 'none'
 	}
 }
 
 function register() {
 	if (window.innerWidth > 850) {
-		formulario_register.style.display = 'block'
-		contenedor_login_register.style.left = '410px'
-		formulario_login.style.display = 'none'
-		caja_trasera_register.style.opacity = '0'
-		caja_trasera_login.style.opacity = '1'
+		$registerForm.style.display = 'block'
+		$loginFormRegister.style.left = '410px'
+		$loginForm.style.display = 'none'
+		$registerTriggerContainer.style.opacity = '0'
+		$loginTriggerContainer.style.opacity = '1'
 	} else {
-		formulario_register.style.display = 'block'
-		contenedor_login_register.style.left = '0px'
-		formulario_login.style.display = 'none'
-		caja_trasera_register.style.display = 'none'
-		caja_trasera_login.style.display = 'block'
-		caja_trasera_login.style.opacity = '1'
+		$registerForm.style.display = 'block'
+		$loginFormRegister.style.left = '0px'
+		$loginForm.style.display = 'none'
+		$registerTriggerContainer.style.display = 'none'
+		$loginTriggerContainer.style.display = 'block'
+		$loginTriggerContainer.style.opacity = '1'
 	}
 }
+
+//////////////////////////
+// Ejecutando funciones //
+//////////////////////////
+$('#btn__iniciar-sesion').addEventListener('click', iniciarSesion)
+$('#btn__registrarse').addEventListener('click', register)
+window.addEventListener('resize', anchoPage)

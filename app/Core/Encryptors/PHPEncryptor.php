@@ -4,6 +4,7 @@ namespace App\Core\Encryptors;
 
 use App\Core\Encryptor;
 
+/** Encriptador recomendado por PHP */
 class PHPEncryptor implements Encryptor {
 	function encrypt(string $input): string {
 		return password_hash($input, PASSWORD_DEFAULT);
