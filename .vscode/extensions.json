@@ -1,0 +1,7 @@
+{
+	"recommendations": [
+		"bmewburn.vscode-intelephense-client",
+		"rome.rome",
+		"dbaeumer.vscode-eslint"
+	]
+}

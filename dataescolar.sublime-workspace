@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"str",
+				"strtr"
+			],
+			[
+				"_SE",
+				"$_SESSION"
+			],
+			[
+				"from",
+				"fromPOST"
+			],
+			[
+				"Thro",
+				"Throwable"
+			],
+			[
+				"U",
+				"User"
+			],
+			[
 				"tes",
 				"testdox"
 			],
@@ -57,7 +77,7 @@
 			],
 			[
 				"fro",
-				"fromRepository"
+				"fromDB"
 			],
 			[
 				"PASS",
@@ -494,35 +514,183 @@
 			[
 				"_S",
 				"$_SESSION"
-			],
-			[
-				"req",
-				"request"
-			],
-			[
-				"Login",
-				"LoginController"
-			],
-			[
-				"SQLite",
-				"SQLiteDB"
-			],
-			[
-				"p",
-				"parseUser"
-			],
-			[
-				"SQL",
-				"SQLiteDB"
 			]
 		]
 	},
 	"buffers":
 	[
 	],
-	"build_system": "Packages/User/Builds/Composer.sublime-build",
+	"build_system": "Lint",
 	"build_system_choices":
 	[
+		[
+			[
+				[
+					"Lint",
+					""
+				],
+				[
+					"Lint - Save errors",
+					""
+				],
+				[
+					"Test",
+					""
+				],
+				[
+					"Packages/User/Builds/CMD.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Builds/CMD.sublime-build",
+					"Git Bash"
+				]
+			],
+			[
+				"Lint",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Lint",
+					""
+				],
+				[
+					"Test",
+					""
+				],
+				[
+					"Packages/User/Builds/CMD.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Builds/CMD.sublime-build",
+					"Git Bash"
+				]
+			],
+			[
+				"Lint",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Lint",
+					""
+				],
+				[
+					"Test",
+					""
+				],
+				[
+					"Packages/User/Builds/CMD.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Builds/CMD.sublime-build",
+					"Git Bash"
+				],
+				[
+					"Packages/User/Builds/Composer.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Builds/Composer.sublime-build",
+					"Install All"
+				],
+				[
+					"Packages/User/Builds/Composer.sublime-build",
+					"Force Install All"
+				],
+				[
+					"Packages/User/Builds/Composer.sublime-build",
+					"Install Production Deps"
+				],
+				[
+					"Packages/User/Builds/Composer.sublime-build",
+					"Update All"
+				],
+				[
+					"Packages/User/Builds/Composer.sublime-build",
+					"Dump autoloader"
+				],
+				[
+					"Packages/User/Builds/Composer.sublime-build",
+					"Optimize autoloader"
+				],
+				[
+					"Packages/User/Builds/PHPUnit.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Builds/PHPUnit.sublime-build",
+					"Test script"
+				]
+			],
+			[
+				"Lint",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Lint",
+					""
+				],
+				[
+					"Test",
+					""
+				],
+				[
+					"Packages/User/Builds/CMD.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Builds/CMD.sublime-build",
+					"Git Bash"
+				],
+				[
+					"Packages/User/Builds/PHP.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Builds/PHP.sublime-build",
+					"8 x64"
+				],
+				[
+					"Packages/User/Builds/PHP.sublime-build",
+					"8 x86"
+				],
+				[
+					"Packages/User/Builds/PHP.sublime-build",
+					"5 x86"
+				],
+				[
+					"Packages/User/Builds/PHPStan.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Builds/PHPStan.sublime-build",
+					"Level Max"
+				],
+				[
+					"Packages/User/Builds/PHPStan.sublime-build",
+					"Generate Configuration (requires Sublime Project File)"
+				],
+				[
+					"Packages/User/Builds/PHPStan.sublime-build",
+					"With Configuration (requires Sublime Project File)"
+				]
+			],
+			[
+				"Lint",
+				""
+			]
+		],
 		[
 			[
 				[
@@ -571,8 +739,8 @@
 				]
 			],
 			[
-				"Packages/User/Builds/Composer.sublime-build",
-				"Dump autoloader"
+				"Packages/User/Builds/PHPUnit.sublime-build",
+				"Test script"
 			]
 		],
 		[
@@ -619,8 +787,8 @@
 				]
 			],
 			[
-				"Packages/User/Builds/PHP.sublime-build",
-				"8 x64"
+				"Packages/User/Builds/CMD.sublime-build",
+				"Git Bash"
 			]
 		]
 	],
@@ -632,12 +800,16 @@
 		"selected_items":
 		[
 			[
-				"enable",
-				"LSP: Enable Language Server in Project"
+				"close",
+				"Project: Close"
 			],
 			[
 				"restart",
 				"LSP: Restart Server"
+			],
+			[
+				"enable",
+				"LSP: Enable Language Server in Project"
 			],
 			[
 				"reload",
@@ -746,10 +918,6 @@
 			[
 				"mergr",
 				"Sublime Merge: Open Repository"
-			],
-			[
-				"close",
-				"Project: Close"
 			],
 			[
 				"lsp: disabe",
@@ -1162,8 +1330,37 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/laragon/www/dataescolar"
+	],
 	"file_history":
 	[
+		"/C/laragon/www/dataescolar/app/Controllers/AuthenticationController.php",
+		"/C/laragon/www/dataescolar/.gitignore",
+		"/C/laragon/www/dataescolar/tests/endpoints/login.http",
+		"/C/laragon/www/dataescolar/README.md",
+		"/C/laragon/www/dataescolar/phpunit.xml",
+		"/C/laragon/www/dataescolar/dataescolar.sublime-project",
+		"/C/laragon/www/dataescolar/composer.json",
+		"/C/laragon/www/dataescolar/phpstan-errors.neon",
+		"/C/laragon/www/dataescolar/phpstan.neon",
+		"/C/laragon/www/dataescolar/app/Core/Session.php",
+		"/C/laragon/www/dataescolar/app/Core/Env.php",
+		"/C/laragon/www/dataescolar/tests/infraestructure/MySQLUserRepositoryTest.php",
+		"/C/laragon/www/dataescolar/app/Repositories/MySQL/MySQLUserRepository.php",
+		"/C/laragon/www/dataescolar/app/Models/User.php",
+		"/C/laragon/www/dataescolar/tests/infraestructure/SQLiteUserRepositoryTest.php",
+		"/C/laragon/www/dataescolar/app/Repositories/SQLite/SQLiteUserRepository.php",
+		"/C/laragon/www/dataescolar/dataescolar.sublime-workspace",
+		"/C/laragon/www/dataescolar/app/Repositories/SQLite/init.sql",
+		"/C/laragon/www/dataescolar/app/Repositories/SQLite/dataescolar.db",
+		"/C/laragon/www/dataescolar/app/Controllers/UserController.php",
+		"/C/laragon/www/dataescolar/app/routes.php",
+		"/C/laragon/www/dataescolar/app/Repositories/SQLite/SQLiteUserRepositorie.php",
+		"/C/laragon/www/dataescolar/app/Repositories/MySQL/init.sql",
+		"/C/laragon/www/dataescolar/app/Core/Dependencies.php",
+		"/C/laragon/www/dataescolar/views/pages/login-and-user-register.php",
 		"/C/xampp/htdocs/dataescolar/data_escolar/js/javascript.js",
 		"/C/xampp/htdocs/dataescolar/.eslintrc.json",
 		"/C/xampp/htdocs/dataescolar/assets/css/app.css",
@@ -1266,42 +1463,18 @@
 		"/C/xampp/htdocs/sistema_escolar/rome.json",
 		"/C/rome.json",
 		"/C/xampp/htdocs/sistema_escolar/administrador/includes/nav.php",
-		"/C/xampp/htdocs/sistema_escolar/profesor/includes/nav.php",
-		"/C/xampp/htdocs/sistema_escolar/administrador/includes/test.jsx",
-		"/C/xampp/htdocs/sistema_escolar/profesor/includes/header.php",
-		"/C/xampp/htdocs/sistema_escolar/js/login.js",
-		"/C/xampp/htdocs/sistema_escolar/administrador/includes/header.php",
-		"/C/xampp/htdocs/sistema_escolar/includes/logInUsuario.php",
-		"/C/xampp/htdocs/sistema_escolar/index.php",
-		"/C/xampp/htdocs/sistema_escolar/includes/logInProfesor.php",
-		"/C/xampp/htdocs/sistema_escolar/logout.php",
-		"/C/xampp/htdocs/sistema_escolar/profesor/index.php",
-		"/C/xampp/htdocs/sistema_escolar/sistema_escolar.sublime-project",
-		"/C/xampp/htdocs/sistema_escolar/test.http",
-		"/C/xampp/htdocs/sistema_escolar/includes/conexion.php",
-		"/C/xampp/htdocs/sistema_escolar/js/script.js",
-		"/C/xampp/htdocs/sistema_escolar/css/style.css",
-		"/C/xampp/htdocs/sistema_escolar/phpstan.neon",
-		"/C/xampp/htdocs/sistema-cursos/index.php",
-		"/C/xampp/htdocs/sistema_escolar/.gitignore",
-		"/C/xampp/htdocs/sistema_escolar/vali-admin/docs/blank-page.html",
-		"/C/Users/Franyer/Desktop/sistema-escolar.sql",
-		"/C/xampp/htdocs/sistema-cursos/sistema_cursos.sql",
-		"/C/laragon/www/refactoring.guru/Técnicas de Refactorización/Simplificar Llamadas a Métodos/Reemplazar Parámetro con Llamada a Método/MetodosProductoEnCarrito.php",
-		"/C/laragon/www/refactoring.guru/Técnicas de Refactorización/Simplificar Llamadas a Métodos/Reemplazar Parámetro con Llamada a Método/Antes.php",
-		"/C/laragon/www/refactoring.guru/Técnicas de Refactorización/Simplificar Llamadas a Métodos/Preservar el Objeto Entero/Antes.php",
-		"/C/laragon/www/refactoring.guru/Técnicas de Refactorización/Simplificar Llamadas a Métodos/Preservar el Objeto Entero/Después.php",
-		"/C/laragon/www/refactoring.guru/Técnicas de Refactorización/Simplificar Llamadas a Métodos/Preservar el Objeto Entero/PlanDespues.php"
+		"/C/xampp/htdocs/sistema_escolar/profesor/includes/nav.php"
 	],
 	"find":
 	{
-		"height": 29.0
+		"height": 31.0
 	},
 	"find_in_files":
 	{
 		"height": 134.0,
 		"where_history":
 		[
+			"C:\\laragon\\www\\dataescolar"
 		]
 	},
 	"find_state":
@@ -1309,6 +1482,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"fromDB",
+			"TEXT (1)",
+			"PRIMARY KEY NOT NULL",
+			"INT(10)",
+			";",
+			"AUTOINCREMENT",
 			"document.querySelector",
 			" '",
 			"'",
@@ -1350,6 +1529,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"fromRepository",
+			"TEXT",
+			"PRIMARY KEY AUTO_INCREMENT",
+			"INT",
 			"?->",
 			""
 		],
@@ -1371,7 +1554,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 29.0
+		"height": 31.0
 	},
 	"input":
 	{
@@ -1430,7 +1613,7 @@
 	},
 	"output.exec":
 	{
-		"height": 139.0
+		"height": 144.0
 	},
 	"output.find_results":
 	{
@@ -1456,7 +1639,7 @@
 	"project": "dataescolar.sublime-project",
 	"replace":
 	{
-		"height": 54.0
+		"height": 94.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1465,6 +1648,42 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"Auth",
+				"app\\Controllers\\AuthenticationController.php"
+			],
+			[
+				"Ses",
+				"app\\Core\\Session.php"
+			],
+			[
+				"env",
+				"app\\Core\\Env.php"
+			],
+			[
+				"Env",
+				"app\\Core\\Env.php"
+			],
+			[
+				"mySQl",
+				"tests\\infraestructure\\MySQLUserRepositoryTest.php"
+			],
+			[
+				"mysqli",
+				"app\\Repositories\\MySQL\\MySQLUserRepository.php"
+			],
+			[
+				"User",
+				"app\\Models\\User.php"
+			],
+			[
+				"Session",
+				"app\\Core\\Session.php"
+			],
+			[
+				"Authe",
+				"app\\Controllers\\AuthenticationController.php"
+			],
 			[
 				"topbar",
 				"topbar.php"
@@ -1598,7 +1817,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 156.0,
+	"side_bar_width": 227.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
