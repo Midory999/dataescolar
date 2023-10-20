@@ -1,0 +1,38 @@
+{
+	"folders": [
+		{
+			"path": ".",
+		}
+	],
+	"settings": {
+		"LSP": {
+			"LSP-html": {
+				"disabled_capabilities": {
+					"hoverProvider": true,
+					"completionProvider": true,
+					"colorProvider": true
+				},
+			},
+			"LSP-tailwindcss": {
+				"enabled": false,
+			},
+		},
+	},
+	"build_systems": [
+		{
+			"name": "Test",
+			"shell_cmd": "composer test",
+			"quiet": true
+		},
+		{
+			"name": "Lint",
+			"shell_cmd": "composer lint",
+			"quiet": true
+		},
+		{
+			"name": "Lint - Save errors",
+			"shell_cmd": "composer lint:save",
+			"quiet": true
+		},
+	]
+}

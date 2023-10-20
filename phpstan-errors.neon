@@ -1,0 +1,6 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Variable property access on \\$this\\(App\\\\Models\\\\User\\)\\.$#"
+			count: 1
+			path: app/Models/User.php

@@ -19,7 +19,8 @@ class Env {
 			self::loadVariables();
 		}
 
-		return @$_ENV[$key];
+		$value = @$_ENV[$key];
+		return is_string($value) ? $value : null;
 	}
 
 	/** Operación privada de carga de variables de entorno */

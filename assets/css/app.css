@@ -36,7 +36,7 @@ main {
 	display: flex;
 	justify-content: center;
 	backdrop-filter: blur(10px);
-	background-color: rgba(0, 128, 255, 0.5);
+	background-color: rgba(255, 0, 255, 0.61);
 }
 
 .caja__trasera div {
@@ -98,7 +98,7 @@ main {
 	font-size: 30px;
 	text-align: center;
 	margin-bottom: 20px;
-	color: #46A2FD;
+	color: #fd4683bb;
 }
 
 .contenedor__login-register form input,
@@ -117,7 +117,7 @@ main {
 	margin-top: 40px;
 	border: none;
 	font-size: 14px;
-	background: #46A2FD;
+	background:  #fd4683bb;
 	font-weight: 600;
 	cursor: pointer;
 	color: white;

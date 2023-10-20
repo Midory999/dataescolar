@@ -15,7 +15,7 @@ class MySQLUserRepository implements UserRepository {
 	private static ?mysqli $db = null;
 
 	function __construct() {
-		if (!self::$db) {
+		if (self::$db === null) {
 			self::$db = new mysqli(
 				Env::get('MYSQL_HOST'),
 				Env::get('MYSQL_USER'),
@@ -52,10 +52,9 @@ class MySQLUserRepository implements UserRepository {
 
 	function getAll(): array {
 		$result = self::$db?->query('SELECT * FROM usuarios');
+
 		assert($result instanceof mysqli_result);
-
 		$users = $result->fetch_all(MYSQLI_ASSOC);
-
 		return array_map([$this, 'mapper'], $users);
 	}
 
@@ -72,7 +71,7 @@ class MySQLUserRepository implements UserRepository {
 		assert($result instanceof mysqli_result);
 		$info = $result->fetch_assoc();
 
-		if (!$info) {
+		if ($info === [] || $info === null) {
 			return null;
 		}
 
@@ -81,6 +80,6 @@ class MySQLUserRepository implements UserRepository {
 
 	/** @param array<string, string> $info */
 	private function mapper(array $info): User {
-		return User::fromDB($info);
+		return User::fromRepository($info);
 	}
 }

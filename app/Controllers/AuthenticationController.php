@@ -31,11 +31,11 @@ class AuthenticationController {
 
 		$denyAccess = function (): never {
 			$error = urlencode('Cédula o contraseña incorrecta');
-			Flight::redirect("/ingresar?error=$error");
+			Flight::redirect("/ingresar?error=$error", 401);
 			exit;
 		};
 
-		if (!$user) {
+		if ($user === null) {
 			$denyAccess();
 		}
 
@@ -57,7 +57,7 @@ class AuthenticationController {
 
 	/** Operación encargada de verificar que el usuario ya haya iniciado sesión */
 	function checkAccess(): bool {
-		if (!Session::get('userID')) {
+		if (Session::get('userID') === null) {
 			Flight::redirect('/ingresar');
 			exit;
 		}

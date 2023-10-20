@@ -11,7 +11,8 @@ class Session {
 	 */
 	static function get(string $key): ?string {
 		self::restore();
-		return @$_SESSION[$key];
+		$value = @$_SESSION[$key];
+		return is_string($value) ? $value : null;
 	}
 
 	/**

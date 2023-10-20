@@ -1,3 +1,12 @@
-@url = http://localhost/dataescolar
+@url = http://192.168.1.199/dataescolar
 
 GET {{url}}
+
+###
+POST {{url}}/ingresar
+Content-Type: application/json
+
+{
+	"cedula": 28072391,
+	"clave": "fsanchez61001"
+}

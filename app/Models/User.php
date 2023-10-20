@@ -71,7 +71,7 @@ class User {
 	 * Crea un Usuario partiendo de datos provenientes de un sistema de persistencia
 	 * @param array<string, string> $info
 	 */
-	static function fromDB(array $info): self {
+	static function fromRepository(array $info): self {
 		return new self(
 			new UUID($info['id']),
 			$info['nombre'],

@@ -23,6 +23,7 @@
 	"scripts": {
 		"dev": "start php -S localhost:3000",
 		"lint": "phpstan -cphpstan.neon --no-progress",
+		"lint:save": "phpstan -cphpstan.neon --no-progress --generate-baseline=phpstan-errors.neon",
 		"test": "phpunit"
 	}
 }

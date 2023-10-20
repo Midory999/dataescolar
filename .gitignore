@@ -1,9 +1,9 @@
 vendor 
 data_escolar
 *.lock
-*.sublime*
 .env.local
 sftp*.json
 *lock.json
 node_modules
 *.cache
+*.db

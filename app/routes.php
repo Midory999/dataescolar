@@ -25,6 +25,7 @@ Flight::route('GET /ingresar',  [$authenticationController, 'showLogin']);
 Flight::route('POST /ingresar', [$authenticationController, 'verifyCredentials']);
 Flight::route('/salir',         [$authenticationController, 'logout']);
 
+Flight::route('POST /usuarios', [$userController,           'registerUser']);
+
 Flight::route('/usuarios',      [$authenticationController, 'checkAccess']);
 Flight::route('GET /usuarios',  [$userController,           'showUsersList']);
-Flight::route('POST /usuarios', [$userController,           'registerUser']);
