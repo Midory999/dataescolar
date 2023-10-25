@@ -3,7 +3,7 @@
 ## Integrantes
 
 - Yasmín Gallo
-- José _______
+- José Mendoza
 
 ## Tutores
 

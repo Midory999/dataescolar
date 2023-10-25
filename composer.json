@@ -1,4 +1,25 @@
 {
+	"name": "midory999/dataescolar",
+	"authors": [
+		{
+			"name": "Franyer Sánchez",
+			"email": "franyeradriansanchez@gmail.com",
+			"homepage": "https://faslatam.000webhostapp.com",
+			"role": "Software Development Tutor"
+		},
+		{
+			"name": "José Mendoza",
+			"email": "josesolarte_12@outlook.com",
+			"role": "UI Designer",
+			"homepage": "https://github.com/Midory999"
+		},
+		{
+			"name": "Yasmín Gallo",
+			"email": "yasmingallo.estudio@gmail.com",
+			"homepage": "https://instagram.com/galloyasmin_15",
+			"role": "Projects Manager"
+		}
+	],
 	"require": {
 		"mikecao/flight": "^2.0",
 		"symfony/uid": "^6.3",
