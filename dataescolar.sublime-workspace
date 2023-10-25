@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"exce",
+				"execute"
+			],
+			[
+				"DB_",
+				"DB_CONNECTION"
+			],
+			[
+				"las",
+				"lastInsertId"
+			],
+			[
 				"str",
 				"strtr"
 			],
@@ -502,18 +514,6 @@
 			[
 				"search",
 				"searchValue"
-			],
-			[
-				"getUs",
-				"getUsers"
-			],
-			[
-				"getU",
-				"getUser"
-			],
-			[
-				"_S",
-				"$_SESSION"
 			]
 		]
 	},
@@ -1332,10 +1332,30 @@
 	},
 	"expanded_folders":
 	[
-		"/C/laragon/www/dataescolar"
+		"/C/xampp/htdocs/dataescolar",
+		"/C/xampp/htdocs/dataescolar/app",
+		"/C/xampp/htdocs/dataescolar/app/Repositories",
+		"/C/xampp/htdocs/dataescolar/app/Repositories/SQLite"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/dataescolar/dataescolar.sublime-project",
+		"/C/xampp/htdocs/dataescolar/app/Repositories/LeafDB/LeafDBUserRepository.php",
+		"/C/xampp/htdocs/dataescolar/app/Core/Errors/php_errors.log",
+		"/C/xampp/htdocs/dataescolar/app/Repositories/SQLite/SQLiteUserRepository.php",
+		"/C/xampp/htdocs/dataescolar/.gitignore",
+		"/C/xampp/htdocs/dataescolar/views/pages/404.php",
+		"/C/xampp/htdocs/dataescolar/views/pages/500.php",
+		"/C/xampp/htdocs/dataescolar/app/config.php",
+		"/C/xampp/htdocs/dataescolar/index.php",
+		"/C/xampp/htdocs/dataescolar/app/Core/Logger.php",
+		"/C/xampp/htdocs/dataescolar/app/routes.php",
+		"/C/xampp/htdocs/dataescolar/app/Controllers/HomeController.php",
+		"/C/xampp/htdocs/dataescolar/vendor/leafs/db/src/Db/Core.php",
+		"/C/xampp/htdocs/dataescolar/.env.local",
+		"/C/xampp/htdocs/dataescolar/composer.json",
+		"/C/xampp/htdocs/dataescolar/.editorconfig",
+		"/C/xampp/htdocs/dataescolar/README.md",
 		"/C/laragon/www/dataescolar/app/Controllers/AuthenticationController.php",
 		"/C/laragon/www/dataescolar/.gitignore",
 		"/C/laragon/www/dataescolar/tests/endpoints/login.http",
@@ -1365,11 +1385,8 @@
 		"/C/xampp/htdocs/dataescolar/.eslintrc.json",
 		"/C/xampp/htdocs/dataescolar/assets/css/app.css",
 		"/C/xampp/htdocs/dataescolar/.stylelintrc.json",
-		"/C/xampp/htdocs/dataescolar/composer.json",
 		"/C/xampp/htdocs/dataescolar/phpstan.neon",
-		"/C/xampp/htdocs/dataescolar/.editorconfig",
 		"/C/xampp/htdocs/dataescolar/phpunit.xml",
-		"/C/xampp/htdocs/dataescolar/.gitignore",
 		"/C/xampp/htdocs/dataescolar/assets/js/app.js",
 		"/C/xampp/htdocs/dataescolar/jsconfig.json",
 		"/C/xampp/htdocs/dataescolar/rome.json",
@@ -1386,10 +1403,7 @@
 		"/C/xampp/htdocs/dataescolar/app/Core/Encryptor.php",
 		"/C/xampp/htdocs/dataescolar/app/Core/Dependencies.php",
 		"/C/xampp/htdocs/dataescolar/app/Controllers/UserController.php",
-		"/C/xampp/htdocs/dataescolar/app/Controllers/HomeController.php",
 		"/C/xampp/htdocs/dataescolar/app/Controllers/AuthenticationController.php",
-		"/C/xampp/htdocs/dataescolar/app/routes.php",
-		"/C/xampp/htdocs/dataescolar/index.php",
 		"/C/xampp/htdocs/dataescolar/app/Controllers/SessionController.php",
 		"/C/xampp/htdocs/dataescolar/views/pages/home.php",
 		"/C/xampp/htdocs/dataescolar/views/pages/login-and-user-register.php",
@@ -1401,13 +1415,11 @@
 		"/C/Users/Franyer/AppData/Roaming/Sublime Text/Packages/User/Snippets/PHP/phpe.sublime-snippet",
 		"/C/Users/Franyer/AppData/Roaming/Sublime Text/Packages/User/Snippets/PHP/template.sublime-snippet",
 		"/C/Users/Franyer/AppData/Roaming/Sublime Text/Packages/User/Builds/PHP.sublime-build",
-		"/C/xampp/htdocs/dataescolar/.env.local",
 		"/C/Users/Franyer/AppData/Local/Temp/Rar$DIa4008.3837/implement.py",
 		"/C/Users/Franyer/AppData/Local/Temp/Rar$DIa4008.2550/PHP Companion.py",
 		"/C/Users/Franyer/AppData/Roaming/Sublime Text/Packages/User/PHP Companion.sublime-settings",
 		"/C/Users/Franyer/AppData/Roaming/Sublime Text/Packages/PHP Companion/PHP Companion.sublime-settings",
 		"/C/Users/Franyer/AppData/Roaming/Sublime Text/Packages/Default/Delete to Hard EOL.sublime-macro",
-		"/C/xampp/htdocs/dataescolar/dataescolar.sublime-project",
 		"/C/xampp/htdocs/dataescolar/dataescolar.sublime-workspace",
 		"/C/xampp/htdocs/dataescolar/test.go",
 		"/C/xampp/htdocs/dataescolar/test.tailwind.css",
@@ -1419,7 +1431,6 @@
 		"/C/xampp/htdocs/dataescolar/test.vue",
 		"/C/xampp/htdocs/dataescolar/test.cs",
 		"/C/xampp/htdocs/dataescolar/tests/endpoints/login.http",
-		"/C/xampp/htdocs/dataescolar/README.md",
 		"/C/xampp/htdocs/dataescolar/TODO",
 		"/C/xampp/htdocs/dataescolar/test.min.html",
 		"/C/Users/Franyer/AppData/Roaming/Sublime Text/Packages/User/Minify.sublime-settings",
@@ -1455,15 +1466,7 @@
 		"/C/Users/Franyer/.gitconfig",
 		"/C/xampp/htdocs/sistema_escolar/administrador/js/functions-usuarios.js",
 		"/C/xampp/htdocs/sistema_escolar/administrador/usuarios.php",
-		"/C/xampp/htdocs/sistema_escolar/administrador/includes/modals/modals.php",
-		"/C/xampp/htdocs/sistema_escolar/administrador/includes/footer.php",
-		"/C/xampp/htdocs/sistema_escolar/vali-admin/docs/table-data-table.html",
-		"/C/xampp/htdocs/sistema_escolar/administrador/index.php",
-		"/C/xampp/htdocs/sistema_escolar/administrador/test.jsx",
-		"/C/xampp/htdocs/sistema_escolar/rome.json",
-		"/C/rome.json",
-		"/C/xampp/htdocs/sistema_escolar/administrador/includes/nav.php",
-		"/C/xampp/htdocs/sistema_escolar/profesor/includes/nav.php"
+		"/C/xampp/htdocs/sistema_escolar/administrador/includes/modals/modals.php"
 	],
 	"find":
 	{
@@ -1639,7 +1642,7 @@
 	"project": "dataescolar.sublime-project",
 	"replace":
 	{
-		"height": 94.0
+		"height": 58.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1648,6 +1651,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"LeafUser",
+				"app\\Repositories\\LeafDB\\LeafDBUserRepository.php"
+			],
 			[
 				"Auth",
 				"app\\Controllers\\AuthenticationController.php"
