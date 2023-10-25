@@ -3,6 +3,7 @@
 namespace App\Core;
 
 use App\Core\Encryptors\PHPEncryptor;
+use App\Repositories\LeafDB\LeafDBUserRepository;
 use App\Repositories\SQLite\SQLiteUserRepository;
 use App\Repositories\UserRepository;
 
@@ -10,7 +11,7 @@ use App\Repositories\UserRepository;
 class Dependencies {
 	/** Retorna un Repositorio válido de usuarios */
 	static function getUserRepository(): UserRepository {
-		return new SQLiteUserRepository; # <-- NOTE: Intercambiable
+		return new LeafDBUserRepository; # <-- NOTE: Intercambiable
 	}
 
 	/** Retorna un Encriptador válido */

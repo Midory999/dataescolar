@@ -307,7 +307,7 @@
 	"editor.comments.insertSpace": true,
 	"editor.copyWithSyntaxHighlighting": true,
 	"editor.cursorBlinking": "phase",
-	"editor.cursorSmoothCaretAnimation": false,
+	"editor.cursorSmoothCaretAnimation": "off",
 	"editor.cursorStyle": "line",
 	"editor.cursorSurroundingLines": 0,
 	"editor.cursorSurroundingLinesStyle": "default",
@@ -319,7 +319,6 @@
 	"editor.dropIntoEditor.enabled": true,
 	"editor.emptySelectionClipboard": true,
 	"editor.experimental.pasteActions.enabled": false,
-	"editor.experimental.stickyScroll.enabled": false,
 	"editor.experimental.useCustomCodeActionMenu": false,
 	"editor.fastScrollSensitivity": 5,
 	"editor.find.addExtraSpaceOnTop": true,
@@ -406,7 +405,7 @@
 	"editor.quickSuggestionsDelay": 0,
 	"editor.rename.enablePreview": true,
 	"editor.renderControlCharacters": true,
-	"editor.renderFinalNewline": true,
+	"editor.renderFinalNewline": "on",
 	"editor.renderLineHighlight": "gutter",
 	"editor.renderLineHighlightOnlyWhenFocus": false,
 	"editor.renderWhitespace": "selection",
@@ -1915,5 +1914,7 @@
 	"intelephense.rename.namespaceMode": "single",
 	"intelephense.runtime": "",
 	"intelephense.telemetry.enabled": null,
-	"intelephense.trace.server": "off"
+	"intelephense.trace.server": "off",
+	"editor.stickyScroll.enabled": false,
+	"workbench.editor.empty.hint": "text"
 }

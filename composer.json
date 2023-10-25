@@ -2,7 +2,8 @@
 	"require": {
 		"mikecao/flight": "^2.0",
 		"symfony/uid": "^6.3",
-		"symfony/dotenv": "^6.3"
+		"symfony/dotenv": "^6.3",
+		"leafs/db": "^2.1"
 	},
 	"autoload": {
 		"psr-4": {
