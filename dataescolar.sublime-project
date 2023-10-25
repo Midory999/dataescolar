@@ -10,11 +10,14 @@
 				"disabled_capabilities": {
 					"hoverProvider": true,
 					"completionProvider": true,
-					"colorProvider": true
+					"colorProvider": true,
 				},
 			},
 			"LSP-tailwindcss": {
 				"enabled": false,
+			},
+			"formatters": {
+				"embedding.php": "LSP-intelephense"
 			},
 		},
 	},
@@ -22,17 +25,17 @@
 		{
 			"name": "Test",
 			"shell_cmd": "composer test",
-			"quiet": true
+			"quiet": true,
 		},
 		{
 			"name": "Lint",
 			"shell_cmd": "composer lint",
-			"quiet": true
+			"quiet": true,
 		},
 		{
 			"name": "Lint - Save errors",
 			"shell_cmd": "composer lint:save",
-			"quiet": true
+			"quiet": true,
 		},
-	]
+	],
 }

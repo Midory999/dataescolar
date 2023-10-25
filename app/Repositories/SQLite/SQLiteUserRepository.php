@@ -2,6 +2,7 @@
 
 namespace App\Repositories\SQLite;
 
+use App\Core\Env;
 use App\Core\UUID;
 use App\Models\User;
 use App\Repositories\UserRepository;
@@ -13,7 +14,7 @@ class SQLiteUserRepository implements UserRepository {
 
 	function __construct() {
 		if (self::$db === null) {
-			self::$db = new SQLite3(__DIR__ . '/dataescolar.db');
+			self::$db = new SQLite3(__DIR__ . '/' . Env::get('DB_DATABASE'));
 			self::prepareDB();
 		}
 	}

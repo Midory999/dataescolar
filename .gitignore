@@ -7,3 +7,5 @@ sftp*.json
 node_modules
 *.cache
 *.db
+*.sqlite
+*.log
