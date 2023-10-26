@@ -5,7 +5,7 @@
 	/** @var string $assets */
 	/** @var string $content */
 	/** @var User $user */
-	/** @var Period $currentPeriod */
+	/** @var ?Period $currentPeriod */
 ?>
 
 <!DOCTYPE html>
@@ -51,10 +51,16 @@
 					<button>Cerrar Sesión</button>
 				</a>
 			</nav>
+			<hr />
 			<h1>Bienvenido <?= $user->name ?></h1>
-			<h2>Periodo actual: <?= $currentPeriod ?></h2>
+			<h2>
+				Periodo actual:
+				<?= $currentPeriod ?? '<strong>No establecido</strong>' ?>
+			</h2>
 		</header>
+		<hr />
 		<main><?= $content ?></main>
+		<hr />
 	</body>
 
 </html>

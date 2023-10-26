@@ -57,7 +57,29 @@ Aplicación:
   --- ✄ -----------------------
   ☐ Valida los campos de los formularios del lado cliente y servidor
     ☐ Validación desde el cliente
+	  	✔	Usuarios @done (23-10-26 19:44)
+	  	☐	Estudiantes
+	  	✔	Períodos @done (23-10-26 19:44)
+			☐	Lapsos
+	  	☐	Inscripciones
+	  	☐	Representantes
+	  	☐	Profesores
+	  	☐	Aulas
+	  	☐	Areas
+			☐	Niveles
+	  	☐	...
     ☐ Validación desde el servidor
+	  	☐	Usuarios
+	  	☐	Estudiantes
+	  	☐	Períodos
+			☐	Lapsos
+	  	☐	Inscripciones
+	  	☐	Representantes
+	  	☐	Profesores
+	  	☐	Aulas
+	  	☐	Areas
+			☐	Niveles
+	  	☐	...
   --- ✄ -----------------------
   ☐ Genera reportes por pantalla e impresión
     ☐ Reportes por pantalla
