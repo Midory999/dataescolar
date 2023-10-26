@@ -1,0 +1,69 @@
+Aplicación:
+  ✔ Presenta autenticación de usuarios @done (23-10-26 18:14)
+  --- ✄ -----------------------
+  ✔ El sistema autoriza usuarios según privilegios @done (23-10-26 18:14)
+  --- ✄ -----------------------
+  ☐ Permite insertar registros a la base de datos desde los módulos
+  	✔	Usuarios @done (23-10-26 18:14)
+  	☐	Estudiantes
+  	✔	Períodos @done (23-10-26 18:14)
+  	☐	Inscripciones
+  	☐	Representantes
+  	☐	Profesores
+  	☐	Aulas
+  	☐	Areas
+  	☐	...
+  --- ✄ -----------------------
+  ☐	Permite consultar datos registrados
+  	✔	Usuarios @done (23-10-26 18:14)
+  	☐	Estudiantes
+  	✔	Períodos @done (23-10-26 18:14)
+  	☐	Inscripciones
+  	☐	Representantes
+  	☐	Profesores
+  	☐	Aulas
+  	☐	Areas
+  	☐	...
+  --- ✄ -----------------------
+  ☐	En todos los módulos se pueden modificar los registros
+  	☐	Usuarios
+  	☐	Estudiantes
+  	☐	Períodos
+  	☐	Inscripciones
+  	☐	Representantes
+  	☐	Profesores
+  	☐	Aulas
+  	☐	Areas
+  	☐	...
+  --- ✄ -----------------------
+  ☐	En todos los módulos se pueden eliminar los registros
+  	☐	Usuarios
+  	☐	Estudiantes
+  	☐	Períodos
+  	☐	Inscripciones
+  	☐	Representantes
+  	☐	Profesores
+  	☐	Aulas
+  	☐	Areas
+  	☐	...
+  --- ✄ -----------------------
+  ☐ Valida los campos de los formularios del lado cliente y servidor
+    ☐ Validación desde el cliente
+    ☐ Validación desde el servidor
+  --- ✄ -----------------------
+  ☐ Genera reportes por pantalla e impresión
+    ☐ Reportes por pantalla
+    ☐ Impresión con PDF
+  --- ✄ -----------------------
+  ✔ Permite respaldar y restaurar la base de datos @done (23-10-26 18:15)
+    ✔ Respaldo de BD @done (23-10-26 18:15)
+    ✔ Restauración de BD @done (23-10-26 18:15)
+  --- ✄ -----------------------
+  ☐ Las interfaces son de fácil comprensión al usuario, utilizando calendarios, menú desplegables y mantiene el estilo en los distintos módulos del sistema
+    ☐ Hacer tests de UX
+    ☐ Guardar y presentar gráficamente estadísticas
+    ☐ Hacer un tutorial de uso básico de la aplicación
+  --- ✄ -----------------------
+
+Proyecto:
+  ☐ ... tareas pendientes
