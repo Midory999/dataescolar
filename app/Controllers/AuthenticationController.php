@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Core\Dependencies;
 use App\Core\Session;
 use App\Core\UI;
+use App\Core\UUID;
 use App\Models\Role;
 use Flight;
 
@@ -16,52 +17,58 @@ use Flight;
  */
 class AuthenticationController {
 	/** Muestra el formulario de inicio de sesión del sistema */
-	function showLogin(): never {
+	function showLogin(): void {
 		UI::render('login-and-user-register', [
 			'roles' => Role::cases(),
 			'error' => Flight::request()->query['error']
 		]);
-		exit;
 	}
 
 	/** Captura y verifica las credenciales del usuario ingresadas en el formulario */
-	function verifyCredentials(): never {
+	function verifyCredentials(): void {
 		$post = Flight::request()->data->getData();
-		$user = Dependencies::getUserRepository()->getByIDCard((int) $post['cedula']);
+		$user = Dependencies::getUserRepository()
+			->getByIDCard((int) $post['cedula']);
 
-		$denyAccess = function (): never {
+		$denyAccess = function (): void {
 			$error = urlencode('Cédula o contraseña incorrecta');
 			Flight::redirect("/ingresar?error=$error", 401);
-			exit;
 		};
 
 		if ($user === null) {
 			$denyAccess();
+			return;
 		}
 
 		if (!$user->isValidPassword($post['clave'])) {
 			$denyAccess();
+			return;
 		}
 
 		Session::set('userID', $user->id);
 		Flight::redirect('/');
-		exit;
 	}
 
 	/** Operación encargada del egreso del sistema */
-	function logout(): never {
+	function logout(): void {
 		Session::clean();
 		Flight::redirect('/ingresar');
-		exit;
 	}
 
 	/** Operación encargada de verificar que el usuario ya haya iniciado sesión */
-	function checkAccess(): bool {
+	function ensureIsAuthenticated(): bool {
 		if (Session::get('userID') === null) {
 			Flight::redirect('/ingresar');
-			exit;
+			return false;
 		}
 
 		return true;
+	}
+
+	function ensureIsAuthorized(): bool {
+		$userLogged = Dependencies::getUserRepository()
+			->getByID(new UUID(Session::get('userID')));
+
+		return $userLogged->isAdmin();
 	}
 }

@@ -6,9 +6,9 @@ use Throwable;
 
 class Logger {
 	static function log(string|Throwable $error): void {
-		if ($error instanceof Throwable) {
-			$error = $error->getMessage();
-		}
+		// if ($error instanceof Throwable) {
+		// 	$error = $error->getMessage();
+		// }
 
 		error_log($error);
 	}

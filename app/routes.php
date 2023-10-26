@@ -1,31 +1,53 @@
 <?php
 
-//////////////////
-// Dependencias //
-//////////////////
 use App\Controllers\AuthenticationController;
 use App\Controllers\HomeController;
+use App\Controllers\PeriodController;
 use App\Controllers\UserController;
 
-////////////////////////////////////
-// Instanciación de Controladores //
-////////////////////////////////////
-$homeController = new HomeController;
+$homeController   = new HomeController;
+$userController   = new UserController;
+$periodController = new PeriodController;
 $authenticationController = new AuthenticationController;
-$userController = new UserController;
 
-/////////////////////////////////////////
-// Definición de rutas y controladores //
-/////////////////////////////////////////
-#              URL              CONTROLLER                  METHOD
-Flight::route('GET /',          [$authenticationController, 'checkAccess']);
-Flight::route('GET /',          [$homeController,           'showHome']);
+////////////////////
+// RUTAS PÚBLICAS //
+////////////////////
+Flight::route(
+	'GET /ingresar',
+	[$authenticationController, 'showLogin']
+);
+Flight::route(
+	'POST /ingresar',
+	[$authenticationController, 'verifyCredentials']
+);
+Flight::route(
+	'/salir',
+	[$authenticationController, 'logout']
+);
 
-Flight::route('GET /ingresar',  [$authenticationController, 'showLogin']);
-Flight::route('POST /ingresar', [$authenticationController, 'verifyCredentials']);
-Flight::route('/salir',         [$authenticationController, 'logout']);
+//////////////////////
+// RUTAS PROTEGIDAS //
+//////////////////////
+Flight::route('*', [$authenticationController, 'ensureIsAuthenticated']);
+Flight::route('GET /', [$homeController, 'showHome']);
 
-Flight::route('POST /usuarios', [$userController,           'registerUser']);
+///////////////////////////////////////////////
+// RUTAS PROTEGIDAS + SÓLO ACCESO AUTORIZADO //
+///////////////////////////////////////////////
+Flight::route('*', [$authenticationController, 'ensureIsAuthorized']);
+Flight::route('GET /usuarios',  [$userController, 'showUsersList']);
+Flight::route('POST /usuarios', [$userController, 'registerUser']);
 
-Flight::route('/usuarios',      [$authenticationController, 'checkAccess']);
-Flight::route('GET /usuarios',  [$userController,           'showUsersList']);
+Flight::route(
+	'GET /periodos',
+	[$periodController, 'showPeriods']
+);
+Flight::route(
+	'POST /periodos',
+	[$periodController, 'registerPeriod']
+);
+Flight::route(
+	'GET /periodos/registrar',
+	[$periodController, 'showPeriodRegister']
+);
