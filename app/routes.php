@@ -4,6 +4,8 @@ use App\Controllers\AuthenticationController;
 use App\Controllers\HomeController;
 use App\Controllers\PeriodController;
 use App\Controllers\UserController;
+use App\Core\Dependencies;
+use App\Core\UI;
 
 $homeController   = new HomeController;
 $userController   = new UserController;
@@ -26,11 +28,22 @@ Flight::route(
 	[$authenticationController, 'logout']
 );
 
+Flight::route(
+	'POST /usuarios',
+	[$userController, 'registerUser']
+); // NOTE: Esto es temporal, el registro debería estar protegido por administrador
+
 //////////////////////
 // RUTAS PROTEGIDAS //
 //////////////////////
 Flight::route('*', [$authenticationController, 'ensureIsAuthenticated']);
 Flight::route('GET /', [$homeController, 'showHome']);
+
+////////////////////////////////
+// DATOS COMPARTIDOS EN LA UI //
+////////////////////////////////
+UI::setData('user', $authenticationController::getLoggedUser());
+UI::setData('currentPeriod', Dependencies::getPeriodRepository()->getLatest());
 
 ///////////////////////////////////////////////
 // RUTAS PROTEGIDAS + SÓLO ACCESO AUTORIZADO //

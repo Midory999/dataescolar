@@ -12,24 +12,23 @@ use Flight;
  */
 class UserController {
 	/** Muestra la lista de usuarios */
-	function showUsersList(): never {
+	function showUsersList(): void {
+		UI::changeLayout(UI::APP_LAYOUT);
 		UI::render('users', ['users' => Dependencies::getUserRepository()->getAll()]);
-		exit;
 	}
 
 	/** Maneja el proceso de registro y persistencia del usuario */
-	function registerUser(): never {
+	function registerUser(): void {
 		$post = Flight::request()->data->getData();
 		$user = User::fromPOST($post);
 		$result = Dependencies::getUserRepository()->save($user);
 
 		if ($result) {
 			Flight::redirect('/usuarios');
-			exit;
+			return;
 		}
 
 		$error = urlencode('Ha ocurrido un error');
 		Flight::redirect("/ingresar?error=$error");
-		exit;
 	}
 }

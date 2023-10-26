@@ -9,11 +9,12 @@ use Flight;
 
 class PeriodController {
 	function showPeriodRegister(): void {
-
+		UI::changeLayout(UI::APP_LAYOUT);
 		UI::render('period-register');
 	}
 
 	function showPeriods(): void {
+		UI::changeLayout(UI::APP_LAYOUT);
 		UI::render(
 			'periods',
 			['periods' => Dependencies::getPeriodRepository()->getAll()]
