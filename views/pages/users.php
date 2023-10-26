@@ -4,7 +4,11 @@
 	/** @var string $root */
 ?>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.min.css">
+<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.min.css"
+/>
+
 <h1>Usuarios</h1>
 <a href="<?= $root ?>/ingresar">Añadir</a>
 <table>

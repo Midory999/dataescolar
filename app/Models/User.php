@@ -83,4 +83,11 @@ class User {
 			$info['respuesta']
 		);
 	}
+
+	function isAdmin(): bool {
+		return match($this->_role) {
+			Role::ADMIN, Role::PRINCIPAL => true,
+			default => false
+		};
+	}
 }

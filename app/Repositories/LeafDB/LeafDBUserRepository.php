@@ -2,28 +2,13 @@
 
 namespace App\Repositories\LeafDB;
 
-use App\Core\Env;
 use App\Core\Logger;
 use App\Core\UUID;
 use App\Models\User;
 use App\Repositories\UserRepository;
-use Leaf\Db;
 use PDOException;
 
-class LeafDBUserRepository implements UserRepository {
-	private static ?Db $db = null;
-
-	function __construct() {
-		if (self::$db === null) {
-			self::$db = new Db([
-				'dbtype' => Env::get('DB_CONNECTION'),
-				'dbname' => __DIR__ . '/../SQLite/' . Env::get('DB_DATABASE')
-			]);
-
-			self::prepareDB();
-		}
-	}
-
+class LeafDBUserRepository extends LeafDBConnection implements UserRepository {
 	function save(User $user): bool {
 		assert(self::$db !== null);
 
@@ -79,21 +64,5 @@ class LeafDBUserRepository implements UserRepository {
 	/** @param array<string, string> $info */
 	private function mapper(array $info): User {
 		return User::fromRepository($info);
-	}
-
-	private static function prepareDB(): void {
-		assert(self::$db !== null);
-
-		$sqlFile = match (strtolower(Env::get('DB_CONNECTION'))) {
-			'sqlite' => __DIR__ . '/../SQLite/init.sql',
-			'mysql' => __DIR__ . '/../MySQL/init.sql'
-		};
-
-		$queries = explode(';', (string) file_get_contents($sqlFile));
-		foreach ($queries as $query) {
-			if ($query) {
-				self::$db->query($query)->execute();
-			}
-		}
 	}
 }

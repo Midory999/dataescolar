@@ -3,7 +3,9 @@
 namespace App\Core;
 
 use App\Core\Encryptors\PHPEncryptor;
+use App\Repositories\LeafDB\LeafDBPeriodRepository;
 use App\Repositories\LeafDB\LeafDBUserRepository;
+use App\Repositories\PeriodRepository;
 use App\Repositories\SQLite\SQLiteUserRepository;
 use App\Repositories\UserRepository;
 
@@ -17,5 +19,9 @@ class Dependencies {
 	/** Retorna un Encriptador válido */
 	static function getEncryptor(): Encryptor {
 		return new PHPEncryptor; # <-- NOTE: Intercambiable
+	}
+
+	static function getPeriodRepository(): PeriodRepository {
+		return new LeafDBPeriodRepository;
 	}
 }
