@@ -16,4 +16,8 @@ class Period {
 	function getID(): ?int {
 		return $this->id;
 	}
+
+	function __toString(): string {
+		return "{$this->getStartYear()}-{$this->getEndYear()}";
+	}
 }

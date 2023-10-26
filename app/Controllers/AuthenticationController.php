@@ -4,11 +4,8 @@
 namespace App\Controllers;
 
 // Dependencias de este módulo
-use App\Core\Dependencies;
-use App\Core\Session;
-use App\Core\UI;
-use App\Core\UUID;
-use App\Models\Role;
+use App\Core\{Dependencies, Session, UI, UUID};
+use App\Models\{Role, User};
 use Flight;
 
 /**
@@ -18,6 +15,8 @@ use Flight;
 class AuthenticationController {
 	/** Muestra el formulario de inicio de sesión del sistema */
 	function showLogin(): void {
+		UI::changeLayout(UI::VISITOR_LAYOUT);
+
 		UI::render('login-and-user-register', [
 			'roles' => Role::cases(),
 			'error' => Flight::request()->query['error']
@@ -69,6 +68,17 @@ class AuthenticationController {
 		$userLogged = Dependencies::getUserRepository()
 			->getByID(new UUID(Session::get('userID')));
 
-		return $userLogged->isAdmin();
+		if ($userLogged->isAdmin()) {
+			return true;
+		}
+
+		Flight::redirect('/');
+		return false;
+	}
+
+	/** Obtiene la información del usuario que inició sesión */
+	static function getLoggedUser(): ?User {
+		$userID = Session::get('userID');
+		return Dependencies::getUserRepository()->getByID(new UUID($userID));
 	}
 }
