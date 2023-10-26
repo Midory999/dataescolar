@@ -7,44 +7,52 @@ Aplicación:
   	✔	Usuarios @done (23-10-26 18:14)
   	☐	Estudiantes
   	✔	Períodos @done (23-10-26 18:14)
+		☐	Lapsos
   	☐	Inscripciones
   	☐	Representantes
   	☐	Profesores
   	☐	Aulas
   	☐	Areas
+		☐	Niveles
   	☐	...
   --- ✄ -----------------------
   ☐	Permite consultar datos registrados
   	✔	Usuarios @done (23-10-26 18:14)
   	☐	Estudiantes
   	✔	Períodos @done (23-10-26 18:14)
+		☐	Lapsos
   	☐	Inscripciones
   	☐	Representantes
   	☐	Profesores
   	☐	Aulas
   	☐	Areas
+		☐	Niveles
   	☐	...
   --- ✄ -----------------------
   ☐	En todos los módulos se pueden modificar los registros
   	☐	Usuarios
   	☐	Estudiantes
   	☐	Períodos
+		☐	Lapsos
   	☐	Inscripciones
   	☐	Representantes
   	☐	Profesores
   	☐	Aulas
   	☐	Areas
+		☐	Niveles
   	☐	...
   --- ✄ -----------------------
   ☐	En todos los módulos se pueden eliminar los registros
   	☐	Usuarios
   	☐	Estudiantes
   	☐	Períodos
+		☐	Lapsos
   	☐	Inscripciones
   	☐	Representantes
   	☐	Profesores
   	☐	Aulas
   	☐	Areas
+		☐	Niveles
   	☐	...
   --- ✄ -----------------------
   ☐ Valida los campos de los formularios del lado cliente y servidor
