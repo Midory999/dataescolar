@@ -2,6 +2,9 @@
 	"recommendations": [
 		"bmewburn.vscode-intelephense-client",
 		"rome.rome",
-		"dbaeumer.vscode-eslint"
+		"dbaeumer.vscode-eslint",
+		"sandy081.todotasks",
+		"wayou.vscode-todo-highlight",
+		"swordev.phpstan"
 	]
 }

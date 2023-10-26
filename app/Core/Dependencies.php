@@ -4,9 +4,10 @@ namespace App\Core;
 
 use App\Core\Encryptors\PHPEncryptor;
 use App\Repositories\LeafDB\LeafDBPeriodRepository;
+use App\Repositories\LeafDB\LeafDBSettingRepository;
 use App\Repositories\LeafDB\LeafDBUserRepository;
 use App\Repositories\PeriodRepository;
-use App\Repositories\SQLite\SQLiteUserRepository;
+use App\Repositories\SettingRepository;
 use App\Repositories\UserRepository;
 
 /** Responsable de retornar implementaciones de infraestructura del sistema */
@@ -23,5 +24,9 @@ class Dependencies {
 
 	static function getPeriodRepository(): PeriodRepository {
 		return new LeafDBPeriodRepository;
+	}
+
+	static function getSettingRepository(): SettingRepository {
+		return new LeafDBSettingRepository;
 	}
 }

@@ -65,8 +65,14 @@ class AuthenticationController {
 	}
 
 	function ensureIsAuthorized(): bool {
-		$userLogged = Dependencies::getUserRepository()
-			->getByID(new UUID(Session::get('userID')));
+		$userLogged = Dependencies::getUserRepository()->getByID(
+			new UUID(Session::get('userID'))
+		);
+
+		if ($userLogged === null) {
+			Flight::redirect('/salir');
+			return false;
+		}
 
 		if ($userLogged->isAdmin()) {
 			return true;
