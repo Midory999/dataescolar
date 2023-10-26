@@ -4,6 +4,7 @@
 		"rome.rome",
 		"dbaeumer.vscode-eslint",
 		"sandy081.todotasks",
-		"wayou.vscode-todo-highlight"
+		"wayou.vscode-todo-highlight",
+		"swordev.phpstan"
 	]
 }

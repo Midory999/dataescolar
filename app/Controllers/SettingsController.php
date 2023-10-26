@@ -10,6 +10,7 @@ class SettingsController {
 	function showSettings(): void {
 		UI::changeLayout(UI::APP_LAYOUT);
 		UI::setData('error', Flight::request()->query['error']);
+		UI::setData('thereIsBackup', Dependencies::getSettingRepository()->hasBackup());
 		UI::render('settings');
 	}
 
