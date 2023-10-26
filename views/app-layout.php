@@ -43,6 +43,9 @@
 					<a class="navLink" href="<?= $root ?>/periodos/registrar">
 						<button>Registrar periodo</button>
 					</a>
+					<a class="navLink" href="<?= $root ?>/configuracion">
+						<button>Configuración</button>
+					</a>
 				<?php endif ?>
 				<a class="navLink" href="<?= $root ?>/salir">
 					<button>Cerrar Sesión</button>

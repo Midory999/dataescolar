@@ -1,4 +1,4 @@
-vendor 
+vendor
 data_escolar
 *.lock
 sftp*.json
@@ -7,3 +7,4 @@ node_modules
 *.cache
 *.log
 *.sublime-workspace
+*.bak

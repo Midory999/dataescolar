@@ -3,13 +3,15 @@
 use App\Controllers\AuthenticationController;
 use App\Controllers\HomeController;
 use App\Controllers\PeriodController;
+use App\Controllers\SettingsController;
 use App\Controllers\UserController;
 use App\Core\Dependencies;
 use App\Core\UI;
 
-$homeController   = new HomeController;
-$userController   = new UserController;
-$periodController = new PeriodController;
+$homeController     = new HomeController;
+$userController     = new UserController;
+$periodController   = new PeriodController;
+$settingsController = new SettingsController;
 $authenticationController = new AuthenticationController;
 
 ////////////////////
@@ -64,3 +66,7 @@ Flight::route(
 	'GET /periodos/registrar',
 	[$periodController, 'showPeriodRegister']
 );
+
+Flight::route('GET /configuracion', [$settingsController, 'showSettings']);
+Flight::route('GET /configuracion/respaldar', [$settingsController, 'backup']);
+Flight::route('GET /configuracion/restaurar', [$settingsController, 'restore']);
