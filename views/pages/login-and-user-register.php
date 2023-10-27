@@ -127,7 +127,7 @@
 		const $registerForm = document.querySelector('.formulario__login')
 		const $idCard = $registerForm.querySelector('[name="cedula"]')
 
-		$loginForm.onsubmit = (event) => {
+		$registerForm.onsubmit = (event) => {
 			if (!regexps.idCard.test($idCard.value)) {
 				event.preventDefault()
 				alert($idCard.getAttribute('title'))

@@ -7,6 +7,8 @@ namespace App\Controllers;
 use App\Core\{Dependencies, Session, UI, UUID};
 use App\Models\{Role, User};
 use Flight;
+use Leaf\Anchor;
+use Leaf\Form;
 
 /**
  * Controlador de la autenticación de usuarios, controla las operaciones relacionadas
@@ -25,14 +27,36 @@ class AuthenticationController {
 
 	/** Captura y verifica las credenciales del usuario ingresadas en el formulario */
 	function verifyCredentials(): void {
-		$post = Flight::request()->data->getData();
-		$user = Dependencies::getUserRepository()
-			->getByIDCard((int) $post['cedula']);
-
 		$denyAccess = function (): void {
 			$error = urlencode('Cédula o contraseña incorrecta');
 			Flight::redirect("/ingresar?error=$error", 401);
 		};
+
+		$invalidCredentials = function (string $message): void {
+			$error = urlencode($message);
+			Flight::redirect("/ingresar?error=$error", 401);
+		};
+
+		$post = Flight::request()->data->getData();
+		Anchor::sanitize($post);
+
+		$post = Form::validate([
+			'cédula' => $post['cedula'],
+			'clave' => $post['clave']
+		], [
+			'cédula' => 'number',
+			'clave' => 'required'
+		]);
+
+		if ($post === false) {
+			$errors = @Form::errors()['cédula'][0] ?? '';
+			$errors .= @Form::errors()['clave'][0] ?? '';
+			$invalidCredentials($errors);
+			return;
+		}
+
+		$user = Dependencies::getUserRepository()
+			->getByIDCard((int) $post['cedula']);
 
 		if ($user === null) {
 			$denyAccess();
