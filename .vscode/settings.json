@@ -275,7 +275,7 @@
 	"debug.toolBarLocation": "floating",
 	// DIFFEDITOR
 	"diffEditor.codeLens": false,
-	"diffEditor.ignoreTrimWhitespace": true,
+	"diffEditor.ignoreTrimWhitespace": false,
 	"diffEditor.maxComputationTime": 5000,
 	"diffEditor.maxFileSize": 50,
 	"diffEditor.renderIndicators": true,
@@ -1916,5 +1916,4 @@
 	"intelephense.telemetry.enabled": null,
 	"intelephense.trace.server": "off",
 	"editor.stickyScroll.enabled": false,
-	"workbench.editor.empty.hint": "text"
 }

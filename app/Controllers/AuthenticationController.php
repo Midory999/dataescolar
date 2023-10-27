@@ -41,22 +41,22 @@ class AuthenticationController {
 		Anchor::sanitize($post);
 
 		$post = Form::validate([
-			'cédula' => $post['cedula'],
+			'cedula' => $post['cedula'],
 			'clave' => $post['clave']
 		], [
-			'cédula' => 'number',
+			'cedula' => 'number',
 			'clave' => 'required'
 		]);
 
 		if ($post === false) {
-			$errors = @Form::errors()['cédula'][0] ?? '';
+			$errors = @Form::errors()['cedula'][0] ?? '';
 			$errors .= @Form::errors()['clave'][0] ?? '';
 			$invalidCredentials($errors);
 			return;
 		}
 
 		$user = Dependencies::getUserRepository()
-			->getByIDCard((int) $post['cedula']);
+			->getByIDCard((int) @$post['cedula']);
 
 		if ($user === null) {
 			$denyAccess();
