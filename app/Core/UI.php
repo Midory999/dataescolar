@@ -11,6 +11,7 @@ class UI {
 	const APP_LAYOUT = 'app-layout';
 
 	private static string $layout = self::APP_LAYOUT;
+	/** @var array<string, mixed> Datos compartidos entre páginas */
 	private static array $sharedData = [
 		'root' => '/dataescolar',
 		'assets' => '/dataescolar/assets'

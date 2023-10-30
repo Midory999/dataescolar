@@ -22,9 +22,10 @@ abstract class LeafDBConnection {
 	private static function prepareDB(): void {
 		assert(self::$db !== null);
 
-		$sqlFile = match (strtolower(Env::get('DB_CONNECTION'))) {
+		$sqlFile = match (strtolower((string) Env::get('DB_CONNECTION'))) {
 			'sqlite' => __DIR__ . '/../SQLite/init.sql',
-			'mysql' => __DIR__ . '/../MySQL/init.sql'
+			'mysql' => __DIR__ . '/../MySQL/init.sql',
+			default => throw new \Error('Base de datos no soportada')
 		};
 
 		$queries = explode(';', (string) file_get_contents($sqlFile));
