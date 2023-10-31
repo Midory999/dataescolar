@@ -1,162 +1,49 @@
 {
-	"workbench.startupEditor": "none",
-	"workbench.sideBar.location": "right",
-	// LANGUAGES
-	"[bat]": { },
-	"[bibtex]": { },
-	"[c]": { },
-	"[clojure]": { },
-	"[code-text-binary]": { },
-	"[coffeescript]": { },
-	"[cpp]": { },
-	"[cpp_embedded_latex]": { },
-	"[csharp]": { },
-	"[css]": {
-		"editor.suggest.insertMode": "replace"
+	///////////////
+	// LANGUAGES //
+	///////////////
+	"[svg]": {
+		"editor.autoClosingBrackets": "never",
+		"files.trimFinalNewlines": true,
+		"editor.defaultFormatter": "redhat.vscode-xml"
 	},
-	"[cuda-cpp]": { },
-	"[dart]": { },
-	"[diff]": { },
-	"[dockercompose]": {
-		"editor.insertSpaces": true,
-		"editor.tabSize": 2,
-		"editor.autoIndent": "advanced"
-	},
-	"[dockerfile]": {
-		"editor.quickSuggestions": {
-			"strings": true
-		}
-	},
-	"[fsharp]": { },
-	"[git-commit]": {
-		"editor.rulers": [
-			72
-		],
-		"workbench.editor.restoreViewState": false
-	},
-	"[git-rebase]": {
-		"workbench.editor.restoreViewState": false
-	},
-	"[go]": {
-		"editor.insertSpaces": false
-	},
-	"[groovy]": { },
-	"[handlebars]": {
-		"editor.suggest.insertMode": "replace"
-	},
-	"[hlsl]": { },
 	"[html]": {
-		"editor.suggest.insertMode": "replace",
 		"editor.defaultFormatter": "vscode.html-language-features"
 	},
-	"[ignore]": { },
-	"[ini]": { },
-	"[jade]": { },
-	"[java]": { },
 	"[javascript]": {
-		"editor.maxTokenizationLineLength": 2500,
 		"editor.defaultFormatter": "rome.rome",
-		"editor.inlayHints.enabled": "off",
-		"editor.codeLens": false,
 	},
 	"[javascriptreact]": {
 		"editor.defaultFormatter": "rome.rome",
-		"editor.inlayHints.enabled": "off",
-		"editor.codeLens": false,
 	},
 	"[json]": {
-		"editor.quickSuggestions": {
-			"strings": true
-		},
-		"editor.suggest.insertMode": "replace",
 		"editor.defaultFormatter": "vscode.json-language-features"
 	},
 	"[jsonc]": {
-		"editor.quickSuggestions": {
-			"strings": true
+		"editor.suggest.insertMode": "replace"
+	},
+	"[php]": {
+		"editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": true
 		},
-		"editor.suggest.insertMode": "replace"
+		"editor.suggest.preview": true,
+		"editor.suggest.showFunctions": false,
+		"editor.suggest.showVariables": false,
+		"editor.suggest.showConstants": false,
+		"editor.suggest.showKeywords": true,
+		"editor.suggest.showSnippets": false,
+		"editor.suggest.showFields": false
 	},
-	"[jsx-tags]": { },
-	"[julia]": { },
-	"[juliamarkdown]": { },
-	"[latex]": { },
-	"[less]": {
-		"editor.suggest.insertMode": "replace"
-	},
-	"[Log]": { },
-	"[log]": { },
-	"[lua]": { },
-	"[makefile]": {
-		"editor.insertSpaces": false
-	},
-	"[markdown-math]": { },
-	"[markdown]": {
-		"editor.unicodeHighlight.ambiguousCharacters": false,
-		"editor.unicodeHighlight.invisibleCharacters": false,
-		"editor.wordWrap": "on",
-		"editor.quickSuggestions": { }
-	},
-	"[markdown_latex_combined]": { },
-	"[objective-c]": { },
-	"[objective-cpp]": { },
-	"[perl6]": { },
-	"[perl]": { },
-	"[php]": { },
-	"[plaintext]": {
-		"editor.unicodeHighlight.ambiguousCharacters": false,
-		"editor.unicodeHighlight.invisibleCharacters": false
-	},
-	"[powershell]": { },
-	"[properties]": { },
-	"[python]": { },
-	"[r]": { },
-	"[razor]": { },
-	"[restructuredtext]": { },
-	"[ruby]": { },
-	"[rust]": { },
-	"[scminput]": { },
-	"[scss]": {
-		"editor.suggest.insertMode": "replace"
-	},
-	"[search-result]": {
-		"editor.lineNumbers": "off"
-	},
-	"[shaderlab]": { },
-	"[shellscript]": {
-		"files.eol": "\n"
-	},
-	"[sql]": { },
-	"[swift]": { },
-	"[tex]": { },
 	"[typescript]": {
 		"editor.defaultFormatter": "rome.rome",
-		"editor.inlayHints.enabled": "off",
-		"editor.codeLens": false
 	},
 	"[typescriptreact]": {
 		"editor.defaultFormatter": "rome.rome",
-		"editor.inlayHints.enabled": "off",
-		"editor.codeLens": false
 	},
-	"[vb]": { },
-	"[xml]": { },
-	"[xsl]": { },
-	"[yaml]": {
-		"editor.insertSpaces": true,
-		"editor.tabSize": 2,
-		"editor.autoIndent": "advanced"
-	},
-	// AUDIOCUES
-	"audioCues.lineHasBreakpoint": "auto",
-	"audioCues.lineHasError": "auto",
-	"audioCues.lineHasFoldedArea": "auto",
-	"audioCues.lineHasInlineSuggestion": "auto",
-	"audioCues.lineHasWarning": "off",
-	"audioCues.noInlayHints": "auto",
-	"audioCues.onDebugBreak": "auto",
-	"audioCues.volume": 70,
-	// BREADCRUMBS
+	/////////////////
+	// BREADCRUMBS //
+	/////////////////
 	"breadcrumbs.filePath": "on",
 	"breadcrumbs.enabled": false,
 	"breadcrumbs.icons": true,
@@ -188,16 +75,13 @@
 	"breadcrumbs.showVariables": true,
 	"breadcrumbs.symbolPath": "on",
 	"breadcrumbs.symbolSortOrder": "position",
-	// COMMENTS
-	"comments.openView": "firstFile",
-	"comments.useRelativeTime": true,
-	// CSS
+	/////////
+	// CSS //
+	/////////
 	"css.completion.completePropertyWithSemicolon": true,
 	"css.completion.triggerPropertyValueCompletion": true,
-	"css.customData": [ ],
 	"css.format.braceStyle": "collapse",
 	"css.format.enable": true,
-	"css.format.maxPreserveNewLines": null,
 	"css.format.newlineBetweenRules": true,
 	"css.format.newlineBetweenSelectors": false,
 	"css.format.preserveNewLines": false,
@@ -229,60 +113,10 @@
 	"css.lint.zeroUnits": "warning",
 	"css.trace.server": "off",
 	"css.validate": true,
-	// DEBUG
-	"debug.allowBreakpointsEverywhere": false,
-	"debug.autoExpandLazyVariables": false,
-	"debug.confirmOnExit": "never",
-	"debug.console.acceptSuggestionOnEnter": "off",
-	"debug.console.closeOnEnd": false,
-	"debug.console.collapseIdenticalLines": true,
-	"debug.console.fontFamily": "default",
-	"debug.console.fontSize": 14,
-	"debug.console.historySuggestions": true,
-	"debug.console.lineHeight": 0,
-	"debug.console.wordWrap": true,
-	"debug.disassemblyView.showSourceCode": true,
-	"debug.focusEditorOnBreak": true,
-	"debug.focusWindowOnBreak": true,
-	"debug.inlineValues": "auto",
-	"debug.internalConsoleOptions": "openOnFirstSessionStart",
-	"debug.javascript.autoAttachFilter": "disabled",
-	"debug.javascript.autoAttachSmartPattern": [
-		"${workspaceFolder}/**",
-		"!**/node_modules/**",
-		"**/$KNOWN_TOOLS$/**"
-	],
-	"debug.javascript.automaticallyTunnelRemoteServer": true,
-	"debug.javascript.breakOnConditionalError": false,
-	"debug.javascript.codelens.npmScripts": "top",
-	"debug.javascript.debugByLinkOptions": "on",
-	"debug.javascript.defaultRuntimeExecutable": {
-		"pwa-node": "node"
-	},
-	"debug.javascript.pickAndAttachOptions": { },
-	"debug.javascript.resourceRequestOptions": { },
-	"debug.javascript.terminalOptions": { },
-	"debug.javascript.unmapMissingSources": false,
-	"debug.onTaskErrors": "prompt",
-	"debug.openDebug": "openOnDebugBreak",
-	"debug.openExplorerOnEnd": false,
-	"debug.saveBeforeStart": "allEditorsInActiveGroup",
-	"debug.showBreakpointsInOverviewRuler": false,
-	"debug.showInlineBreakpointCandidates": true,
-	"debug.showInStatusBar": "onFirstSessionStart",
-	"debug.showSubSessionsInToolBar": false,
-	"debug.terminal.clearBeforeReusing": false,
-	"debug.toolBarLocation": "floating",
-	// DIFFEDITOR
-	"diffEditor.codeLens": false,
-	"diffEditor.ignoreTrimWhitespace": false,
-	"diffEditor.maxComputationTime": 5000,
-	"diffEditor.maxFileSize": 50,
-	"diffEditor.renderIndicators": true,
-	"diffEditor.renderMarginRevertIcon": true,
-	"diffEditor.renderSideBySide": true,
-	"diffEditor.wordWrap": "inherit",
-	// EDITOR
+	////////////
+	// EDITOR //
+	////////////
+	"editor.stickyScroll.enabled": false,
 	"editor.acceptSuggestionOnCommitCharacter": true,
 	"editor.acceptSuggestionOnEnter": "on",
 	"editor.accessibilityPageSize": 10,
@@ -299,7 +133,6 @@
 		"source.fixAll.eslint": true
 	},
 	"editor.codeLens": true,
-	"editor.codeLensFontFamily": "",
 	"editor.codeLensFontSize": 0,
 	"editor.colorDecorators": true,
 	"editor.columnSelection": false,
@@ -312,7 +145,6 @@
 	"editor.cursorSurroundingLines": 0,
 	"editor.cursorSurroundingLinesStyle": "default",
 	"editor.cursorWidth": 0,
-	"editor.defaultFormatter": null,
 	"editor.definitionLinkOpensInPeek": false,
 	"editor.detectIndentation": false,
 	"editor.dragAndDrop": true,
@@ -342,8 +174,6 @@
 	"editor.glyphMargin": true,
 	"editor.gotoLocation.alternativeDeclarationCommand": "editor.action.goToReferences",
 	"editor.gotoLocation.alternativeDefinitionCommand": "editor.action.goToReferences",
-	"editor.gotoLocation.alternativeImplementationCommand": "",
-	"editor.gotoLocation.alternativeReferenceCommand": "",
 	"editor.gotoLocation.alternativeTypeDefinitionCommand": "editor.action.goToReferences",
 	"editor.gotoLocation.multipleDeclarations": "peek",
 	"editor.gotoLocation.multipleDefinitions": "peek",
@@ -361,13 +191,10 @@
 	"editor.hover.enabled": true,
 	"editor.hover.sticky": true,
 	"editor.inlayHints.enabled": "on",
-	"editor.inlayHints.fontFamily": "",
 	"editor.inlayHints.fontSize": 0,
 	"editor.inlayHints.padding": false,
 	"editor.inlineSuggest.enabled": true,
 	"editor.insertSpaces": false,
-	"editor.language.brackets": null,
-	"editor.language.colorizedBracketPairs": null,
 	"editor.largeFileOptimizations": true,
 	"editor.letterSpacing": 0,
 	"editor.lightbulb.enabled": true,
@@ -410,7 +237,6 @@
 	"editor.renderLineHighlightOnlyWhenFocus": false,
 	"editor.renderWhitespace": "selection",
 	"editor.roundedSelection": true,
-	"editor.rulers": [ ],
 	"editor.scrollbar.horizontal": "auto",
 	"editor.scrollbar.horizontalScrollbarSize": 6,
 	"editor.scrollbar.scrollByPage": false,
@@ -421,7 +247,6 @@
 	"editor.scrollPredominantAxis": true,
 	"editor.selectionHighlight": true,
 	"editor.semanticHighlighting.enabled": "configuredByTheme",
-	"editor.semanticTokenColorCustomizations": { },
 	"editor.showDeprecated": true,
 	"editor.showFoldingControls": "mouseover",
 	"editor.showUnused": true,
@@ -475,10 +300,8 @@
 	"editor.suggestSelection": "first",
 	"editor.tabCompletion": "off",
 	"editor.tabSize": 2,
-	"editor.tokenColorCustomizations": { },
 	"editor.trimAutoWhitespace": true,
 	"editor.unfoldOnClickAfterEndOfLine": false,
-	"editor.unicodeHighlight.allowedCharacters": { },
 	"editor.unicodeHighlight.allowedLocales": {
 		"_os": true,
 		"_vscode": true
@@ -497,22 +320,21 @@
 	"editor.wordWrapColumn": 80,
 	"editor.wrappingIndent": "same",
 	"editor.wrappingStrategy": "simple",
-	// EMMET
+	///////////
+	// EMMET //
+	///////////
 	"emmet.excludeLanguages": [
 		"markdown"
 	],
-	"emmet.extensionsPath": [ ],
-	"emmet.includeLanguages": { },
 	"emmet.optimizeStylesheetParsing": true,
-	"emmet.preferences": { },
 	"emmet.showAbbreviationSuggestions": true,
 	"emmet.showExpandedAbbreviation": "always",
 	"emmet.showSuggestionsAsSnippets": false,
-	"emmet.syntaxProfiles": { },
 	"emmet.triggerExpansionOnTab": false,
 	"emmet.useInlineCompletions": false,
-	"emmet.variables": { },
-	// EXPLORER
+	//////////////
+	// EXPLORER //
+	//////////////
 	"explorer.autoReveal": true,
 	"explorer.compactFolders": true,
 	"explorer.confirmDelete": false,
@@ -541,23 +363,21 @@
 	"explorer.openEditors.visible": 9,
 	"explorer.sortOrder": "default",
 	"explorer.sortOrderLexicographicOptions": "default",
-	// EXTENSIONS
+	////////////////
+	// EXTENSIONS //
+	////////////////
 	"extensions.autoCheckUpdates": true,
 	"extensions.autoUpdate": true,
 	"extensions.closeExtensionDetailsOnViewChange": false,
-	"extensions.confirmedUriHandlerExtensionIds": [ ],
-	"extensions.experimental.affinity": { },
 	"extensions.experimental.useUtilityProcess": true,
 	"extensions.ignoreRecommendations": false,
-	"extensions.supportUntrustedWorkspaces": { },
-	"extensions.supportVirtualWorkspaces": { },
 	"extensions.webWorker": "auto",
-	// FILES
-	"files.associations": { },
+	///////////
+	// FILES //
+	///////////
 	"files.autoGuessEncoding": false,
 	"files.autoSave": "onFocusChange",
 	"files.autoSaveDelay": 1000,
-	"files.defaultLanguage": "",
 	"files.enableTrash": true,
 	"files.encoding": "utf8",
 	"files.eol": "auto",
@@ -585,8 +405,9 @@
 		"**/node_modules/*/**": true,
 		"**/.hg/store/**": true
 	},
-	"files.watcherInclude": [ ],
-	// GIT
+	/////////
+	// GIT //
+	/////////
 	"git.allowForcePush": false,
 	"git.allowNoVerifyCommit": false,
 	"git.alwaysShowStagedChangesResourceGroup": false,
@@ -596,8 +417,6 @@
 	"git.autorefresh": true,
 	"git.autoRepositoryDetection": true,
 	"git.autoStash": false,
-	"git.branchPrefix": "",
-	"git.branchProtection": [ ],
 	"git.branchProtectionPrompt": "alwaysPrompt",
 	"git.branchRandomName.dictionary": [
 		"adjectives",
@@ -605,7 +424,6 @@
 	],
 	"git.branchRandomName.enable": false,
 	"git.branchSortOrder": "committerdate",
-	"git.branchValidationRegex": "",
 	"git.branchWhitespaceChar": "-",
 	"git.checkoutType": [
 		"local",
@@ -613,14 +431,12 @@
 		"tags"
 	],
 	"git.closeDiffOnOperation": false,
-	"git.commandsToLog": [ ],
 	"git.confirmEmptyCommits": true,
 	"git.confirmForcePush": true,
 	"git.confirmNoVerifyCommit": true,
 	"git.confirmSync": true,
 	"git.countBadge": "all",
 	"git.decorations.enabled": true,
-	"git.defaultCloneDirectory": null,
 	"git.detectSubmodules": true,
 	"git.detectSubmodulesLimit": 10,
 	"git.enableCommitSigning": false,
@@ -628,7 +444,6 @@
 	"git.enableStatusBarSync": true,
 	"git.fetchOnPull": false,
 	"git.followTagsWhenSync": false,
-	"git.ignoredRepositories": [ ],
 	"git.ignoreLegacyWarning": false,
 	"git.ignoreLimitWarning": false,
 	"git.ignoreMissingGitWarning": false,
@@ -654,7 +469,6 @@
 	],
 	"git.repositoryScanMaxDepth": 1,
 	"git.requireGitUserConfig": true,
-	"git.scanRepositories": [ ],
 	"git.showActionButton": {
 		"commit": true,
 		"publish": true,
@@ -679,28 +493,22 @@
 	"git.useForcePushWithLease": true,
 	"git.useIntegratedAskPass": true,
 	"git.verboseCommit": false,
-	"github-enterprise.uri": "",
 	"github.gitAuthentication": true,
 	"github.gitProtocol": "https",
-	// GRUNT
-	"grunt.autoDetect": "off",
-	// GULP
-	"gulp.autoDetect": "off",
-	// HTML
+	//////////
+	// HTML //
+	//////////
 	"html.autoClosingTags": true,
 	"html.autoCreateQuotes": true,
 	"html.completion.attributeDefaultValue": "doublequotes",
-	"html.customData": [ ],
 	"html.format.contentUnformatted": "pre,code,textarea",
 	"html.format.enable": true,
-	"html.format.extraLiners": "",
 	"html.format.indentHandlebars": true,
 	"html.format.indentInnerHtml": true,
 	"html.format.maxPreserveNewLines": null,
 	"html.format.preserveNewLines": true,
 	"html.format.templating": true,
 	"html.format.unformatted": "wbr",
-	"html.format.unformattedContentDelimiter": "",
 	"html.format.wrapAttributes": "auto",
 	"html.format.wrapAttributesIndentSize": null,
 	"html.format.wrapLineLength": 120,
@@ -710,19 +518,10 @@
 	"html.trace.server": "off",
 	"html.validate.scripts": true,
 	"html.validate.styles": true,
-	// HTTP
-	"http.proxy": "",
-	"http.proxyAuthorization": null,
-	"http.proxyStrictSSL": true,
-	"http.proxySupport": "override",
 	"http.systemCertificates": true,
-	// INTERACTIVE
-	"interactiveWindow.alwaysScrollOnNewCell": true,
-	"interactiveWindow.collapseCellInputCode": "fromEditor",
-	"interactiveWindow.restore": false,
-	// JAKE
-	"jake.autoDetect": "off",
-	// JAVASCRIPT
+	////////////////
+	// JAVASCRIPT //
+	////////////////
 	"javascript.autoClosingTags": true,
 	"javascript.format.enable": true,
 	"javascript.format.insertSpaceAfterCommaDelimiter": true,
@@ -749,7 +548,6 @@
 	"javascript.inlayHints.propertyDeclarationTypes.enabled": true,
 	"javascript.inlayHints.variableTypes.enabled": true,
 	"javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
-	"javascript.preferences.autoImportFileExcludePatterns": [ ],
 	"javascript.preferences.importModuleSpecifier": "shortest",
 	"javascript.preferences.importModuleSpecifierEnding": "auto",
 	"javascript.preferences.jsxAttributeCompletionStyle": "auto",
@@ -770,67 +568,33 @@
 	"javascript.suggestionActions.enabled": true,
 	"javascript.updateImportsOnFileMove.enabled": "prompt",
 	"javascript.validate.enable": true,
-	// JS/TS
+	///////////
+	// JS/TS //
+	///////////
 	"js/ts.implicitProjectConfig.checkJs": false,
 	"js/ts.implicitProjectConfig.experimentalDecorators": true,
 	"js/ts.implicitProjectConfig.module": "ESNext",
 	"js/ts.implicitProjectConfig.strictFunctionTypes": false,
 	"js/ts.implicitProjectConfig.strictNullChecks": false,
 	"js/ts.implicitProjectConfig.target": "ESNext",
-	// JSON
+	//////////
+	// JSON //
+	//////////
 	"json.format.enable": true,
 	"json.format.keepLines": true,
 	"json.maxItemsComputed": 5000,
 	"json.schemaDownload.enable": true,
-	"json.schemas": [ ],
 	"json.trace.server": "off",
 	"json.validate.enable": true,
-	// LAUNCH
-	"launch": {
-		"configurations": [ ],
-		"compounds": [ ]
-	},
-	// LESS
-	"less.completion.completePropertyWithSemicolon": true,
-	"less.completion.triggerPropertyValueCompletion": true,
-	"less.format.braceStyle": "collapse",
-	"less.format.enable": true,
-	"less.format.maxPreserveNewLines": null,
-	"less.format.newlineBetweenRules": true,
-	"less.format.newlineBetweenSelectors": true,
-	"less.format.preserveNewLines": true,
-	"less.format.spaceAroundSelectorSeparator": false,
-	"less.hover.documentation": true,
-	"less.hover.references": true,
-	"less.lint.argumentsInColorFunction": "error",
-	"less.lint.boxModel": "ignore",
-	"less.lint.compatibleVendorPrefixes": "ignore",
-	"less.lint.duplicateProperties": "ignore",
-	"less.lint.emptyRules": "warning",
-	"less.lint.float": "ignore",
-	"less.lint.fontFaceProperties": "warning",
-	"less.lint.hexColorLength": "error",
-	"less.lint.idSelector": "ignore",
-	"less.lint.ieHack": "ignore",
-	"less.lint.important": "ignore",
-	"less.lint.importStatement": "ignore",
-	"less.lint.propertyIgnoredDueToDisplay": "warning",
-	"less.lint.universalSelector": "ignore",
-	"less.lint.unknownAtRules": "warning",
-	"less.lint.unknownProperties": "warning",
-	"less.lint.unknownVendorSpecificProperties": "ignore",
-	"less.lint.validProperties": [ ],
-	"less.lint.vendorPrefix": "warning",
-	"less.lint.zeroUnits": "ignore",
-	"less.validate": true,
-	// MARKDOWN
+	//////////////
+	// MARKDOWN //
+	//////////////
 	"markdown.editor.drop.enabled": true,
 	"markdown.experimental.editor.pasteLinks.enabled": true,
 	"markdown.experimental.validate.enabled": true,
 	"markdown.experimental.validate.fileLinks.enabled": "warning",
 	"markdown.experimental.validate.fileLinks.markdownFragmentLinks": "ignore",
 	"markdown.experimental.validate.fragmentLinks.enabled": "warning",
-	"markdown.experimental.validate.ignoreLinks": [ ],
 	"markdown.experimental.validate.referenceLinks.enabled": "warning",
 	"markdown.links.openLocation": "currentGroup",
 	"markdown.math.enabled": true,
@@ -845,55 +609,19 @@
 	"markdown.preview.scrollEditorWithPreview": true,
 	"markdown.preview.scrollPreviewWithEditor": true,
 	"markdown.preview.typographer": false,
-	"markdown.styles": [ ],
 	"markdown.suggest.paths.enabled": true,
 	"markdown.trace.extension": "off",
 	"markdown.trace.server": "off",
-	// MERGE
+	///////////
+	// MERGE //
+	///////////
 	"merge-conflict.autoNavigateNextConflict.enabled": false,
 	"merge-conflict.codeLens.enabled": true,
 	"merge-conflict.decorators.enabled": true,
 	"merge-conflict.diffViewPosition": "Current",
-	// NOTEBOOK
-	"notebook.breadcrumbs.showCodeCells": true,
-	"notebook.cellFocusIndicator": "gutter",
-	"notebook.cellToolbarLocation": {
-		"default": "right"
-	},
-	"notebook.cellToolbarVisibility": "click",
-	"notebook.compactView": true,
-	"notebook.consolidatedOutputButton": true,
-	"notebook.consolidatedRunButton": false,
-	"notebook.diff.enablePreview": true,
-	"notebook.diff.ignoreMetadata": false,
-	"notebook.diff.ignoreOutputs": false,
-	"notebook.displayOrder": [ ],
-	"notebook.dragAndDropEnabled": true,
-	"notebook.editorOptionsCustomizations": { },
-	"notebook.globalToolbar": true,
-	"notebook.globalToolbarShowLabel": "always",
-	"notebook.insertToolbarLocation": "both",
-	"notebook.lineNumbers": "off",
-	"notebook.markup.fontSize": 0,
-	"notebook.navigation.allowNavigateToSurroundingCells": true,
-	"notebook.outline.showCodeCells": false,
-	"notebook.output.textLineLimit": 30,
-	"notebook.outputFontFamily": "",
-	"notebook.outputFontSize": 0,
-	"notebook.outputLineHeight": 22,
-	"notebook.showCellStatusBar": "hidden",
-	"notebook.showFoldingControls": "mouseover",
-	"notebook.undoRedoPerCell": true,
-	// NPM
-	"npm.autoDetect": "on",
-	"npm.enableRunFromFolder": false,
-	"npm.exclude": "",
-	"npm.fetchOnlinePackageInfo": true,
-	"npm.packageManager": "auto",
-	"npm.runSilent": false,
-	"npm.scriptExplorerAction": "open",
-	"npm.scriptExplorerExclude": [ ],
-	// OUTLINE
+	/////////////
+	// OUTLINE //
+	/////////////
 	"outline.icons": true,
 	"outline.problems.badges": true,
 	"outline.problems.colors": true,
@@ -924,42 +652,23 @@
 	"outline.showStructs": true,
 	"outline.showTypeParameters": true,
 	"outline.showVariables": true,
-	// OUTPUT
-	"output.smartScroll.enabled": true,
-	// PHP
+	/////////
+	// PHP //
+	/////////
 	"php.suggest.basic": true,
 	"php.validate.enable": true,
-	"php.validate.executablePath": null,
 	"php.validate.run": "onType",
-	// PROBLEMS
+	//////////////
+	// PROBLEMS //
+	//////////////
 	"problems.autoReveal": true,
 	"problems.decorations.enabled": true,
 	"problems.defaultViewMode": "tree",
 	"problems.showCurrentInStatus": false,
 	"problems.sortOrder": "severity",
-	// REFERENCES
-	"references.preferredLocation": "peek",
-	// REMOTE
-	"remote.autoForwardPorts": true,
-	"remote.autoForwardPortsSource": "process",
-	"remote.downloadExtensionsLocally": false,
-	"remote.extensionKind": {
-		"pub.name": [
-			"ui"
-		]
-	},
-	"remote.localPortHost": "localhost",
-	"remote.otherPortsAttributes": { },
-	"remote.portsAttributes": {
-		"443": {
-			"protocol": "https"
-		},
-		"8443": {
-			"protocol": "https"
-		}
-	},
-	"remote.restoreForwardedPorts": true,
-	// SCM
+	/////////
+	// SCM //
+	/////////
 	"scm.alwaysShowActions": false,
 	"scm.alwaysShowRepositories": false,
 	"scm.autoReveal": true,
@@ -981,51 +690,9 @@
 	"scm.repositories.sortOrder": "discovery time",
 	"scm.repositories.visible": 10,
 	"scm.showActionButton": true,
-	// SCREENCASTMODE
-	"screencastMode.fontSize": 56,
-	"screencastMode.keyboardOverlayTimeout": 800,
-	"screencastMode.keyboardShortcutsFormat": "commandAndKeys",
-	"screencastMode.mouseIndicatorColor": "#FF0000",
-	"screencastMode.mouseIndicatorSize": 20,
-	"screencastMode.onlyKeyboardShortcuts": false,
-	"screencastMode.verticalOffset": 20,
-	// SCSS
-	"scss.completion.completePropertyWithSemicolon": true,
-	"scss.completion.triggerPropertyValueCompletion": true,
-	"scss.format.braceStyle": "collapse",
-	"scss.format.enable": true,
-	"scss.format.maxPreserveNewLines": null,
-	"scss.format.newlineBetweenRules": true,
-	"scss.format.newlineBetweenSelectors": true,
-	"scss.format.preserveNewLines": true,
-	"scss.format.spaceAroundSelectorSeparator": false,
-	"scss.hover.documentation": true,
-	"scss.hover.references": true,
-	"scss.lint.argumentsInColorFunction": "error",
-	"scss.lint.boxModel": "ignore",
-	"scss.lint.compatibleVendorPrefixes": "ignore",
-	"scss.lint.duplicateProperties": "ignore",
-	"scss.lint.emptyRules": "warning",
-	"scss.lint.float": "ignore",
-	"scss.lint.fontFaceProperties": "warning",
-	"scss.lint.hexColorLength": "error",
-	"scss.lint.idSelector": "ignore",
-	"scss.lint.ieHack": "ignore",
-	"scss.lint.important": "ignore",
-	"scss.lint.importStatement": "ignore",
-	"scss.lint.propertyIgnoredDueToDisplay": "warning",
-	"scss.lint.universalSelector": "ignore",
-	"scss.lint.unknownAtRules": "warning",
-	"scss.lint.unknownProperties": "warning",
-	"scss.lint.unknownVendorSpecificProperties": "ignore",
-	"scss.lint.validProperties": [ ],
-	"scss.lint.vendorPrefix": "warning",
-	"scss.lint.zeroUnits": "ignore",
-	"scss.validate": true,
-	"workbench.iconTheme": "material-icon-theme",
-	"workbench.colorTheme": "Ayu Mirage",
-	"terminal.integrated.env.windows": { },
-	// SEARCH
+	////////////
+	// SEARCH //
+	////////////
 	"search.actionsPosition": "right",
 	"search.collapseResults": "alwaysExpand",
 	"search.exclude": {
@@ -1053,23 +720,21 @@
 	"search.useIgnoreFiles": true,
 	"search.useParentIgnoreFiles": false,
 	"search.useReplacePreview": true,
-
-	// SECURITY
+	//////////////
+	// SECURITY //
+	//////////////
 	"security.workspace.trust.banner": "untilDismissed",
 	"security.workspace.trust.emptyWindow": true,
 	"security.workspace.trust.enabled": true,
 	"security.workspace.trust.startupPrompt": "once",
 	"security.workspace.trust.untrustedFiles": "prompt",
-
-	// SETTINGS SYNC
-	"settingsSync.ignoredExtensions": [ ],
-	"settingsSync.ignoredSettings": [ ],
-	"settingsSync.keybindingsPerPlatform": true,
-
-	// SIMPLE BROWSER
+	////////////////////
+	// SIMPLE BROWSER //
+	////////////////////
 	"simpleBrowser.focusLockIndicator.enabled": true,
-
-	// TASK
+	//////////
+	// TASK //
+	//////////
 	"task.allowAutomaticTasks": "auto",
 	"task.autoDetect": "on",
 	"task.experimental.reconnection": false,
@@ -1081,11 +746,9 @@
 	"task.saveBeforeRun": "always",
 	"task.showDecorations": true,
 	"task.slowProviderWarning": true,
-
-	// TELEMETRY
-	"telemetry.telemetryLevel": "all",
-
-	// TERMINAL
+	//////////////
+	// TERMINAL //
+	//////////////
 	"terminal.explorerKind": "integrated",
 	"terminal.external.linuxExec": "xterm",
 	"terminal.external.osxExec": "Terminal.app",
@@ -1093,12 +756,7 @@
 	"terminal.integrated.allowChords": true,
 	"terminal.integrated.allowMnemonics": false,
 	"terminal.integrated.altClickMovesCursor": true,
-	"terminal.integrated.automationProfile.linux": null,
-	"terminal.integrated.automationProfile.osx": null,
-	"terminal.integrated.automationProfile.windows": null,
-	"terminal.integrated.autoReplies": { },
 	"terminal.integrated.bellDuration": 1000,
-	"terminal.integrated.commandsToSkipShell": [ ],
 	"terminal.integrated.confirmOnExit": "never",
 	"terminal.integrated.confirmOnKill": "editor",
 	"terminal.integrated.copyOnSelection": false,
@@ -1106,10 +764,7 @@
 	"terminal.integrated.cursorStyle": "line",
 	"terminal.integrated.cursorWidth": 1,
 	"terminal.integrated.customGlyphs": true,
-	"terminal.integrated.cwd": "",
 	"terminal.integrated.defaultLocation": "view",
-	"terminal.integrated.defaultProfile.linux": null,
-	"terminal.integrated.defaultProfile.osx": null,
 	"terminal.integrated.defaultProfile.windows": "Git CMD",
 	"terminal.integrated.detectLocale": "auto",
 	"terminal.integrated.drawBoldTextInBrightColors": true,
@@ -1117,12 +772,9 @@
 	"terminal.integrated.enableFileLinks": true,
 	"terminal.integrated.enableMultiLinePasteWarning": true,
 	"terminal.integrated.enablePersistentSessions": true,
-	"terminal.integrated.env.linux": { },
-	"terminal.integrated.env.osx": { },
 	"terminal.integrated.environmentChangesIndicator": "warnonly",
 	"terminal.integrated.environmentChangesRelaunch": true,
 	"terminal.integrated.fastScrollSensitivity": 5,
-	"terminal.integrated.fontFamily": "",
 	"terminal.integrated.fontSize": 14,
 	"terminal.integrated.fontWeight": "normal",
 	"terminal.integrated.fontWeightBold": "bold",
@@ -1251,23 +903,9 @@
 	"terminal.integrated.useWslProfiles": true,
 	"terminal.integrated.windowsEnableConpty": true,
 	"terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’",
-
-	// TESTING
-	"testing.alwaysRevealTestOnStateChange": false,
-	"testing.automaticallyOpenPeekView": "failureInVisibleDocument",
-	"testing.automaticallyOpenPeekViewDuringAutoRun": false,
-	"testing.autoRun.delay": 1000,
-	"testing.autoRun.mode": "all",
-	"testing.defaultGutterClickAction": "run",
-	"testing.followRunningTest": true,
-	"testing.gutterEnabled": true,
-	"testing.openTesting": "openOnTestStart",
-	"testing.saveBeforeTest": true,
-	"timeline.excludeSources": null,
-	"timeline.pageOnScroll": false,
-	"timeline.pageSize": null,
-
-	// TYPESCRIPT
+	////////////////
+	// TYPESCRIPT //
+	////////////////
 	"typescript.autoClosingTags": true,
 	"typescript.check.npmIsInstalled": true,
 	"typescript.disableAutomaticTypeAcquisition": false,
@@ -1300,8 +938,6 @@
 	"typescript.inlayHints.variableTypes.enabled": false,
 	"typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
 	"typescript.locale": "es",
-	"typescript.npm": "",
-	"typescript.preferences.autoImportFileExcludePatterns": [ ],
 	"typescript.preferences.importModuleSpecifier": "shortest",
 	"typescript.preferences.importModuleSpecifierEnding": "auto",
 	"typescript.preferences.includePackageJsonAutoImports": "auto",
@@ -1325,25 +961,27 @@
 	"typescript.suggestionActions.enabled": true,
 	"typescript.surveys.enabled": true,
 	"typescript.tsc.autoDetect": "on",
-	"typescript.tsdk": "",
 	"typescript.tsserver.enableTracing": false,
 	"typescript.tsserver.experimental.enableProjectDiagnostics": false,
 	"typescript.tsserver.log": "off",
 	"typescript.tsserver.maxTsServerMemory": 3072,
-	"typescript.tsserver.pluginPaths": [ ],
 	"typescript.tsserver.trace": "off",
 	"typescript.tsserver.useSyntaxServer": "auto",
 	"typescript.tsserver.watchOptions": { },
 	"typescript.updateImportsOnFileMove.enabled": "prompt",
 	"typescript.validate.enable": true,
 	"typescript.workspaceSymbols.scope": "allOpenProjects",
-
-	// UPDATE
+	////////////
+	// UPDATE //
+	////////////
 	"update.enableWindowsBackgroundUpdates": true,
 	"update.mode": "default",
 	"update.showReleaseNotes": true,
-
-	// WINDOWS
+	/////////////
+	// WINDOWS //
+	/////////////
+	"window.menuBarVisibility": "compact",
+	"window.commandCenter": false,
 	"window.autoDetectColorScheme": false,
 	"window.autoDetectHighContrast": true,
 	"window.closeWhenEmpty": false,
@@ -1364,11 +1002,16 @@
 	"window.titleBarStyle": "custom",
 	"window.titleSeparator": " - ",
 	"window.zoomLevel": 0,
-
-	// WORKBENCH
+	///////////////
+	// WORKBENCH //
+	///////////////
+	"workbench.layoutControl.enabled": false,
+	"workbench.iconTheme": "material-icon-theme",
+	"workbench.colorTheme": "Ayu Mirage",
+	"workbench.startupEditor": "none",
+	"workbench.sideBar.location": "right",
 	"workbench.activityBar.iconClickBehavior": "toggle",
 	"workbench.activityBar.visible": true,
-	"workbench.colorCustomizations": { },
 	"workbench.commandPalette.history": 50,
 	"workbench.commandPalette.preserveInput": false,
 	"workbench.editor.autoLockGroups": {
@@ -1390,7 +1033,6 @@
 	"workbench.editor.closeOnFileDelete": false,
 	"workbench.editor.decorations.badges": true,
 	"workbench.editor.decorations.colors": true,
-	"workbench.editor.defaultBinaryEditor": "",
 	"workbench.editor.enablePreview": true,
 	"workbench.editor.enablePreviewFromCodeNavigation": false,
 	"workbench.editor.enablePreviewFromQuickOpen": false,
@@ -1428,10 +1070,8 @@
 	"workbench.editor.untitled.hint": "text",
 	"workbench.editor.untitled.labelFormat": "content",
 	"workbench.editor.wrapTabs": false,
-	"workbench.editorAssociations": { },
 	"workbench.enableExperiments": true,
 	"workbench.experimental.editSessions.enabled": false,
-	"workbench.externalUriOpeners": { },
 	"workbench.hover.delay": 0,
 	"workbench.layoutControl.type": "both",
 	"workbench.list.defaultFindMode": "highlight",
@@ -1442,7 +1082,6 @@
 	"workbench.list.openMode": "singleClick",
 	"workbench.list.smoothScrolling": false,
 	"workbench.localHistory.enabled": true,
-	"workbench.localHistory.exclude": { },
 	"workbench.localHistory.maxFileEntries": 50,
 	"workbench.localHistory.maxFileSize": 256,
 	"workbench.localHistory.mergeWindow": 10,
@@ -1473,34 +1112,21 @@
 	"workbench.view.alwaysShowHeaderActions": false,
 	"workbench.welcomePage.experimental.videoTutorials": "off",
 	"workbench.welcomePage.walkthroughs.openOnInstall": true,
-
-	// ZEN MODE
-	"zenMode.centerLayout": true,
-	"zenMode.fullScreen": true,
-	"zenMode.hideActivityBar": true,
-	"zenMode.hideLineNumbers": true,
-	"zenMode.hideStatusBar": true,
-	"zenMode.hideTabs": true,
-	"zenMode.restore": true,
-	"zenMode.silentNotifications": true,
-
-	// ROME
+	//////////
+	// ROME //
+	//////////
 	"rome.lspBin": null,
-	"[rome_syntax_tree]": { },
 	"rome.rename": null,
 	"rome.requireConfiguration": true,
 	"rome_lsp.trace.server": "off",
-
-	// XML
+	/////////
+	// XML //
+	/////////
 	"redhat.telemetry.enabled": false,
-	"xml.catalogs": [ ],
 	"xml.codeLens.enabled": true,
-	"xml.colors": [ ],
 	"xml.completion.autoCloseRemovesContent": true,
 	"xml.completion.autoCloseTags": true,
 	"xml.downloadExternalResources.enabled": true,
-	"xml.extension.jars": [ ],
-	"xml.fileAssociations": [ ],
 	"xml.foldings.includeClosingTagInFold": false,
 	"xml.format.closingBracketNewLine": false,
 	"xml.format.emptyElements": "collapse",
@@ -1530,21 +1156,14 @@
 	"xml.format.splitAttributes": false,
 	"xml.format.splitAttributesIndentSize": 2,
 	"xml.format.xsiSchemaLocationSplit": "onPair",
-	"xml.java.home": null,
 	"xml.logs.client": true,
 	"xml.preferences.quoteStyle": "double",
 	"xml.preferences.showSchemaDocumentationType": "all",
-	"xml.references": [ ],
-	"xml.server.binary.args": "",
-	"xml.server.binary.path": "",
-	"xml.server.binary.trustedHashes": [ ],
 	"xml.server.preferBinary": false,
 	"xml.server.silenceExtensionWarning": false,
 	"xml.server.vmargs": "-Xmx64M",
 	"xml.server.workDir": "~/.lemminx",
 	"xml.symbols.enabled": true,
-	"xml.symbols.excluded": [ ],
-	"xml.symbols.filters": [ ],
 	"xml.symbols.maxItemsComputed": 5000,
 	"xml.symbols.showReferencedGrammars": true,
 	"xml.trace.server": "off",
@@ -1568,18 +1187,9 @@
 	"xml.validation.resolveExternalEntities": false,
 	"xml.validation.schema.enabled": "always",
 	"xml.validation.xInclude.enabled": false,
-	"[dtd]": {
-		"editor.autoClosingBrackets": "never",
-		"files.trimFinalNewlines": true
-	},
-	"[rnc]": { },
-	"[svg]": {
-		"editor.autoClosingBrackets": "never",
-		"files.trimFinalNewlines": true,
-		"editor.defaultFormatter": "redhat.vscode-xml"
-	},
-
-	// TOGGLE QUOTES
+	///////////////////
+	// TOGGLE QUOTES //
+	///////////////////
 	"togglequotes.chars": [
 		"\"",
 		"'"
@@ -1598,8 +1208,9 @@
 			"`"
 		]
 	},
-
-	// ERROR LENS
+	////////////////
+	// ERRORR LENS //
+	////////////////
 	"errorLens.borderRadius": "3px",
 	"errorLens.delay": 0,
 	"errorLens.enabled": true,
@@ -1611,14 +1222,8 @@
 	"errorLens.enabledInMergeConflict": true,
 	"errorLens.enableOnDiffView": false,
 	"errorLens.errorGutterIconColor": "#e45454",
-	"errorLens.errorGutterIconPath": "",
-	"errorLens.exclude": [ ],
-	"errorLens.excludeBySource": [ ],
-	"errorLens.excludePatterns": [ ],
 	"errorLens.followCursor": "allLines",
 	"errorLens.followCursorMore": 0,
-	"errorLens.fontFamily": "",
-	"errorLens.fontSize": "",
 	"errorLens.fontStyleItalic": false,
 	"errorLens.fontWeight": "normal",
 	"errorLens.gutterIconsEnabled": true,
@@ -1626,8 +1231,6 @@
 	"errorLens.gutterIconsFollowCursorOverride": true,
 	"errorLens.gutterIconSize": "150%",
 	"errorLens.infoGutterIconColor": "#00b7e4",
-	"errorLens.infoGutterIconPath": "",
-	"errorLens.light": { },
 	"errorLens.margin": "4ch",
 	"errorLens.messageBackgroundMode": "line",
 	"errorLens.messageEnabled": true,
@@ -1635,7 +1238,6 @@
 	"errorLens.messageTemplate": "$message",
 	"errorLens.onSave": false,
 	"errorLens.onSaveTimeout": 1000,
-	"errorLens.padding": "",
 	"errorLens.removeLinebreaks": true,
 	"errorLens.replaceLinebreaksSymbol": "⏎",
 	"errorLens.scrollbarHackEnabled": false,
@@ -1655,12 +1257,11 @@
 	"errorLens.statusBarMessageAlignment": "left",
 	"errorLens.statusBarMessageEnabled": true,
 	"errorLens.statusBarMessagePriority": -10000,
-	"errorLens.statusBarMessageTemplate": "",
 	"errorLens.statusBarMessageType": "activeLine",
 	"errorLens.warningGutterIconColor": "#ff942f",
-	"errorLens.warningGutterIconPath": "",
-
-	// ESLINT
+	////////////
+	// ESLINT //
+	////////////
 	"eslint.codeAction.disableRuleComment": {
 		"enable": false,
 		"location": "separateLine",
@@ -1670,10 +1271,8 @@
 		"enable": false
 	},
 	"eslint.codeActionsOnSave.mode": "all",
-	"eslint.codeActionsOnSave.rules": null,
 	"eslint.debug": false,
 	"eslint.enable": true,
-	"eslint.execArgv": null,
 	"eslint.experimental.useFlatConfig": false,
 	"eslint.format.enable": false,
 	"eslint.ignoreUntitled": false,
@@ -1682,9 +1281,7 @@
 	"eslint.migration.2_x": "on",
 	"eslint.nodeEnv": null,
 	"eslint.nodePath": null,
-	"eslint.notebooks.rules.customizations": [ ],
 	"eslint.onIgnoredFiles": "off",
-	"eslint.options": { },
 	"eslint.probe": [
 		"javascript",
 		"javascriptreact",
@@ -1696,9 +1293,7 @@
 	],
 	"eslint.problems.shortenToSingleLine": true,
 	"eslint.quiet": false,
-	"eslint.rules.customizations": [ ],
 	"eslint.run": "onType",
-	"eslint.runtime": null,
 	"eslint.timeBudget.onFixes": {
 		"warn": 3000,
 		"error": 6000
@@ -1709,106 +1304,67 @@
 	},
 	"eslint.trace.server": "off",
 	"eslint.useESLintClass": false,
-	"eslint.validate": [ ],
-	"eslint.workingDirectories": [ ],
-
-	// MATERIAL ICONS
+	////////////////////
+	// MATERIAL ICONS //
+	////////////////////
 	"material-icon-theme.activeIconPack": "angular",
-	"material-icon-theme.files.associations": { },
 	"material-icon-theme.files.color": "#90a4ae",
-	"material-icon-theme.folders.associations": { },
 	"material-icon-theme.folders.color": "#90a4ae",
 	"material-icon-theme.folders.theme": "classic",
 	"material-icon-theme.hidesExplorerArrows": true,
-	"material-icon-theme.languages.associations": { },
 	"material-icon-theme.opacity": 1,
 	"material-icon-theme.saturation": 1,
-
-	// ONE DARK PRO
+	//////////////////
+	// ONE DARK PRO //
+	//////////////////
 	"oneDarkPro.bold": true,
-	"oneDarkPro.color": {
-		"chalky": "",
-		"coral": "",
-		"dark": "",
-		"error": "",
-		"fountainBlue": "",
-		"green": "",
-		"invalid": "",
-		"lightDark": "",
-		"lightWhite": "",
-		"malibu": "",
-		"purple": "",
-		"whiskey": "",
-		"deepRed": ""
-	},
 	"oneDarkPro.editorTheme": "Ayu",
 	"oneDarkPro.italic": true,
 	"oneDarkPro.markdownStyle": true,
 	"oneDarkPro.vivid": false,
-
-	// VERSION LENS
+	//////////////////
+	// VERSION LENS //
+	//////////////////
 	"versionlens.caching.duration": 3,
 	"versionlens.composer.apiUrl": "https://repo.packagist.org/p",
-	"versionlens.composer.caching.duration": null,
 	"versionlens.composer.dependencyProperties": [
 		"require",
 		"require-dev"
 	],
-	"versionlens.composer.http.strictSSL": null,
-	"versionlens.dotnet.caching.duration": null,
 	"versionlens.dotnet.dependencyProperties": [
 		"PackageReference",
 		"PackageVersion",
 		"DotNetCliToolReference"
 	],
-	"versionlens.dotnet.http.strictSSL": null,
-	"versionlens.dotnet.nuget.sources": [ ],
-	"versionlens.dotnet.tagFilter": [ ],
 	"versionlens.dub.apiUrl": "https://code.dlang.org/api/packages",
-	"versionlens.dub.caching.duration": null,
 	"versionlens.dub.dependencyProperties": [
 		"dependencies",
 		"versions"
 	],
-	"versionlens.dub.http.strictSSL": null,
-	"versionlens.github.accessToken": "",
 	"versionlens.http.strictSSL": true,
 	"versionlens.logging.level": "error",
-	"versionlens.maven.apiUrl": "",
-	"versionlens.maven.caching.duration": null,
 	"versionlens.maven.dependencyProperties": [
 		"dependency",
 		"parent"
 	],
-	"versionlens.maven.http.strictSSL": null,
-	"versionlens.npm.caching.duration": null,
 	"versionlens.npm.dependencyProperties": [
 		"dependencies",
 		"devDependencies",
 		"peerDependencies",
 		"optionalDependencies"
 	],
-	"versionlens.npm.distTagFilter": [ ],
-	"versionlens.npm.http.strictSSL": null,
 	"versionlens.pub.apiUrl": "https://pub.dev",
-	"versionlens.pub.caching.duration": null,
 	"versionlens.pub.dependencyProperties": [
 		"dependencies",
 		"dev_dependencies"
 	],
-	"versionlens.pub.http.strictSSL": null,
 	"versionlens.suggestions.showOnStartup": false,
 	"versionlens.suggestions.showPrereleasesOnStartup": false,
-
-	// EXTRA
-	"window.menuBarVisibility": "compact",
-	"workbench.layoutControl.enabled": false,
-	"window.commandCenter": false,
-
-	// AWS
+	/////////
+	// AWS //
+	/////////
 	"aws.codeWhisperer.importRecommendation": true,
 	"aws.codeWhisperer.includeSuggestionsWithCodeReferences": true,
-	"aws.codeWhisperer.javaCompilationOutput": "",
 	"aws.codeWhisperer.shareCodeWhispererContentWithAWS": true,
 	"aws.cwl.limit": 10000,
 	"aws.ecs.openTerminalCommand": "/bin/sh",
@@ -1816,22 +1372,18 @@
 		"jsonResourceModification": false
 	},
 	"aws.iot.maxItemsPerPage": 100,
-	"aws.lambda.recentlyUploaded": { },
 	"aws.logLevel": "info",
-	"aws.resources.enabledResources": [ ],
 	"aws.s3.maxItemsPerPage": 300,
 	"aws.samcli.enableCodeLenses": false,
 	"aws.samcli.lambdaTimeout": 90000,
 	"aws.samcli.legacyDeploy": false,
-	"aws.samcli.location": "",
-	"aws.samcli.manuallySelectedBuckets": { },
 	"aws.ssmDocument.ssm.maxItemsComputed": 5000,
 	"aws.stepfunctions.asl.format.enable": true,
 	"aws.stepfunctions.asl.maxItemsComputed": 5000,
-	"aws.suppressPrompts": { },
 	"aws.telemetry": true,
-
-	// INTELEPHENSE
+	//////////////////
+	// INTELEPHENSE //
+	//////////////////
 	"intelephense.compatibility.correctForArrayAccessArrayAndTraversableArrayUnionTypes": true,
 	"intelephense.compatibility.correctForBaseClassStaticUnionTypes": true,
 	"intelephense.completion.fullyQualifyGlobalConstantsAndFunctions": false,
@@ -1845,7 +1397,7 @@
 	"intelephense.diagnostics.enable": true,
 	"intelephense.diagnostics.implementationErrors": true,
 	"intelephense.diagnostics.languageConstraints": true,
-	"intelephense.diagnostics.run": "onType",
+	"intelephense.diagnostics.run": "onSave",
 	"intelephense.diagnostics.typeErrors": true,
 	"intelephense.diagnostics.undefinedClassConstants": true,
 	"intelephense.diagnostics.undefinedConstants": true,
@@ -1857,9 +1409,7 @@
 	"intelephense.diagnostics.undefinedVariables": true,
 	"intelephense.diagnostics.unexpectedTokens": true,
 	"intelephense.diagnostics.unusedSymbols": true,
-	"intelephense.environment.documentRoot": "",
-	"intelephense.environment.includePaths": [],
-	"intelephense.environment.phpVersion": "8.2.10",
+	"intelephense.environment.phpVersion": "8.2.12",
 	"intelephense.environment.shortOpenTag": true,
 	"intelephense.files.associations": [
 		"*.php",
@@ -1880,7 +1430,6 @@
 	"intelephense.files.maxSize": 1000000,
 	"intelephense.format.braces": "k&r",
 	"intelephense.format.enable": true,
-	"intelephense.licenceKey": "",
 	"intelephense.maxMemory": 0,
 	"intelephense.phpdoc.classTemplate": {
 		"summary": "$1",
@@ -1915,5 +1464,4 @@
 	"intelephense.runtime": "",
 	"intelephense.telemetry.enabled": null,
 	"intelephense.trace.server": "off",
-	"editor.stickyScroll.enabled": false,
 }
