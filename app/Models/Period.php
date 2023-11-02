@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Period {
+class Period{
 	function __construct(private ?int $id, private int $startYear) {}
 
 	function getStartYear(): int {
