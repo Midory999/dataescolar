@@ -4,7 +4,7 @@
 	/** @var string $root */
 ?>
 
-<h2>estudiante</h2>
+<h2>Representante</h2>
 <a href="<?= $root ?>/representantes/registrar">
 	<button>Añadir</button>
 	</a>
