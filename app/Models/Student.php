@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Student extends Person {
+class Student extends Person{
 	public string $fechaNacimiento;
 	public string $lugarNacimiento;
 	public int $edad;
