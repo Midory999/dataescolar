@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Person {
+class Person{
 	public int $id;
 	public string $names;
 	public string $lastnames;
@@ -13,5 +13,4 @@ class Person {
 	public string $birthDate;
 	public string $birthPlace;
 	public int $age;
-
 }

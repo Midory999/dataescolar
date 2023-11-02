@@ -13,5 +13,5 @@ class Teacher extends Person {
 	public string $vacunas;
 	public string $cargaHoraria;
 	public string $codigoIdependencia;
-	public object $Area;
+	public object $area;
 }
