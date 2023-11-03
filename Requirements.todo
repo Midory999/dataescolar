@@ -88,6 +88,7 @@ Aplicación:
   --- ✄ -----------------------
   ✔ Permite respaldar y restaurar la base de datos @done (23-10-26 18:15)
     ✔ Respaldo de BD @done (23-10-26 18:15)
+			☐ Proteger el archivo de base de datos de de descargas no intencionadas
     ✔ Restauración de BD @done (23-10-26 18:15)
   --- ✄ -----------------------
   ☐ Las interfaces son de fácil comprensión al usuario, utilizando calendarios, menú desplegables y mantiene el estilo en los distintos módulos del sistema
