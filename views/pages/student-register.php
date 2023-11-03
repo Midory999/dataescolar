@@ -11,7 +11,7 @@
 		<option selected disabled>Seleccionar</option>
 		<?php foreach ($representatives as $representative) echo <<<HTML
 		<option value="{$representative->id}">
-			{$representative->names} {$representative->lastnames}
+			{$representative->idCard} - {$representative->names}
 		</option>
 		HTML ?>
 	</select>
@@ -48,7 +48,18 @@
 	<textarea id="medicamentos" name="medicamentos" required></textarea>
 
 	<label for="tipo_sangre">Tipo de Sangre:</label>
-	<input id="tipo_sangre" name="tipo_sangre" required>
+	<select id="tipo_sangre" name="tipo_sangre" required>
+		<option selected disabled>Seleccionar</option>
+		<option value="A+">A+</option>
+		<option value="A-">A-</option>
+		<option value="B+">B+</option>
+		<option value="B-">B-</option>
+		<option value="O+">O+</option>
+		<option value="O-">O-</option>
+		<option value="AB+">AB+</option>
+		<option value="AB-">AB-</option>
+	</select>
+
 
 	<label for="genero">Género:</label>
 	<select id="genero" name="genero" required>
@@ -70,7 +81,7 @@
 	<textarea id="programas_sociales" name="programas_sociales" required></textarea>
 
 	<label for="ingreso">Ingreso:</label>
-	<input type="number" id="ingreso" name="ingreso" required>
+	<input type="date" id="ingreso" name="ingreso" required>
 
 	<label for="estatus">Estatus:</label>
 	<select id="estatus" name="estatus" required>

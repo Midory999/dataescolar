@@ -42,7 +42,16 @@
 	</select>
 
 	<label for="tipo_sangre">Tipo de Sangre:</label>
-	<input id="tipo_sangre" name="tipo_sangre" required>
+	<select id="tipo_sangre" name="tipo_sangre" required>
+		<option selected disabled>Seleccionar</option>
+		<option value="A+">A+</option>
+		<option value="A-">A-</option>
+		<option value="B+">B+</option>
+		<option value="B-">B-</option>
+		<option value="O+">O+</option>
+		<option value="O-">O-</option>
+		<option value="AB+">AB+</option>
+		<option value="AB-">AB-</option>
 
 	<label for="ocupacion">Ocupación:</label>
 	<input id="ocupacion" name="ocupacion" required>
