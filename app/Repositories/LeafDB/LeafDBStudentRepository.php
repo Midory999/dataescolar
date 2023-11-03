@@ -3,9 +3,16 @@
 namespace App\Repositories\LeafDB;
 
 use App\Models\Student;
+use App\Repositories\RepresentativeRepository;
 use App\Repositories\StudentRepository;
 
-class LeafDBStudentRepository extends LeafDBConnection implements StudentRepository {
+class LeafDBStudentRepository
+extends LeafDBConnection
+implements StudentRepository {
+	function __construct(
+		private readonly RepresentativeRepository $representativeRepository
+	) {}
+
 	function getAll(): array {
 		assert(self::$db !== null);
 
@@ -14,10 +21,19 @@ class LeafDBStudentRepository extends LeafDBConnection implements StudentReposit
 	}
 
 	function getByIDCard(int $idCard): ?Student {
-		return null;
+		assert(self::$db !== null);
+
+		$studentInfo = self::$db->select('estudiantes')->where('cedula', $idCard)->assoc();
+
+		if ($studentInfo === false) {
+			return null;
+		}
+
+		return $this->mapper($studentInfo);
 	}
 
 	function save(Student $student): bool {
+		// TODO: registrar estudiante
 		return false;
 	}
 
@@ -44,7 +60,13 @@ class LeafDBStudentRepository extends LeafDBConnection implements StudentReposit
 		$student->status = $info['estatus'];
 		$student->description = $info['descripcion'];
 
-		// TODO: asignar la propiedad representative usando el repositorio de representantes
+		$representative = $this->representativeRepository->getByID(
+			$info['id_Representante']
+		);
+
+		assert($representative !== null);
+		$student->representative = $representative;
+
 		return $student;
 	}
 }

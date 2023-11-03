@@ -1,10 +1,13 @@
 <?php
 
-use App\Controllers\AuthenticationController;
-use App\Controllers\HomeController;
-use App\Controllers\PeriodController;
-use App\Controllers\SettingsController;
-use App\Controllers\UserController;
+use App\Controllers\{
+	AuthenticationController,
+	HomeController,
+	PeriodController,
+	RepresentativeController,
+	SettingsController,
+	UserController
+};
 use App\Core\Dependencies;
 use App\Core\UI;
 
@@ -13,6 +16,7 @@ $userController     = new UserController;
 $periodController   = new PeriodController;
 $settingsController = new SettingsController;
 $authenticationController = new AuthenticationController;
+$representativeController = new RepresentativeController;
 
 ////////////////////
 // RUTAS PÚBLICAS //
@@ -33,13 +37,12 @@ Flight::route(
 Flight::route(
 	'POST /usuarios',
 	[$userController, 'registerUser']
-); // NOTE: Esto es temporal, el registro debería estar protegido por administrador
+); // WARNING: Esto es temporal
 
 //////////////////////
 // RUTAS PROTEGIDAS //
 //////////////////////
 Flight::route('*', [$authenticationController, 'ensureIsAuthenticated']);
-Flight::route('GET /', [$homeController, 'showHome']);
 
 ////////////////////////////////
 // DATOS COMPARTIDOS EN LA UI //
@@ -47,10 +50,27 @@ Flight::route('GET /', [$homeController, 'showHome']);
 UI::setData('user', $authenticationController::getLoggedUser());
 UI::setData('currentPeriod', Dependencies::getPeriodRepository()->getLatest());
 
+Flight::route('GET /', [$homeController, 'showHome']);
+Flight::route(
+	'GET /representantes',
+	[$representativeController, 'showRepresentatives']
+);
+
 ///////////////////////////////////////////////
 // RUTAS PROTEGIDAS + SÓLO ACCESO AUTORIZADO //
 ///////////////////////////////////////////////
 Flight::route('*', [$authenticationController, 'ensureIsAuthorized']);
+
+Flight::route(
+	'GET /representantes/registrar',
+	[$representativeController, 'showRegisterForm']
+);
+
+Flight::route(
+	'POST /representantes',
+	[$representativeController, 'registerRepresentative']
+);
+
 Flight::route('GET /usuarios',  [$userController, 'showUsersList']);
 Flight::route('POST /usuarios', [$userController, 'registerUser']);
 
