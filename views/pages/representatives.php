@@ -32,7 +32,7 @@ use App\Models\Representative;
       <tr>
       	<!-- TODO: mostrar los representantes usando $-representative
       	guíate por el autocompletado al poner la flechita con - > pegado -->
-      	<td>{$representative->idCard}</td>
+      	<td>{$representative->idCard}</td><td>{$representative->names}</td><td>{$representative->lastnames}</td><td>{$representative->gender}</td><td>{$representative->direction}</td><td>{$representative->email}</td><td>{$representative->phone}</td><td>{$representative->studies}</td><td>{$representative->bloodType}</td><td>{$representative->ocupation}</td><td>{$representative->jobPlace}</td>
       </tr>
       HTML ?>
 	</tbody>
