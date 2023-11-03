@@ -24,6 +24,16 @@
 			.navLink:hover {
 				text-decoration: none;
 			}
+
+			select {
+				appearance: none;
+				-moz-appearance: none;
+			}
+
+			input[type="number"] {
+				appearance: textfield;
+				-moz-appearance: textfield;
+			}
 		</style>
 	</head>
 
@@ -33,7 +43,23 @@
 				<a class="navLink" href="<?= $root ?>">
 					<button>Inicio</button>
 				</a>
-				<?php if ($user->isAdmin()) : ?>
+				<a class="navLink" href="<?= $root ?>/representantes">
+					<button>Ver representantes</button>
+				</a>
+				<a class="navLink" href="<?= $root ?>/estudiantes">
+					<button>Ver estudiantes</button>
+				</a>
+
+				<!--========================================
+				=            ENLACES PROTEGIDOS            =
+				=========================================-->
+				<?php if ($user->isAdmin()): ?>
+					<a class="navLink" href="<?= $root ?>/representantes/registrar">
+						<button>Registrar representante</button>
+					</a>
+					<a class="navLink" href="<?= $root ?>/estudiantes/registrar">
+						<button>Registrar estudiante</button>
+					</a>
 					<a class="navLink" href="<?= $root ?>/usuarios">
 						<button>Ver usuarios</button>
 					</a>
@@ -47,6 +73,7 @@
 						<button>Configuración</button>
 					</a>
 				<?php endif ?>
+				<!--====  End of ENLACES PROTEGIDOS  ====-->
 				<a class="navLink" href="<?= $root ?>/salir">
 					<button>Cerrar Sesión</button>
 				</a>

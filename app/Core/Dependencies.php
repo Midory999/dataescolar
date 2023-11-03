@@ -3,23 +3,31 @@
 namespace App\Core;
 
 use App\Core\Encryptors\PHPEncryptor;
-use App\Repositories\LeafDB\LeafDBPeriodRepository;
-use App\Repositories\LeafDB\LeafDBSettingRepository;
-use App\Repositories\LeafDB\LeafDBUserRepository;
-use App\Repositories\PeriodRepository;
-use App\Repositories\SettingRepository;
-use App\Repositories\UserRepository;
+use App\Repositories\LeafDB\{
+	LeafDBPeriodRepository,
+	LeafDBRepresentativeRepository,
+	LeafDBSettingRepository,
+	LeafDBStudentRepository,
+	LeafDBUserRepository
+};
+use App\Repositories\{
+	PeriodRepository,
+	RepresentativeRepository,
+	SettingRepository,
+	StudentRepository,
+	UserRepository
+};
 
 /** Responsable de retornar implementaciones de infraestructura del sistema */
 class Dependencies {
 	/** Retorna un Repositorio válido de usuarios */
 	static function getUserRepository(): UserRepository {
-		return new LeafDBUserRepository; # <-- NOTE: Intercambiable
+		return new LeafDBUserRepository;
 	}
 
 	/** Retorna un Encriptador válido */
 	static function getEncryptor(): Encryptor {
-		return new PHPEncryptor; # <-- NOTE: Intercambiable
+		return new PHPEncryptor;
 	}
 
 	static function getPeriodRepository(): PeriodRepository {
@@ -28,5 +36,13 @@ class Dependencies {
 
 	static function getSettingRepository(): SettingRepository {
 		return new LeafDBSettingRepository;
+	}
+
+	static function getRepresentativeRepository(): RepresentativeRepository {
+		return new LeafDBRepresentativeRepository;
+	}
+
+	static function getStudentRepository(): StudentRepository {
+		return new LeafDBStudentRepository(self::getRepresentativeRepository());
 	}
 }
