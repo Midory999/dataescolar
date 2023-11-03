@@ -2,9 +2,11 @@
 
 namespace App\Repositories\LeafDB;
 
+use App\Core\Logger;
 use App\Models\Student;
 use App\Repositories\RepresentativeRepository;
 use App\Repositories\StudentRepository;
+use PDOException;
 
 class LeafDBStudentRepository
 extends LeafDBConnection
@@ -33,8 +35,39 @@ implements StudentRepository {
 	}
 
 	function save(Student $student): bool {
-		// TODO: registrar estudiante
-		return false;
+		assert(self::$db !== null);
+
+		try {
+			self::$db
+				->insert('Estudiantes')
+				->params([
+					'nombres'   => $student->names,
+					'apellidos' => $student->lastnames,
+					'cedula'    => $student->idCard,
+					'fecha_nacimiento'    => $student->birthDate,
+					'lugar_nacimiento' => $student->birthPlace,
+					'edad'    => $student->age,
+					'genero'  => $student->gender,
+					'tipo_parto' => $student->birthType,
+					'compromisos'   => $student->compromises,
+					'medicamentos'     => $student->medicines,
+					'tipo_sangre' => $student->bloodType,
+					'direccion' => $student->direction,
+					'medidas' => $student->measurements,
+					'vacunas' => $student->vaccines,
+					'programas_sociales' => $student->socialPrograms,
+					'ingreso' => $student->admission,
+					'estatus' => $student->status,
+					'descripcion' => $student->description,
+					'id_Representante' => $student->representative->id,
+				])
+				->execute();
+
+			return true;
+		} catch (PDOException $error) {
+			Logger::log($error);
+			return false;
+		}
 	}
 
 	/** @param array<string, string> $info */
