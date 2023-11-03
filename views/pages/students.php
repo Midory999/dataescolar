@@ -37,6 +37,23 @@ use App\Models\Student;
 		<?php foreach ($students as $student) echo <<<HTML
 		<tr>
 			<td>{$student->idCard}</td>
+			<td>{$student->names}</td>
+			<td>{$student->lastnames}</td>
+			<td>{$student->birthDate}</td>
+			<td>{$student->birthPlace}</td>
+			<td>{$student->age}</td>
+			<td>{$student->birthType}</td>
+			<td>{$student->compromises}</td>
+			<td>{$student->medicines}</td>
+			<td>{$student->bloodType}</td>
+			<td>{$student->gender}</td>
+			<td>{$student->direction}</td>
+			<td>{$student->measurements}</td>
+			<td>{$student->vaccines}</td>
+			<td>{$student->socialPrograms}</td>
+			<td>{$student->admission}</td>
+			<td>{$student->status}</td>
+			<td>{$student->description}</td>
 		</tr>
 		HTML ?>
 	</tbody>
