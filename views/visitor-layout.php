@@ -11,6 +11,12 @@
 		<title>Sistema Escolar</title>
 		<link rel="icon" href="<?= $assets ?>/images/favicon.png" />
 		<link rel="stylesheet" href="<?= $assets ?>/css/app.css" />
+		<style>
+			input[type="number"] {
+				appearance: textfield;
+				-moz-appearance: textfield;
+			}
+		</style>
 	</head>
 	<body>
 		<?= $content ?>

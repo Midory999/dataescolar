@@ -6,10 +6,12 @@ use App\Controllers\{
 	PeriodController,
 	RepresentativeController,
 	SettingsController,
-	UserController
+    StudentController,
+    UserController
 };
 use App\Core\Dependencies;
 use App\Core\UI;
+use App\Models\Student;
 
 $homeController     = new HomeController;
 $userController     = new UserController;
@@ -17,6 +19,7 @@ $periodController   = new PeriodController;
 $settingsController = new SettingsController;
 $authenticationController = new AuthenticationController;
 $representativeController = new RepresentativeController;
+$studentController = new StudentController;
 
 ////////////////////
 // RUTAS PÚBLICAS //
@@ -51,10 +54,13 @@ UI::setData('user', $authenticationController::getLoggedUser());
 UI::setData('currentPeriod', Dependencies::getPeriodRepository()->getLatest());
 
 Flight::route('GET /', [$homeController, 'showHome']);
+
 Flight::route(
 	'GET /representantes',
 	[$representativeController, 'showRepresentatives']
 );
+
+Flight::route('GET /estudiantes', [$studentController, 'showStudents']);
 
 ///////////////////////////////////////////////
 // RUTAS PROTEGIDAS + SÓLO ACCESO AUTORIZADO //
@@ -70,6 +76,9 @@ Flight::route(
 	'POST /representantes',
 	[$representativeController, 'registerRepresentative']
 );
+
+Flight::route('GET /estudiantes/registrar', [$studentController, 'showRegisterForm']);
+Flight::route('POST /estudiantes', [$studentController, 'registerStudent']);
 
 Flight::route('GET /usuarios',  [$userController, 'showUsersList']);
 Flight::route('POST /usuarios', [$userController, 'registerUser']);

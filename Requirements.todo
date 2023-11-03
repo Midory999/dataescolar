@@ -5,7 +5,7 @@ Aplicación:
   --- ✄ -----------------------
   ☐ Permite insertar registros a la base de datos desde los módulos
   	✔	Usuarios @done (23-10-26 18:14)
-  	☐	Estudiantes
+  	✔	Estudiantes @done (23-11-02 23:04)
   	✔	Períodos @done (23-10-26 18:14)
   		☐	Cambiar formato de año de periodos a dia-mes-año
 		☐	Lapsos
@@ -19,7 +19,7 @@ Aplicación:
   --- ✄ -----------------------
   ☐	Permite consultar datos registrados
   	✔	Usuarios @done (23-10-26 18:14)
-  	☐	Estudiantes
+  	✔	Estudiantes @done (23-11-02 23:04)
   	✔	Períodos @done (23-10-26 18:14)
 		☐	Lapsos
   	☐	Inscripciones

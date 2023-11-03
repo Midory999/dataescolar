@@ -46,12 +46,19 @@
 				<a class="navLink" href="<?= $root ?>/representantes">
 					<button>Ver representantes</button>
 				</a>
+				<a class="navLink" href="<?= $root ?>/estudiantes">
+					<button>Ver estudiantes</button>
+				</a>
+
 				<!--========================================
 				=            ENLACES PROTEGIDOS            =
 				=========================================-->
 				<?php if ($user->isAdmin()): ?>
 					<a class="navLink" href="<?= $root ?>/representantes/registrar">
 						<button>Registrar representante</button>
+					</a>
+					<a class="navLink" href="<?= $root ?>/estudiantes/registrar">
+						<button>Registrar estudiante</button>
 					</a>
 					<a class="navLink" href="<?= $root ?>/usuarios">
 						<button>Ver usuarios</button>
