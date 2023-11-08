@@ -88,6 +88,7 @@ Aplicación:
   --- ✄ -----------------------
   ✔ Permite respaldar y restaurar la base de datos @done (23-10-26 18:15)
     ✔ Respaldo de BD @done (23-10-26 18:15)
+    	✔	Proteger la base de datos de descargas por la URL (sólo funciona en Apache) @done (23-11-07 20:37)
     ✔ Restauración de BD @done (23-10-26 18:15)
   --- ✄ -----------------------
   ☐ Las interfaces son de fácil comprensión al usuario, utilizando calendarios, menú desplegables y mantiene el estilo en los distintos módulos del sistema

@@ -1,9 +1,7 @@
 <?php
 
-// Ubicación de este módulo
 namespace App\Controllers;
 
-// Dependencias de este módulo
 use App\Core\{Dependencies, Session, UI, UUID};
 use App\Models\{Role, User};
 use Flight;

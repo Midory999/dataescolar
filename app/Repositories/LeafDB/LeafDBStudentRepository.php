@@ -13,7 +13,9 @@ extends LeafDBConnection
 implements StudentRepository {
 	function __construct(
 		private readonly RepresentativeRepository $representativeRepository
-	) {}
+	) {
+		parent::__construct();
+	}
 
 	function getAll(): array {
 		assert(self::$db !== null);
