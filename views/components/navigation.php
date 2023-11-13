@@ -4,7 +4,7 @@
 ?>
 
 <nav>
-	<a class="navLink" href="<?= $root ?>">
+	<a class="navLink" href="<?= $root ?>/">
 		<button>Inicio</button>
 	</a>
 	<a class="navLink" href="<?= $root ?>/representantes">

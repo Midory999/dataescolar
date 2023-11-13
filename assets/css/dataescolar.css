@@ -108,6 +108,10 @@ a {
 	width: 100%;
 }
 
+.card__image--h100 {
+	height: 100%;
+}
+
 .card:hover {
 	box-shadow: 0 0 10px #dfdfdf;
 }

@@ -1,13 +1,6 @@
 <?php
 /** @var string $assets */
 /** @var string $content */
-
-function getWeekDay() {
-	$days = [1 => 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-
-	return $days[date('w')];
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -53,101 +46,14 @@ function getWeekDay() {
 		</a>
 		<h1>Escuela</h1>
 		<nav class="nav">
+			<?php include __DIR__ . '/components/navigation.php' ?>
 			<hr class="nav__border" />
 		</nav>
 	</header>
-	<main class="main">
-		<a href="#" class="card">
-			<div class="card__image clock">
-				<span class="clock__time">
-					<?= date('h') ?>
-					:
-					<?= date('i') ?>
-				</span>
-				<span class="clock__day"><?= getWeekDay() ?> <?= date('d') ?></span>
-			</div>
-		</a>
-		<a href="#" class="card">
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card6.png" />
-		</a>
-		<a href="#" class="card">
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card6.png" />
-		</a>
-		<article class="card card--2y">
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card5.png" />
-			<form action="#" class="checkboxes">
-				<label>
-					<input type="checkbox" checked />
-					<span class="checkbox__icon"></span>
-					Tarea 1
-				</label>
-				<label>
-					<input type="checkbox" />
-					<span class="checkbox__icon"></span>
-					Tarea 2
-				</label>
-				<label>
-					<input type="checkbox" />
-					<span class="checkbox__icon"></span>
-					Tarea 2
-				</label>
-				<label>
-					<input type="checkbox" />
-					<span class="checkbox__icon"></span>
-					...
-				</label>
-				<label>
-					<input type="checkbox" />
-					<span class="checkbox__icon"></span>
-					Tarea n
-				</label>
-			</form>
-		</article>
-		<div class="cards">
-			<a href="#" class="card">
-				<figure>
-					<img class="card__image animated--zoom" src="<?= $assets ?>/images/card1.png" />
-					<figcaption>
-						<img src="<?= $assets ?>/images/flower3.png" />
-						Calentario
-					</figcaption>
-				</figure>
-			</a>
-			<a href="#" class="card">
-				<figure>
-					<img class="card__image animated--zoom" src="<?= $assets ?>/images/card2.png" />
-					<figcaption>
-						<img src="<?= $assets ?>/images/flower3.png" />
-						Materias
-					</figcaption>
-				</figure>
-			</a>
-			<a href="#" class="card">
-				<figure>
-					<img class="card__image animated--zoom" src="<?= $assets ?>/images/card3.png" />
-					<figcaption>
-						<img src="<?= $assets ?>/images/flower3.png" />
-						Gastos
-					</figcaption>
-				</figure>
-			</a>
-			<a href="#" class="card">
-				<figure>
-					<img class="card__image animated--zoom" src="<?= $assets ?>/images/card4.png" />
-					<figcaption>
-						<img src="<?= $assets ?>/images/flower3.png" />
-						Plan para exámenes
-					</figcaption>
-				</figure>
-			</a>
-		</div>
-	</main>
+	<main class="main"><?= $content ?></main>
 	<footer class="footer">
 		&copy; UPTM &hearts; - Yasmin Gallo & José Mendoza
 	</footer>
-	<?php # include __DIR__ . '/components/header.php'
-	?>
-	<!-- <main><?= $content ?></main> -->
 </body>
 
 </html>
