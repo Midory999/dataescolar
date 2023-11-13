@@ -3,42 +3,13 @@
 /** @var App\Models\User $user */
 ?>
 
-<nav>
-	<a class="navLink" href="<?= $root ?>/">
-		<button>Inicio</button>
-	</a>
-	<a class="navLink" href="<?= $root ?>/representantes">
-		<button>Ver representantes</button>
-	</a>
-	<a class="navLink" href="<?= $root ?>/estudiantes">
-		<button>Ver estudiantes</button>
-	</a>
-
-	<!--========================================
-	=            ENLACES PROTEGIDOS            =
-	=========================================-->
-	<?php if ($user->isAdmin()) : ?>
-		<a class="navLink" href="<?= $root ?>/representantes/registrar">
-			<button>Registrar representante</button>
-		</a>
-		<a class="navLink" href="<?= $root ?>/estudiantes/registrar">
-			<button>Registrar estudiante</button>
-		</a>
-		<a class="navLink" href="<?= $root ?>/usuarios">
-			<button>Ver usuarios</button>
-		</a>
-		<a class="navLink" href="<?= $root ?>/periodos">
-			<button>Ver periodos</button>
-		</a>
-		<a class="navLink" href="<?= $root ?>/periodos/registrar">
-			<button>Registrar periodo</button>
-		</a>
-		<a class="navLink" href="<?= $root ?>/configuracion">
-			<button>Configuración</button>
-		</a>
-	<?php endif ?>
-	<!--====  End of ENLACES PROTEGIDOS  ====-->
-	<a class="navLink" href="<?= $root ?>/salir">
-		<button>Cerrar Sesión</button>
-	</a>
+<nav class="nav">
+	<a class="nav__link" href="<?= $root ?>/">Inicio</a>
+	<button class="nav__link" data-pushbar-target="sidebar">
+		<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 28">
+			<path d="M24 21v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1zM24 13v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1zM24 5v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1z"></path>
+		</svg>
+	</button>
+	<a class="nav__link" href="<?= $root ?>/salir">Cerrar Sesión</a>
+	<hr class="nav__border" />
 </nav>

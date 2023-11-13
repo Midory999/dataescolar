@@ -1,0 +1,11 @@
+{
+	"name": "Nombre de la institución",
+	"rif": "Rif de la institución",
+	"phone": "Teléfono de la institución",
+	"email": "Correo de la institución",
+	"codes": {
+		"pae": "",
+		"dea": "",
+		"circuit": ""
+	}
+}
