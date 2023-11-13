@@ -1,0 +1,253 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	position: relative;
+	font-family: Roboto, sans-serif;
+	min-height: 100vh;
+	max-width: 542px;
+	padding: 150px 2em 50px;
+	margin: auto;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-gap: 1em;
+	grid-template-areas: 'header'
+											 'main'
+											 'footer';
+}
+
+body::before {
+	content: '';
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 75px;
+	background-image: url('../images/wave1.png');
+	background-size: 100% 75px;
+	background-repeat: no-repeat;
+}
+
+body::after {
+	content: '';
+	position: fixed;
+	z-index: 1000;
+	top: 75px;
+	left: calc((100vw - 525px) / 2);
+	width: 75px;
+	height: 75px;
+	background-image: url('../images/flower1.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+figure {
+	margin: 0;
+	overflow: hidden;
+}
+
+figcaption {
+	font-weight: bold;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	grid-gap: 10px;
+	padding: 10px;
+	background: #FAF1F5;
+	color: #76726E;
+}
+
+figcaption img {
+	width: 1em;
+	height: 1em;
+	min-height: 1em !important;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.header {
+	grid-area: header;
+}
+
+.main {
+	grid-area: main;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	align-content: start;
+	grid-gap: 2em;
+	grid-auto-flow: dense;
+}
+
+.animated--zoom {
+	transform: scale(1);
+	transition: 250ms transform;
+}
+
+.animated--zoom:hover {
+	transform: scale(1.05) rotate(-.5deg);
+}
+
+.nav__border {
+	height: 2em;
+	border: none;
+	background-image: url('../images/flower2.png');
+	background-size: contain;
+}
+
+.card {
+	transition: 250ms box-shadow;
+	font-size: .75em;
+}
+
+.card__image {
+	width: 100%;
+}
+
+.card:hover {
+	box-shadow: 0 0 10px #dfdfdf;
+}
+
+.card--2y {
+	grid-row: span 2;
+}
+
+.main > .card {
+	overflow: hidden;
+}
+
+.main > .card img {
+	border-radius: 10px;
+}
+
+.cards {
+	grid-column: span 2;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 10px 2em;
+}
+
+.cards .card {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #dfdfdf;
+}
+
+.footer {
+	grid-area: footer;
+	padding: 1em 2em;
+	border-radius: 1em;
+	box-shadow: 0 0 1em lightgray;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: light;
+	color: darkgray;
+	font-size: .9em;
+	text-align: center;
+}
+
+.clock {
+	width: 100%;
+	height: 100%;
+	color: #f5a9c4;
+	display: grid;
+	grid-template-rows: repeat(2, auto);
+	grid-gap: 10px;
+	place-content: center;
+	text-align: center;
+	font-weight: bold;
+}
+
+.clock__time {
+	font-size: 3.75em;
+	font-family: sans-serif;
+	font-stretch: condensed;
+}
+
+.clock__day {
+	font-size: 1.25em;
+}
+
+.about-button {
+	width: 40px;
+	height: 40px;
+	position: fixed;
+	z-index: 998;
+	right: 10px;
+	top: calc(50vh - 20px);
+	padding: 10px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 0 1em #E9E9E9;
+	border-radius: 1000px;
+	color: #8D8C89;
+	background: white;
+	border: 1px solid #E9E9E9;
+	transform: scale(1);
+	transition: 250ms transform;
+}
+
+.about-button:hover {
+	transform: scale(1.05) rotate(-.5deg);
+}
+
+.checkboxes {
+	display: grid;
+	grid-gap: 1em;
+	padding: 2em 1em;
+}
+
+.checkboxes label {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	justify-content: start;
+	grid-gap: 1em;
+	cursor: pointer;
+	color: darkgray;
+	font-weight: bold;
+	font-size: 1em;
+	padding-bottom: 5px;
+	border-bottom: 1px solid currentColor;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.checkbox__icon {
+	background-image: url('../icons/square-o.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	box-sizing: border-box;
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.checkboxes label:hover .checkbox__icon {
+	box-shadow: 0 0 5px currentColor;
+}
+
+.checkboxes [type="checkbox"] {
+	display: none;
+}
+
+.checkboxes [type="checkbox"]:checked ~ .checkbox__icon {
+	background-image: url('../icons/check-square-o.svg');
+}
+
+@media (max-width: 410px) {
+	.main {
+		grid-template-columns: 1fr;
+	}
+
+	.cards {
+		grid-template-columns: 1fr;
+	}
+}

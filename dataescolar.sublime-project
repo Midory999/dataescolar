@@ -29,6 +29,7 @@
 					"hoverProvider": true,
 					"completionProvider": true,
 					"colorProvider": true,
+					"documentLinkProvider": true
 				},
 			},
 			"LSP-tailwindcss": {
