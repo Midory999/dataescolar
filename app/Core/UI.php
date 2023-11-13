@@ -21,6 +21,7 @@ class UI {
 	 */
 	static function render(string $page, array $data = []): void {
 		$data += self::$sharedData;
+		$data['title'] ??= 'Inicio';
 		Flight::render("pages/$page", $data, 'content');
 		Flight::render(self::$layout);
 	}

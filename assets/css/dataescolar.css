@@ -81,7 +81,6 @@ a {
 	z-index: 998;
 	right: 10px;
 	top: calc(50vh - 20px);
-	padding: 10px;
 	box-sizing: border-box;
 	display: flex;
 	justify-content: center;
@@ -93,6 +92,13 @@ a {
 	border: 1px solid #E9E9E9;
 	transform: scale(1);
 	transition: 250ms transform;
+	cursor: pointer;
+	font-size: 1.5em;
+}
+
+.header__about-icon svg {
+	width: 1em;
+	height: 1em;
 }
 
 .header__title {
@@ -216,6 +222,7 @@ a {
 	color: darkgray;
 	font-size: .9em;
 	text-align: center;
+	cursor: pointer;
 }
 
 .clock {
