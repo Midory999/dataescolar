@@ -981,7 +981,7 @@
 	// WINDOWS //
 	/////////////
 	"window.menuBarVisibility": "compact",
-	"window.commandCenter": false,
+	"window.commandCenter": true,
 	"window.autoDetectColorScheme": false,
 	"window.autoDetectHighContrast": true,
 	"window.closeWhenEmpty": false,

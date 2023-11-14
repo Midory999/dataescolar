@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Core\Dependencies;
-use App\Core\UUID;
+use App\Core\{Dependencies, UUID};
 
 /**
  * Un usuario del sistema
@@ -26,20 +25,22 @@ class User {
 		private Role $_role,
 		private string $question,
 		private string $answer
-	) {}
+	) {
+	}
 
 	/** Permite leer las propiedades privadas */
 	function __get(string $property): ?string {
 		return match ($property) {
 			'id' => $this->id,
 			'role' => $this->_role->value,
-			default => property_exists($this, $property) ? $this->$property : null
+			'name' => $this->name,
+			'lastname' => $this->lastname,
+			'idCard' => $this->idCard,
+			'password' => $this->password,
+			'question' => $this->question,
+			'answer' => $this->answer,
+			default => null
 		};
-	}
-
-	/** Asigna una contraseña encriptada */
-	function setEncryptedPassword(string $hash): void {
-		$this->password = $hash;
 	}
 
 	/**
@@ -85,7 +86,7 @@ class User {
 	}
 
 	function isAdmin(): bool {
-		return match($this->_role) {
+		return match ($this->_role) {
 			Role::ADMIN, Role::PRINCIPAL => true,
 			default => false
 		};
