@@ -27,13 +27,20 @@ use App\Models\Representative;
 			<th>Lugar de Trabajo</th>
 		</tr>
 	</thead>
-	<tbody id="representative-list">
-		<?php foreach ($representatives as $representative) echo <<<HTML
-      <tr>
-      	<!-- TODO: mostrar los representantes usando $-representative
-      	guíate por el autocompletado al poner la flechita con - > pegado -->
-      	<td>{$representative->idCard}</td><td>{$representative->names}</td><td>{$representative->lastnames}</td><td>{$representative->gender}</td><td>{$representative->direction}</td><td>{$representative->email}</td><td>{$representative->phone}</td><td>{$representative->studies}</td><td>{$representative->bloodType}</td><td>{$representative->ocupation}</td><td>{$representative->jobPlace}</td>
-      </tr>
-      HTML ?>
-	</tbody>
+	<tbody>
+		<?php foreach($representatives as $representative) echo <<<HTML
+		  <td>{$representative->idCard}</td>
+			<td>{$representative->names}</td>
+			<td>{$representative->lastnames}</td>
+			<td>{$representative->gender}</td>
+			<td>{$representative->direction}</td>
+			<td>{$representative->email}</td>
+			<td>{$representative->phone}</td>
+			<td>{$representative->studies}</td>
+			<td>{$representative->bloodType}</td>
+			<td>{$representative->ocupation}</td>
+			<td>{$representative->jobPlace}</td>
+</tr>
+HTML  ?>
+</tbody>
 </table>
