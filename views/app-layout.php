@@ -40,7 +40,7 @@
 	</div>
 	<script src="<?= $assets ?>/libs/pushbar/pushbar.js"></script>
 	<script>
-		const pushbar = new Pushbar({
+		new Pushbar({
 			blur: true,
 			overlay: true
 		})
