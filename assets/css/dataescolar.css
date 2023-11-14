@@ -294,6 +294,7 @@ a {
 
 [data-pushbar-id="sidebar"] {
 	background: rgba(255, 255, 255, 75%);
+	overflow-y: scroll;
 }
 
 .menu {
@@ -301,6 +302,10 @@ a {
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-select: none;
+}
+
+.menu__link:last-child {
+	margin-bottom: 100px;
 }
 
 .menu__text {
