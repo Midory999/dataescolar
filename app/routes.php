@@ -6,12 +6,9 @@ use App\Controllers\{
 	PeriodController,
 	RepresentativeController,
 	SettingsController,
-    StudentController,
-    UserController
+  StudentController,
+  UserController
 };
-use App\Core\Dependencies;
-use App\Core\UI;
-use App\Models\Student;
 
 $homeController     = new HomeController;
 $userController     = new UserController;
@@ -46,12 +43,6 @@ Flight::route(
 // RUTAS PROTEGIDAS //
 //////////////////////
 Flight::route('*', [$authenticationController, 'ensureIsAuthenticated']);
-
-////////////////////////////////
-// DATOS COMPARTIDOS EN LA UI //
-////////////////////////////////
-UI::setData('user', $authenticationController::getLoggedUser());
-UI::setData('currentPeriod', Dependencies::getPeriodRepository()->getLatest());
 
 Flight::route('GET /', [$homeController, 'showHome']);
 

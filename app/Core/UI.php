@@ -12,10 +12,7 @@ class UI {
 
 	private static string $layout = self::APP_LAYOUT;
 	/** @var array<string, mixed> Datos compartidos entre páginas */
-	private static array $sharedData = [
-		'root' => '/dataescolar',
-		'assets' => '/dataescolar/assets'
-	];
+	private static array $sharedData = [];
 
 	/**
 	 * Renderiza una página del sistema
@@ -24,6 +21,7 @@ class UI {
 	 */
 	static function render(string $page, array $data = []): void {
 		$data += self::$sharedData;
+		$data['title'] ??= 'Inicio';
 		Flight::render("pages/$page", $data, 'content');
 		Flight::render(self::$layout);
 	}
