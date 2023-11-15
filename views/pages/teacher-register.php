@@ -5,9 +5,6 @@
 <form action="<?= $root ?>/profesores" method="post">
 	<h1>Registro de profesore</h1>
 
-	 <label for="id">ID:</label>
-<input type="text" id="id" name="id" required><br>
-
    <label for="cedula">Cédula:</label>
 <input type="number" id="cedula" name="cedula" required><br>
 
@@ -28,7 +25,7 @@
 <input type="text" id="especialidad" name="especialidad" required><br>
 
 	 <label for="direccion">Dirección:</label>
-<textarea id="direccion" name="direccion" required><br></textarea>
+<textarea id="direccion" name="direccion" required></textarea><br>
 
    <label for="correo">Correo:</label>
 <input type="text" id="correo" name="correo" required><br>
@@ -53,7 +50,7 @@
 </select>
 
    <label for="vacunas">Vacunas:</label>
-<textarea id="vacunas" name="vacunas" required><br></textarea>
+<textarea id="vacunas" name="vacunas" required></textarea>
 
    <label for="carga_horaria">Carga Horaria:</label>
 <input type="number" id="carga_horaria" name="carga_horaria" required><br>
@@ -62,14 +59,15 @@
 <input type="text" id="codigo_independencia" name="codigo_independencia" required><br>
 
 <label for="id_area">ID de Area:</label>
-	<select name="id_area" id="id_area">
-		<option selected disabled>Seleccionar</option>
-		<?php foreach ($areas as $area) echo <<<HTML
-		<option value="{$area->id}">
-			{$area->names} {$area->lastnames}
-		</option>
-		HTML ?>
+
+<select name="id_area" id="id_area">
+	<option selected disabled>Seleccionar</option>
+	<?php foreach ($areas as $area) echo <<<HTML
+	<option value="{$area->id}">
+		{$area->names} {$area->lastnames}
+	</option>
+	HTML ?>
 	</select>
 
-	 <button>Registrar</button>
+
 </form>

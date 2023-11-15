@@ -139,7 +139,7 @@ if ($user->isAdmin()) {
 			<summary class="menu__text">Configuraciones</summary>
 			<ul class="menu__submenu">
 				<li class="menu__submenu-item">
-					<a class="menu__submenu-text" href="<?= $root ?>/configuraciones">Respaldo y Restauración</a>
+					<a class="menu__submenu-text" href="<?= $root ?>/configuracion">Respaldo y Restauración</a>
 				</li>
 				<?= $links['config']['config'] ?? '' ?>
 			</ul>

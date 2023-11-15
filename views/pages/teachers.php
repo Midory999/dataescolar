@@ -30,10 +30,22 @@
       </tr>
     </thead>
     <tbody>
-		<?php foreach ($areas as $area) echo <<<HTML
+		<?php foreach ($teachers as $teacher) echo <<<HTML
 		<tr>
-			<td>{$area->areaCode}</td>
-			<td>{$area->names}</td>
+			<td>{$teacher->names}</td>
+			<td>{$teacher->lastname}</td>
+			<td>{$teacher->idCard}</td>
+			<td>{$teacher->status}</td>
+			<td>{$teacher->specialty}</td>
+			<td>{$teacher->direction}</td>
+			<td>{$teacher->email}</td>
+			<td>{$teacher->phone}</td>
+			<td>{$teacher->income}</td>
+			<td>{$teacher->birthDate}</td>
+			<td>{$teacher->age}</td>
+			<td>{$teacher->gender}</td>
+			<td>{$teacher->vaccines}</td>
+			<td>{$teacher->socialPrograms}</td>
 			</tr>
 		HTML ?>
 	</tbody>
