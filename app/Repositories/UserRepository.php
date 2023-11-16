@@ -3,11 +3,15 @@
 namespace App\Repositories;
 
 use App\Core\UUID;
+use App\Exceptions\DuplicatedIDCardException;
 use App\Models\User;
 
 /** Operaciones de lectura y escritura de Usuarios en un sistema de persistencia */
 interface UserRepository {
-	/** Guarda un usuario en persistencia */
+	/**
+	 * Guarda un usuario en persistencia
+	 * @throws DuplicatedIDCardException
+	*/
 	function save(User $user): bool;
 	/**
 	 * Obtiene una lista de usuarios de un sistema de persistencia

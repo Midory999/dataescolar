@@ -11,7 +11,7 @@
 		<option selected disabled>Seleccionar</option>
 		<?php foreach ($representatives as $representative) echo <<<HTML
 		<option value="{$representative->id}">
-			{$representative->names} {$representative->lastnames}
+			{$representative->idCard} - {$representative->names}
 		</option>
 		HTML ?>
 	</select>
@@ -39,10 +39,17 @@
 		<option selected disabled>Seleccionar</option>
 		<option value="normal">Normal</option>
 		<option value="cesarea">Cesárea</option>
+		<option value="complicado">Complicado</option>
 	</select>
 
 	<label for="compromiso">Compromiso:</label>
-	<textarea id="compromiso" name="compromiso" required></textarea>
+	<label id="compromiso">Selecciona las vacunas:</label>
+    <select name="compromiso" id="compromiso" multiple>
+        <option value="retardo_mental">Retardo Mental</option>
+        <option value="sindrome_down">Síndrome de Down</option>
+        <option value="autismo">Autismo</option>
+    </select>
+    <input type="submit" value="Enviar" />
 
 	<label for="medicamentos">Medicamentos:</label>
 	<textarea id="medicamentos" name="medicamentos" required></textarea>
@@ -50,14 +57,14 @@
 	<label for="tipo_sangre">Tipo de Sangre:</label>
 	<select id="tipo_sangre" name="tipo_sangre" required>
 		<option selected disabled>Seleccionar</option>
-		<option value="AB+">AB+</option>
-		<option value="AB-">AB-</option>
 		<option value="A+">A+</option>
 		<option value="A-">A-</option>
 		<option value="B+">B+</option>
 		<option value="B-">B-</option>
 		<option value="O+">O+</option>
 		<option value="O-">O-</option>
+		<option value="AB+">AB+</option>
+		<option value="AB-">AB-</option>
 	</select>
 
 	<label for="genero">Género:</label>
@@ -71,16 +78,52 @@
 	<textarea id="direccion" name="direccion" required></textarea>
 
 	<label for="medidas">Medidas:</label>
-	<textarea id="medidas" name="medidas" required></textarea>
+	<label for="pregunta1">Peso Corporal(kg)</label>
+    <input type="text" id="pregunta1" name="pregunta1"><br><br>
+
+    <label for="pregunta2">Talla(cm)</label>
+    <input type="text" id="pregunta2" name="pregunta2"><br><br>
+
+    <label for="pregunta3">Talla de calzado</label>
+    <input type="text" id="pregunta3" name="pregunta3"><br><br>
+
+		<label for="pregunta4">Talla de pantalón</label>
+    <input type="text" id="pregunta4" name="pregunta4"><br><br>
+
+		<label for="pregunta5">Circunferencia de Brazo Izquierdo(mm)</label>
+    <input type="text" id="pregunta5" name="pregunta5"><br><br>
+
+		<label for="pregunta6">Clasificación Nutricional Antropometrica</label>
+    <input type="text" id="pregunta6" name="pregunta6"><br><br>
+
+    <input type="submit" value="Enviar respuestas">
 
 	<label for="vacunas">Vacunas:</label>
-	<textarea id="vacunas" name="vacunas" required></textarea>
+	<label id="vacunas">Selecciona las vacunas:</label>
+    <select name="vacunas" id="vacunas" multiple>
+        <option value="hepatitis_b">Hepatitis B</option>
+        <option value="dtap">DTaP</option>
+				<option value="hib">Hib</option>
+        <option value="rotavirus">Rotavirus</option>
+        <option value="covid_19">COVID-19</option>
+        <option value="gripe">Gripe</option>
+        <option value="varicela">Varicela</option>
+        <option value="mmr">MMR</option>
+        <option value="hepatitis_a">Hepatitis A</option>
+				<option value="vph">VPH</option>
+    </select>
+    <input type="submit" value="Enviar" />
 
 	<label for="programas_sociales">Programas Sociales:</label>
-	<textarea id="programas_sociales" name="programas_sociales" required></textarea>
+	<label id="programas_sociales">Selecciona los Programas Sociales que tengas:</label>
+    <select name="programas_sociales" id="programas_sociales" multiple>
+        <option value="jgh">José Gredorio Hernández</option>
+        <option value="escolaridad">Escolaridad (Patria)</option>
+        <option value="ninguna">Ninguna</option>
+    <input type="submit" value="Enviar" />
 
-	<label for="ingreso">Ingreso:</label>
-	<input type="number" id="ingreso" name="ingreso" required>
+	<label for="ingreso">Fecha de Ingreso:</label>
+	<input type="date" id="ingreso" name="ingreso" required>
 
 	<label for="estatus">Estatus:</label>
 	<select id="estatus" name="estatus" required>

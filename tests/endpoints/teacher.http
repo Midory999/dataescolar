@@ -1,0 +1,23 @@
+@url = http://localhost/dataescolar
+@cookie = PHPSESSID=8u3tuo6u83m01p058lcul6bq2l
+
+POST {{url}}/profesores
+Cookie: {{cookie}}
+Content-Type: application/json
+
+{
+	"cedula": 28072391,
+	"nombre": "Franyer",
+	"apellido": "Sánchez",
+	"estatus": "activo",
+	"especialidad": "Ciencias",
+	"direccion": "El Pinar, Sector La Batea",
+	"correo": "franyeradriansanchez@gmail.com",
+	"telefono": "04165335826",
+	"ingreso": 2023,
+	"fecha_nacimiento": "06/10/2001",
+	"edad": 22,
+	"genero": "masculino",
+	"vacunas": ["gripe"],
+	"carga_horaria": "no sé xD"
+}

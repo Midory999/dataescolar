@@ -3,7 +3,6 @@
 namespace App\Models;
 
 class Area {
-
-	public int $code;
-	public string $names;
+	public int $codigo;
+	public string $nombre;
 }

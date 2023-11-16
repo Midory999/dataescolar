@@ -20,6 +20,10 @@ input[type='number'] {
 figure {
 	margin: 0;
 	overflow: hidden;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 figcaption {

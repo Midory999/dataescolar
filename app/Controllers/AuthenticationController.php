@@ -83,6 +83,7 @@ class AuthenticationController {
 			return false;
 		}
 
+		UI::changeLayout(UI::APP_LAYOUT);
 		return true;
 	}
 

@@ -4,6 +4,8 @@ use App\Models\Student;
 
 /** @var Student[] $students */
 /** @var string $root */
+/** @var null|string $message */
+
 ?>
 
 <h2>Estudiante</h2>
@@ -28,7 +30,7 @@ use App\Models\Student;
 			<th>Medidas</th>
 			<th>Vacunas</th>
 			<th>Programas Sociales</th>
-			<th>Ingreso</th>
+			<th>Fecha de Ingreso</th>
 			<th>Estatus</th>
 			<th>Descripción</th>
 		</tr>
@@ -58,3 +60,13 @@ use App\Models\Student;
 		HTML ?>
 	</tbody>
 </table>
+
+<?php
+	if ($message !== null) {
+		echo <<<HTML
+		<script>
+			alert(`$message`)
+		</script>
+		HTML;
+	}
+?>

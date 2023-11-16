@@ -11,7 +11,9 @@ class StudentController {
 	function showStudents(): void {
 		$students = Dependencies::getStudentRepository()->getAll();
 
-		UI::render('students', compact('students'));
+		$message = Flight::request()->query['message'];
+
+		UI::render('students', compact('students', 'message'));
 	}
 
 	function showRegisterForm(): void {
@@ -47,6 +49,8 @@ class StudentController {
 		$student->description = $info['descripcion'];
 
 		Dependencies::getStudentRepository()->save($student);
-		Flight::redirect('/estudiantes');
+
+		$message = urlencode('Estudiante registrado exitósamente');
+		Flight::redirect("/estudiantes?message=$message");
 	}
 }

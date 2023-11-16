@@ -1,13 +1,9 @@
 <?php
-
-use App\Models\Representative;
-
-/** @var Representative[] $representatives */
+/** @var App\Models\Representative[] $representatives */
 /** @var string $root */
-
 ?>
 
-<h2>Representante</h2>
+<h2>Representantes</h2>
 <a href="<?= $root ?>/representantes/registrar">
 	<button>Añadir</button>
 </a>

@@ -4,6 +4,7 @@ namespace App\Repositories\LeafDB;
 
 use App\Core\Logger;
 use App\Core\UUID;
+use App\Exceptions\DuplicatedIDCardException;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use PDOException;
@@ -29,6 +30,11 @@ class LeafDBUserRepository extends LeafDBConnection implements UserRepository {
 
 			return true;
 		} catch (PDOException $error) {
+			if (strpos($error->getMessage(), 'UNIQUE') !== -1) {
+				// README: El error es por falla de un campo único (cédula)
+				throw new DuplicatedIDCardException;
+			}
+
 			Logger::log($error);
 			return false;
 		}

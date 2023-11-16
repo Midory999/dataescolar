@@ -3,7 +3,9 @@
 namespace App\Controllers;
 
 use App\Core\Dependencies;
+use App\Core\Session;
 use App\Core\UI;
+use App\Exceptions\DuplicatedIDCardException;
 use App\Models\User;
 use Flight;
 
@@ -21,14 +23,20 @@ class UserController {
 	function registerUser(): void {
 		$post = Flight::request()->data->getData();
 		$user = User::fromPOST($post);
-		$result = Dependencies::getUserRepository()->save($user);
 
-		if ($result) {
-			Flight::redirect('/usuarios');
-			return;
+		try {
+			$result = Dependencies::getUserRepository()->save($user);
+
+			if ($result) {
+				Flight::redirect('/usuarios');
+				return;
+			}
+
+			$error = urlencode('Ha ocurrido un error');
+		} catch (DuplicatedIDCardException) {
+			$error = urlencode('Ya existe usuario con la cédula ' . $user->idCard);
 		}
 
-		$error = urlencode('Ha ocurrido un error');
 		Flight::redirect("/ingresar?error=$error");
 	}
 }

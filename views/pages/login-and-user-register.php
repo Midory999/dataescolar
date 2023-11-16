@@ -63,6 +63,7 @@
 					title="Sólo se permiten entre 3 y 20 letras"
 				/>
 				<input
+					type="number"
 					name="cedula"
 					placeholder="Cédula"
 					required
@@ -84,14 +85,16 @@
 					HTML ?>
 				</select>
 				<hr />
-				<input
-					name="pregunta"
-					type="password"
-					placeholder="Pregunta de seguridad"
-					required
-					pattern="[A-Za-zÁáÉéÍíÓóÚúñÑ]{2,20}"
-					title="Sólo se permiten entre 2 y 20 letras"
-				/>
+				<select name="pregunta">
+					<option selected disabled>Selecciona una opción</option>
+					<option value="color favorito">¿Postre favorito?</option>
+					<option value="color favorito">¿Ciudad dónde se conocieron tus padres?</option>
+					<option value="color favorito">¿Cual es el segundo apellido de tu madre?</option>
+					<option value="color favorito">¿En dónde naciste?</option>
+					<option value="color favorito">¿En qué colegio estudiaste la secundaria?</option>
+					<option value="color favorito">¿Nombre de tu mejor amiga(o) de la escuela?</option>
+					<option value="color favorito">¿Cual es el nombre de tu primera mascota?</option>
+				</select>
 				<input
 					name="respuesta"
 					type="password"
