@@ -3,10 +3,10 @@
 namespace App\Models;
 
 class Lapse {
-	public string $nombre;
+	public string $start;
 	/** @var string Fecha en la que inicio el lapso*/
-	public string $inicio;
+	public string $end;
 	/** @var string Fecha en la que finalzo el lapso*/
-	public string $fin;
-	public object $periodo;
+	public string $name;
+	public Period $period;
 }

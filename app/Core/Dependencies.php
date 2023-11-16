@@ -6,6 +6,7 @@ use App\Core\Encryptors\PHPEncryptor;
 use App\Repositories\LeafDB\{
   LeafDBAreaRepository,
   LeafDBPeriodRepository,
+	LeafDBLapseRepository,
 	LeafDBRepresentativeRepository,
 	LeafDBSettingRepository,
 	LeafDBStudentRepository,
@@ -15,6 +16,7 @@ use App\Repositories\LeafDB\{
 use App\Repositories\{
   AreaRepository,
   PeriodRepository,
+	LapseRepository,
 	RepresentativeRepository,
 	SettingRepository,
 	StudentRepository,
@@ -38,6 +40,9 @@ class Dependencies {
 		return new LeafDBPeriodRepository;
 	}
 
+	static function getLapseRepository(): LapseRepository {
+		return new LeafDBLapseRepository(self::getPeriodRepository());
+	}
 	static function getSettingRepository(): SettingRepository {
 		return new LeafDBSettingRepository;
 	}
@@ -57,4 +62,5 @@ class Dependencies {
 	static function getAreaRepository(): AreaRepository {
 		return new LeafDBAreaRepository;
 	}
+
 }

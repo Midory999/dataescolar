@@ -39,8 +39,8 @@ implements AreaRepository {
 		return $this->getByCriteria('id', $id);
 	}
 
-	function getByIDCard(int $int): ?Area {
-		return $this->getByCriteria('codigo', $int);
+	function getByIDCard(int $idCard): ?Area {
+		return $this->getByCriteria('cedula', $idCard);
 	}
 
 	function save(Area $area): bool {
