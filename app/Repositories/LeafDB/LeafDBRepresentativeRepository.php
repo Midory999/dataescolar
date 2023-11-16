@@ -39,10 +39,10 @@ implements RepresentativeRepository {
 					'direccion' => $representative->direction,
 					'correo'    => $representative->email,
 					'telefono'  => $representative->phone,
-					'estudio_socioeconomico' => $representative->studies,
-					'tipo_sangre'   => $representative->bloodType,
+					'nivel_instruccion' => $representative->levelInstruction,					'tipo_sangre'   => $representative->bloodType,
 					'ocupacion'     => $representative->ocupation,
 					'lugar_trabajo' => $representative->jobPlace
+					'estudio_socioeconomico' => $representative->studies,
 				])
 				->execute();
 

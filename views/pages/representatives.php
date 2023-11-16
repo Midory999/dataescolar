@@ -32,10 +32,11 @@
 			<td>{$representative->direction}</td>
 			<td>{$representative->email}</td>
 			<td>{$representative->phone}</td>
-			<td>{$representative->studies}</td>
+			<td>{$representative->levelInstruction}</td>
 			<td>{$representative->bloodType}</td>
 			<td>{$representative->ocupation}</td>
 			<td>{$representative->jobPlace}</td>
+			<td>{$representative->studies}</td>
 </tr>
 HTML  ?>
 </tbody>
