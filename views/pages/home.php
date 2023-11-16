@@ -45,7 +45,7 @@
 	</form>
 </article>
 <div class="cards">
-	<a href="<?= $root ?>/representantes" class="card">
+	<a href="<?= $root ?>/card" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card8.png" />
 			<figcaption>
@@ -54,7 +54,7 @@
 			</figcaption>
 		</figure>
 	</a>
-	<a href="#" class="niveles">
+	<a href="#" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card10.png" />
 			<figcaption>
@@ -62,7 +62,7 @@
 				Niveles
 			</figcaption>
 		</figure>
-	<a href="#" class="areas">
+	<a href="#" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card10.png" />
 			<figcaption>
@@ -71,7 +71,7 @@
 			</figcaption>
 		</figure>
 	</a>
-	<a href="#" class="periodos">
+	<a href="#" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card7.png" />
 			<figcaption>
@@ -80,7 +80,7 @@
 			</figcaption>
 		</figure>
 	</a>
-		<a href="#" class="estudiantes">
+		<a href="#" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card7.png" />
 			<figcaption>
@@ -89,7 +89,7 @@
 			</figcaption>
 		</figure>
 	</a>
-	<a href="#" class="profesores">
+	<a href="#" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card9.png" />
 			<figcaption>
@@ -98,7 +98,7 @@
 			</figcaption>
 		</figure>
 	</a>
-	<a href="#" class="gastos">
+	<a href="#" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card3.png" />
 			<figcaption>

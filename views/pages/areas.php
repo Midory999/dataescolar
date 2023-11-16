@@ -11,10 +11,16 @@
   <table>
     <thead>
       <tr>
-        <th>Código de Area</th>
+        <th>Nombre</th>
       </tr>
     </thead>
-    <tbody id="area-list">
-      <!-- Aquí se mostrarán los estudiantes -->
-    </tbody>
-  </table>
+		<tbody>
+		<?php foreach ($areas as $area) echo <<<HTML
+		<tr>
+			<td>{$area->names}</td>
+			<td>{$area->lastname}</td>
+			<td>{$area->idCard}</td>
+
+		HTML ?>
+	</tbody>
+</table>
