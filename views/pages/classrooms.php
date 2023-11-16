@@ -1,8 +1,6 @@
 <?php
 
-use App\Models\Classroom;
-
-/** @var Classroom[] $Classrooms */
+/** @var App\Models\Classroom[] $Classrooms */
 /** @var string $root */
 ?>
 
@@ -17,7 +15,7 @@ use App\Models\Classroom;
 		</tr>
 	</thead>
 	<tbody>
-	<?php foreach ($teachers as $teacher) echo <<<HTML
+		<?php foreach ($teachers as $teacher) echo <<<HTML
 		<tr>
 			<td>{$teacher->idCard}</td>
 			<td>{$teacher->names}</td>
@@ -39,7 +37,7 @@ use App\Models\Classroom;
 		HTML ?>
 	</tbody>
 </table>
-	<?php foreach ($students as $student) echo <<<HTML
+<?php foreach ($students as $student) echo <<<HTML
 		<tr>
 			<td>{$student->idCard}</td>
 			<td>{$student->names}</td>
@@ -61,5 +59,5 @@ use App\Models\Classroom;
 			<td>{$student->description}</td>
 		</tr>
 		HTML ?>
-	</tbody>
+</tbody>
 </table>
