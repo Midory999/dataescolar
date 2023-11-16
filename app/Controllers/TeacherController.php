@@ -17,7 +17,7 @@ class TeacherController {
 	function showRegisterForm(): void {
 		$areas = Dependencies::getAreaRepository()->getAll();
 
-		UI::render('teacher-register', compact('areas'));
+		UI::render('teacher-register', compact('teachers'));
 	}
 
 	function registerTeacher(): void {

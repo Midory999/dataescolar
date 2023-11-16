@@ -40,7 +40,7 @@ implements AreaRepository {
 	}
 
 	function getByIDCard(int $idCard): ?Area {
-		return $this->getByCriteria('cedula', $idCard);
+		return $this->getByCriteria('codigo', $idCard);
 	}
 
 	function save(Area $area): bool {
@@ -51,7 +51,6 @@ implements AreaRepository {
 				->insert('Areas')
 				->params([
 					'nombres'      => $area->name,
-					'codigo_idependencia' => '' // WARNING: Añadir un campo para el código de independencia
 				])
 				->execute();
 
