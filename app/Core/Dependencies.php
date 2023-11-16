@@ -4,23 +4,21 @@ namespace App\Core;
 
 use App\Core\Encryptors\PHPEncryptor;
 use App\Repositories\LeafDB\{
-    LeafDBAreaRepository,
-    LeafDBPeriodRepository,
+  LeafDBAreaRepository,
+  LeafDBPeriodRepository,
 	LeafDBRepresentativeRepository,
 	LeafDBSettingRepository,
 	LeafDBStudentRepository,
 	LeafDBTeacherRepository,
-	LeafDBAreaRepository,
 	LeafDBUserRepository
 };
 use App\Repositories\{
-    AreaRepository,
-    PeriodRepository,
+  AreaRepository,
+  PeriodRepository,
 	RepresentativeRepository,
 	SettingRepository,
 	StudentRepository,
 	TeacherRepository,
-	AreaRepository,
 	UserRepository
 };
 
