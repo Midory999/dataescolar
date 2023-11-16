@@ -21,7 +21,9 @@
 <select id="estatus" name="estatus" required><br>
   <option value="">Seleccionar</option>
   <option value="activo">Activo</option>
-  <option value="inactivo">Inactivo</option>
+  <option value="jubilado">Jubilado</option>
+	<option value="proceso_jubilacion">Proceso de Jubilación</option>
+	<option value="reposo_medico">Reposo médico</option>
 </select>
 
    <label for="especialidad">Especialidad:</label>
@@ -36,7 +38,7 @@
    <label for="telefono">Teléfono:</label>
 <input type="number" id="telefono" name="telefono" required><br>
 
-	 <label for="ingreso">Ingreso:</label>
+	 <label for="ingreso">Fecha de Ingreso:</label>
 <input type="number" id="ingreso" name="ingreso" required><br>
 
    <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
@@ -53,10 +55,17 @@
 </select>
 
    <label for="vacunas">Vacunas:</label>
-<textarea id="vacunas" name="vacunas" required><br></textarea>
+<label id="vacunas">Selecciona las vacunas:</label>
+    <select name="vacunas" id="vacunas" multiple>
+        <option value="hepatitis_b">Hepatitis B</option>
+        <option value="covid_19">COVID-19</option>
+        <option value="gripe">Gripe</option>
+				<option value="vph">VPH</option>
+    </select>
+    <input type="submit" value="Enviar" />
 
    <label for="carga_horaria">Carga Horaria:</label>
-<input type="number" id="carga_horaria" name="carga_horaria" required><br>
+<input type="text" id="carga_horaria" name="carga_horaria" required><br>
 
    <label for="codigo_independencia">Código de Independencia:</label>
 <input type="text" id="codigo_independencia" name="codigo_independencia" required><br>

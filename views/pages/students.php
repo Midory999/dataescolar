@@ -30,7 +30,7 @@ use App\Models\Student;
 			<th>Medidas</th>
 			<th>Vacunas</th>
 			<th>Programas Sociales</th>
-			<th>Ingreso</th>
+			<th>Fecha de Ingreso</th>
 			<th>Estatus</th>
 			<th>Descripción</th>
 		</tr>

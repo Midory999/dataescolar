@@ -87,7 +87,13 @@
 				<hr />
 				<select name="pregunta">
 					<option selected disabled>Selecciona una opción</option>
-					<option value="color favorito">¿Color favorito?</option>
+					<option value="color favorito">¿Postre favorito?</option>
+					<option value="color favorito">¿Ciudad dónde se conocieron tus padres?</option>
+					<option value="color favorito">¿Cual es el segundo apellido de tu madre?</option>
+					<option value="color favorito">¿En dónde naciste?</option>
+					<option value="color favorito">¿En qué colegio estudiaste la secundaria?</option>
+					<option value="color favorito">¿Nombre de tu mejor amiga(o) de la escuela?</option>
+					<option value="color favorito">¿Cual es el nombre de tu primera mascota?</option>
 				</select>
 				<input
 					name="respuesta"
