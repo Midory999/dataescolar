@@ -3,7 +3,7 @@
 namespace App\Models;
 
 class Inscription {
-	public object $estudiante;
-	public object $periodo;
-	public object $nivel;
+	public Student $student;
+	public Period $period;
+	public Level $level;
 }

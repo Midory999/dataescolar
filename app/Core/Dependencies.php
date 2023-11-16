@@ -3,11 +3,13 @@
 namespace App\Core;
 
 use App\Core\Encryptors\PHPEncryptor;
+use App\Models\Teacher;
 use App\Repositories\LeafDB\{
 	LeafDBPeriodRepository,
 	LeafDBRepresentativeRepository,
 	LeafDBSettingRepository,
 	LeafDBStudentRepository,
+	LeafDBTeacherRepository,
 	LeafDBUserRepository
 };
 use App\Repositories\{
@@ -15,6 +17,7 @@ use App\Repositories\{
 	RepresentativeRepository,
 	SettingRepository,
 	StudentRepository,
+	TeacherRepository,
 	UserRepository
 };
 
@@ -44,5 +47,9 @@ class Dependencies {
 
 	static function getStudentRepository(): StudentRepository {
 		return new LeafDBStudentRepository(self::getRepresentativeRepository());
+	}
+
+	static function getTeacherRepository(): TeacherRepository {
+		return new LeafDBTeacherRepository;
 	}
 }
