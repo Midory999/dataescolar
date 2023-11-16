@@ -1,4 +1,5 @@
 <?php
+/** @var App\Models\Area[] $areas */
 /** @var string $root */
 ?>
 
@@ -65,12 +66,11 @@
 	<label for="codigo_independencia">Código de Independencia:</label>
 	<input id="codigo_independencia" name="codigo_independencia" required><br>
 
-	<label for="id_area">ID de Area:</label>
-
+	<label for="id_area">Area:</label>
 	<select name="id_area" id="id_area">
 		<option selected disabled>Seleccionar</option>
 		<?php foreach ($areas as $area) echo <<<HTML
-		<option value="{$area->id}">{$area->names} {$area->lastnames}</option>
+		<option value="{$area->code}">{$area->name}</option>
 		HTML ?>
 	</select>
 	<button>Registrar</button>

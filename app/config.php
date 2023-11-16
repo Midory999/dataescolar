@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\AuthenticationController;
+use App\Controllers\ErrorController;
 use App\Core\Dependencies;
 use App\Core\Logger;
 use App\Core\UI;
@@ -9,17 +10,8 @@ date_default_timezone_set('America/Caracas');
 
 Logger::activate();
 
-Flight::map('error', function (Throwable $error) {
-	UI::changeLayout(UI::VISITOR_LAYOUT);
-	UI::render('500');
-	Logger::log($error);
-});
-
-Flight::map('notFound', function () {
-	UI::changeLayout(UI::VISITOR_LAYOUT);
-	UI::render('404');
-});
-
+Flight::map('error', [ErrorController::class, 'handle500']);
+Flight::map('notFound', [ErrorController::class, 'handle404']);
 Flight::set('root', str_replace('/index.php', '', $_SERVER['SCRIPT_NAME']));
 
 ////////////////////////////////

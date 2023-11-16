@@ -4,22 +4,15 @@ namespace App\Repositories\LeafDB;
 
 use App\Core\Logger;
 use App\Models\Area;
-use App\Repositories\AreaRepository;
+use App\Repositories\AreaRepository as Repository;
+use App\Repositories\LeafDB\LeafDBConnection as Connection;
 use PDOException;
 
-class LeafDBAreaRepository
-extends LeafDBConnection
-implements AreaRepository {
-	private function getByCriteria(
-		string $criteria,
-		float|string $value
-	): ?Area {
+class LeafDBAreaRepository extends Connection implements Repository {
+	private function getByCriteria(string $criteria, float|string $value): ?Area {
 		assert(self::$db !== null);
 
-		$areaInfo = self::$db->select('Areas')->where(
-			$criteria,
-			$value
-		)->assoc();
+		$areaInfo = self::$db->select('Areas')->where($criteria, $value)->assoc();
 
 		if ($areaInfo === false) {
 			return null;
@@ -35,12 +28,8 @@ implements AreaRepository {
 		return array_map([$this, 'mapper'], $areas);
 	}
 
-	function getByID(int $id): ?Area {
-		return $this->getByCriteria('id', $id);
-	}
-
-	function getByIDCard(int $idCard): ?Area {
-		return $this->getByCriteria('cedula', $idCard);
+	function getByCode(int $code): ?Area {
+		return $this->getByCriteria('codigo', $code);
 	}
 
 	function save(Area $area): bool {
@@ -49,10 +38,7 @@ implements AreaRepository {
 		try {
 			self::$db
 				->insert('Areas')
-				->params([
-					'nombres'      => $area->name,
-					'codigo'      => $area->code,
-				])
+				->params(['nombre' => $area->name,'codigo' => $area->code])
 				->execute();
 
 			return true;
@@ -64,11 +50,7 @@ implements AreaRepository {
 
 	/** @param array<string, string> $info */
 	private function mapper(array $info): Area {
-		$area = new Area;
-		$area->id        = $info['id'];
-		$area->name      = $info['nombres'];
-		$area->code      = $info['codigo'];
-
+		$area = Area::create($info['codigo'], $info['nombre']);
 		return $area;
 	}
 }

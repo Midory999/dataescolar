@@ -11,10 +11,7 @@ use PDOException;
 class LeafDBLapseRepository
 extends LeafDBConnection
 implements LapseRepository {
-
-	function __construct(
-		private readonly PeriodRepository $periodRepository
-	) {
+	function __construct(private readonly PeriodRepository $periodRepository) {
 		parent::__construct();
 	}
 
@@ -25,10 +22,10 @@ implements LapseRepository {
 		return array_map([$this, 'mapper'], $lapses);
 	}
 
-	function getByIDCard(int $idCard): ?Lapse {
+	function getByID(int $id): ?Lapse {
 		assert(self::$db !== null);
 
-		$lapseInfo = self::$db->select('lapsos')->where('cedula', $idCard)->assoc();
+		$lapseInfo = self::$db->select('lapsos')->where('id', $id)->assoc();
 
 		if ($lapseInfo === false) {
 			return null;
@@ -44,10 +41,10 @@ implements LapseRepository {
 			self::$db
 				->insert('Lapsos')
 				->params([
-					'inicio'             => $lapse->start,
-					'fin'                => $lapse->end,
-					'nombre'             => $lapse->name,
-					'periodo'            => $lapse->period,
+					'inicio' => $lapse->start,
+					'fin'    => $lapse->end,
+					'nombre' => $lapse->name,
+					'id_periodo' => $lapse->period->getID(),
 				])
 				->execute();
 
@@ -64,12 +61,8 @@ implements LapseRepository {
 		$lapse->start  = $info['inicio'];
 		$lapse->end    = $info['fin'];
 		$lapse->name   = $info['nombre'];
-		$lapse->period = $info['periodo'];
 
-		$period = $this->periodRepository->getByID(
-			$info['id_Period']
-		);
-
+		$period = $this->periodRepository->getByID($info['id_Periodo']);
 		assert($period !== null);
 		$lapse->period = $period;
 

@@ -2,8 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Core\Dependencies;
-use App\Core\UI;
+use App\Core\{Dependencies, UI};
 use App\Models\Area;
 use Flight;
 

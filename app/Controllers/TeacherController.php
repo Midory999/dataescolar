@@ -2,25 +2,24 @@
 
 namespace App\Controllers;
 
-use App\Core\Dependencies;
-use App\Core\UI;
+use App\Core\{Dependencies, UI};
 use App\Models\Teacher;
 use Flight;
 
 class TeacherController {
-	function showTeachers(): void {
+	static function showTeachers(): void {
 		$teachers = Dependencies::getTeacherRepository()->getAll();
 
 		UI::render('teachers', compact('teachers'));
 	}
 
-	function showRegisterForm(): void {
-		$teachers = Dependencies::getTeacherRepository()->getAll();
+	static function showRegisterForm(): void {
+		$areas = Dependencies::getAreaRepository()->getAll();
 
-		UI::render('teacher-register', compact('teachers'));
+		UI::render('teacher-register', compact('areas'));
 	}
 
-	function registerTeacher(): void {
+	static function registerTeacher(): void {
 		$teacherInfo = Flight::request()->data->getData();
 
 		$teacher = new Teacher;
@@ -39,6 +38,7 @@ class TeacherController {
 		$teacher->gender = $teacherInfo['genero'];
 		$teacher->vaccines = join(',', $teacherInfo['vacunas']);
 		$teacher->socialPrograms = $teacherInfo['carga_horaria'];
+		$teacher->area = Dependencies::getAreaRepository()->getByCode($teacherInfo['id_area']);
 
 		Dependencies::getTeacherRepository()->save($teacher);
 		Flight::redirect('/profesores');

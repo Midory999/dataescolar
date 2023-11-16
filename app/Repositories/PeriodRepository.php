@@ -9,4 +9,5 @@ interface PeriodRepository {
 	/** @return Period[] */
 	function getAll(): array;
 	function getLatest(): ?Period;
+	function getByID(int $id): ?Period;
 }

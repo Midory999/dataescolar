@@ -2,13 +2,12 @@
 
 namespace App\Controllers;
 
-use App\Core\Dependencies;
-use App\Core\UI;
+use App\Core\{Dependencies, UI};
 use App\Models\Student;
 use Flight;
 
 class StudentController {
-	function showStudents(): void {
+	static function showStudents(): void {
 		$students = Dependencies::getStudentRepository()->getAll();
 
 		$message = Flight::request()->query['message'];
@@ -16,19 +15,18 @@ class StudentController {
 		UI::render('students', compact('students', 'message'));
 	}
 
-	function showRegisterForm(): void {
+	static function showRegisterForm(): void {
 		$representatives = Dependencies::getRepresentativeRepository()->getAll();
 
 		UI::render('student-register', compact('representatives'));
 	}
 
-	function registerStudent(): void {
+	static function registerStudent(): void {
 		$info = Flight::request()->data->getData();
+		$representative = Dependencies::getRepresentativeRepository()->getByID($info['id_representante']);
 
 		$student = new Student;
-		$student->representative = Dependencies::getRepresentativeRepository()->getByID(
-			$info['id_representante']
-		);
+		$student->representative = $representative;
 		$student->idCard = $info['cedula'];
 		$student->names = $info['nombre'];
 		$student->lastnames = $info['apellido'];

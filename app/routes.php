@@ -1,28 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Controllers\{
 	AuthenticationController,
-	HomeController,
-	PeriodController,
-	RepresentativeController,
-	SettingsController,
-  StudentController,
-  TeacherController,
 	AreaController,
-	LapseController,
-  UserController
+	UserController
 };
 
-$homeController     = new HomeController;
 $userController     = new UserController;
-$periodController   = new PeriodController;
-$settingsController = new SettingsController;
 $authenticationController = new AuthenticationController;
-$representativeController = new RepresentativeController;
-$studentController = new StudentController;
-$teacherController = new TeacherController;
 $areaController = new AreaController;
-$lapseController = new LapseController;
 
 ////////////////////
 // RUTAS PÚBLICAS //
@@ -50,64 +38,42 @@ Flight::route(
 //////////////////////
 Flight::route('*', [$authenticationController, 'ensureIsAuthenticated']);
 
-Flight::route('GET /', [$homeController, 'showHome']);
+Flight::route('GET /', 'App\Controllers\HomeController::showHome');
 
-Flight::route(
-	'GET /representantes',
-	[$representativeController, 'showRepresentatives']
-);
+Flight::route('GET /representantes', 'App\Controllers\RepresentativeController::showRepresentatives');
 
-Flight::route('GET /estudiantes', [$studentController, 'showStudents']);
-
-Flight::route('GET /profesores', [$teacherController, 'showTeachers']);
-
+Flight::route('GET /estudiantes', 'App\Controllers\StudentController::showStudents');
+Flight::route('GET /profesores', 'App\Controllers\TeacherController::showTeachers');
 Flight::route('GET /areas', [$areaController, 'showAreas']);
-
-Flight::route('GET /lapsos', [$lapseController, 'showLapses']);
+Flight::route('GET /lapsos', 'App\Controllers\LapseController::showLapses');
 
 ///////////////////////////////////////////////
 // RUTAS PROTEGIDAS + SÓLO ACCESO AUTORIZADO //
 ///////////////////////////////////////////////
 Flight::route('*', [$authenticationController, 'ensureIsAuthorized']);
 
-Flight::route(
-	'GET /representantes/registrar',
-	[$representativeController, 'showRegisterForm']
-);
+Flight::route('GET /representantes/registrar', 'App\Controllers\RepresentativeController::showRegisterForm');
+Flight::route('POST /representantes','App\Controllers\RepresentativeController::registerRepresentative');
 
-Flight::route(
-	'POST /representantes',
-	[$representativeController, 'registerRepresentative']
-);
+Flight::route('GET /estudiantes/registrar', 'App\Controllers\StudentController::showRegisterForm');
+Flight::route('POST /estudiantes', 'App\Controllers\StudentController::registerStudent');
 
-Flight::route('GET /estudiantes/registrar', [$studentController, 'showRegisterForm']);
-Flight::route('POST /estudiantes', [$studentController, 'registerStudent']);
-
-Flight::route('GET /profesores/registrar', [$teacherController, 'showRegisterForm']);
-Flight::route('POST /profesores', [$teacherController, 'registerTeacher']);
+Flight::route('GET /profesores/registrar', 'App\Controllers\TeacherController::showRegisterForm');
+Flight::route('POST /profesores', 'App\Controllers\TeacherController::registerTeacher');
 
 Flight::route('GET /areas/registrar', [$areaController, 'showRegisterForm']);
 Flight::route('POST /areas', [$areaController, 'registerArea']);
 
-Flight::route('GET /lapsos/registrar', [$lapseController, 'showRegisterForm']);
-Flight::route('POST /lapsos', [$lapseController, 'registerLapse']);
+Flight::route('GET /lapsos/registrar', 'App\Controllers\LapseController::showRegisterForm');
+Flight::route('POST /lapsos', 'App\Controllers\LapseController::registerLapse');
 
 Flight::route('GET /usuarios',  [$userController, 'showUsersList']);
 Flight::route('POST /usuarios', [$userController, 'registerUser']);
 
-Flight::route(
-	'GET /periodos',
-	[$periodController, 'showPeriods']
-);
-Flight::route(
-	'POST /periodos',
-	[$periodController, 'registerPeriod']
-);
-Flight::route(
-	'GET /periodos/registrar',
-	[$periodController, 'showPeriodRegister']
-);
+Flight::route('GET /periodos', 'App\Controllers\PeriodController::showPeriods');
+Flight::route('POST /periodos', 'App\Controllers\PeriodController::registerPeriod');
+Flight::route('GET /periodos/registrar', 'App\Controllers\PeriodController::showPeriodRegister');
 
-Flight::route('GET /configuracion', [$settingsController, 'showSettings']);
-Flight::route('GET /configuracion/respaldar', [$settingsController, 'backup']);
-Flight::route('GET /configuracion/restaurar', [$settingsController, 'restore']);
+Flight::route('GET /configuracion', 'App\Controllers\SettingsController::showSettings');
+Flight::route('GET /configuracion/respaldar', 'App\Controllers\SettingsController::backup');
+Flight::route('GET /configuracion/restaurar', 'App\Controllers\SettingsController::restore');

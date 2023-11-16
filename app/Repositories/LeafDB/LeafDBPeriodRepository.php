@@ -27,6 +27,18 @@ class LeafDBPeriodRepository extends LeafDBConnection implements Repository {
 		}
 	}
 
+	function getByID(int $id): ?Period {
+		assert(self::$db !== null);
+
+		$periodInfo = self::$db->select('periodos')->where('id', $id)->assoc();
+
+		if ($periodInfo === null) {
+			return null;
+		}
+
+		return $this->mapper($periodInfo);
+	}
+
 	function getAll(): array {
 		assert(self::$db !== null);
 

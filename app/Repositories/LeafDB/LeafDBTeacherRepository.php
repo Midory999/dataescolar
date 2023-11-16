@@ -4,22 +4,18 @@ namespace App\Repositories\LeafDB;
 
 use App\Core\Logger;
 use App\Models\Teacher;
-use App\Repositories\TeacherRepository;
+use App\Repositories\AreaRepository;
+use App\Repositories\TeacherRepository as TRepository;
 use PDOException;
+use App\Repositories\LeafDB\LeafDBConnection as Connection;
 
-class LeafDBTeacherRepository
-extends LeafDBConnection
-implements TeacherRepository {
-	private function getByCriteria(
-		string $criteria,
-		float|string $value
-	): ?Teacher {
+class LeafDBTeacherRepository extends Connection implements TRepository {
+	function __construct(private readonly AreaRepository $areaRepository) {}
+
+	private function getByCriteria(string $criteria, float|string $value): ?Teacher {
 		assert(self::$db !== null);
 
-		$teachereInfo = self::$db->select('Profesores')->where(
-			$criteria,
-			$value
-		)->assoc();
+		$teachereInfo = self::$db->select('Profesores')->where($criteria, $value)->assoc();
 
 		if ($teachereInfo === false) {
 			return null;
@@ -64,7 +60,8 @@ implements TeacherRepository {
 					'genero'  => $teacher->gender,
 					'vacunas' => $teacher->vaccines,
 					'carga_horaria'    => $teacher->socialPrograms,
-					'codigo_idependencia' => '' // WARNING: Añadir un campo para el código de independencia
+					'codigo_idependencia' => '', // WARNING: Añadir un campo para el código de independencia
+					'codigo_Area' => $teacher->area->code
 				])
 				->execute();
 
@@ -87,12 +84,13 @@ implements TeacherRepository {
 		$teacher->direction = $info['direccion'];
 		$teacher->email     = $info['correo'];
 		$teacher->phone     = $info['telefono'];
-		$teacher->income    = $info['ingreso'];
+		$teacher->income    = $info['fecha_ingreso'];
 		$teacher->birthDate = $info['fecha_nacimiento'];
 		$teacher->age       = $info['edad'];
 		$teacher->gender    = $info['genero'];
 		$teacher->vaccines  = $info['vacunas'];
 		$teacher->socialPrograms = $info['carga_horaria'];
+		$teacher->area = $this->areaRepository->getByCode($info['codigo_Area']);
 
 		return $teacher;
 	}

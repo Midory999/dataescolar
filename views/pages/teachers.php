@@ -1,5 +1,4 @@
 <?php
-
 /** @var App\Models\Teacher[] $teachers */
 /** @var string $root */
 ?>
@@ -8,9 +7,7 @@
 	<table class="table">
 		<caption class="table__caption">
 			<h2 class="table__title">Todos los profesores</h2>
-			<a href="<?= $root ?>/profesores/registrar">
-				Registrar
-			</a>
+			<a href="<?= $root ?>/profesores/registrar">Registrar</a>
 		</caption>
 		<thead>
 			<tr>
@@ -29,14 +26,14 @@
 				<th>Vacunas</th>
 				<th>Carga Horaria</th>
 				<th>Código de Independencia</th>
-				<th>Código de Área</th>
+				<th>Área</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php foreach ($teachers as $teacher) echo <<<HTML
 			<tr>
 				<td>{$teacher->names}</td>
-				<td>{$teacher->lastname}</td>
+				<td>{$teacher->lastnames}</td>
 				<td>{$teacher->idCard}</td>
 				<td>{$teacher->status}</td>
 				<td>{$teacher->specialty}</td>
@@ -49,6 +46,8 @@
 				<td>{$teacher->gender}</td>
 				<td>{$teacher->vaccines}</td>
 				<td>{$teacher->socialPrograms}</td>
+				<td></td>
+				<td>{$teacher->area->name}</td>
 				</tr>
 			HTML ?>
 		</tbody>

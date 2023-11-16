@@ -56,7 +56,7 @@ class Dependencies {
 	}
 
 	static function getTeacherRepository(): TeacherRepository {
-		return new LeafDBTeacherRepository;
+		return new LeafDBTeacherRepository(self::getAreaRepository());
 	}
 
 	static function getAreaRepository(): AreaRepository {

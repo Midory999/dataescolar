@@ -10,4 +10,5 @@ class Teacher extends Person {
 	public string $income;
 	public string $vaccines;
 	public string $socialPrograms;
+	public Area $area;
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Core\Logger;
+
 require 'vendor/autoload.php';
 
 try {
@@ -8,5 +10,6 @@ try {
 
 	Flight::start();
 } catch (Throwable $error) {
+	Logger::log($error->getMessage());
 	Flight::error($error);
 }

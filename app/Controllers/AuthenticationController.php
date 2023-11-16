@@ -5,8 +5,7 @@ namespace App\Controllers;
 use App\Core\{Dependencies, Session, UI, UUID};
 use App\Models\{Role, User};
 use Flight;
-use Leaf\Anchor;
-use Leaf\Form;
+use Leaf\{Anchor, Form};
 
 /**
  * Controlador de la autenticación de usuarios, controla las operaciones relacionadas
@@ -38,11 +37,8 @@ class AuthenticationController {
 		$post = Flight::request()->data->getData();
 		Anchor::sanitize($post);
 
-		$post = Form::validate([
-			'cedula' => $post['cedula'],
-			'clave' => $post['clave']
-		], [
-			'cedula' => 'number',
+		$post = Form::validate($post, [
+			'cedula' => 'required|number',
 			'clave' => 'required'
 		]);
 
@@ -53,15 +49,9 @@ class AuthenticationController {
 			return;
 		}
 
-		$user = Dependencies::getUserRepository()
-			->getByIDCard((int) @$post['cedula']);
+		$user = Dependencies::getUserRepository()->getByIDCard((int) @$post['cedula']);
 
-		if ($user === null) {
-			$denyAccess();
-			return;
-		}
-
-		if (!$user->isValidPassword($post['clave'])) {
+		if ($user === null || !$user->isValidPassword($post['clave'])) {
 			$denyAccess();
 			return;
 		}
@@ -88,9 +78,8 @@ class AuthenticationController {
 	}
 
 	function ensureIsAuthorized(): bool {
-		$userLogged = Dependencies::getUserRepository()->getByID(
-			new UUID(Session::get('userID'))
-		);
+		$userID = new UUID(Session::get('userID'));
+		$userLogged = Dependencies::getUserRepository()->getByID($userID);
 
 		if ($userLogged === null) {
 			Flight::redirect('/salir');
@@ -107,7 +96,7 @@ class AuthenticationController {
 
 	/** Obtiene la información del usuario que inició sesión */
 	static function getLoggedUser(): ?User {
-		$userID = Session::get('userID');
-		return Dependencies::getUserRepository()->getByID(new UUID($userID));
+		$userID = new UUID(Session::get('userID'));
+		return Dependencies::getUserRepository()->getByID($userID);
 	}
 }

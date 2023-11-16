@@ -10,8 +10,7 @@ use App\Core\UI;
  */
 class HomeController {
 	/** Muestra la página principal */
-	function showHome(): void {
-		UI::changeLayout(UI::APP_LAYOUT);
+	static function showHome(): void {
 		UI::render('home');
 	}
 }

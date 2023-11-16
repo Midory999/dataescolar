@@ -19,5 +19,6 @@ Content-Type: application/json
 	"edad": 22,
 	"genero": "masculino",
 	"vacunas": ["gripe"],
-	"carga_horaria": "no sé xD"
+	"carga_horaria": "no sé xD",
+	"id_area": 2
 }

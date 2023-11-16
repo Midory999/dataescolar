@@ -1,4 +1,5 @@
 <?php
+
 /** @var string $root */
 /** @var App\Models\User $user */
 ?>
@@ -45,7 +46,7 @@
 	</form>
 </article> -->
 <div class="cards">
-	<a href="<?= $root ?>/card" class="card">
+	<a href="<?= $root ?>/representantes" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card8.png" />
 			<figcaption>
@@ -54,7 +55,7 @@
 			</figcaption>
 		</figure>
 	</a>
-	<a href="#" class="card">
+	<a href="<?= $root ?>/niveles" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card10.png" />
 			<figcaption>
@@ -62,43 +63,43 @@
 				Niveles
 			</figcaption>
 		</figure>
-	<a href="#" class="areas">
-		<figure>
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card10.png" />
-			<figcaption>
-				<img src="<?= $assets ?>/images/flower3.png" />
-				Area de Aprendizaje
-			</figcaption>
-		</figure>
-	</a>
-	<a href="#" class="card">
-		<figure>
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card7.png" />
-			<figcaption>
-				<img src="<?= $assets ?>/images/flower3.png" />
-				Periodos
-			</figcaption>
-		</figure>
-	</a>
-		<a href="#" class="estudiantes">
-		<figure>
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card7.png" />
-			<figcaption>
-				<img src="<?= $assets ?>/images/flower3.png" />
-				Estudiantes
-			</figcaption>
-		</figure>
-	</a>
-	<a href="#" class="profesores">
-		<figure>
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card9.png" />
-			<figcaption>
-				<img src="<?= $assets ?>/images/flower3.png" />
-				Profesores
-			</figcaption>
-		</figure>
-	</a>
-	<a href="#" class="gastos">
+		<a href="<?= $root ?>/areas" class="card">
+			<figure>
+				<img class="card__image animated--zoom" src="<?= $assets ?>/images/card10.png" />
+				<figcaption>
+					<img src="<?= $assets ?>/images/flower3.png" />
+					Area de Aprendizaje
+				</figcaption>
+			</figure>
+		</a>
+		<a href="<?= $root ?>/periodos" class="card">
+			<figure>
+				<img class="card__image animated--zoom" src="<?= $assets ?>/images/card7.png" />
+				<figcaption>
+					<img src="<?= $assets ?>/images/flower3.png" />
+					Periodos
+				</figcaption>
+			</figure>
+		</a>
+		<a href="<?= $root ?>/estudiantes" class="card">
+			<figure>
+				<img class="card__image animated--zoom" src="<?= $assets ?>/images/card7.png" />
+				<figcaption>
+					<img src="<?= $assets ?>/images/flower3.png" />
+					Estudiantes
+				</figcaption>
+			</figure>
+		</a>
+		<a href="<?= $root ?>/profesores" class="card">
+			<figure>
+				<img class="card__image animated--zoom" src="<?= $assets ?>/images/card9.png" />
+				<figcaption>
+					<img src="<?= $assets ?>/images/flower3.png" />
+					Profesores
+				</figcaption>
+			</figure>
+		</a>
+		<!-- <a href="#" class="gastos">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card3.png" />
 			<figcaption>
@@ -106,8 +107,8 @@
 				Gastos
 			</figcaption>
 		</figure>
-	</a>
-	<a href="#" class="card">
+	</a> -->
+		<!-- <a href="#" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card4.png" />
 			<figcaption>
@@ -115,5 +116,5 @@
 				Plan para exámenes
 			</figcaption>
 		</figure>
-	</a>
+	</a> -->
 </div>
