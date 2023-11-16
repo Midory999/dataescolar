@@ -11,8 +11,7 @@
   <table>
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Código</th>
+        <th>Código de Nivel</th>
       </tr>
     </thead>
     <tbody id="level-list">

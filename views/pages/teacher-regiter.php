@@ -61,8 +61,15 @@
    <label for="codigo_independencia">Código de Independencia:</label>
 <input type="text" id="codigo_independencia" name="codigo_independencia" required><br>
 
-   <label for="codigo_area">Código de Área:</label>
-<input type="text" id="codigo_area" name="codigo_area" required><br>
+<label for="id_area">ID de Area:</label>
+	<select name="id_area" id="id_area">
+		<option selected disabled>Seleccionar</option>
+		<?php foreach ($areas as $area) echo <<<HTML
+		<option value="{$area->id}">
+			{$area->names} {$area->lastnames}
+		</option>
+		HTML ?>
+	</select>
 
 	 <button>Registrar</button>
 </form>

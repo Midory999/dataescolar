@@ -292,6 +292,91 @@ a {
 	background-image: url('../icons/check-square-o.svg');
 }
 
+[data-pushbar-id="sidebar"] {
+	background: rgba(255, 255, 255, 75%);
+	overflow-y: scroll;
+}
+
+.menu {
+	padding: 1em 0;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+.menu__link:last-child {
+	margin-bottom: 100px;
+}
+
+.menu__text {
+	padding: 1em;
+	font-weight: bold;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	position: relative;
+	transition: 250ms border-color, 250ms background-color;
+	box-sizing: border-box;
+}
+
+.menu__text::after {
+	content: url('../icons/chevron-right.svg');
+	width: 10px;
+	position: absolute;
+	right: 5%;
+	top: calc(50% - .5em);
+	transition: 250ms transform;
+}
+
+.menu__text--no-arrow::after {
+	display: none;
+}
+
+.menu__submenu {
+	padding: 0;
+	height: 0;
+	box-sizing: border-box;
+	transition: 250ms height, 250ms padding-top, 250ms padding-bottom;
+	overflow: hidden;
+	font-weight: bold;
+}
+
+.menu__submenu-item {
+	display: block;
+	cursor: pointer;
+}
+
+.menu__submenu-item > a {
+	display: flex;
+	padding: .5em 0;
+	border-top: medium solid transparent;
+	border-bottom: medium solid transparent;
+	transition: 250ms border-color;
+}
+
+.menu__submenu-item > a:hover {
+	border-bottom-color: #FBB5BD;
+}
+
+details[open] > .menu__submenu {
+	padding: .75em 1em .75em 1.5em;
+	height: auto;
+	box-sizing: border-box;
+}
+
+details[open] > summary::after {
+	transform: rotate(90deg);
+}
+
+details[open] > .menu__text,
+.menu__link:hover > .menu__text {
+	background: #FBB5BD;
+}
+
+details[open] {
+	background: #fde1e4;
+}
+
 @media (max-width: 410px) {
 	.main {
 		grid-template-columns: 1fr;

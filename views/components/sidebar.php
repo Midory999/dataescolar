@@ -49,6 +49,16 @@ if ($user->isAdmin()) {
 
 <aside data-pushbar-id="sidebar" data-pushbar-direction="left" class="pushbar">
 	<ul class="menu">
+	</details>
+		<details class="menu__link">
+			<summary class="menu__text">Usuarios</summary>
+			<ul class="menu__submenu">
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/usuarios">Listado</a>
+				</li>
+				<?= $links['users']['register'] ?? '' ?>
+			</ul>
+		</details>
 		<details class="menu__link">
 			<summary class="menu__text">Representantes</summary>
 			<ul class="menu__submenu">
@@ -63,6 +73,33 @@ if ($user->isAdmin()) {
 			</ul>
 		</details>
 		<details class="menu__link">
+			<summary class="menu__text">Niveles</summary>
+			<ul class="menu__submenu">
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/niveles">Listado</a>
+				</li>
+				<?= $links['level']['register'] ?? '' ?>
+			</ul>
+		</details>
+		<details class="menu__link">
+			<summary class="menu__text">Areas</summary>
+			<ul class="menu__submenu">
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/areas">Listado</a>
+				</li>
+				<?= $links['area']['register'] ?? '' ?>
+			</ul>
+		</details>
+		<details class="menu__link">
+			<summary class="menu__text">Periodos</summary>
+			<ul class="menu__submenu">
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/periodos">Listado</a>
+				</li>
+				<?= $links['period']['register'] ?? '' ?>
+			</ul>
+		</details>
+		<details class="menu__link">
 			<summary class="menu__text">Estudiantes</summary>
 			<ul class="menu__submenu">
 				<li class="menu__submenu-item">
@@ -71,8 +108,41 @@ if ($user->isAdmin()) {
 				<?= $links['student']['register'] ?? '' ?>
 			</ul>
 		</details>
-		<?= $links['users'] ?? '' ?>
-		<?= $links['periods'] ?? '' ?>
-		<?= $links['config'] ?? '' ?>
+		<details class="menu__link">
+			<summary class="menu__text">Profesores</summary>
+			<ul class="menu__submenu">
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/profesores">Listado</a>
+				</li>
+				<?= $links['teacher']['register'] ?? '' ?>
+			</ul>
+		</details>
+		<details class="menu__link">
+			<summary class="menu__text">Aulas</summary>
+			<ul class="menu__submenu">
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/aulas">Listado</a>
+				</li>
+				<?= $links['classroom']['register'] ?? '' ?>
+			</ul>
+		</details>
+		<details class="menu__link">
+			<summary class="menu__text">Informes</summary>
+			<ul class="menu__submenu">
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/informes">Listado</a>
+				</li>
+				<?= $links['report']['register'] ?? '' ?>
+			</ul>
+		</details>
+		<details class="menu__link">
+			<summary class="menu__text">Configuraciones</summary>
+			<ul class="menu__submenu">
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/configuraciones">Respaldo y Restauración</a>
+				</li>
+				<?= $links['config']['config'] ?? '' ?>
+			</ul>
+		</details>
 	</ul>
 </aside>

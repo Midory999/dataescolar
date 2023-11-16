@@ -11,7 +11,6 @@
   <table>
     <thead>
       <tr>
-        <th>ID</th>
         <th>Cédula</th>
         <th>Nombre</th>
         <th>Apellido</th>
@@ -30,7 +29,12 @@
         <th>Código de Área</th>
       </tr>
     </thead>
-    <tbody id="teacher-list">
-      <!-- Aquí se mostrarán los estudiantes -->
-    </tbody>
-  </table>
+    <tbody>
+		<?php foreach ($areas as $area) echo <<<HTML
+		<tr>
+			<td>{$area->areaCode}</td>
+			<td>{$area->names}</td>
+			</tr>
+		HTML ?>
+	</tbody>
+</table>

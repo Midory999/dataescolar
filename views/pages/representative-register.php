@@ -25,13 +25,13 @@
 	<label for="direccion">Dirección:</label>
 	<textarea id="direccion" name="direccion" required></textarea>
 
-	<label for="correo">Correo:</label>
+	<label for="correo">Correo Electrónico:</label>
 	<input type="email" id="correo" name="correo" required>
 
 	<label for="telefono">Teléfono:</label>
 	<input type="tel" id="telefono" name="telefono" required>
 
-	<label for="estudio">Estudio:</label>
+	<label for="estudio">Nivel de Instrución:</label>
 	<select id="estudio" name="estudio" required>
 		<option selected disabled>Seleccionar</option>
 		<option value="primaria">Primaria</option>
@@ -44,20 +44,28 @@
 	<label for="tipo_sangre">Tipo de Sangre:</label>
 	<select id="tipo_sangre" name="tipo_sangre" required>
 		<option selected disabled>Seleccionar</option>
+		<option value="AB+">AB+</option>
+		<option value="AB-">AB-</option>
 		<option value="A+">A+</option>
 		<option value="A-">A-</option>
 		<option value="B+">B+</option>
 		<option value="B-">B-</option>
 		<option value="O+">O+</option>
 		<option value="O-">O-</option>
-		<option value="AB+">AB+</option>
-		<option value="AB-">AB-</option>
+	</select>
 
 	<label for="ocupacion">Ocupación:</label>
 	<input id="ocupacion" name="ocupacion" required>
 
 	<label for="lugar_trabajo">Lugar de Trabajo:</label>
 	<input id="lugar_trabajo" name="lugar_trabajo" required>
+
+	<label for="estudio_economico">Estudio Socioeconómico:</label>
+	<select id="estudio_economico" name="estudio_economico" required>
+		<option selected disabled>Seleccionar</option>
+		<option value="bajos_recursos">Bajos Recursos</option>
+		<option value="normal">Normal</option>
+	</select>
 
 	<button>Registrar</button>
 </form>
