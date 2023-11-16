@@ -11,5 +11,4 @@
 		</svg>
 	</button>
 	<a class="nav__link" href="<?= $root ?>/salir">Cerrar Sesión</a>
-	<hr class="nav__border" />
 </nav>

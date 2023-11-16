@@ -109,6 +109,14 @@ a {
 	transform: scale(1.05) rotate(-.5deg);
 }
 
+.header__separator {
+	border: 0;
+	height: 2em;
+	background: url('../images/flower2.png');
+	background-size: contain;
+	margin: 0;
+}
+
 .main {
 	grid-area: main;
 	display: grid;
@@ -160,13 +168,6 @@ a {
 .nav__link svg {
 	width: 1em;
 	height: 1em;
-}
-
-.nav__border {
-	height: 2em;
-	border: none;
-	background-image: url('../images/flower2.png');
-	background-size: contain;
 }
 
 .card {
@@ -302,10 +303,6 @@ a {
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-select: none;
-}
-
-.menu__link:last-child {
-	margin-bottom: 100px;
 }
 
 .menu__text {

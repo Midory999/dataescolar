@@ -27,6 +27,7 @@
 			<img src="<?= $assets ?>/images/flower1.png" width="75" height="75" />
 			<h1 class="header__title"><?= $school->name ?></h1>
 			<?php include __DIR__ . '/components/navigation.php' ?>
+			<hr class="header__separator" />
 		</header>
 		<main class="main">
 			<?= $content ?>
