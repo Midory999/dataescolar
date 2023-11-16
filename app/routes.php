@@ -9,6 +9,7 @@ use App\Controllers\{
   StudentController,
   TeacherController,
 	AreaController,
+	LapseController,
   UserController
 };
 
@@ -21,6 +22,7 @@ $representativeController = new RepresentativeController;
 $studentController = new StudentController;
 $teacherController = new TeacherController;
 $areaController = new AreaController;
+$lapseController = new LapseController;
 
 ////////////////////
 // RUTAS PÚBLICAS //
@@ -61,6 +63,8 @@ Flight::route('GET /profesores', [$teacherController, 'showTeachers']);
 
 Flight::route('GET /areas', [$areaController, 'showAreas']);
 
+Flight::route('GET /lapsos', [$lapseController, 'showLapses']);
+
 ///////////////////////////////////////////////
 // RUTAS PROTEGIDAS + SÓLO ACCESO AUTORIZADO //
 ///////////////////////////////////////////////
@@ -84,6 +88,9 @@ Flight::route('POST /profesores', [$teacherController, 'registerTeacher']);
 
 Flight::route('GET /areas/registrar', [$areaController, 'showRegisterForm']);
 Flight::route('POST /areas', [$areaController, 'registerArea']);
+
+Flight::route('GET /lapsos/registrar', [$lapseController, 'showRegisterForm']);
+Flight::route('POST /lapsos', [$lapseController, 'registerLapse']);
 
 Flight::route('GET /usuarios',  [$userController, 'showUsersList']);
 Flight::route('POST /usuarios', [$userController, 'registerUser']);
