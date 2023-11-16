@@ -29,11 +29,11 @@ class RepresentativeController {
 		$representative->direction = $representativeInfo['direccion'];
 		$representative->email = $representativeInfo['correo'];
 		$representative->phone = $representativeInfo['telefono'];
-		$representative->studies = $representativeInfo['estudio'];
+		$representative->level_Instruction = $representativeInfo['level_Instruction'];
 		$representative->bloodType = $representativeInfo['tipo_sangre'];
 		$representative->ocupation = $representativeInfo['ocupacion'];
 		$representative->jobPlace = $representativeInfo['lugar_trabajo'];
-
+		$representative->studies = $representativeInfo['estudio'];
 		Dependencies::getRepresentativeRepository()->save($representative);
 
 		Flight::redirect('/representantes');
