@@ -11,8 +11,7 @@
   <table>
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Código</th>
+        <th>Código de Area</th>
       </tr>
     </thead>
     <tbody id="area-list">

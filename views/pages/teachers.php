@@ -11,7 +11,6 @@
   <table>
     <thead>
       <tr>
-        <th>ID</th>
         <th>Cédula</th>
         <th>Nombre</th>
         <th>Apellido</th>
@@ -30,7 +29,24 @@
         <th>Código de Área</th>
       </tr>
     </thead>
-    <tbody id="teacher-list">
-      <!-- Aquí se mostrarán los estudiantes -->
-    </tbody>
-  </table>
+    <tbody>
+		<?php foreach ($teachers as $teacher) echo <<<HTML
+		<tr>
+			<td>{$teacher->names}</td>
+			<td>{$teacher->lastname}</td>
+			<td>{$teacher->idCard}</td>
+			<td>{$teacher->status}</td>
+			<td>{$teacher->specialty}</td>
+			<td>{$teacher->direction}</td>
+			<td>{$teacher->email}</td>
+			<td>{$teacher->phone}</td>
+			<td>{$teacher->income}</td>
+			<td>{$teacher->birthDate}</td>
+			<td>{$teacher->age}</td>
+			<td>{$teacher->gender}</td>
+			<td>{$teacher->vaccines}</td>
+			<td>{$teacher->socialPrograms}</td>
+			</tr>
+		HTML ?>
+	</tbody>
+</table>

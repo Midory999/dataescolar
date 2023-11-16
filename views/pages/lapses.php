@@ -4,21 +4,24 @@
 	/** @var string $root */
 ?>
 
-<h2>Lapse</h2>
+<h2>Lapso</h2>
 <a href="<?= $root ?>/lapsos/registrar">
 	<button>Añadir</button>
 	</a>
   <table>
     <thead>
       <tr>
-        <th>ID</th>
-        <th>ID Periodo</th>
-        <th>Inicio</th>
-        <th>Fin</th>
+        <th>Fecha de Inicio</th>
+        <th>Fecha de Fin</th>
         <th>Nombre</th>
       </tr>
     </thead>
-    <tbody id="lapse-list">
-      <!-- Aquí se mostrarán los estudiantes -->
-    </tbody>
-  </table>
+    <tbody>
+		<?php foreach ($periods as $period) echo <<<HTML
+			<tr>
+			<td>{$period->idCard}</td>
+			<td>{$period->periodDate}</td>
+				</tr>
+		HTML ?>
+	</tbody>
+</table>

@@ -8,8 +8,8 @@
 	 <label for="id">ID:</label>
 <input type="text" id="id" name="id" required><br>
 
-   <label for="codigo">Código:</label>
-<input type="text" id="codigo" name="codigo" required><br>
+   <label for="codigo_nivel">Código de Nivel:</label>
+<input type="text" id="codigo_nive" name="codigo_nivel" required><br>
 
    <button>Registrar</button>
 </form>

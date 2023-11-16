@@ -47,23 +47,58 @@
 <div class="cards">
 	<a href="<?= $root ?>/representantes" class="card">
 		<figure>
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card1.png" />
+			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card8.png" />
 			<figcaption>
 				<img src="<?= $assets ?>/images/flower3.png" />
 				Representantes
 			</figcaption>
 		</figure>
 	</a>
-	<a href="#" class="card">
+	<a href="#" class="niveles">
 		<figure>
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card2.png" />
+			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card10.png" />
 			<figcaption>
 				<img src="<?= $assets ?>/images/flower3.png" />
-				Materias
+				Niveles
+			</figcaption>
+		</figure>
+	<a href="#" class="areas">
+		<figure>
+			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card10.png" />
+			<figcaption>
+				<img src="<?= $assets ?>/images/flower3.png" />
+				Area de Aprendizaje
 			</figcaption>
 		</figure>
 	</a>
-	<a href="#" class="card">
+	<a href="#" class="periodos">
+		<figure>
+			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card7.png" />
+			<figcaption>
+				<img src="<?= $assets ?>/images/flower3.png" />
+				Periodos
+			</figcaption>
+		</figure>
+	</a>
+		<a href="#" class="estudiantes">
+		<figure>
+			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card7.png" />
+			<figcaption>
+				<img src="<?= $assets ?>/images/flower3.png" />
+				Estudiantes
+			</figcaption>
+		</figure>
+	</a>
+	<a href="#" class="profesores">
+		<figure>
+			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card9.png" />
+			<figcaption>
+				<img src="<?= $assets ?>/images/flower3.png" />
+				Profesores
+			</figcaption>
+		</figure>
+	</a>
+	<a href="#" class="gastos">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card3.png" />
 			<figcaption>

@@ -73,6 +73,24 @@ if ($user->isAdmin()) {
 			</ul>
 		</details>
 		<details class="menu__link">
+			<summary class="menu__text">Niveles</summary>
+			<ul class="menu__submenu">
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/niveles">Listado</a>
+				</li>
+				<?= $links['level']['register'] ?? '' ?>
+			</ul>
+		</details>
+		<details class="menu__link">
+			<summary class="menu__text">Areas</summary>
+			<ul class="menu__submenu">
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/areas">Listado</a>
+				</li>
+				<?= $links['area']['register'] ?? '' ?>
+			</ul>
+		</details>
+		<details class="menu__link">
 			<summary class="menu__text">Periodos</summary>
 			<ul class="menu__submenu">
 				<li class="menu__submenu-item">
@@ -121,7 +139,7 @@ if ($user->isAdmin()) {
 			<summary class="menu__text">Configuraciones</summary>
 			<ul class="menu__submenu">
 				<li class="menu__submenu-item">
-					<a class="menu__submenu-text" href="<?= $root ?>/configuraciones">Respaldo y Restauración</a>
+					<a class="menu__submenu-text" href="<?= $root ?>/configuracion">Respaldo y Restauración</a>
 				</li>
 				<?= $links['config']['config'] ?? '' ?>
 			</ul>
