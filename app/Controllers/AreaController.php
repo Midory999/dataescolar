@@ -15,7 +15,7 @@ class AreaController {
 	}
 
 	function showRegisterForm(): void {
-		$areas = Dependencies::getRepresentativeRepository()->getAll();
+		$areas = Dependencies::getAreaRepository()->getAll();
 
 		UI::render('area-register', compact('areas'));
 	}

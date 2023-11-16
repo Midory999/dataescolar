@@ -66,6 +66,7 @@ implements AreaRepository {
 		$area = new Area;
 		$area->id        = $info['id'];
 		$area->name      = $info['nombres'];
+		$area->name      = $info['codigo'];
 
 		return $area;
 	}
