@@ -1,20 +1,20 @@
 <?php
-	/** @var string $root */
-	/** @var App\Models\User $user */
+/** @var string $root */
+/** @var App\Models\User $user */
 ?>
 
-<a href="#" class="card">
+<!-- <a href="#" class="card">
 	<div class="card__image card__image--h100">
 		<?php include __DIR__ . '/../components/clock.php' ?>
 	</div>
-</a>
-<a href="#" class="card">
+</a> -->
+<!-- <a href="#" class="card">
 	<img class="card__image animated--zoom" src="<?= $assets ?>/images/card6.png" />
-</a>
-<a href="#" class="card">
+</a> -->
+<!-- <a href="#" class="card">
 	<img class="card__image animated--zoom" src="<?= $assets ?>/images/card6.png" />
-</a>
-<article class="card card--2y">
+</a> -->
+<!-- <article class="card card--2y">
 	<img class="card__image animated--zoom" src="<?= $assets ?>/images/card5.png" />
 	<form action="#" class="checkboxes">
 		<label>
@@ -43,7 +43,7 @@
 			Tarea n
 		</label>
 	</form>
-</article>
+</article> -->
 <div class="cards">
 	<a href="<?= $root ?>/representantes" class="card">
 		<figure>
@@ -54,7 +54,7 @@
 			</figcaption>
 		</figure>
 	</a>
-	<a href="#" class="niveles">
+	<a href="#" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card10.png" />
 			<figcaption>
@@ -62,7 +62,8 @@
 				Niveles
 			</figcaption>
 		</figure>
-	<a href="#" class="areas">
+	</a>
+	<a href="#" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card10.png" />
 			<figcaption>
@@ -71,7 +72,7 @@
 			</figcaption>
 		</figure>
 	</a>
-	<a href="#" class="periodos">
+	<a href="#" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card7.png" />
 			<figcaption>
@@ -80,7 +81,7 @@
 			</figcaption>
 		</figure>
 	</a>
-		<a href="#" class="estudiantes">
+	<a href="#" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card7.png" />
 			<figcaption>
@@ -89,30 +90,12 @@
 			</figcaption>
 		</figure>
 	</a>
-	<a href="#" class="profesores">
+	<a href="<?= $root ?>/profesores" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card9.png" />
 			<figcaption>
 				<img src="<?= $assets ?>/images/flower3.png" />
 				Profesores
-			</figcaption>
-		</figure>
-	</a>
-	<a href="#" class="gastos">
-		<figure>
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card3.png" />
-			<figcaption>
-				<img src="<?= $assets ?>/images/flower3.png" />
-				Gastos
-			</figcaption>
-		</figure>
-	</a>
-	<a href="#" class="card">
-		<figure>
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card4.png" />
-			<figcaption>
-				<img src="<?= $assets ?>/images/flower3.png" />
-				Plan para exámenes
 			</figcaption>
 		</figure>
 	</a>

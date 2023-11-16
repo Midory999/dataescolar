@@ -15,9 +15,9 @@ class TeacherController {
 	}
 
 	function showRegisterForm(): void {
-		$teachers = Dependencies::getRepresentativeRepository()->getAll();
+		$areas = Dependencies::getAreaRepository()->getAll();
 
-		UI::render('teacher-register', compact('teachers'));
+		UI::render('teacher-register', compact('areas'));
 	}
 
 	function registerTeacher(): void {
@@ -37,7 +37,7 @@ class TeacherController {
 		$teacher->birthDate = $teacherInfo['fecha_nacimiento'];
 		$teacher->age = $teacherInfo['edad'];
 		$teacher->gender = $teacherInfo['genero'];
-		$teacher->vaccines = $teacherInfo['vacunas'];
+		$teacher->vaccines = join(',', $teacherInfo['vacunas']);
 		$teacher->socialPrograms = $teacherInfo['carga_horaria'];
 
 		Dependencies::getTeacherRepository()->save($teacher);
