@@ -53,7 +53,7 @@
 	</select>
 
 	<label id="vacunas">Selecciona las vacunas:</label>
-	<select name="vacunas" id="vacunas" multiple>
+	<select name="vacunas[]" id="vacunas" multiple>
 		<option value="hepatitis_b">Hepatitis B</option>
 		<option value="covid_19">COVID-19</option>
 		<option value="gripe">Gripe</option>

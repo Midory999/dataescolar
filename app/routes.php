@@ -46,6 +46,9 @@ Flight::route('GET /estudiantes', 'App\Controllers\StudentController::showStuden
 Flight::route('GET /profesores', 'App\Controllers\TeacherController::showTeachers');
 Flight::route('GET /areas', [$areaController, 'showAreas']);
 Flight::route('GET /lapsos', 'App\Controllers\LapseController::showLapses');
+Flight::route('GET /niveles', function () {
+	echo 'MOSTRAR LOS NIVELES';
+});
 
 ///////////////////////////////////////////////
 // RUTAS PROTEGIDAS + SÓLO ACCESO AUTORIZADO //

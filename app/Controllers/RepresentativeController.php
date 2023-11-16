@@ -28,7 +28,6 @@ class RepresentativeController {
 		$representative->direction = $representativeInfo['direccion'];
 		$representative->email = $representativeInfo['correo'];
 		$representative->phone = $representativeInfo['telefono'];
-		$representative->level_Instruction = $representativeInfo['level_Instruction'];
 		$representative->bloodType = $representativeInfo['tipo_sangre'];
 		$representative->ocupation = $representativeInfo['ocupacion'];
 		$representative->jobPlace = $representativeInfo['lugar_trabajo'];

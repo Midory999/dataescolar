@@ -39,7 +39,7 @@ class StudentController {
 		$student->bloodType = $info['tipo_sangre'];
 		$student->gender = $info['genero'];
 		$student->direction = $info['direccion'];
-		$student->measurements = $info['medidas'];
+		$student->measurements = "{$info['pregunta1']},{$info['pregunta2']},{$info['pregunta3']},{$info['pregunta4']},{$info['pregunta5']},{$info['pregunta6']}";
 		$student->vaccines = $info['vacunas'];
 		$student->socialPrograms = $info['programas_sociales'];
 		$student->admission = $info['ingreso'];

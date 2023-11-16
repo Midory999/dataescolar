@@ -42,7 +42,7 @@ class LeafDBPeriodRepository extends LeafDBConnection implements Repository {
 	function getAll(): array {
 		assert(self::$db !== null);
 
-		$periods = self::$db->select('periodos')->all();
+		$periods = self::$db->select('periodos')->orderBy('inicio')->all();
 		return array_map([$this, 'mapper'], $periods);
 	}
 
