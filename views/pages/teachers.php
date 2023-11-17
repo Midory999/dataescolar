@@ -1,9 +1,10 @@
 <?php
 /** @var App\Models\Teacher[] $teachers */
 /** @var string $root */
+/** @var null|string $message */
 ?>
 
-<section class="wrapper">
+< class="wrapper">
 	<table class="table">
 		<caption class="table__caption">
 			<h2 class="table__title">Todos los profesores</h2>
@@ -52,4 +53,13 @@
 			HTML ?>
 		</tbody>
 	</table>
-</section>
+
+<?php
+	if ($message !== null) {
+		echo <<<HTML
+		<script>
+			alert(`$message`)
+		</script>
+		HTML;
+	}
+?>

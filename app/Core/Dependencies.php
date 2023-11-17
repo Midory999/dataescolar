@@ -11,6 +11,7 @@ use App\Repositories\LeafDB\{
 	LeafDBSettingRepository,
 	LeafDBStudentRepository,
 	LeafDBTeacherRepository,
+	LeafDBClassroomRepository,
 	LeafDBUserRepository
 };
 use App\Repositories\{
@@ -21,6 +22,7 @@ use App\Repositories\{
 	SettingRepository,
 	StudentRepository,
 	TeacherRepository,
+	ClassroomRepository,
 	UserRepository
 };
 
@@ -42,6 +44,10 @@ class Dependencies {
 
 	static function getLapseRepository(): LapseRepository {
 		return new LeafDBLapseRepository(self::getPeriodRepository());
+	}
+
+	static function getClassroomRepository(): ClassroomRepository {
+		return new LeafDBClassroomRepository(self::getTeacherRepository());
 	}
 	static function getSettingRepository(): SettingRepository {
 		return new LeafDBSettingRepository;

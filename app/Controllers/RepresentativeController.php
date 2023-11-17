@@ -31,7 +31,7 @@ class RepresentativeController {
 		$representative->bloodType = $representativeInfo['tipo_sangre'];
 		$representative->ocupation = $representativeInfo['ocupacion'];
 		$representative->jobPlace = $representativeInfo['lugar_trabajo'];
-		$representative->studies = $representativeInfo['estudio'];
+		$representative->studies = $representativeInfo['estudio_economico'];
 		Dependencies::getRepresentativeRepository()->save($representative);
 
 		Flight::redirect('/representantes');

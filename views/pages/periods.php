@@ -2,6 +2,7 @@
 	use App\Models\Period;
 	/** @var Period[] $periods */
 	/** @var string $root */
+	/** @var null|string $message */
 ?>
 
 <h2>Periodos</h2>
@@ -24,3 +25,13 @@
 		HTML ?>
 	</tbody>
 </table>
+
+<?php
+	if ($message !== null) {
+		echo <<<HTML
+		<script>
+			alert(`$message`)
+		</script>
+		HTML;
+	}
+?>

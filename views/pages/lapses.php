@@ -2,6 +2,7 @@
 
 /** @var App\Models\Lapse[] $lapses */
 /** @var string $root */
+/** @var null|string $message */
 ?>
 
 <h2>Lapso</h2>
@@ -28,3 +29,13 @@
 		HTML ?>
 	</tbody>
 </table>
+
+<?php
+	if ($message !== null) {
+		echo <<<HTML
+		<script>
+			alert(`$message`)
+		</script>
+		HTML;
+	}
+?>

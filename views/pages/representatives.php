@@ -1,6 +1,7 @@
 <?php
 /** @var App\Models\Representative[] $representatives */
 /** @var string $root */
+	/** @var null|string $message */
 ?>
 
 <h2>Representantes</h2>
@@ -41,3 +42,13 @@
 HTML  ?>
 </tbody>
 </table>
+
+<?php
+	if ($message !== null) {
+		echo <<<HTML
+		<script>
+			alert(`$message`)
+		</script>
+		HTML;
+	}
+?>

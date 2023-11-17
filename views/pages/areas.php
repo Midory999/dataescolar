@@ -2,6 +2,7 @@
 
 /** @var App\Models\Area[] $area */
 /** @var string $root */
+/** @var null|string $message */
 ?>
 
 <article>
@@ -21,3 +22,13 @@
 		</tbody>
 	</table>
 </article>
+
+<?php
+	if ($message !== null) {
+		echo <<<HTML
+		<script>
+			alert(`$message`)
+		</script>
+		HTML;
+	}
+?>

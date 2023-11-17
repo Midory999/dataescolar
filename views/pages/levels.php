@@ -18,3 +18,13 @@
       <!-- Aquí se mostrarán los estudiantes -->
     </tbody>
   </table>
+
+	<?php
+	if ($message !== null) {
+		echo <<<HTML
+		<script>
+			alert(`$message`)
+		</script>
+		HTML;
+	}
+?>

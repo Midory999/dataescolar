@@ -46,6 +46,7 @@ Flight::route('GET /estudiantes', 'App\Controllers\StudentController::showStuden
 Flight::route('GET /profesores', 'App\Controllers\TeacherController::showTeachers');
 Flight::route('GET /areas', [$areaController, 'showAreas']);
 Flight::route('GET /lapsos', 'App\Controllers\LapseController::showLapses');
+Flight::route('GET /aulas', 'App\Controllers\ClassroomController::showClassrooms');
 Flight::route('GET /niveles', function () {
 	echo 'MOSTRAR LOS NIVELES';
 });
@@ -69,6 +70,9 @@ Flight::route('POST /areas', [$areaController, 'registerArea']);
 
 Flight::route('GET /lapsos/registrar', 'App\Controllers\LapseController::showRegisterForm');
 Flight::route('POST /lapsos', 'App\Controllers\LapseController::registerLapse');
+
+Flight::route('GET /aulas/registrar', 'App\Controllers\ClassroomController::showRegisterForm');
+Flight::route('POST /aulas', 'App\Controllers\ClassroomController::registerClassroom');
 
 Flight::route('GET /usuarios',  [$userController, 'showUsersList']);
 Flight::route('POST /usuarios', [$userController, 'registerUser']);
