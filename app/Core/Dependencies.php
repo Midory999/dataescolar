@@ -12,6 +12,7 @@ use App\Repositories\LeafDB\{
 	LeafDBStudentRepository,
 	LeafDBTeacherRepository,
 	LeafDBClassroomRepository,
+	LeafDBLevelRepository,
 	LeafDBUserRepository
 };
 use App\Repositories\{
@@ -23,6 +24,7 @@ use App\Repositories\{
 	StudentRepository,
 	TeacherRepository,
 	ClassroomRepository,
+	LevelRepository,
 	UserRepository
 };
 
@@ -67,6 +69,11 @@ class Dependencies {
 
 	static function getAreaRepository(): AreaRepository {
 		return new LeafDBAreaRepository;
+	}
+
+	static function getLevelRepository(): LevelRepository {
+		return new LeafDBLevelRepository;
+
 	}
 
 }

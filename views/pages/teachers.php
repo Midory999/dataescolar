@@ -53,13 +53,3 @@
 			HTML ?>
 		</tbody>
 	</table>
-
-<?php
-	if ($message !== null) {
-		echo <<<HTML
-		<script>
-			alert(`$message`)
-		</script>
-		HTML;
-	}
-?>
