@@ -24,7 +24,6 @@ class LevelController {
 
 		$level = new Level;
 		$level->code = $levelInfo['codigo'];
-		$level->name = $levelInfo['nombre'];
 
 		Dependencies::getLevelRepository()->save($level);
 		Flight::redirect('/niveles');

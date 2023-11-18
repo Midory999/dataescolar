@@ -19,7 +19,7 @@
 		<tbody>
 			<?php foreach ($levels as $level) echo <<<HTML
 			<tr>
-				<td>{$level->name}</td>
+				<td>{$level->code}</td>
 			HTML ?>
 		</tbody>
 		</tbody>

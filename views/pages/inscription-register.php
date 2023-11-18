@@ -4,7 +4,7 @@
 ?>
 
 <form action="<?= $root ?>/inscripciones" method="post">
-	<h1>Registro de inscripcione</h1>
+	<h1>Registro de Inscripcione</h1>
 
 	<label for="id_estudiante">Estudiante:</label>
 	<select name="id_estudiante" id="id_estudiante">
@@ -16,18 +16,25 @@
 		HTML ?>
 	</select>
 
+	<label for="id_nivel">Nivel:</label>
+	<select name="id_nivel" id="id_nivel">
+		<option selected disabled>Seleccionar</option>
+		<?php foreach ($levels as $level) echo <<<HTML
+		<option value="{$level->id}">
+			{$level->id} - {$level->code}
+		</option>
+		HTML ?>
+	</select>
+
 	<label for="id_periodo">Periodo:</label>
 	<select name="id_periodo" id="id_periodo">
 		<option selected disabled>Seleccionar</option>
 		<?php foreach ($periods as $period) echo <<<HTML
 		<option value="{$period->id}">
-			{$period->id} - {$period->startYear}
+			{$period->getID} - {$period->startYear}
 		</option>
 		HTML ?>
 	</select>
-
-	<label for="id_nivel">Nivel:</label>
-	<input type="text" id="id_nivel" name="id_nivel" required><br>
 
 	<button>Registrar</button>
 </form>

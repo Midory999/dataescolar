@@ -4,41 +4,33 @@ namespace App\Repositories\LeafDB;
 
 use App\Core\Logger;
 use App\Models\Level;
-use App\Repositories\LevelRepository as Repository;
-use App\Repositories\LeafDB\LeafDBConnection as Connection;
+use App\Repositories\LevelRepository;
 use PDOException;
 
-class LeafDBLevelRepository extends Connection implements Repository {
-	private function getByCriteria(string $criteria, float|string $value): ?Level {
-		assert(self::$db !== null);
-
-		$levelInfo = self::$db->select('Niveles')->where($criteria, $value)->assoc();
-
-		if ($levelInfo === false) {
-			return null;
-		}
-
-		return $this->mapper($levelInfo);
-	}
-
+class LeafDBLevelRepository
+extends LeafDBConnection
+implements LevelRepository {
 	function getAll(): array {
-		assert(self::$db !== null);
-
-		$levels = self::$db->select('niveles')->all();
+		$levels = self::db()->select('niveles')->all();
 		return array_map([$this, 'mapper'], $levels);
 	}
 
-	function getByCode(int $code): ?Level {
-		return $this->getByCriteria('codigo', $code);
+	function getByCode(int $id): ?Level {
+		return $this->getByCriteria('codigo', $id);
+	}
+
+	function getByID(int $id): ?Level {
+		return $this->getByCriteria('id', $id);
 	}
 
 	function save(Level $level): bool {
-		assert(self::$db !== null);
-
 		try {
-			self::$db
+			self::db()
 				->insert('Niveles')
-				->params(['nombre' => $level->name, 'codigo' => $level->code])
+				->params([
+					'codigo'   => $level->code,
+
+				])
 				->execute();
 
 			return true;
@@ -48,9 +40,29 @@ class LeafDBLevelRepository extends Connection implements Repository {
 		}
 	}
 
-	/** @param array<string, string> $info */
-	private function mapper(array $info): Level {
-		$level = Level::create($info['codigo'], $info['nombre']);
+	private function getByCriteria(
+		string $criteria,
+		float|string $value
+	): ?Level {
+		assert(self::$db !== null);
+
+		$levelInfo = self::db()->select('Niveles')->where(
+			$criteria,
+			$value
+		)->assoc();
+
+		if ($levelInfo === false) {
+			return null;
+		}
+
+		return $this->mapper($levelInfo);
+	}
+
+	private function mapper(array $levelInfo): Level {
+		$level            = new Level;
+		$level->id        = $levelInfo['id'];
+		$level->code      = $levelInfo['codigo'];
+
 		return $level;
 	}
 }

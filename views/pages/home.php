@@ -46,6 +46,15 @@
 	</form>
 </article> -->
 <div class="cards">
+	<a href="<?= $root ?>/inscripciones" class="card">
+		<figure>
+			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card8.png" />
+			<figcaption>
+				<img src="<?= $assets ?>/images/flower3.png" />
+				Inscripciones
+			</figcaption>
+		</figure>
+	</a>
 	<a href="<?= $root ?>/representantes" class="card">
 		<figure>
 			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card8.png" />

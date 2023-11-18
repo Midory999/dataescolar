@@ -1,4 +1,5 @@
 <?php
+
 /** @var string $root */
 /** @var App\Models\User $user */
 
@@ -20,6 +21,20 @@ if ($user->isAdmin()) {
 			</li>
 			<li class="menu__submenu-item">
 				<a class="menu__submenu-text" href="$root/usuarios/registrar">Registrar</a>
+			</li>
+		</ul>
+	</details>
+	HTML;
+
+	$links['inscription'] = <<<HTML
+	<details class="menu__link">
+		<summary class="menu__text">Inscripciones</summary>
+		<ul class="menu__submenu">
+			<li class="menu__submenu-item">
+				<a class="menu__submenu-text" href="$root/areas">Listado</a>
+			</li>
+			<li class="menu__submenu-item">
+				<a class="menu__submenu-text" href="$root/areas/registrar">Añadir</a>
 			</li>
 		</ul>
 	</details>
@@ -49,7 +64,7 @@ if ($user->isAdmin()) {
 
 <aside data-pushbar-id="sidebar" data-pushbar-direction="left" class="pushbar">
 	<ul class="menu">
-	</details>
+		</details>
 		<details class="menu__link">
 			<summary class="menu__text">Usuarios</summary>
 			<ul class="menu__submenu">
@@ -60,6 +75,17 @@ if ($user->isAdmin()) {
 			</ul>
 		</details>
 		<details class="menu__link">
+			<summary class="menu__text">Inscripciones</summary>
+			<ul class="menu__submenu">
+				<li class="menu__submenu-item">
+					<a href="<?= $root ?>/inscripciones">Listado</a>
+				</li>
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/inscripciones/registrar">
+						Registrar
+					</a>
+				</li>
+			</ul>
 			<summary class="menu__text">Representantes</summary>
 			<ul class="menu__submenu">
 				<li class="menu__submenu-item">
@@ -71,23 +97,42 @@ if ($user->isAdmin()) {
 					</a>
 				</li>
 			</ul>
+			<summary class="menu__text">Estudiantes</summary>
+			<ul class="menu__submenu">
+				<li class="menu__submenu-item">
+					<a href="<?= $root ?>/estudiantes">Listado</a>
+				</li>
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/estudiantes/registrar">
+						Registrar
+					</a>
+				</li>
+			</ul>
 		</details>
 		<details class="menu__link">
 			<summary class="menu__text">Niveles</summary>
 			<ul class="menu__submenu">
 				<li class="menu__submenu-item">
-					<a class="menu__submenu-text" href="<?= $root ?>/niveles">Listado</a>
+					<a href="<?= $root ?>/niveles">Listado</a>
 				</li>
-				<?= $links['level']['register'] ?? '' ?>
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/niveles/registrar">
+						Registrar
+					</a>
+				</li>
 			</ul>
 		</details>
 		<details class="menu__link">
 			<summary class="menu__text">Areas</summary>
 			<ul class="menu__submenu">
 				<li class="menu__submenu-item">
-					<a class="menu__submenu-text" href="<?= $root ?>/areas">Listado</a>
+					<a href="<?= $root ?>/areas">Listado</a>
 				</li>
-				<?= $links['area']['register'] ?? '' ?>
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/areas/registrar">
+						Registrar
+					</a>
+				</li>
 			</ul>
 		</details>
 		<details class="menu__link">
@@ -98,14 +143,16 @@ if ($user->isAdmin()) {
 				</li>
 				<?= $links['period']['register'] ?? '' ?>
 			</ul>
-		</details>
-		<details class="menu__link">
-			<summary class="menu__text">Estudiantes</summary>
+			<summary class="menu__text">Lapsos</summary>
 			<ul class="menu__submenu">
 				<li class="menu__submenu-item">
-					<a class="menu__submenu-text" href="<?= $root ?>/estudiantes">Listado</a>
+					<a href="<?= $root ?>/lapsos">Listado</a>
 				</li>
-				<?= $links['student']['register'] ?? '' ?>
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/lapsos/registrar">
+						Registrar
+					</a>
+				</li>
 			</ul>
 		</details>
 		<details class="menu__link">
