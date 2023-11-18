@@ -85,10 +85,6 @@ Flight::route('POST /aulas', 'App\Controllers\ClassroomController::registerClass
 Flight::route('GET /usuarios',  [$userController, 'showUsersList']);
 Flight::route('POST /usuarios', [$userController, 'registerUser']);
 
-Flight::route('GET /periodos', 'App\Controllers\PeriodController::showPeriods');
-Flight::route('POST /periodos', 'App\Controllers\PeriodController::registerPeriod');
-Flight::route('GET /periodos/registrar', 'App\Controllers\PeriodController::showPeriodRegister');
-
 Flight::route('GET /configuracion', 'App\Controllers\SettingsController::showSettings');
 Flight::route('GET /configuracion/respaldar', 'App\Controllers\SettingsController::backup');
 Flight::route('GET /configuracion/restaurar', 'App\Controllers\SettingsController::restore');

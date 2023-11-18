@@ -67,7 +67,7 @@ class AuthenticationController {
 	}
 
 	/** Operación encargada de verificar que el usuario ya haya iniciado sesión */
-	function ensureIsAuthenticated(): bool {
+	static function ensureIsAuthenticated(): bool {
 		if (Session::get('userID') === null) {
 			Flight::redirect('/ingresar');
 			return false;
@@ -77,7 +77,7 @@ class AuthenticationController {
 		return true;
 	}
 
-	function ensureIsAuthorized(): bool {
+	static function ensureIsAuthorized(): bool {
 		$userID = new UUID(Session::get('userID'));
 		$userLogged = Dependencies::getUserRepository()->getByID($userID);
 
