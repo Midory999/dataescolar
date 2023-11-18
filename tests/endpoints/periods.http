@@ -1,0 +1,24 @@
+### Get all periods
+GET http://localhost/dataescolar/api/periodos
+
+### Register a period
+POST http://localhost/dataescolar/api/periodos
+Content-Type: application/json
+
+{
+	"inicio": 2022,
+	"lapsos": {
+		"primer": {
+			"inicio": "2022-01-01",
+			"fin": "2022-04-01"
+		},
+		"segundo": {
+			"inicio": "2022-04-20",
+			"fin": "2022-07-20"
+		},
+		"tercer": {
+			"inicio": "2022-08-15",
+			"fin": "2022-11-29"
+		}
+	}
+}

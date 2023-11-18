@@ -3,62 +3,73 @@
 namespace App\Repositories\LeafDB;
 
 use App\Core\Logger;
+use App\Exceptions\DuplicatedRecordException;
 use App\Models\Period;
-use App\Repositories\PeriodRepository as Repository;
 use PDOException;
+use App\Repositories\PeriodRepository;
 
-class LeafDBPeriodRepository extends LeafDBConnection implements Repository {
-	function save(Period $period): bool {
-		assert(parent::$db !== null);
-
+class LeafDBPeriodRepository extends LeafDBConnection implements PeriodRepository {
+	function save(Period $period): Period {
 		try {
-			self::$db
-				->insert('periodos')
-				->params([
-					'inicio' => $period->getStartYear(),
-					'fin' => $period->getEndYear()
-				])
+			self::db()
+				->insert(self::TABLE)
+				->params(['inicio' => $period->startYear])
 				->execute();
 
-			return true;
+			$period->setID(self::db()->lastInsertId());
+			return $period;
 		} catch (PDOException $error) {
 			Logger::log($error);
-			return false;
+			throw new DuplicatedRecordException("El período $period->startYear ya existe");
 		}
 	}
 
 	function getByID(int $id): ?Period {
-		assert(self::$db !== null);
+		$info = self::db()->select(self::TABLE)->where(self::PRIMARY_KEY, $id)->assoc();
 
-		$periodInfo = self::$db->select('periodos')->where('id', $id)->assoc();
-
-		if ($periodInfo === null) {
+		if (!$info) {
 			return null;
 		}
 
-		return $this->mapper($periodInfo);
+		return $this->mapper($info);
 	}
 
 	function getAll(): array {
-		assert(self::$db !== null);
+		$periods = self::db()->select(self::TABLE)->orderBy('inicio')->all();
 
-		$periods = self::$db->select('periodos')->orderBy('inicio')->all();
 		return array_map([$this, 'mapper'], $periods);
 	}
 
+	function getAllAsArrays(): array {
+		$periods = self::db()->select(self::TABLE)->orderBy('inicio')->all();
+
+		return array_map(function (array $info): array {
+			return $this->mapper($info)->toArray();
+		}, $periods);
+	}
+
 	function getLatest(): ?Period {
-		assert(self::$db !== null);
+		$info = self::db()->select(self::TABLE)->last();
 
-		$periodInfo = self::$db->select('periodos')->last();
-
-		if ($periodInfo === false) {
+		if (!$info) {
 			return null;
 		}
 
-		return $this->mapper($periodInfo);
+		return $this->mapper($info);
 	}
 
-	private function mapper(array $periodInfo): Period {
-		return new Period($periodInfo['id'], $periodInfo['inicio']);
+	function ensureThereIsOnePeriod(): static {
+		if (!$this->getLatest()) {
+			$this->save(new Period(date('Y')));
+		}
+
+		return $this;
+	}
+
+	function mapper(array $info): Period {
+		$period = new Period($info['inicio']);
+		$period->setID($info[self::PRIMARY_KEY]);
+
+		return $period;
 	}
 }

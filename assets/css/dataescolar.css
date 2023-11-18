@@ -106,7 +106,8 @@ a {
 }
 
 .header__title {
-	font-family: cursive;
+	font-family: system-ui;
+	font-size: 1.5em;
 }
 
 .header__about-icon:hover {
@@ -298,8 +299,8 @@ a {
 }
 
 [data-pushbar-id="sidebar"] {
-	background: rgba(255, 255, 255, 75%);
 	overflow-y: scroll;
+	border-left: 10px solid #FBB5BD;
 }
 
 .menu {

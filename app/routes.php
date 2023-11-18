@@ -56,7 +56,7 @@ Flight::route('GET /niveles', function () {
 Flight::route('*', [$authenticationController, 'ensureIsAuthorized']);
 
 Flight::route('GET /representantes/registrar', 'App\Controllers\RepresentativeController::showRegisterForm');
-Flight::route('POST /representantes','App\Controllers\RepresentativeController::registerRepresentative');
+Flight::route('POST /representantes', 'App\Controllers\RepresentativeController::registerRepresentative');
 
 Flight::route('GET /estudiantes/registrar', 'App\Controllers\StudentController::showRegisterForm');
 Flight::route('POST /estudiantes', 'App\Controllers\StudentController::registerStudent');

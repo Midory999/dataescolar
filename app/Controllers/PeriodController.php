@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\{Dependencies, UI};
+use App\Exceptions\DuplicatedRecordException;
 use App\Models\Period;
 use Flight;
 
@@ -12,20 +13,21 @@ class PeriodController {
 	}
 
 	static function showPeriods(): void {
-		UI::render('periods', ['periods' => Dependencies::getPeriodRepository()->getAll()]);
+		$periods = Dependencies::getPeriodRepository()->getAll();
+
+		UI::render('periods', compact('periods'));
 	}
 
 	static function registerPeriod(): void {
-		$post = Flight::request()->data->getData();
-		$period = new Period(null, $post['inicio']);
-		$result = Dependencies::getPeriodRepository()->save($period);
+		$info = Flight::request()->data;
+		$period = new Period($info['inicio']);
 
-		if ($result) {
+		try {
+			Dependencies::getPeriodRepository()->save($period);
 			Flight::redirect('/periodos');
-			return;
+		} catch (DuplicatedRecordException $error) {
+			$error = urlencode($error->getMessage());
+			Flight::redirect("/periodos?error=$error");
 		}
-
-		$error = urlencode('Ha ocurrido un error');
-		Flight::redirect("/periodos?error=$error");
 	}
 }
