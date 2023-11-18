@@ -1,17 +1,13 @@
 <?php
 
-declare(strict_types=1);
-
 use App\Controllers\{
 	AuthenticationController,
-	AreaController,
 	LevelController,
 	UserController
 };
 
 $userController     = new UserController;
 $authenticationController = new AuthenticationController;
-$areaController = new AreaController;
 $levelController = new LevelController;
 
 ////////////////////
@@ -38,7 +34,7 @@ Flight::route(
 //////////////////////
 // RUTAS PROTEGIDAS //
 //////////////////////
-Flight::route('*', [$authenticationController, 'ensureIsAuthenticated']);
+// Flight::route('*', [$authenticationController, 'ensureIsAuthenticated']);
 
 Flight::route('GET /', 'App\Controllers\HomeController::showHome');
 
@@ -48,7 +44,6 @@ Flight::route('GET /inscripciones', 'App\Controllers\InscriptionController::show
 
 Flight::route('GET /estudiantes', 'App\Controllers\StudentController::showStudents');
 Flight::route('GET /profesores', 'App\Controllers\TeacherController::showTeachers');
-Flight::route('GET /areas', [$areaController, 'showAreas']);
 Flight::route('GET /niveles', [$levelController, 'showLevels']);
 Flight::route('GET /lapsos', 'App\Controllers\LapseController::showLapses');
 Flight::route('GET /aulas', 'App\Controllers\ClassroomController::showClassrooms');
@@ -56,7 +51,7 @@ Flight::route('GET /aulas', 'App\Controllers\ClassroomController::showClassrooms
 ///////////////////////////////////////////////
 // RUTAS PROTEGIDAS + SÓLO ACCESO AUTORIZADO //
 ///////////////////////////////////////////////
-Flight::route('*', [$authenticationController, 'ensureIsAuthorized']);
+// Flight::route('*', [$authenticationController, 'ensureIsAuthorized']);
 
 Flight::route('GET /inscripciones/registrar', 'App\Controllers\InscriptionController::showRegisterForm');
 Flight::route('POST /inscripciones', 'App\Controllers\InscriptionController::registerInscription');
@@ -69,9 +64,6 @@ Flight::route('POST /estudiantes', 'App\Controllers\StudentController::registerS
 
 Flight::route('GET /profesores/registrar', 'App\Controllers\TeacherController::showRegisterForm');
 Flight::route('POST /profesores', 'App\Controllers\TeacherController::registerTeacher');
-
-Flight::route('GET /areas/registrar', [$areaController, 'showRegisterForm']);
-Flight::route('POST /areas', [$areaController, 'registerArea']);
 
 Flight::route('GET /niveles/registrar', [$levelController, 'showRegisterForm']);
 Flight::route('POST /niveles', [$levelController, 'registerLevel']);

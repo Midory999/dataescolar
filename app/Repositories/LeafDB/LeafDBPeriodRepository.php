@@ -5,10 +5,18 @@ namespace App\Repositories\LeafDB;
 use App\Core\Logger;
 use App\Exceptions\DuplicatedRecordException;
 use App\Models\Period;
+use App\Repositories\LapseRepository;
 use PDOException;
 use App\Repositories\PeriodRepository;
 
 class LeafDBPeriodRepository extends LeafDBConnection implements PeriodRepository {
+	private ?LapseRepository $lapseRepository = null;
+
+	function setLapseRepository(LapseRepository $lapseRepository): static {
+		$this->lapseRepository = $lapseRepository;
+		return $this;
+	}
+
 	function save(Period $period): Period {
 		try {
 			self::db()
@@ -69,6 +77,7 @@ class LeafDBPeriodRepository extends LeafDBConnection implements PeriodRepositor
 	function mapper(array $info): Period {
 		$period = new Period($info['inicio']);
 		$period->setID($info[self::PRIMARY_KEY]);
+		$this->lapseRepository?->setLapsesTo($period);
 
 		return $period;
 	}

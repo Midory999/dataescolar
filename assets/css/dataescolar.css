@@ -211,6 +211,14 @@ a {
 	grid-gap: 10px 2em;
 }
 
+.cards--3col {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.cards--4col {
+	grid-template-columns: repeat(4, 1fr);
+}
+
 .cards .card {
 	padding-bottom: 10px;
 	border-bottom: 1px solid #dfdfdf;
@@ -377,6 +385,115 @@ details[open] > .menu__text,
 
 details[open] {
 	background: #fde1e4;
+}
+
+.form {
+	display: grid;
+	grid-gap: 1em;
+}
+
+.form__group {
+	display: grid;
+	grid-gap: 1.5em;
+	padding: 0 1em 1em;
+	border-radius: 10px;
+	transition: 100ms border-color;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.form__group:hover {
+	border-color: #f44b5f;
+}
+
+.form__group-legend {
+	font-weight: bold;
+	padding: 0 1em;
+	transition: 100ms color;
+}
+
+.form__group:hover .form__group-legend {
+	color: #f44b5f;
+}
+
+.input, .select {
+	width: 100%;
+	padding: .5em;
+	box-sizing: border-box;
+	transition: 100ms border-color;
+	padding-right: 2em;
+	cursor: write;
+	border: thin solid lightgray;
+	border-radius: 5px;
+	height: 45px;
+	order: 2;
+}
+
+.input-group {
+	display: grid;
+	grid-gap: .5em;
+}
+
+.input__label {
+	transition: 100ms color, 100ms top, 100ms transform;
+	padding: 0 1em;
+	order: 1;
+}
+
+.input-group--animate {
+	margin-top: 1.75em;
+}
+
+.input-group--animate .input__label {
+	position: absolute;
+	left: 0;
+	top: calc(50% - .75em);
+}
+
+.input-group--animate .input {
+	border: none;
+	height: 100%;
+}
+
+.input-group--animate {
+	position: relative;
+	display: block;
+	height: 45px;
+	border: thin solid lightgray;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+
+.input-group:hover .input__label {
+	color: #f44b5f;
+}
+
+.input-group--animate .input:focus ~ .input__label {
+	top: calc(50% - 2em);
+	background: white;
+	transform: scale(.75);
+}
+
+.select-container {
+	position: relative;
+	order: 2;
+}
+
+.select-container::before {
+	content: url('../icons/chevron-right.svg');
+	width: .75em;
+	height: .75em;
+	position: absolute;
+	right: 1em;
+	top: calc(50% - .5em);
+	transition: 100ms top, 250ms transform;
+}
+
+.select-container:hover::before {
+	transform: rotate(90deg) translateX(.25em);
+}
+
+.input:focus, .input:hover, .select:focus, .select:hover {
+	border-color: #FBB5BD;
 }
 
 @media (max-width: 410px) {

@@ -28,6 +28,8 @@ Form::addRule('year', function (mixed $value): bool {
 	return $value >= 1970 && $value <= $year;
 });
 
+Form::addRule('name', '/^[a-zA-ZáÁéÉíÍóÓúÚñÑ]+$/', '{Field} debe tener sólo letras sin espacios');
+
 ////////////////////////////////
 // DATOS COMPARTIDOS EN LA UI //
 ////////////////////////////////

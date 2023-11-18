@@ -14,6 +14,7 @@ class PeriodController {
 	static function showAll(): void {
 		$periods = Dependencies::getPeriodRepository()
 			->ensureThereIsOnePeriod()
+			->setLapseRepository(Dependencies::getLapseRepository())
 			->getAllAsArrays();
 
 		Response::json($periods);

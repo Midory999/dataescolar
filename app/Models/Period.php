@@ -12,6 +12,10 @@ class Period extends Model {
 	function __construct(public readonly int $startYear) {
 	}
 
+	function getLapse(int $number): ?Lapse {
+		return @$this->lapses[--$number];
+	}
+
 	function getEndYear(): int {
 		return $this->startYear + 1;
 	}

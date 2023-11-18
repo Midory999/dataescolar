@@ -1,6 +1,5 @@
 <?php
 /** @var string $root */
-/** @var string $periodYearValidationPattern */
 ?>
 
 <form action="<?= $root ?>/periodos" method="post">

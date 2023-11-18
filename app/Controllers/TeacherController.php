@@ -10,13 +10,15 @@ class TeacherController {
 	static function showTeachers(): void {
 		$teachers = Dependencies::getTeacherRepository()->getAll();
 
-		UI::render('teachers', compact('teachers'));
+		$title = 'Profesores';
+		UI::render('teachers', compact('teachers', 'title'));
 	}
 
 	static function showRegisterForm(): void {
 		$areas = Dependencies::getAreaRepository()->getAll();
 
-		UI::render('teacher-register', compact('areas'));
+		$title = 'Registrar profesor';
+		UI::render('teacher-register', compact('areas', 'title'));
 	}
 
 	static function registerTeacher(): void {

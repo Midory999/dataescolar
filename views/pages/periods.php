@@ -27,6 +27,9 @@ HTML;
 			<tr>
 				<th>Fecha de Inicio</th>
 				<th>Fecha de Cierre</th>
+				<th>1er Lapso</th>
+				<th>2er Lapso</th>
+				<th>3er Lapso</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -34,6 +37,9 @@ HTML;
 				<tr>
 					<td>$period->startYear</td>
 					<td>{$period->getEndYear()}</td>
+					<td>{$period->getLapse(1)}</td>
+					<td>{$period->getLapse(2)}</td>
+					<td>{$period->getLapse(3)}</td>
 				</tr>
 			HTML ?>
 		</tbody>

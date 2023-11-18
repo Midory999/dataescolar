@@ -29,9 +29,9 @@ CREATE TABLE IF NOT EXISTS Niveles(
 	codigo VARCHAR(10) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS Areas(
+CREATE TABLE IF NOT EXISTS Areas (
 	codigo INTEGER PRIMARY KEY AUTOINCREMENT,
-	nombre text NOT NULL
+	nombre TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS Periodos (
@@ -128,3 +128,7 @@ CREATE TABLE IF NOT EXISTS Inscripciones(
 	FOREIGN KEY (id_Periodo) REFERENCES Periodos(id),
 	FOREIGN KEY (id_Nivel) REFERENCES Niveles(id)
 );
+
+-- REGISTROS
+INSERT INTO Areas(codigo, nombre) VALUES (1, 'Lenguaje'), (2, 'Cognitiva'),
+(3, 'Motora'), (4, 'Moral y Espiritual'), (4, 'Comunicación'), (5, 'Afectiva');

@@ -9,6 +9,7 @@ use App\Models\Period;
 interface LapseRepository {
 	const TABLE = 'lapsos';
 	const PRIMARY_KEY = 'id';
+	const PERIOD_FOREIGN_KEY = 'id_periodo';
 
 	/** @throws DuplicatedRecordException */
 	function save(Lapse $lapse): Lapse;
@@ -17,4 +18,5 @@ interface LapseRepository {
 	// /** @return array<int, array<string, int|string>> */
 	// function getAllAsArrays(): array;
 	function getByID(int $id): ?Lapse;
+	function setLapsesTo(Period $period): void;
 }

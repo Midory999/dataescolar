@@ -21,7 +21,7 @@ Aplicación:
 			✔ Registrar los 3 lapsos inmediatamente después de registrar un período @done (17/11/2023, 16:48:28)
 			☐ Garantizar que no existan colisiones de las fechas de inicio y fin de los lapsos
 			☐ Eliminar el período si ocurre algún error al registrar un lapso
-		☐	Lapsos
+		✔	Lapsos @done (23-11-18 12:21)
   	☐	Inscripciones
   	✔	Representantes @done (23-11-02 20:33)
 			☐ Informarle al usuario cuando introduzca una cédula repetida

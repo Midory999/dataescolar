@@ -14,10 +14,13 @@ class PeriodController {
 	static function showAll(): void {
 		$periods = Dependencies::getPeriodRepository()
 			->ensureThereIsOnePeriod()
+			->setLapseRepository(Dependencies::getLapseRepository())
 			->getAll();
 
 		$mensaje = Flight::request()->query['mensaje'];
-		UI::render('periods', compact('periods', 'mensaje'));
+		$title = 'Periodos';
+
+		UI::render('periods', compact('periods', 'mensaje', 'title'));
 	}
 
 	static function showRegisterForm(): void {
@@ -25,9 +28,8 @@ class PeriodController {
 			->ensureThereIsOnePeriod()
 			->getAll();
 
-		$periodYearValidationPattern = '';
-
-		UI::render('period-register', compact('periods'));
+		$title = 'Registrar periodo';
+		UI::render('period-register', compact('periods', 'title'));
 	}
 
 	static function register(): void {

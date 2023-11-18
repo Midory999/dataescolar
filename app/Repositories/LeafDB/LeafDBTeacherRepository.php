@@ -3,16 +3,27 @@
 namespace App\Repositories\LeafDB;
 
 use App\Core\Logger;
+use App\Models\Area;
 use App\Models\Teacher;
 use App\Repositories\AreaRepository;
-use App\Repositories\TeacherRepository as TRepository;
 use PDOException;
-use App\Repositories\LeafDB\LeafDBConnection as Connection;
+use App\Repositories\TeacherRepository;
 
-class LeafDBTeacherRepository extends Connection implements TRepository {
-	function __construct(private readonly AreaRepository $areaRepository) {}
+class LeafDBTeacherRepository
+extends LeafDBConnection
+implements TeacherRepository {
+	function __construct(private readonly AreaRepository $areaRepository) {
+	}
 
-	private function getByCriteria(string $criteria, float|string $value): ?Teacher {
+	function setTeacherTo(Area $area): void {
+		$teacher = $this->searchByCriteria(self::AREA_FOREIGN_KEY, $area->getCode());
+
+		if ($teacher) {
+			$area->setTeacher($teacher);
+		}
+	}
+
+	private function searchByCriteria(string $criteria, float|string $value): ?Teacher {
 		assert(self::$db !== null);
 
 		$teachereInfo = self::$db->select('Profesores')->where($criteria, $value)->assoc();
@@ -32,11 +43,11 @@ class LeafDBTeacherRepository extends Connection implements TRepository {
 	}
 
 	function getByID(int $id): ?Teacher {
-		return $this->getByCriteria('id', $id);
+		return $this->searchByCriteria('id', $id);
 	}
 
 	function getByIDCard(int $idCard): ?Teacher {
-		return $this->getByCriteria('cedula', $idCard);
+		return $this->searchByCriteria('cedula', $idCard);
 	}
 
 	function save(Teacher $teacher): bool {
@@ -61,7 +72,7 @@ class LeafDBTeacherRepository extends Connection implements TRepository {
 					'vacunas' => $teacher->vaccines,
 					'carga_horaria'    => $teacher->socialPrograms,
 					'codigo_idependencia' => '', // WARNING: Añadir un campo para el código de independencia
-					'codigo_Area' => $teacher->area->code
+					'codigo_Area' => $teacher->area->getCode()
 				])
 				->execute();
 

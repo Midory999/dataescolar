@@ -11,4 +11,12 @@ class Teacher extends Person {
 	public string $vaccines;
 	public string $socialPrograms;
 	public Area $area;
+
+	function toArray(): array {
+		return [];
+	}
+
+	function __toString(): string {
+		return '';
+	}
 }

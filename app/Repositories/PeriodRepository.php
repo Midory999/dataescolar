@@ -19,4 +19,5 @@ interface PeriodRepository {
 	function getByID(int $id): ?Period;
 	function mapper(array $info): Period;
 	function ensureThereIsOnePeriod(): static;
+	function setLapseRepository(LapseRepository $lapseRepository): static;
 }

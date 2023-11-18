@@ -1,0 +1,13 @@
+### Get all areas
+GET http://localhost/dataescolar/api/areas
+
+### Get an area
+GET http://localhost/dataescolar/api/areas/Moral-y-Espiritual
+
+### Register area
+POST http://localhost/dataescolar/api/areas
+Content-Type: application/json
+
+{
+	"nombre": "Matemáticas"
+}
