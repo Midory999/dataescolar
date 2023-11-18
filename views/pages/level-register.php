@@ -1,12 +1,16 @@
 <?php
-	/** @var string $root */
+
+/** @var string $root */
 ?>
 
 <form action="<?= $root ?>/niveles" method="post">
 	<h1>Registro de nivel</h1>
 
-   <label for="codigo_nivel">Código de Nivel:</label>
-<input type="text" id="codigo_nive" name="codigo_nivel" required><br>
-
-   <button>Registrar</button>
+	<label for="nombre">Nivel:</label>
+	<select id="nombre" name="nombre" required>
+		<option selected disabled>Seleccionar</option>
+		<option value="nivel_1">Nivel 1</option>
+		<option value="nivel_2">Nivel 2</option>
+	</select>
+	<button>Asignar</button>
 </form>
