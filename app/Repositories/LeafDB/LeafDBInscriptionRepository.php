@@ -28,7 +28,7 @@ implements InscriptionRepository {
 		return array_map([$this, 'mapper'], $inscriptions);
 	}
 
-	function getByIDCard(int $idCard): ?Inscription {
+	function getByID(int $id): ?Inscription {
 		assert(self::$db !== null);
 
 		$inscriptionInfo = self::$db->select('inscripciones')->assoc();
@@ -65,14 +65,9 @@ implements InscriptionRepository {
 		$inscription->id             = $info['id'];
 		$inscription->name          = $info['nombre'];
 
-		$student = $this->studentRepository->getByID($info['id_Estudiante']);
+		$student = $this->studentRepository->getByIDCard($info['id_Estudiante']);
 		$period = $this->periodRepository->getByID($info['id_Period']);
-		$level = $this->levelRepository->getByID($info['id_Level']);
-		(
-			$info['id_Estudiante'];
-			$info['id_Period'];
-			$info['id_Level'];
-		);
+		$level = $this->levelRepository->getByCode($info['id_Level']);
 
 		assert($student !== null);
 		$inscription->student = $student;
