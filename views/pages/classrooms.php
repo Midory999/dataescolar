@@ -12,13 +12,13 @@
 <table>
 	<thead>
 		<tr>
-			<th>Nombre</th>
+			<th>ID de Profesore</th>
 		</tr>
 	</thead>
 	<tbody>
 		<?php foreach ($classrooms as $classroom) echo <<<HTML
 		<tr>
-			<td>{$classroom->name}</td>
+			<td>{$classroom->teachersID}</td>
 		</tr>
 		HTML ?>
 	</tbody>
