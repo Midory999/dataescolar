@@ -11,9 +11,7 @@ class LeafDBRepresentativeRepository
 extends LeafDBConnection
 implements RepresentativeRepository {
 	function getAll(): array {
-		assert(self::$db !== null);
-
-		$representatives = self::$db->select('Representantes')->all();
+		$representatives = self::db()->select('Representantes')->all();
 		return array_map([$this, 'mapper'], $representatives);
 	}
 
@@ -26,10 +24,8 @@ implements RepresentativeRepository {
 	}
 
 	function save(Representative $representative): bool {
-		assert(self::$db !== null);
-
 		try {
-			self::$db
+			self::db()
 				->insert('Representantes')
 				->params([
 					'nombres'   => $representative->names,
@@ -59,7 +55,7 @@ implements RepresentativeRepository {
 	): ?Representative {
 		assert(self::$db !== null);
 
-		$representativeInfo = self::$db->select('Representantes')->where(
+		$representativeInfo = self::db()->select('Representantes')->where(
 			$criteria,
 			$value
 		)->assoc();

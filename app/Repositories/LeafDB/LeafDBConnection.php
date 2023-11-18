@@ -19,6 +19,10 @@ abstract class LeafDBConnection {
 		}
 	}
 
+	protected static function db(): Db {
+		return self::$db;
+	}
+
 	private static function prepareDB(): void {
 		assert(self::$db !== null);
 

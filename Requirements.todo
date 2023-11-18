@@ -17,7 +17,10 @@ Aplicación:
 			✔ Notificar al usuario sobre un registro exitoso @done (3/11/2023, 12:41:03)
 
   	✔	Períodos @done (23-10-26 18:14)
-  		☐	Cambiar formato de año de periodos a dia-mes-año
+  		✘ Cambiar formato de año de periodos a dia-mes-año @cancelled (17/11/2023, 16:46:28)
+			✔ Registrar los 3 lapsos inmediatamente después de registrar un período @done (17/11/2023, 16:48:28)
+			☐ Garantizar que no existan colisiones de las fechas de inicio y fin de los lapsos
+			☐ Eliminar el período si ocurre algún error al registrar un lapso
 		☐	Lapsos
   	☐	Inscripciones
   	✔	Representantes @done (23-11-02 20:33)

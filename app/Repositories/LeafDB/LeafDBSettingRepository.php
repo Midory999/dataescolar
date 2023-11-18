@@ -14,7 +14,7 @@ class LeafDBSettingRepository extends LeafDBConnection implements SettingReposit
 		switch ($this->getConnectionType()) {
 			case 'sqlite':
 				$dbPath = __DIR__ . '/../SQLite/' . Env::get('DB_DATABASE');
-				parent::$db = null;;
+				parent::$db = null;
 				copy($dbPath, "$dbPath.bak");
 				return true;
 

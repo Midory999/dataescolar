@@ -1,4 +1,5 @@
 <?php
+
 /** @var string $assets */
 /** @var string $content */
 /** @var App\Models\School $school */
@@ -12,8 +13,10 @@
 	<meta name="viewport" content="width=device-width" />
 	<title><?= $title ?> - DataEscolar</title>
 	<link rel="icon" href="<?= $assets ?>/images/favicon.png" />
+	<link rel="stylesheet" href="<?= $assets ?>/libs/sweetalert2/material-ui.css" />
 	<link rel="stylesheet" href="<?= $assets ?>/libs/pushbar/pushbar.css" />
 	<link rel="stylesheet" href="<?= $assets ?>/css/dataescolar.css" />
+	<script src="<?= $assets ?>/libs/sweetalert2/sweetalert2.min.js"></script>
 </head>
 
 <body>

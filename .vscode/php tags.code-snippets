@@ -1,0 +1,16 @@
+{
+	"PHP tag": {
+		"prefix": "php",
+		"body": [
+			"<?php $1 ?>"
+		],
+		"description": "PHP Tag"
+	},
+	"PHP Echo tag": {
+		"prefix": "phpe",
+		"body": [
+			"<?= $1 ?>"
+		],
+		"description": "PHP echo tag"
+	}
+}

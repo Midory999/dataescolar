@@ -10,9 +10,7 @@ use PDOException;
 
 class LeafDBAreaRepository extends Connection implements Repository {
 	private function getByCriteria(string $criteria, float|string $value): ?Area {
-		assert(self::$db !== null);
-
-		$areaInfo = self::$db->select('Areas')->where($criteria, $value)->assoc();
+		$areaInfo = self::db()->select('Areas')->where($criteria, $value)->assoc();
 
 		if ($areaInfo === false) {
 			return null;
@@ -22,9 +20,7 @@ class LeafDBAreaRepository extends Connection implements Repository {
 	}
 
 	function getAll(): array {
-		assert(self::$db !== null);
-
-		$areas = self::$db->select('areas')->all();
+		$areas = self::db()->select('areas')->all();
 		return array_map([$this, 'mapper'], $areas);
 	}
 
@@ -33,12 +29,10 @@ class LeafDBAreaRepository extends Connection implements Repository {
 	}
 
 	function save(Area $area): bool {
-		assert(self::$db !== null);
-
 		try {
-			self::$db
+			self::db()
 				->insert('Areas')
-				->params(['nombre' => $area->name,'codigo' => $area->code])
+				->params(['nombre' => $area->name, 'codigo' => $area->code])
 				->execute();
 
 			return true;
