@@ -3,6 +3,7 @@
 namespace App\Models;
 
 class Period extends Model {
+
 	private const MAX_LAPSES_COUNT = 3;
 
 	private ?int $id = null;

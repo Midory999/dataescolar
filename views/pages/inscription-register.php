@@ -30,9 +30,7 @@
 	<select name="id_periodo" id="id_periodo">
 		<option selected disabled>Seleccionar</option>
 		<?php foreach ($periods as $period) echo <<<HTML
-		<option value="{$period->id}">
-			{$period->getID} - {$period->startYear}
-		</option>
+		<option value="{$period->getID()}">{$period}</option>
 		HTML ?>
 	</select>
 
