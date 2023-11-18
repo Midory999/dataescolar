@@ -3,7 +3,7 @@
 namespace App\Models;
 
 class Level {
-	public string $code;
+	public int $code;
 
 	public string $name;
 

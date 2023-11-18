@@ -38,7 +38,7 @@ class LeafDBLevelRepository extends Connection implements Repository {
 		try {
 			self::$db
 				->insert('Niveles')
-				->params(['nombre' => $level->name,'codigo' => $level->code])
+				->params(['nombre' => $level->name, 'codigo' => $level->code])
 				->execute();
 
 			return true;

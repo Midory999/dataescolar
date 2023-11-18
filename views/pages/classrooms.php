@@ -13,12 +13,14 @@
 	<thead>
 		<tr>
 			<th>Nombre</th>
+			<th>Profesore</th>
 		</tr>
 	</thead>
 	<tbody>
 		<?php foreach ($classrooms as $classroom) echo <<<HTML
 		<tr>
-			<td>{$classroom->name}</td>
+		<td>{$classroom->name}</td>
+			<td>{$classroom->teacher}</td>
 		</tr>
 		HTML ?>
 	</tbody>
