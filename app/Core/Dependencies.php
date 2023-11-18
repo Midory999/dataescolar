@@ -69,12 +69,12 @@ class Dependencies {
 		return new LeafDBTeacherRepository(self::getAreaRepository());
 	}
 
-	static function getInsriptionRepository(): InsriptionRepository {
+	static function getInsriptionRepository(): InscriptionRepository {
 		$studentRepository = self::getStudentRepository();
 		$periodRepository = self::getPeriodRepository();
 		$levelRepository = self::getLevelRepository();
 
-		return new LeafDBInsriptionRepository($studentRepository, $periodRepository, $levelRepository);
+		return new LeafDBInscriptionRepository($studentRepository, $periodRepository, $levelRepository);
 	}
 	static function getAreaRepository(): AreaRepository {
 		return new LeafDBAreaRepository;
