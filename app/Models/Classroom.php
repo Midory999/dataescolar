@@ -3,7 +3,7 @@
 namespace App\Models;
 
 class Classroom {
-	public string $nombre;
-	public object $profesor;
-	public object $estudiante;
+	public int $id;
+	public string $name;
+	public Teacher $teacher;
 }

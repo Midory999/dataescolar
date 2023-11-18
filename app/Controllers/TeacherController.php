@@ -36,7 +36,7 @@ class TeacherController {
 		$teacher->birthDate = $teacherInfo['fecha_nacimiento'];
 		$teacher->age = $teacherInfo['edad'];
 		$teacher->gender = $teacherInfo['genero'];
-		$teacher->vaccines = $teacherInfo['vacunas'];
+		$teacher->vaccines = join('|',$teacherInfo['vacunas']);
 		$teacher->socialPrograms = $teacherInfo['carga_horaria'];
 		$teacher->area = Dependencies::getAreaRepository()->getByCode($teacherInfo['id_area']);
 

@@ -2,6 +2,7 @@
 
 /** @var App\Models\Area[] $area */
 /** @var string $root */
+/** @var null|string $message */
 ?>
 
 <article>

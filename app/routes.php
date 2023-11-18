@@ -5,12 +5,14 @@ declare(strict_types=1);
 use App\Controllers\{
 	AuthenticationController,
 	AreaController,
+	LevelController,
 	UserController
 };
 
 $userController     = new UserController;
 $authenticationController = new AuthenticationController;
 $areaController = new AreaController;
+$levelController = new LevelController;
 
 ////////////////////
 // RUTAS PÚBLICAS //
@@ -45,10 +47,9 @@ Flight::route('GET /representantes', 'App\Controllers\RepresentativeController::
 Flight::route('GET /estudiantes', 'App\Controllers\StudentController::showStudents');
 Flight::route('GET /profesores', 'App\Controllers\TeacherController::showTeachers');
 Flight::route('GET /areas', [$areaController, 'showAreas']);
+Flight::route('GET /niveles', [$levelController, 'showLevels']);
 Flight::route('GET /lapsos', 'App\Controllers\LapseController::showLapses');
-Flight::route('GET /niveles', function () {
-	echo 'MOSTRAR LOS NIVELES';
-});
+Flight::route('GET /aulas', 'App\Controllers\ClassroomController::showClassrooms');
 
 ///////////////////////////////////////////////
 // RUTAS PROTEGIDAS + SÓLO ACCESO AUTORIZADO //
@@ -67,8 +68,14 @@ Flight::route('POST /profesores', 'App\Controllers\TeacherController::registerTe
 Flight::route('GET /areas/registrar', [$areaController, 'showRegisterForm']);
 Flight::route('POST /areas', [$areaController, 'registerArea']);
 
+Flight::route('GET /niveles/registrar', [$levelController, 'showRegisterForm']);
+Flight::route('POST /niveles', [$levelController, 'registerLevel']);
+
 Flight::route('GET /lapsos/registrar', 'App\Controllers\LapseController::showRegisterForm');
 Flight::route('POST /lapsos', 'App\Controllers\LapseController::registerLapse');
+
+Flight::route('GET /aulas/registrar', 'App\Controllers\ClassroomController::showRegisterForm');
+Flight::route('POST /aulas', 'App\Controllers\ClassroomController::registerClassroom');
 
 Flight::route('GET /usuarios',  [$userController, 'showUsersList']);
 Flight::route('POST /usuarios', [$userController, 'registerUser']);

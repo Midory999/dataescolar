@@ -4,6 +4,7 @@
 	/** @var string $root */
 ?>
 
+<article>
 <h2>Nivel</h2>
 <a href="<?= $root ?>/niveles/registrar">
 	<button>Añadir</button>
@@ -14,7 +15,12 @@
         <th>Código de Nivel</th>
       </tr>
     </thead>
-    <tbody id="level-list">
-      <!-- Aquí se mostrarán los estudiantes -->
+    <tbody>
+		<?php foreach ($levels as $level) echo <<<HTML
+			<tr>
+				<td>{$level->name}</td>
+			HTML ?>
+		</tbody>
     </tbody>
   </table>
+</article>

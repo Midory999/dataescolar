@@ -1,6 +1,7 @@
 <?php
 /** @var App\Models\Representative[] $representatives */
 /** @var string $root */
+	/** @var null|string $message */
 ?>
 
 <h2>Representantes</h2>

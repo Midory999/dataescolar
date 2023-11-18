@@ -2,6 +2,7 @@
 
 /** @var App\Models\Lapse[] $lapses */
 /** @var string $root */
+/** @var null|string $message */
 ?>
 
 <h2>Lapso</h2>
