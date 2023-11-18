@@ -44,7 +44,7 @@ Flight::route('GET /', 'App\Controllers\HomeController::showHome');
 
 Flight::route('GET /representantes', 'App\Controllers\RepresentativeController::showRepresentatives');
 
-/* Flight::route('GET /inscripciones', 'App\Controllers\InscriptionController::showClassrooms'); */
+Flight::route('GET /inscripciones', 'App\Controllers\InscriptionController::showInscriptions');
 
 Flight::route('GET /estudiantes', 'App\Controllers\StudentController::showStudents');
 Flight::route('GET /profesores', 'App\Controllers\TeacherController::showTeachers');
@@ -58,8 +58,8 @@ Flight::route('GET /aulas', 'App\Controllers\ClassroomController::showClassrooms
 ///////////////////////////////////////////////
 Flight::route('*', [$authenticationController, 'ensureIsAuthorized']);
 
-/* Flight::route('GET /inscripciones/registrar', 'App\Controllers\InscriptionController::showRegisterForm');
-Flight::route('POST /inscripciones', 'App\Controllers\InscriptionController::registerInscription'); */
+Flight::route('GET /inscripciones/registrar', 'App\Controllers\InscriptionController::showRegisterForm');
+Flight::route('POST /inscripciones', 'App\Controllers\InscriptionController::registerInscription');
 
 Flight::route('GET /representantes/registrar', 'App\Controllers\RepresentativeController::showRegisterForm');
 Flight::route('POST /representantes', 'App\Controllers\RepresentativeController::registerRepresentative');
