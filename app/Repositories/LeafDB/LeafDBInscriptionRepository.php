@@ -45,7 +45,7 @@ implements InscriptionRepository {
 
 		try {
 			self::$db
-				->insert('Estudiantes')
+				->insert('Inscripciones')
 				->params([
 					'nombres'             => $inscription->name,
 
@@ -74,9 +74,11 @@ implements InscriptionRepository {
 			$info['id_Level'];
 		);
 
-		assert($representative !== null);
+		assert($student !== null);
 		$inscription->student = $student;
+		assert($period !== null);
 		$inscription->period = $period;
+		assert($level !== null);
 		$inscription->level = $level;
 
 		return $inscription;
