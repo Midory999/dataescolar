@@ -49,6 +49,9 @@
 		<option value="retardo_mental">Retardo Mental</option>
 		<option value="sindrome_down">Síndrome de Down</option>
 		<option value="autismo">Autismo</option>
+		<option value="deficiencia_visual">Deficiencia Visual</option>
+		<option value="deficiencia_auditiva">Deficiencia Auditiva</option>
+		<option value="impedimento_fisico">Impedimento Físico</option>
 	</select>
 
 	<label for="medicamentos">Medicamentos:</label>
@@ -104,9 +107,9 @@
 		<option value="hib">Hib</option>
 		<option value="rotavirus">Rotavirus</option>
 		<option value="covid_19">COVID-19</option>
-		<option value="gripe">Gripe</option>
+		<option value="gripe">Influenza (Gripe)</option>
 		<option value="varicela">Varicela</option>
-		<option value="mmr">MMR</option>
+		<option value="mmr">MMR (triple viral)</option>
 		<option value="hepatitis_a">Hepatitis A</option>
 		<option value="vph">VPH</option>
 	</select>
@@ -116,6 +119,7 @@
 		<option value="jgh">José Gredorio Hernández</option>
 		<option value="escolaridad">Escolaridad (Patria)</option>
 		<option value="ninguna">Ninguna</option>
+
 		<label for="ingreso">Fecha de Ingreso:</label>
 		<input type="date" id="ingreso" name="ingreso" required>
 
@@ -123,7 +127,9 @@
 		<select id="estatus" name="estatus" required>
 			<option selected disabled>Seleccionar</option>
 			<option value="activo">Activo</option>
-			<option value="inactivo">Inactivo</option>
+			<option value="retirado">Retirado</option>
+			<option value="suspendido">Suspendido</option>
+			<option value="expulsado">Expulsado</option>
 		</select>
 
 		<label for="descripcion">Descripción:</label>

@@ -36,7 +36,7 @@
 		<option selected disabled>Seleccionar</option>
 		<option value="primaria">Primaria</option>
 		<option value="bachillerato">Bachillerato</option>
-		<option value="universidad">Universidad</option>
+		<option value="universitario">Universitario</option>
 		<option value="tecnico">Tecnico</option>
 		<option value="sin_estudio">Sin estudio</option>
 	</select>
