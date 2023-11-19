@@ -30,7 +30,7 @@ class ReportController {
 		$info = Flight::request()->data->getData();
 		$student = Dependencies::getStudentRepository()->getByIDCard($info['id_estudiante']);
 		$teacher = Dependencies::getTeacherRepository()->getByID($info['id_teacher']);
-		$area = Dependencies::getAreaRepository()->getByCode($info['cod_rea']);
+		$area = Dependencies::getAreaRepository()->getByCode($info['cod_area']);
 		$level = Dependencies::getLevelRepository()->getByID($info['id_level']);
 
 		$report = new Report;

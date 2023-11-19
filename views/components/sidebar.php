@@ -37,10 +37,24 @@ if ($user->isAdmin()) {
 		<summary class="menu__text">Inscripciones</summary>
 		<ul class="menu__submenu">
 			<li class="menu__submenu-item">
-				<a class="menu__submenu-text" href="$root/areas">Listado</a>
+				<a class="menu__submenu-text" href="$root/inscripciones">Listado</a>
 			</li>
 			<li class="menu__submenu-item">
-				<a class="menu__submenu-text" href="$root/areas/registrar">Añadir</a>
+				<a class="menu__submenu-text" href="$root/inscripciones/registrar">Añadir</a>
+			</li>
+		</ul>
+	</details>
+	HTML;
+
+	$links['report'] = <<<HTML
+	<details class="menu__link">
+		<summary class="menu__text">Informes</summary>
+		<ul class="menu__submenu">
+			<li class="menu__submenu-item">
+				<a class="menu__submenu-text" href="$root/informes">Listado</a>
+			</li>
+			<li class="menu__submenu-item">
+				<a class="menu__submenu-text" href="$root/informe/registrar">Registrar</a>
 			</li>
 		</ul>
 	</details>
@@ -88,6 +102,19 @@ if ($user->isAdmin()) {
 				</li>
 				<li class="menu__submenu-item">
 					<a class="menu__submenu-text" href="<?= $root ?>/inscripciones/registrar">
+						Registrar
+					</a>
+				</li>
+			</ul>
+		</details>
+		<details class="menu__link">
+			<summary class="menu__text">Informes</summary>
+			<ul class="menu__submenu">
+				<li class="menu__submenu-item">
+					<a href="<?= $root ?>/informes">Listado</a>
+				</li>
+				<li class="menu__submenu-item">
+					<a class="menu__submenu-text" href="<?= $root ?>/informes/registrar">
 						Registrar
 					</a>
 				</li>
