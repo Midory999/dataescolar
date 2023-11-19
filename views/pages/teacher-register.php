@@ -7,32 +7,23 @@
 
 <form class="form" action="<?= $root ?>/profesores" method="post">
 	<h2>Registro de profesor/a</h2>
-
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos personales</legend>
 		<label class="input-group input-group--animate">
 			<input class="input" type="number" name="cedula" required />
 			<span class="input__label">Cédula:</span>
 		</label>
-
 		<label class="input-group input-group--animate">
 			<input class="input" name="nombre" required />
 			<span class="input__label">Nombre:</span>
 		</label>
-
 		<label class="input-group input-group--animate">
 			<input class="input" name="apellido" required />
 			<span class="input__label">Apellido:</span>
 		</label>
-
 		<label class="input-group">
 			<input class="input" type="date" name="fecha_nacimiento" required />
 			<span class="input__label">Fecha de Nacimiento:</span>
-		</label>
-
-		<label class="input-group input-group--animate">
-			<input class="input" type="number" id="edad" name="edad" required>
-			<span class="input__label">Edad:</span>
 		</label>
 
 		<label class="input-group">
@@ -46,7 +37,6 @@
 			</div>
 		</label>
 	</fieldset>
-
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos referencia</legend>
 		<label class="input-group input-group--animate">
@@ -78,37 +68,32 @@
 				</select>
 			</div>
 		</label>
-
 		<label class="input-group">
 			<input class="input" type="date" name="ingreso" required />
 			<span class="input__label">Ingreso:</span>
 		</label>
 	</fieldset>
-
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos contacto</legend>
 		<label class="input-group input-group--animate">
 			<input class="input" name="direccion" required />
 			<span class="input__label">Direccion:</span>
 		</label>
-
 		<label class="input-group input-group--animate">
 			<input class="input" type="email" name="correo" required />
 			<span class="input__label">Correo:</span>
 		</label>
-
 		<label class="input-group input-group--animate">
 			<input class="input" type="tel" name="telefono" required />
 			<span class="input__label">Teléfono:</span>
+		</label>
 	</fieldset>
-
-
 	<fieldset class="form__group">
-		<legend class="form__group-legend">Dato medico</legend>
+		<legend class="form__group-legend">Datos médicos</legend>
 		<label class="input-group">
 			<span class="input__label">Vacunas:</span>
-			<div class="select-container">
-				<select class="select" name="vacunas[]" id="vacunas" multiple>
+			<div class="select-container select-container--simple">
+				<select class="select" name="vacunas[]" multiple>
 					<option value="hepatitis_b">Hepatitis B</option>
 					<option value="covid_19">COVID-19</option>
 					<option value="gripe">Gripe</option>
@@ -117,12 +102,13 @@
 			</div>
 		</label>
 	</fieldset>
-
-	<label for="carga_horaria">Carga Horaria:</label>
-	<input id="carga_horaria" name="carga_horaria" required />
-
-	<label for="codigo_independencia">Código de Independencia:</label>
-	<input id="codigo_independencia" name="codigo_independencia" required />
-
-	<button>Registrar</button>
+	<label class="input-group input-group--animate">
+		<input class="input" name="carga_horaria" required />
+		<span class="input__label">Carga Horaria:</span>
+	</label>
+	<label class="input-group input-group--animate">
+		<input class="input" name="codigo_independencia" required />
+		<span class="input__label">Código de Independencia:</span>
+	</label>
+	<button class="button button--half">Registrar</button>
 </form>

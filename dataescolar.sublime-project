@@ -36,10 +36,11 @@
 			},
 			"formatters": {
 				"embedding.php": "LSP-intelephense",
+				"source.css": "LSP-stylelint",
 			},
 			"LSP-eslint":
 			{
-				"enabled": true
+				"enabled": true,
 			},
 		},
 	},

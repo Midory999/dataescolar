@@ -24,9 +24,10 @@ class ClassroomController {
 	static function registerClassroom(): void {
 		$info = Flight::request()->data->getData();
 
-		$classroom = new Classroom;
-		$classroom->teacher = Dependencies::getTeacherRepository()->getByID($info['id_profesores']);
-		$classroom->name = $info['nombre'];
+		$classroom = new Classroom(
+			$info['nombre'],
+			Dependencies::getTeacherRepository()->getByID($info['id_profesores'])
+		);
 
 		Dependencies::getClassroomRepository()->save($classroom);
 
