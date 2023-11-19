@@ -45,7 +45,7 @@
 
 		<label class="input-group input-group--animate">
 			<input class="input" type="email" name="correo" required />
-			<span class="input__label">Correo:</span>
+			<span class="input__label">Correo Electrónico:</span>
 		</label>
 
 		<label class="input-group input-group--animate">
