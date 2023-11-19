@@ -45,7 +45,7 @@
 		</label>
 
 		<label class="input-group input-group--animate">
-			<input class="input" id="lugar_nacimiento" name="lugar_nacimiento" required>
+			<input class="input" name="lugar_nacimiento" required>
 			<span class="input__label">Lugar de Nacimiento:</span>
 		</label>
 		<label class="input-group input-group--animate">
@@ -83,7 +83,7 @@
 		<label class="input-group">
 			<span class="input__label">Compromiso:</span>
 			<div class="select-container select-container--simple">
-				<select class="select select--normal" name="compromiso" multiple>
+				<select class="select" name="compromiso" multiple>
 					<option value="retardo_mental">Retardo Mental</option>
 					<option value="sindrome_down">Síndrome de Down</option>
 					<option value="autismo">Autismo</option>
@@ -94,7 +94,7 @@
 		<label class="input-group">
 			<span class="input__label">Tipo de Sangre:</span>
 			<div class="select-container">
-				<select class="select" id="tipo_sangre" name="tipo_sangre" required>
+				<select class="select" name="tipo_sangre" required>
 					<option selected disabled>Seleccionar</option>
 					<option value="A+">A+</option>
 					<option value="A-">A-</option>
