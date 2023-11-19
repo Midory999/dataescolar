@@ -6,7 +6,7 @@
 ?>
 
 <form class="form" action="<?= $root ?>/estudiantes" method="post">
-	<h2>Registro de estudiante</h2>
+	<h2>Registro de Estudiante</h2>
 
 	<fieldset class="form__group form__group--padding-top">
 		<legend class="form__group-legend">Datos personales</legend>

@@ -5,7 +5,7 @@
 ?>
 
 <form class="form" action="<?= $root ?>/areas" method="post">
-	<h2>Registro de área</h2>
+	<h2>Registro de Área</h2>
 	<div class="form__group">
 		<label class="input-group input-group--animate">
 			<input class="input" type="number" name="codigo" min="1" required />

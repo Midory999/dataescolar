@@ -6,7 +6,7 @@
 ?>
 
 <form class="form" action="<?= $root ?>/profesores" method="post">
-	<h2>Registro de profesor/a</h2>
+	<h2>Registro de Profesor/a</h2>
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos personales</legend>
 		<label class="input-group input-group--animate">

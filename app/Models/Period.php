@@ -6,7 +6,7 @@ class Period extends Model {
 
 	private const MAX_LAPSES_COUNT = 3;
 
-	public ?int $id = null;
+	private ?int $id = null;
 	/** @var Lapse[] */
 	private array $lapses = [];
 

@@ -4,7 +4,7 @@
 ?>
 
 <form class="form" action="<?= $root ?>/periodos" method="post">
-	<h2>Registro de periodo</h2>
+	<h2>Registro de Periodo</h2>
 
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos año</legend>
