@@ -17,6 +17,8 @@
 	<link rel="stylesheet" href="<?= $assets ?>/libs/pushbar/pushbar.css" />
 	<link rel="stylesheet" href="<?= $assets ?>/css/dataescolar.css" />
 	<script src="<?= $assets ?>/libs/sweetalert2/sweetalert2.min.js"></script>
+	<script src="<?= $assets ?>/libs/html2pdf/html2pdf.bundle.min.js"></script>
+	<script src="<?= $assets ?>/libs/html2pdf/pdf.js"></script>
 </head>
 
 <body>

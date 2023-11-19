@@ -4,7 +4,7 @@ class PDF {
 	}
 
 	fromElementID(id) {
-		const element = document.getElementById(elementid)
+		const element = document.getElementById(id)
 		html2pdf(element.innerHTML)
 	}
 
