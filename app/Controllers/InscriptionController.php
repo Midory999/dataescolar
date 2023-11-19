@@ -29,7 +29,7 @@ class InscriptionController {
 		$info = Flight::request()->data->getData();
 
 		$inscription = new Inscription;
-		$inscription->student = Dependencies::getStudentRepository()->getByIDCard($info['id_estudiante']);
+		$inscription->student = Dependencies::getStudentRepository()->getByIDCard($info['cedula_estudiante']);
 		$inscription->period = Dependencies::getPeriodRepository()->getByID($info['id_periodo']);
 		$inscription->level = Dependencies::getLevelRepository()->getByCode($info['id_nivele']);
 
