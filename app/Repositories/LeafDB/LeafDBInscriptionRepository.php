@@ -4,6 +4,7 @@ namespace App\Repositories\LeafDB;
 
 use App\Core\Logger;
 use App\Models\Inscription;
+use App\Models\Student;
 use App\Repositories\StudentRepository;
 use App\Repositories\PeriodRepository;
 use App\Repositories\LevelRepository;
@@ -41,15 +42,13 @@ implements InscriptionRepository {
 	}
 
 	function save(Inscription $inscription): bool {
-		assert(self::$db !== null);
-
 		try {
-			self::$db
-				->insert('Inscripciones')
+			self::db()
+				->insert(self::TABLE)
 				->params([
-					'id_Estudiante'    => $inscription->student->id,
-					'id_Periodo'       => $inscription->period->id,
-					'id_Nivele'        => $inscription->level->code,
+					self::STUDENT_FOREIGN_KEY => $inscription->student->id,
+					self::PERIOD_FOREIGN_KEY  => $inscription->period->getID(),
+					self::LEVEL_FOREIGN_KEY   => $inscription->level->code,
 				])
 				->execute();
 
@@ -62,24 +61,10 @@ implements InscriptionRepository {
 
 	/** @param array<string, string> $info */
 	private function mapper(array $info): Inscription {
-		$inscriptiont = new Inscription;
-		$inscriptiont->id             = $info['id'];
-
-		$student = $this->studentRepository->getByIDCard($info['id_Estudiante']);
-
-		$period = $this->periodRepository->getByID($info['id_Periodo']);
-
-		$level = $this->levelRepository->getByID($info['id_Nievele']);
-
-
-		assert($student !== null);
-		$inscriptiont->student = $student;
-
-		assert($period !== null);
-		$inscriptiont->period = $period;
-
-		assert($level !== null);
-		$inscriptiont->level = $level;
+		$student = $this->studentRepository->getByID($info[self::STUDENT_FOREIGN_KEY]);
+		$period = $this->periodRepository->getByID($info[self::PERIOD_FOREIGN_KEY]);
+		$level = $this->levelRepository->getByID($info[self::LEVEL_FOREIGN_KEY]);
+		$inscriptiont = new Inscription($info[self::PRIMARY_KEY], $student, $period, $level);
 
 		return $inscriptiont;
 	}

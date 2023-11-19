@@ -34,7 +34,7 @@ Flight::route(
 //////////////////////
 // RUTAS PROTEGIDAS //
 //////////////////////
-// Flight::route('*', [$authenticationController, 'ensureIsAuthenticated']);
+Flight::route('*', [$authenticationController, 'ensureIsAuthenticated']);
 
 Flight::route('GET /', 'App\Controllers\HomeController::showHome');
 
@@ -53,7 +53,7 @@ Flight::route('GET /aulas', 'App\Controllers\ClassroomController::showClassrooms
 ///////////////////////////////////////////////
 // RUTAS PROTEGIDAS + SÓLO ACCESO AUTORIZADO //
 ///////////////////////////////////////////////
-// Flight::route('*', [$authenticationController, 'ensureIsAuthorized']);
+Flight::route('*', [$authenticationController, 'ensureIsAuthorized']);
 
 Flight::route('GET /inscripciones/registrar', 'App\Controllers\InscriptionController::showRegisterForm');
 Flight::route('POST /inscripciones', 'App\Controllers\InscriptionController::registerInscription');

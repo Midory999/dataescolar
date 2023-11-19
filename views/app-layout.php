@@ -13,6 +13,7 @@
 	<meta name="viewport" content="width=device-width" />
 	<title><?= $title ?> - DataEscolar</title>
 	<link rel="icon" href="<?= $assets ?>/images/favicon.png" />
+	<link rel="stylesheet" href="<?= $assets ?>/libs/w3css/w3.css" />
 	<link rel="stylesheet" href="<?= $assets ?>/libs/sweetalert2/material-ui.css" />
 	<link rel="stylesheet" href="<?= $assets ?>/libs/pushbar/pushbar.css" />
 	<link rel="stylesheet" href="<?= $assets ?>/css/dataescolar.css" />

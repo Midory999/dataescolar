@@ -25,15 +25,11 @@ implements StudentRepository {
 	}
 
 	function getByIDCard(int $idCard): ?Student {
-		assert(self::$db !== null);
+		return $this->searchByCriteria('cedula', $idCard);
+	}
 
-		$studentInfo = self::$db->select('estudiantes')->where('cedula', $idCard)->assoc();
-
-		if ($studentInfo === false) {
-			return null;
-		}
-
-		return $this->mapper($studentInfo);
+	function getByID(int $id): ?Student {
+		return $this->searchByCriteria(self::PRIMARY_KEY, $id);
 	}
 
 	function save(Student $student): bool {
@@ -70,6 +66,16 @@ implements StudentRepository {
 			Logger::log($error);
 			return false;
 		}
+	}
+
+	private function searchByCriteria(string $criteria, int|string|bool $value): ?Student {
+		$info = self::db()->select('estudiantes')->where($criteria, $value)->assoc();
+
+		if ($info === false) {
+			return null;
+		}
+
+		return $this->mapper($info);
 	}
 
 	/** @param array<string, string> $info */
