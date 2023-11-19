@@ -66,7 +66,7 @@
 	<fieldset class="form__group form__group--padding-top">
 		<legend class="form__group-legend">Datos médicos</legend>
 		<label class="input-group">
-			<span class="input__label">Vacunas:</span>
+			<span class="input__label">Tipo de Parto:</span>
 			<div class="select-container">
 				<select class="select" name="tipo_parto" required>
 					<option value="normal">Normal</option>
@@ -87,6 +87,9 @@
 					<option value="retardo_mental">Retardo Mental</option>
 					<option value="sindrome_down">Síndrome de Down</option>
 					<option value="autismo">Autismo</option>
+					<option value="deficiencia_visual">Deficiencia Visual</option>
+					<option value="deficiencia:auditiva">Deficiencia Auditiva</option>
+					<option value="impedimento_fisico">Impedimento Físico</option>
 				</select>
 			</div>
 		</label>
@@ -107,6 +110,25 @@
 				</select>
 			</div>
 		</label>
+	</fieldset>
+
+	<label class="input-group">
+		<span class="input__label">Vacunas:</span>
+		<div class="select-container select-container--simple">
+			<select class="select" name="vacunas" multiple>
+				<option value="hepatitis_b">Hepatitis B</option>
+				<option value="dtap">DTaP</option>
+				<option value="hib">Hib</option>
+				<option value="rotavirus">Rotavirus</option>
+				<option value="covid_19">COVID-19</option>
+				<option value="gripe">Gripe</option>
+				<option value="varicela">Varicela</option>
+				<option value="mmr">MMR</option>
+				<option value="hepatitis_a">Hepatitis A</option>
+				<option value="vph">VPH</option>
+			</select>
+		</div>
+	</label>
 	</fieldset>
 
 	<fieldset class="form__group">
@@ -144,27 +166,6 @@
 	</fieldset>
 
 	<fieldset class="form__group form__group--padding-top">
-		<legend class="form__group-legend">Datos médicos</legend>
-		<label class="input-group">
-			<span class="input__label">Vacunas:</span>
-			<div class="select-container select-container--simple">
-				<select class="select" name="vacunas" multiple>
-					<option value="hepatitis_b">Hepatitis B</option>
-					<option value="dtap">DTaP</option>
-					<option value="hib">Hib</option>
-					<option value="rotavirus">Rotavirus</option>
-					<option value="covid_19">COVID-19</option>
-					<option value="gripe">Gripe</option>
-					<option value="varicela">Varicela</option>
-					<option value="mmr">MMR</option>
-					<option value="hepatitis_a">Hepatitis A</option>
-					<option value="vph">VPH</option>
-				</select>
-			</div>
-		</label>
-	</fieldset>
-
-	<fieldset class="form__group form__group--padding-top">
 		<legend class="form__group-legend">Datos académicos</legend>
 		<label class="input-group">
 			<input class="input" type="date" name="ingreso" required>
@@ -186,7 +187,7 @@
 			<span class="input__label">Programas Sociales:</span>
 			<div class="select-container select-container--simple">
 				<select class="select" name="programas_sociales" multiple>
-					<option value="jgh">José Gredorio Hernández</option>
+					<option value="jgh">José Gregorio Hernández</option>
 					<option value="escolaridad">Escolaridad (Patria)</option>
 					<option value="ninguna">Ninguna</option>
 				</select>
