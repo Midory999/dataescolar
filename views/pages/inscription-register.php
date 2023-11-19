@@ -7,7 +7,7 @@
 ?>
 
 <form class="form" action="<?= $root ?>/inscripciones" method="post">
-	<h2>Registro de Inscripcione</h2>
+	<h2>Inscribir estudiante</h2>
 
 	<label class="input-group">
 		<span class="input__label">Estudiante:</span>
