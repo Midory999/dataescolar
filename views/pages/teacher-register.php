@@ -26,6 +26,11 @@
 			<span class="input__label">Fecha de Nacimiento:</span>
 		</label>
 
+		<label class="input-group input-group--animate">
+			<input class="input" type="number" id="edad" name="edad" required>
+			<span class="input__label">Edad:</span>
+		</label>
+
 		<label class="input-group">
 			<span class="input__label">Genero:</span>
 			<div class="select-container">
