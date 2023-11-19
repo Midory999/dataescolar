@@ -7,8 +7,8 @@ use App\Controllers\Web\AreaController;
 use App\Controllers\AuthenticationController as AuthController;
 use Flight;
 
-Flight::route('*', [AuthController::class, 'ensureIsAuthenticated']);
-Flight::route('*', [AuthController::class, 'ensureIsAuthorized']);
+# Flight::route('*', [AuthController::class, 'ensureIsAuthenticated']);
+# Flight::route('*', [AuthController::class, 'ensureIsAuthorized']);
 
 //////////////
 // PERIODOS //
