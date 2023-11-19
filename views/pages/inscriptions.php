@@ -1,15 +1,13 @@
 <?php
 
-/** @var App\Models\Inscription[] $inscription */
+/** @var App\Models\Inscription[] $inscriptions */
 /** @var string $root */
 ?>
 
 <section>
 	<span class="input__label">
 		<h2>Inscripciones</h2>
-		<a href="<?= $root ?>/inscripciones/registrar">
-			<button>Añadir</button>
-		</a>
+		<a href="<?= $root ?>/inscripciones/registrar">Añadir</a>
 		<table>
 			<thead>
 				<tr>
@@ -18,12 +16,13 @@
 					<th>Nivel</th>
 				</tr>
 			</thead>
-			</tbody>
-			<?php foreach ($inscriptions as $inscription) echo <<<HTML
-		  <td>{$inscription->students}</td>
-			<td>{$inscription->levels}</td>
-			<td>{$inscription->periods}</td>
-			</tr>
-HTML  ?>
+			<tbody>
+				<?php foreach ($inscriptions as $inscription) echo <<<HTML
+					<tr>
+						<td>{$inscription->student->names}</td>
+						<td>{$inscription->level->code}</td>
+						<td>{$inscription->period->startYear}</td>
+					</tr>
+				HTML ?>
 			</tbody>
 		</table>

@@ -20,7 +20,6 @@ class InscriptionController {
 		$periods = Dependencies::getPeriodRepository()->getAll();
 		$levels = Dependencies::getLevelRepository()->getAll();
 
-
 		UI::render('inscription-register', compact('students', 'periods', 'levels'));
 	}
 
@@ -31,10 +30,7 @@ class InscriptionController {
 		$period = Dependencies::getPeriodRepository()->getByID($info['id_periodo']);
 		$level = Dependencies::getLevelRepository()->getByID($info['id_niveles']);
 
-		$inscription = new Inscription;
-		$inscription->student = $student;
-		$inscription->period = $period;
-		$inscription->level = $level;
+		$inscription = new Inscription(rand(), $student, $period, $level);
 
 		Dependencies::getInscriptionRepository()->save($inscription);
 
