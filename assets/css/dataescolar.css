@@ -433,6 +433,7 @@ details[open] {
   border-radius: 5px;
   height: 45px;
   order: 2;
+  resize: none;
 }
 
 .input-group {

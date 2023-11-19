@@ -3,11 +3,11 @@
 namespace App\Models;
 
 class Report {
-	public $id;
-	public $student;
-	public $teacher;
-	public $area;
-	public $level;
+	public int $id;
+	public Student $student;
+	public Teacher $teacher;
+	public Area $area;
+	public Level $level;
 
 	public function __construct($id, $student, $teacher, $area, $level) {
 		$this->id = $id;

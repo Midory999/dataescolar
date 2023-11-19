@@ -14,6 +14,7 @@ use App\Repositories\LeafDB\{
 	LeafDBTeacherRepository,
 	LeafDBClassroomRepository,
 	LeafDBLevelRepository,
+	LeafDBReportRepository,
 	LeafDBUserRepository
 };
 use App\Repositories\{

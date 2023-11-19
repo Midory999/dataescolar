@@ -24,69 +24,43 @@ implements ReportRepository {
 	}
 
 	function getAll(): array {
-		assert(self::$db !== null);
-
-		$reports = self::$db->select('reports')->all();
+		$reports = self::db()->select(self::TABLE)->all();
 		return array_map([$this, 'mapper'], $reports);
 	}
 
-	function getByID(int $id): ?Report {
-		assert(self::$db !== null);
+	function getByID($id): ?Report {
+		$info = self::db()->select(self::TABLE)->where(self::PRIMARY_KEY, $id)->assoc();
 
-		$reportInfo = self::$db->select('reports')->where('id', $id)->assoc();
-
-		if ($reportInfo === false) {
+		if ($info === false) {
 			return null;
 		}
 
-		return $this->mapper($reportInfo);
+		return $this->mapper($info);
 	}
 
-	function save(Report $report): bool {
-		assert(self::$db !== null);
-
+	function save(Report $report): void {
 		try {
-			self::$db
-				->insert('reports')
+			self::db()
+				->insert(self::TABLE)
 				->params([
-					'id_Student' => $report->student->id,
-					'id_Teacher' => $report->teacher->id,
-					'id_Area' => $report->area->code,
-					'id_Level' => $report->level->code,
+					self::STUDENT_FOREIGN_KEY => $report->student->id,
+					self::TEACHER_FOREIGN_KEY => $report->teacher->id,
+					self::AREA_FOREIGN_KEY => $report->area->code,
+					self::LEVEL_FOREIGN_KEY => $report->level->code,
 				])
 				->execute();
-
-			return true;
 		} catch (PDOException $error) {
 			Logger::log($error);
-			return false;
 		}
 	}
 
 	/** @param array<string, string> $info */
 	private function mapper(array $info): Report {
-		$report = new Report;
-		$report->id = $info['id'];
-
-		$student = $this->studentRepository->getByIDCard($info['id_Student']);
-
-		$teacher = $this->teacherRepository->getByID($info['id_Teacher']);
-
-		$area = $this->areaRepository->getByCode($info['id_Area']);
-
-		$level = $this->levelRepository->getByID($info['id_Level']);
-
-		assert($student !== null);
-		$report->student = $student;
-
-		assert($teacher !== null);
-		$report->teacher = $teacher;
-
-		assert($area !== null);
-		$report->area = $area;
-
-		assert($level !== null);
-		$report->level = $level;
+		$student = $this->studentRepository->getByID($info[self::STUDENT_FOREIGN_KEY]);
+		$teacher = $this->teacherRepository->getByID($info[self::TEACHER_FOREIGN_KEY]);
+		$area = $this->areaRepository->getByCode($info[self::AREA_FOREIGN_KEY]);
+		$level = $this->levelRepository->getByID($info[self::LEVEL_FOREIGN_KEY]);
+		$report = new Report($info[self::PRIMARY_KEY], $student, $teacher, $area, $level);
 
 		return $report;
 	}

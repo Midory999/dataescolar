@@ -4,24 +4,15 @@ namespace App\Repositories;
 
 use App\Models\Report;
 
-class ReportRepository {
-	protected $reports = [];
+interface ReportRepository {
+	const TABLE = 'Informes';
+	const PRIMARY_KEY = 'id';
+	const STUDENT_FOREIGN_KEY = 'id_Estudiante';
+	const TEACHER_FOREIGN_KEY = 'id_Profesor';
+	const AREA_FOREIGN_KEY = 'codigo_Area';
+	const LEVEL_FOREIGN_KEY = 'id_Nivel';
 
-	public function getAll(): array {
-		return $this->reports;
-	}
-
-	public function getByID($id): ?Report {
-		foreach ($this->reports as $report) {
-			if ($report->id === $id) {
-				return $report;
-			}
-		}
-		return null;
-	}
-
-	public function save(Report $report): void {
-		// Lógica para guardar el informe en la base de datos o en algún otro almacenamiento
-		$this->reports[] = $report;
-	}
+	function getAll(): array;
+	function getByID($id): ?Report;
+	function save(Report $report): void;
 }
