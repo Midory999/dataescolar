@@ -4,6 +4,7 @@ namespace App\Routes;
 
 use App\Controllers\Web\PeriodController;
 use App\Controllers\Web\AreaController;
+use App\Models\Area;
 use Flight;
 
 // Flight::route('*', [AuthController::class, 'ensureIsAuthenticated']);
@@ -25,3 +26,6 @@ Flight::route(
 Flight::route('GET /areas', [AreaController::class, 'showAll']);
 Flight::route('POST /areas', [AreaController::class, 'register']);
 Flight::route('GET /areas/registrar', [AreaController::class, 'showRegisterForm']);
+Flight::route('GET /areas/@slug', [AreaController::class, 'showInfo']);
+Flight::route('GET /areas/@slug/editar', [AreaController::class, 'showEdit']);
+Flight::route('POST /areas/@slug', [AreaController::class, 'edit']);
