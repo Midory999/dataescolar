@@ -7,7 +7,7 @@
 				".eslintrc.json",
 				".gitignore",
 				".htaccess",
-				".stylelintrc.json",
+				// ".stylelintrc.json",
 				"*.lock",
 				"*.sublime-workspace",
 				"jsconfig.json",
@@ -18,7 +18,7 @@
 			"folder_exclude_patterns": [
 				".vscode",
 				"vendor"
-			]
+			],
 		}
 	],
 	"settings": {
@@ -28,14 +28,18 @@
 					"hoverProvider": true,
 					"completionProvider": true,
 					"colorProvider": true,
-					"documentLinkProvider": true
+					"documentLinkProvider": true,
 				},
 			},
 			"LSP-tailwindcss": {
 				"enabled": false,
 			},
 			"formatters": {
-				"embedding.php": "LSP-intelephense"
+				"embedding.php": "LSP-intelephense",
+			},
+			"LSP-eslint":
+			{
+				"enabled": true
 			},
 		},
 	},

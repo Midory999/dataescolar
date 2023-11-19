@@ -44,10 +44,14 @@
 
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos referencia</legend>
+		<label class="input-group input-group--animate">
+			<input class="input" name="especialidad" required />
+			<span class="input__label">Especialidad:</span>
+		</label>
 		<label class="input-group">
 			<span class="input__label">Estatus:</span>
 			<div class="select-container">
-				<select class="select" name="estatu" required>
+				<select class="select" name="estatus" required>
 					<option disabled selected>Seleccionar</option>
 					<option value="Activo">Activo</option>
 					<option value="Jubilado">Jubilado</option>
@@ -56,20 +60,14 @@
 				</select>
 			</div>
 		</label>
-
-		<label class="input-group input-group--animate">
-			<input class="input" name="especialidad" required />
-			<span class="input__label">Especialidad:</span>
-		</label>
-
 		<label class="input-group">
 			<span class="input__label">Area:</span>
 			<div class="select-container">
 				<select class="select" name="id_area" id="id_area">
 					<option selected disabled>Seleccionar</option>
 					<?php foreach ($areas as $area) echo <<<HTML
-		<option value="{$area->getCode()}">{$area->name}</option>
-		HTML ?>
+					<option value="{$area->getCode()}">{$area->name}</option>
+					HTML ?>
 				</select>
 			</div>
 		</label>
