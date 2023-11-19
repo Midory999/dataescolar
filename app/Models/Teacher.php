@@ -13,19 +13,19 @@ class Teacher extends Person {
 	public Area $area;
 
 	function getFirstName(): string {
-		return explode(' ', $this->names)[0];
+		return mb_convert_case(explode(' ', $this->names)[0], MB_CASE_TITLE);
 	}
 
 	function getSecondName(): string {
-		return explode(' ', $this->names)[1] ?? '';
+		return mb_convert_case(explode(' ', $this->names)[1] ?? '', MB_CASE_TITLE);
 	}
 
 	function getFirstLastName(): string {
-		return explode(' ', $this->lastnames)[0];
+		return mb_convert_case(explode(' ', $this->lastnames)[0], MB_CASE_TITLE);
 	}
 
 	function getSecondLastName(): string {
-		return explode(' ', $this->lastnames)[1] ?? '';
+		return mb_convert_case(explode(' ', $this->lastnames)[1] ?? '', MB_CASE_TITLE);
 	}
 
 	function getID(): int {

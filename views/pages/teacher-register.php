@@ -93,9 +93,9 @@
 			<span class="input__label">Teléfono:</span>
 		</label>
 	</fieldset>
-	<fieldset class="form__group">
+	<fieldset class="form__group form__group--padding-top">
 		<legend class="form__group-legend">Datos médicos</legend>
-		<label class="input-group input-group--padding-top">
+		<label class="input-group">
 			<span class="input__label">Vacunas:</span>
 			<div class="select-container select-container--simple">
 				<select class="select" name="vacunas[]" multiple>

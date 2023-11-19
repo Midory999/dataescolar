@@ -5,19 +5,16 @@
 ?>
 
 <form class="form" action="<?= $root ?>/areas" method="post">
-	<h1>Registro de área</h1>
-
-	<fieldset class="form__group">
-		<legend class="form__group-legend">Datos personales</legend>
+	<h2>Registro de área</h2>
+	<div class="form__group">
 		<label class="input-group input-group--animate">
 			<input class="input" type="number" name="codigo" min="1" required />
 			<span class="input__label">Código:</span>
 		</label>
-
 		<label class="input-group input-group--animate">
 			<input class="input" name="nombre" required />
 			<span class="input__label">Nombre:</span>
 		</label>
-	</fieldset>
-	<button>Registrar</button>
+	</div>
+	<button class="button button--half">Registrar</button>
 </form>

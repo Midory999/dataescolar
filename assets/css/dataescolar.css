@@ -470,7 +470,7 @@ details[open] {
   border-radius: 5px;
 }
 
-.input-group--padding-top {
+.form__group--padding-top {
   padding-top: 1em;
 }
 
@@ -513,6 +513,10 @@ details[open] {
 
 .select-container--simple .select {
   height: auto;
+}
+
+.select--normal {
+  height: 45px !important;
 }
 
 .button {

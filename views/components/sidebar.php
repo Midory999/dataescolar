@@ -12,6 +12,12 @@ if ($user->isAdmin()) {
 	</li>
 	HTML;
 
+	$links['teacher']['register'] = <<<HTML
+	<li class="menu__submenu-item">
+		<a class="menu__submenu-text" href="$root/profesores/registrar">Registrar</a>
+	</li>
+	HTML;
+
 	$links['users'] = <<<HTML
 	<details class="menu__link">
 		<summary class="menu__text">Usuarios</summary>

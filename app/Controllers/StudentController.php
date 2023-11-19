@@ -32,7 +32,7 @@ class StudentController {
 		$student->lastnames = $info['apellido'];
 		$student->birthDate = $info['fecha_nacimiento'];
 		$student->birthPlace = $info['lugar_nacimiento'];
-		$student->age = $info['edad'];
+		$student->age = date('Y') - (explode('-', $info['fecha_nacimiento'])[0]);
 		$student->birthType = $info['tipo_parto'];
 		$student->compromises = $info['compromiso'];
 		$student->medicines = $info['medicamentos'];

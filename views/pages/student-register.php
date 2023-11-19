@@ -8,19 +8,20 @@
 <form class="form" action="<?= $root ?>/estudiantes" method="post">
 	<h2>Registro de estudiante</h2>
 
-	<fieldset class="form__group">
+	<fieldset class="form__group form__group--padding-top">
 		<legend class="form__group-legend">Datos personales</legend>
-		<span class="input__label">Representante:</span>
-		<div class="select-container">
-			<select class="select" class="id_representante" id="id_representante">
-				<option selected disabled>Seleccionar</option>
-				<?php foreach ($representatives as $representative) echo <<<HTML
-		<option value="{$representative->id}">
-			{$representative->idCard} - {$representative->names}
-		</option>
-		HTML ?>
-			</select>
-		</div>
+		<label class="input-group">
+			<span class="input__label">Representante:</span>
+			<div class="select-container">
+				<select class="select" name="id_representante">
+					<option selected disabled>Seleccionar</option>
+					<?php foreach ($representatives as $representative) echo <<<HTML
+					<option value="{$representative->id}">
+						{$representative->idCard} - {$representative->names}
+					</option>
+					HTML ?>
+				</select>
+			</div>
 		</label>
 
 		<label class="input-group input-group--animate">
@@ -44,15 +45,13 @@
 		</label>
 
 		<label class="input-group input-group--animate">
-			<input class="input" type="text" id="lugar_nacimiento" name="lugar_nacimiento" required>
+			<input class="input" id="lugar_nacimiento" name="lugar_nacimiento" required>
 			<span class="input__label">Lugar de Nacimiento:</span>
 		</label>
-
 		<label class="input-group input-group--animate">
-			<input class="input" type="number" id="edad" name="edad" required>
-			<span class="input__label">Edad:</span>
+			<input class="input" name="direccion" required />
+			<span class="input__label">Dirección:</span>
 		</label>
-
 		<label class="input-group">
 			<span class="input__label">Genero:</span>
 			<div class="select-container">
@@ -64,36 +63,32 @@
 			</div>
 		</label>
 	</fieldset>
-
-	</fieldset>
-
-	<fieldset class="form__group">
-		<legend class="form__group-legend">Datos medico</legend>
+	<fieldset class="form__group form__group--padding-top">
+		<legend class="form__group-legend">Datos médicos</legend>
 		<label class="input-group">
 			<span class="input__label">Vacunas:</span>
 			<div class="select-container">
-				<select class="select" id="tipo_parto" name="tipo_parto" required>
+				<select class="select" name="tipo_parto" required>
 					<option value="normal">Normal</option>
 					<option value="cesarea">Cesárea</option>
 					<option value="complicado">Complicado</option>
 				</select>
 			</div>
 		</label>
+		<label class="input-group input-group--animate">
+			<input class="input" name="medicamentos" required></input>
+			<span class="input__label">Medicamentos:</span>
+		</label>
 
 		<label class="input-group">
 			<span class="input__label">Compromiso:</span>
-			<div class="select-container">
-				<select class="select" name="compromiso" id="compromiso" multiple>
+			<div class="select-container select-container--simple">
+				<select class="select select--normal" name="compromiso" multiple>
 					<option value="retardo_mental">Retardo Mental</option>
 					<option value="sindrome_down">Síndrome de Down</option>
 					<option value="autismo">Autismo</option>
 				</select>
 			</div>
-		</label>
-
-		<label class="input-group input-group--animate">
-			<input class="input" id="medicamentos" name="medicamentos" required></input>
-			<span class="input__label">Medicamentos:</span>
 		</label>
 
 		<label class="input-group">
@@ -114,49 +109,46 @@
 		</label>
 	</fieldset>
 
-	<label for="direccion">Dirección:</label>
-	<textarea id="direccion" name="direccion" required></textarea>
-
 	<fieldset class="form__group">
-		<legend class="form__group-legend">Datos Antropometrica</legend>
+		<legend class="form__group-legend">Medidas Antropométricas</legend>
 		<label class="input-group input-group--animate">
-			<input class="input" type="text" id="pregunta1" name="pregunta1"><br><br>
+			<input class="input" name="pregunta1">
 			<span class="input__label">Peso Corporal(kg):</span>
 		</label>
 
 		<label class="input-group input-group--animate">
-			<input class="input" type="text" id="pregunta2" name="pregunta2"><br><br>
+			<input class="input" name="pregunta2">
 			<span class="input__label">Talla(cm):</span>
 		</label>
 
 		<label class="input-group input-group--animate">
-			<input class="input" type="text" id="pregunta3" name="pregunta3"><br><br>
+			<input class="input" name="pregunta3">
 			<span class="input__label">Talla de calzado:</span>
 		</label>
 
 		<label class="input-group input-group--animate">
-			<input class="input" type="text" id="pregunta4" name="pregunta4"><br><br>
+			<input class="input" name="pregunta4">
 			<span class="input__label">Talla de pantalón:</span>
 		</label>
 
-		<label class="input-group input-group--animate">
-			<input class="input" type="text" id="pregunta5" name="pregunta5"><br><br>
+		<label class="input-group">
+			<input class="input" name="pregunta5">
 			<span class="input__label">Circunferencia de Brazo Izquierdo(mm):</span>
 		</label>
 
 
-		<label class="input-group input-group--animate">
-			<input class="input" type="text" id="pregunta6" name="pregunta6"><br><br>
+		<label class="input-group">
+			<input class="input" name="pregunta6">
 			<span class="input__label">Clasificación Nutricional Antropometrica:</span>
 		</label>
 	</fieldset>
 
-	<fieldset class="form__group">
-		<legend class="form__group-legend">Dato medico</legend>
+	<fieldset class="form__group form__group--padding-top">
+		<legend class="form__group-legend">Datos médicos</legend>
 		<label class="input-group">
 			<span class="input__label">Vacunas:</span>
-			<div class="select-container">
-				<select class="select" name="vacunas" id="vacunas" multiple>
+			<div class="select-container select-container--simple">
+				<select class="select" name="vacunas" multiple>
 					<option value="hepatitis_b">Hepatitis B</option>
 					<option value="dtap">DTaP</option>
 					<option value="hib">Hib</option>
@@ -172,28 +164,16 @@
 		</label>
 	</fieldset>
 
-	<fieldset class="form__group">
-		<legend class="form__group-legend">Dato academico</legend>
+	<fieldset class="form__group form__group--padding-top">
+		<legend class="form__group-legend">Datos académicos</legend>
 		<label class="input-group">
-			<span class="input__label">Programas Sociales:</span>
-			<div class="select-container">
-				<select class="select" name="programas_sociales" id="programas_sociales" multiple>
-					<option value="jgh">José Gredorio Hernández</option>
-					<option value="escolaridad">Escolaridad (Patria)</option>
-					<option value="ninguna">Ninguna</option>
-				</select>
-			</div>
-		</label>
-
-		<label class="input-group input-group--animate">
-			<input class="input" type="date" id="ingreso" name="ingreso" required>
+			<input class="input" type="date" name="ingreso" required>
 			<span class="input__label">Fecha de Ingreso:</span>
 		</label>
-
 		<label class="input-group">
 			<span class="input__label">Estatus:</span>
 			<div class="select-container">
-				<select class="select" id="estatus" name="estatus" required>
+				<select class="select" name="estatus" required>
 					<option selected disabled>Seleccionar</option>
 					<option value="activo">Activo</option>
 					<option value="retirado">Retirado</option>
@@ -202,9 +182,21 @@
 				</select>
 			</div>
 		</label>
+		<label class="input-group">
+			<span class="input__label">Programas Sociales:</span>
+			<div class="select-container select-container--simple">
+				<select class="select" name="programas_sociales" multiple>
+					<option value="jgh">José Gredorio Hernández</option>
+					<option value="escolaridad">Escolaridad (Patria)</option>
+					<option value="ninguna">Ninguna</option>
+				</select>
+			</div>
+		</label>
+		<label class="input-group input-group--animate">
+			<textarea class="input" name="descripcion" required></textarea>
+			<span class="input__label">Descripción:</span>
+		</label>
+	</fieldset>
 
-		<label for="descripcion">Descripción:</label>
-		<textarea id="descripcion" name="descripcion" required></textarea>
-
-		<button>Registrar</button>
+	<button class="button button--half">Registrar</button>
 </form>
