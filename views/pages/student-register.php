@@ -10,17 +10,18 @@
 
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos personales</legend>
-		<span class="input__label">Representante:</span>
-		<div class="select-container">
-			<select class="select" class="id_representante" id="id_representante">
-				<option selected disabled>Seleccionar</option>
-				<?php foreach ($representatives as $representative) echo <<<HTML
+		<label class="input-group">
+			<span class="input__label">Representante:</span>
+			<div class="select-container">
+				<select class="select" class="id_representante" id="id_representante">
+					<option selected disabled>Seleccionar</option>
+					<?php foreach ($representatives as $representative) echo <<<HTML
 		<option value="{$representative->id}">
 			{$representative->idCard} - {$representative->names}
 		</option>
 		HTML ?>
-			</select>
-		</div>
+				</select>
+			</div>
 		</label>
 
 		<label class="input-group input-group--animate">
@@ -185,9 +186,9 @@
 			</div>
 		</label>
 
-		<label class="input-group input-group--animate">
-			<input class="input" type="date" id="ingreso" name="ingreso" required>
-			<span class="input__label">Fecha de Ingreso:</span>
+		<label class="input-group">
+			<input class="input" type="date" name="ingreso" required />
+			<span class="input__label">Ingreso:</span>
 		</label>
 
 		<label class="input-group">
@@ -203,8 +204,11 @@
 			</div>
 		</label>
 
-		<label for="descripcion">Descripción:</label>
-		<textarea id="descripcion" name="descripcion" required></textarea>
+		<label class="input-group input-group--animate">
+			<textarea class="input" id="descripcion" name="descripcion" required></textarea>
+			<span class="input__label">Descripción:</span>
+		</label>
+	</fieldset>
 
-		<button>Registrar</button>
+	<button>Registrar</button>
 </form>
