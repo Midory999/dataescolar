@@ -470,6 +470,10 @@ details[open] {
   border-radius: 5px;
 }
 
+.input-group--padding-top {
+  padding-top: 1em;
+}
+
 .input-group:hover .input__label {
   color: #f44b5f;
 }

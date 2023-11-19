@@ -1,6 +1,8 @@
 <?php
-
 /** @var string $root */
+/** @var App\Models\Student[] $students */
+/** @var App\Models\Level[] $levels */
+/** @var App\Models\Period[] $periods */
 ?>
 
 <form action="<?= $root ?>/inscripciones" method="post">

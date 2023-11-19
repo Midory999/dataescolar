@@ -87,7 +87,7 @@
 	</fieldset>
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos médicos</legend>
-		<label class="input-group">
+		<label class="input-group input-group--padding-top">
 			<span class="input__label">Vacunas:</span>
 			<div class="select-container select-container--simple">
 				<select class="select" name="vacunas[]" multiple>

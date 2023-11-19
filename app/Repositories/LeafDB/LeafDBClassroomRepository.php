@@ -55,12 +55,10 @@ implements ClassroomRepository {
 
 	/** @param array<string, string> $info */
 	private function mapper(array $info): Classroom {
-		$classroom = new Classroom;
-		$classroom->name  = $info['nombre'];
-
-		$teacher = $this->teacherRepository->getByID($info['id_Profesores']);
-		assert($teacher !== null);
-		$classroom->teacher = $teacher;
+		$classroom = new Classroom(
+			$info['nombre'],
+			$this->teacherRepository->getByID($info['id_Profesor'])
+		);
 
 		return $classroom;
 	}
