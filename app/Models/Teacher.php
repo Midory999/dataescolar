@@ -28,6 +28,10 @@ class Teacher extends Person {
 		return explode(' ', $this->lastnames)[1] ?? '';
 	}
 
+	function getID(): int {
+		return $this->id;
+	}
+
 	function toArray(): array {
 		return [
 			'nombres' => [
