@@ -13,14 +13,17 @@
 		<table>
 			<thead>
 				<tr>
-					<th>ID Estudiante</th>
-					<th>ID Periodo</th>
-					<th>ID Nivel</th>
+					<th>Estudiante</th>
+					<th>Periodo</th>
+					<th>Nivel</th>
 				</tr>
 			</thead>
-			<tbody id="inscription-list">
-				<!-- Aquí se mostrarán los estudiantes -->
+			</tbody>
+			<?php foreach ($inscriptions as $inscription) echo <<<HTML
+		  <td>{$inscription->students}</td>
+			<td>{$inscription->levels}</td>
+			<td>{$inscription->periods}</td>
+			</tr>
+HTML  ?>
 			</tbody>
 		</table>
-	</span>
-</section>

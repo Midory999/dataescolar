@@ -4,7 +4,7 @@
 /** @var string $assets */
 ?>
 
-<form action="<?= $root ?>/representantes" method="post">
+<form class="form" action="<?= $root ?>/representantes" method="post">
 	<h2>Registro de Representante</h2>
 
 	<fieldset class="form__group">
@@ -43,47 +43,57 @@
 			<span class="input__label">Direccion:</span>
 		</label>
 
-		<label for="correo">Correo Electrónico:</label>
-		<input type="email" id="correo" name="correo" required>
+		<label class="input-group input-group--animate">
+			<input class="input" type="email" name="correo" required />
+			<span class="input__label">Correo Electrónico:</span>
+		</label>
 
-		<label for="telefono">Teléfono:</label>
-		<input type="tel" id="telefono" name="telefono" required>
+		<label class="input-group input-group--animate">
+			<input class="input" type="tel" name="telefono" required />
+			<span class="input__label">Teléfono:</span>
+		</label>
+	</fieldset>
 
-		<label for="estudio">Nivel de Instrución:</label>
-		<select id="estudio" name="estudio" required>
-			<option selected disabled>Seleccionar</option>
-			<option value="primaria">Primaria</option>
-			<option value="bachillerato">Bachillerato</option>
-			<option value="universidad">Universidad</option>
-			<option value="tecnico">Tecnico</option>
-			<option value="sin_estudio">Sin estudio</option>
-		</select>
+	<label class="input-group">
+		<span class="input__label">Tipo de Sangre:</span>
+		<div class="select-container">
+			<select class="select" name="tipo_sangre" required>
+				<option selected disabled>Seleccionar</option>
+				<option value="A+">A+</option>
+				<option value="A-">A-</option>
+				<option value="B+">B+</option>
+				<option value="B-">B-</option>
+				<option value="O+">O+</option>
+				<option value="O-">O-</option>
+				<option value="AB+">AB+</option>
+				<option value="AB-">AB-</option>
+			</select>
+		</div>
+	</label>
+	</fieldset>
 
-		<label for="tipo_sangre">Tipo de Sangre:</label>
-		<select id="tipo_sangre" name="tipo_sangre" required>
-			<option selected disabled>Seleccionar</option>
-			<option value="AB+">AB+</option>
-			<option value="AB-">AB-</option>
-			<option value="A+">A+</option>
-			<option value="A-">A-</option>
-			<option value="B+">B+</option>
-			<option value="B-">B-</option>
-			<option value="O+">O+</option>
-			<option value="O-">O-</option>
-		</select>
+	<fieldset class="form__group">
+		<legend class="form__group-legend">Datos descriptivo</legend>
+		<label class="input-group input-group--animate">
+			<input class="input" name="ocupacion" required>
+			<span class="input__label">Ocupación:</span>
+		</label>
 
-		<label for="ocupacion">Ocupación:</label>
-		<input id="ocupacion" name="ocupacion" required>
+		<label class="input-group input-group--animate">
+			<input class="input" name="lugar_trabajo" required>
+			<span class="input__label">Lugar de Trabajo:</span>
+		</label>
 
-		<label for="lugar_trabajo">Lugar de Trabajo:</label>
-		<input id="lugar_trabajo" name="lugar_trabajo" required>
-
-		<label for="estudio_economico">Estudio Socioeconómico:</label>
-		<select id="estudio_economico" name="estudio_economico" required>
-			<option selected disabled>Seleccionar</option>
-			<option value="bajos_recursos">Bajos Recursos</option>
-			<option value="normal">Normal</option>
-		</select>
-
-		<button>Registrar</button>
+		<label class="input-group input-group--animate">
+			<label class="input-group">
+				<span class="input__label">Estudio Socioeconómico:</span>
+				<div class="select-container">
+					<select class="input" name="estudio_economico" required>
+						<option selected disabled>Seleccionar</option>
+						<option value="bajos_recursos">Bajos Recursos</option>
+						<option value="normal">Normal</option>
+					</select>
+				</div>
+			</label>
+			<button class="button button--half">Registrar</button>
 </form>

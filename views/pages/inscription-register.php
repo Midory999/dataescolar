@@ -26,7 +26,7 @@
 	<label class="input-group">
 		<span class="input__label">Nivel:</span>
 		<div class="select-container">
-			<select class="select" name="id_nivel" id="id_nivel">
+			<select class="select" name="id_niveles">
 				<option selected disabled>Seleccionar</option>
 				<?php foreach ($levels as $level) echo <<<HTML
 				<option value="{$level->id}">

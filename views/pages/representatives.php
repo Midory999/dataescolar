@@ -1,7 +1,8 @@
 <?php
+
 /** @var App\Models\Representative[] $representatives */
 /** @var string $root */
-	/** @var null|string $message */
+/** @var null|string $message */
 ?>
 
 <h2>Representantes</h2>
@@ -22,10 +23,11 @@
 			<th>Tipo de Sangre</th>
 			<th>Ocupación</th>
 			<th>Lugar de Trabajo</th>
+			<th>Estudio Socioeconómico</th>
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach($representatives as $representative) echo <<<HTML
+		<?php foreach ($representatives as $representative) echo <<<HTML
 		  <td>{$representative->idCard}</td>
 			<td>{$representative->names}</td>
 			<td>{$representative->lastnames}</td>
@@ -40,5 +42,5 @@
 			<td>{$representative->studies}</td>
 </tr>
 HTML  ?>
-</tbody>
+	</tbody>
 </table>

@@ -4,7 +4,7 @@
 ?>
 
 <form action="<?= $root ?>/niveles" method="post">
-	<h1>Registro de nivel</h1>
+	<h1>Registro de Nivel</h1>
 
 	<label>
 		<span>Código:</span>

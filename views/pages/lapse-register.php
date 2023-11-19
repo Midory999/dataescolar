@@ -21,12 +21,12 @@
 				</select>
 
 				<label for="fecha_inicio">Fecha de Inicio:</label>
-				<input type="date" id="fecha_inicio" name="fecha_inicio" required />
+				<input type="date" name="fecha_inicio" required />
 
 				<label for="fecha_fin">Fecha de Fin:</label>
-				<input type="date" id="fecha_fin" name="fecha_fin" required />
+				<input type="date" name="fecha_fin" required />
 
 				<label for="nombre">Nombre:</label>
 				<input id="nombre" name="nombre" required />
-				<button>Registrar</button>
+				<button class="button button--half">Registrar</button>
 </form>

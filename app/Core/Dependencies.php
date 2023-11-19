@@ -27,6 +27,7 @@ use App\Repositories\{
 	TeacherRepository,
 	ClassroomRepository,
 	LevelRepository,
+	ReportRepository,
 	UserRepository
 };
 
@@ -75,6 +76,14 @@ class Dependencies {
 		$levelRepository = self::getLevelRepository();
 
 		return new LeafDBInscriptionRepository($studentRepository, $periodRepository, $levelRepository);
+	}
+	static function getReportRepository(): ReportRepository {
+		$studentRepository = self::getStudentRepository();
+		$teacherRepository = self::getTeacherRepository();
+		$areaRepository = self::getAreaRepository();
+		$levelRepository = self::getLevelRepository();
+
+		return new LeafDBReportRepository($studentRepository, $teacherRepository, $areaRepository, $levelRepository);
 	}
 	static function getAreaRepository(): AreaRepository {
 		return new LeafDBAreaRepository;

@@ -42,6 +42,8 @@ Flight::route('GET /representantes', 'App\Controllers\RepresentativeController::
 
 Flight::route('GET /inscripciones', 'App\Controllers\InscriptionController::showInscriptions');
 
+Flight::route('GET /informes', 'App\Controllers\ReportController::showReports');
+
 Flight::route('GET /estudiantes', 'App\Controllers\StudentController::showStudents');
 Flight::route('GET /profesores', 'App\Controllers\TeacherController::showTeachers');
 Flight::route('GET /niveles', [$levelController, 'showLevels']);
@@ -55,6 +57,9 @@ Flight::route('GET /aulas', 'App\Controllers\ClassroomController::showClassrooms
 
 Flight::route('GET /inscripciones/registrar', 'App\Controllers\InscriptionController::showRegisterForm');
 Flight::route('POST /inscripciones', 'App\Controllers\InscriptionController::registerInscription');
+
+Flight::route('GET /informes/registrar', 'App\Controllers\ReportController::showRegisterForm');
+Flight::route('POST /informes', 'App\Controllers\ReportController::registerReport');
 
 Flight::route('GET /representantes/registrar', 'App\Controllers\RepresentativeController::showRegisterForm');
 Flight::route('POST /representantes', 'App\Controllers\RepresentativeController::registerRepresentative');

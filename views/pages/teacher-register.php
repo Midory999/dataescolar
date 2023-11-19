@@ -6,7 +6,7 @@
 ?>
 
 <form class="form" action="<?= $root ?>/profesores" method="post">
-	<h2>Registro de profesor/a</h2>
+	<h2>Registro de Profesor/a</h2>
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos personales</legend>
 		<label class="input-group input-group--animate">
@@ -27,7 +27,7 @@
 		</label>
 
 		<label class="input-group input-group--animate">
-			<input class="input" type="number" id="edad" name="edad" required>
+			<input class="input" type="number" name="edad" required>
 			<span class="input__label">Edad:</span>
 		</label>
 
@@ -65,7 +65,7 @@
 		<label class="input-group">
 			<span class="input__label">Area:</span>
 			<div class="select-container">
-				<select class="select" name="id_area" id="id_area">
+				<select class="select" name="id_area">
 					<option selected disabled>Seleccionar</option>
 					<?php foreach ($areas as $area) echo <<<HTML
 					<option value="{$area->getCode()}">{$area->name}</option>
