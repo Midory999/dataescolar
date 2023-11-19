@@ -15,7 +15,7 @@ abstract class LeafDBConnection {
 				'dbname' => __DIR__ . '/../SQLite/' . Env::get('DB_DATABASE')
 			]);
 
-			self::prepareDB();
+			// self::prepareDB();
 		}
 	}
 

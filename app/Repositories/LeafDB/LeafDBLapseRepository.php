@@ -5,8 +5,9 @@ namespace App\Repositories\LeafDB;
 use App\Core\Logger;
 use App\Exceptions\DuplicatedRecordException;
 use App\Models\Lapse;
-use App\Repositories\PeriodRepository;
+use App\Models\Period;
 use App\Repositories\LapseRepository;
+use App\Repositories\PeriodRepository;
 use PDOException;
 
 class LeafDBLapseRepository extends LeafDBConnection implements LapseRepository {
@@ -20,13 +21,18 @@ class LeafDBLapseRepository extends LeafDBConnection implements LapseRepository 
 	}
 
 	function getByID(int $id): ?Lapse {
-		$lapse = self::db()->select(self::TABLE)->where(self::PRIMARY_KEY, $id)->assoc();
+		return $this->searchByCriteria(self::PRIMARY_KEY, $id);
+	}
 
-		if ($lapse === false) {
-			return null;
+	function setLapsesTo(Period $period): void {
+		$lapses = self::db()
+			->select(self::TABLE)
+			->where(self::PERIOD_FOREIGN_KEY, $period->getID())
+			->all();
+
+		foreach ($lapses as $lapse) {
+			$period->addLapse($this->mapper($lapse));
 		}
-
-		return $this->mapper($lapse);
 	}
 
 	function save(Lapse $lapse): Lapse {
@@ -62,5 +68,15 @@ class LeafDBLapseRepository extends LeafDBConnection implements LapseRepository 
 		$lapse->setID($info[self::PRIMARY_KEY]);
 
 		return $lapse;
+	}
+
+	private function searchByCriteria(string $criteria, int|string|bool $value): ?Lapse {
+		$lapse = self::db()->select(self::TABLE)->where($criteria, $value)->assoc();
+
+		if ($lapse === false) {
+			return null;
+		}
+
+		return $this->mapper($lapse);
 	}
 }

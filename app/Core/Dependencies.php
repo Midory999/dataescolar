@@ -4,8 +4,9 @@ namespace App\Core;
 
 use App\Core\Encryptors\PHPEncryptor;
 use App\Repositories\LeafDB\{
-  LeafDBAreaRepository,
-  LeafDBPeriodRepository,
+	LeafDBInscriptionRepository,
+	LeafDBAreaRepository,
+	LeafDBPeriodRepository,
 	LeafDBLapseRepository,
 	LeafDBRepresentativeRepository,
 	LeafDBSettingRepository,
@@ -16,8 +17,9 @@ use App\Repositories\LeafDB\{
 	LeafDBUserRepository
 };
 use App\Repositories\{
-  AreaRepository,
-  PeriodRepository,
+	InscriptionRepository,
+	AreaRepository,
+	PeriodRepository,
 	LapseRepository,
 	RepresentativeRepository,
 	SettingRepository,
@@ -67,13 +69,18 @@ class Dependencies {
 		return new LeafDBTeacherRepository(self::getAreaRepository());
 	}
 
+	static function getInscriptionRepository(): InscriptionRepository {
+		$studentRepository = self::getStudentRepository();
+		$periodRepository = self::getPeriodRepository();
+		$levelRepository = self::getLevelRepository();
+
+		return new LeafDBInscriptionRepository($studentRepository, $periodRepository, $levelRepository);
+	}
 	static function getAreaRepository(): AreaRepository {
 		return new LeafDBAreaRepository;
 	}
 
 	static function getLevelRepository(): LevelRepository {
 		return new LeafDBLevelRepository;
-
 	}
-
 }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 class Period extends Model {
+
 	private const MAX_LAPSES_COUNT = 3;
 
 	private ?int $id = null;
@@ -10,6 +11,10 @@ class Period extends Model {
 	private array $lapses = [];
 
 	function __construct(public readonly int $startYear) {
+	}
+
+	function getLapse(int $number): ?Lapse {
+		return @$this->lapses[--$number];
 	}
 
 	function getEndYear(): int {

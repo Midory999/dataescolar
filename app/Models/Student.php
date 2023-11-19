@@ -14,4 +14,12 @@ class Student extends Person {
 	public bool $status;
 	public string $description;
 	public Representative $representative;
+
+	function toArray(): array {
+		return [];
+	}
+
+	function __toString(): string {
+		return '';
+	}
 }

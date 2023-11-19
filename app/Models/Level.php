@@ -3,15 +3,14 @@
 namespace App\Models;
 
 class Level {
-	public int $code;
+	public int $id;
 
-	public string $name;
+	public string $code;
 
-	static function create(int $code, string $name): self {
+	static function create(int $id, string $code, string $level): self {
 		$level = new self;
 		$level->code = $code;
-		$level->name = $name;
-
+		$level->id = $id;
 		return $level;
 	}
 }

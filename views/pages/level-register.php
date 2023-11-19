@@ -6,6 +6,11 @@
 <form action="<?= $root ?>/niveles" method="post">
 	<h1>Registro de nivel</h1>
 
+	<label>
+		<span>Código:</span>
+		<input type="number" name="codigo" min="1" required />
+	</label>
+
 	<label for="nombre">Nivel:</label>
 	<select id="nombre" name="nombre" required>
 		<option selected disabled>Seleccionar</option>

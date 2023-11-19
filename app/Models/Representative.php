@@ -8,4 +8,12 @@ class Representative extends Person {
 	public string $ocupation;
 	public string $jobPlace;
 	public string $studies;
+
+	function toArray(): array {
+		return [];
+	}
+
+	function __toString(): string {
+		return '';
+	}
 }

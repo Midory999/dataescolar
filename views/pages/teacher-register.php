@@ -1,56 +1,85 @@
 <?php
+
 /** @var App\Models\Area[] $areas */
 /** @var string $root */
+/** @var string $assets */
 ?>
 
-<form action="<?= $root ?>/profesores" method="post">
-	<h1>Registro de profesores</h1>
+<form class="form" action="<?= $root ?>/profesores" method="post">
+	<h2>Registro de profesor/a</h2>
 
-	<label for="cedula">Cédula:</label>
-	<input type="number" id="cedula" name="cedula" required><br>
+	<fieldset class="form__group">
+		<legend class="form__group-legend">Datos personales</legend>
+		<label class="input-group input-group--animate">
+			<input class="input" type="number" name="cedula" required />
+			<span class="input__label">Cédula:</span>
+		</label>
 
-	<label for="nombre">Nombre:</label>
-	<input id="nombre" name="nombre" required><br>
+		<label class="input-group input-group--animate">
+			<input class="input" name="nombre" required />
+			<span class="input__label">Nombre:</span>
+		</label>
 
-	<label for="apellido">Apellido:</label>
-	<input id="apellido" name="apellido" required><br>
+		<label class="input-group input-group--animate">
+			<input class="input" name="apellido" required />
+			<span class="input__label">Apellido:</span>
+		</label>
 
-	<label for="estatus">Estatus:</label>
-	<select id="estatus" name="estatus" required><br>
-		<option value="">Seleccionar</option>
-		<option value="activo">Activo</option>
-		<option value="jubilado">Jubilado</option>
-		<option value="proceso_jubilacion">Proceso de Jubilación</option>
-		<option value="reposo_medico">Reposo médico</option>
-	</select>
+		<label class="input-group">
+			<input class="input" type="date" name="fecha_nacimiento" required />
+			<span class="input__label">Fecha de Nacimiento:</span>
+		</label>
 
-	<label for="especialidad">Especialidad:</label>
-	<input id="especialidad" name="especialidad" required><br>
+		<label class="input-group">
+			<span class="input__label">Sexo:</span>
+			<div class="select-container">
+				<select class="select" name="genero" required>
+					<option disabled selected>Seleccionar</option>
+					<option value="masculino">Masculino</option>
+					<option value="femenino">Femenino</option>
+				</select>
+			</div>
+		</label>
+	</fieldset>
 
-	<label for="direccion">Dirección:</label>
-	<textarea id="direccion" name="direccion" required></textarea><br>
+	<label>
+		Estatus:
+		<select name="estatus" required>
+			<option disabled selected>Seleccionar</option>
+			<option value="Activo">Activo</option>
+			<option value="Jubilado">Jubilado</option>
+			<option value="Proceso de jubilación">Proceso de Jubilación</option>
+			<option value="Reposo médico">Reposo médico</option>
+		</select>
+	</label>
 
-	<label for="correo">Correo:</label>
-	<input id="correo" name="correo" required><br>
+	<label>
+		Especialidad:
+		<input name="especialidad" required />
+	</label>
 
-	<label for="telefono">Teléfono:</label>
-	<input type="number" id="telefono" name="telefono" required><br>
+	<fieldset>
+		<legend>Datos de contacto</legend>
+		<label>
+			Dirección:
+			<textarea name="direccion" required></textarea>
+		</label>
 
-	<label for="ingreso">Fecha de Ingreso:</label>
-	<input type="number" id="ingreso" name="ingreso" required><br>
+		<label>
+			Correo:
+			<input type="email" name="correo" required />
+		</label>
 
-	<label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-	<input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br>
+		<label>
+			Teléfono:
+			<input type="tel" name="telefono" required />
+		</label>
+	</fieldset>
 
-	<label for="edad">Edad:</label>
-	<input type="number" id="edad" name="edad" required><br>
-
-	<label for="genero">Género:</label>
-	<select id="genero" name="genero" required><br>
-		<option value="">Seleccionar</option>
-		<option value="masculino">Masculino</option>
-		<option value="femenino">Femenino</option>
-	</select>
+	<label>
+		Fecha de Ingreso:
+		<input type="date" name="ingreso" required />
+	</label>
 
 	<label id="vacunas">Selecciona las vacunas:</label>
 	<select name="vacunas[]" id="vacunas" multiple>
@@ -61,16 +90,16 @@
 	</select>
 
 	<label for="carga_horaria">Carga Horaria:</label>
-	<input id="carga_horaria" name="carga_horaria" required><br>
+	<input id="carga_horaria" name="carga_horaria" required />
 
 	<label for="codigo_independencia">Código de Independencia:</label>
-	<input id="codigo_independencia" name="codigo_independencia" required><br>
+	<input id="codigo_independencia" name="codigo_independencia" required />
 
 	<label for="id_area">Area:</label>
 	<select name="id_area" id="id_area">
 		<option selected disabled>Seleccionar</option>
 		<?php foreach ($areas as $area) echo <<<HTML
-		<option value="{$area->code}">{$area->name}</option>
+		<option value="{$area->getCode()}">{$area->name}</option>
 		HTML ?>
 	</select>
 	<button>Registrar</button>

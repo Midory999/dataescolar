@@ -2,8 +2,8 @@
 
 namespace App\Controllers\Web;
 
-use App\Adapters\Response;
 use App\Core\Dependencies;
+use App\Core\UI;
 use App\Exceptions\DuplicatedRecordException;
 use App\Models\Lapse;
 use App\Models\Period;
@@ -14,9 +14,22 @@ class PeriodController {
 	static function showAll(): void {
 		$periods = Dependencies::getPeriodRepository()
 			->ensureThereIsOnePeriod()
-			->getAllAsArrays();
+			->setLapseRepository(Dependencies::getLapseRepository())
+			->getAll();
 
-		UI::render('periods', compact('periods'));
+		$mensaje = Flight::request()->query['mensaje'];
+		$title = 'Periodos';
+
+		UI::render('periods', compact('periods', 'mensaje', 'title'));
+	}
+
+	static function showRegisterForm(): void {
+		$periods = Dependencies::getPeriodRepository()
+			->ensureThereIsOnePeriod()
+			->getAll();
+
+		$title = 'Registrar periodo';
+		UI::render('period-register', compact('periods', 'title'));
 	}
 
 	static function register(): void {
@@ -58,7 +71,8 @@ class PeriodController {
 				$period->addLapse($lapse);
 			}
 
-			Flight::redirect('/periodos');
+			$mensaje = urlencode('Periodo registrado exitósamente');
+			Flight::redirect("/periodos?mensaje=$mensaje");
 		} catch (DuplicatedRecordException $error) {
 			$error = urlencode($error->getMessage());
 			Flight::redirect("/periodos?error=$error");
