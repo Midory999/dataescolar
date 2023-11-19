@@ -4,10 +4,10 @@ namespace App\Repositories\LeafDB;
 
 use App\Core\Logger;
 use App\Models\Inscription;
-use App\Repositories\InscriptionRepository;
 use App\Repositories\StudentRepository;
-use App\Repositories\LevelRepository;
 use App\Repositories\PeriodRepository;
+use App\Repositories\LevelRepository;
+use App\Repositories\InscriptionRepository;
 use PDOException;
 
 class LeafDBInscriptionRepository
@@ -24,20 +24,20 @@ implements InscriptionRepository {
 	function getAll(): array {
 		assert(self::$db !== null);
 
-		$inscriptions = self::$db->select('inscripciones')->all();
-		return array_map([$this, 'mapper'], $inscriptions);
+		$inscription = self::$db->select('inscripciones')->all();
+		return array_map([$this, 'mapper'], $inscription);
 	}
 
 	function getByID(int $id): ?Inscription {
 		assert(self::$db !== null);
 
-		$inscriptionInfo = self::$db->select('inscripciones')->assoc();
+		$inscriptiontInfo = self::$db->select('inscripciones')->where('id', $id)->assoc();
 
-		if ($inscriptionInfo === false) {
+		if ($inscriptiontInfo === false) {
 			return null;
 		}
 
-		return $this->mapper($inscriptionInfo);
+		return $this->mapper($inscriptiontInfo);
 	}
 
 	function save(Inscription $inscription): bool {
@@ -47,8 +47,9 @@ implements InscriptionRepository {
 			self::$db
 				->insert('Inscripciones')
 				->params([
-					'nombres'             => $inscription->name,
-
+					'id_Estudiante'    => $inscription->student->id,
+					'id_Periodo'       => $inscription->period->id,
+					'id_Nivele'        => $inscription->level->code,
 				])
 				->execute();
 
@@ -61,21 +62,25 @@ implements InscriptionRepository {
 
 	/** @param array<string, string> $info */
 	private function mapper(array $info): Inscription {
-		$inscription = new Inscription;
-		$inscription->id             = $info['id'];
-		$inscription->name          = $info['nombre'];
+		$inscriptiont = new Inscription;
+		$inscriptiont->id             = $info['id'];
 
 		$student = $this->studentRepository->getByIDCard($info['id_Estudiante']);
-		$period = $this->periodRepository->getByID($info['id_Period']);
-		$level = $this->levelRepository->getByCode($info['id_Level']);
+
+		$period = $this->periodRepository->getByID($info['id_Periodo']);
+
+		$level = $this->levelRepository->getByID($info['id_Nievele']);
+
 
 		assert($student !== null);
-		$inscription->student = $student;
-		assert($period !== null);
-		$inscription->period = $period;
-		assert($level !== null);
-		$inscription->level = $level;
+		$inscriptiont->student = $student;
 
-		return $inscription;
+		assert($period !== null);
+		$inscriptiont->period = $period;
+
+		assert($level !== null);
+		$inscriptiont->level = $level;
+
+		return $inscriptiont;
 	}
 }

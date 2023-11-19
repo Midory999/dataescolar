@@ -27,13 +27,14 @@ class InscriptionController {
 
 	static function registerInscription(): void {
 		$info = Flight::request()->data->getData();
+		$student = Dependencies::getStudentRepository()->getByIDCard($info['cedula_estudiante']);
+		$period = Dependencies::getPeriodRepository()->getByID($info['id_periodo']);
+		$level = Dependencies::getLevelRepository()->getByID($info['id_niveles']);
 
 		$inscription = new Inscription;
-		$inscription->student = Dependencies::getStudentRepository()->getByIDCard($info['cedula_estudiante']);
-		$inscription->period = Dependencies::getPeriodRepository()->getByID($info['id_periodo']);
-		$inscription->level = Dependencies::getLevelRepository()->getByCode($info['id_nivele']);
-
-		$inscription->name = $info['nombre'];
+		$inscription->student = $student;
+		$inscription->period = $period;
+		$inscription->level = $level;
 
 		Dependencies::getInscriptionRepository()->save($inscription);
 
