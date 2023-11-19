@@ -28,5 +28,5 @@
 
 				<label for="nombre">Nombre:</label>
 				<input id="nombre" name="nombre" required />
-				<button>Registrar</button>
+				<button class="button button--half">Registrar</button>
 </form>

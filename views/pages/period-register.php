@@ -52,5 +52,5 @@
 					<input class="input" type="date" name="lapsos[tercer][fin]" required />
 				</label>
 			</fieldset>
-			<button>Registrar</button>
+			<button class="button button--half">Registrar</button>
 </form>
