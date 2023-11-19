@@ -4,11 +4,11 @@
 /** @var string $root */
 ?>
 
-<section>
-	<span class="input__label">
-		<h2>Inscripciones</h2>
-		<a href="<?= $root ?>/inscripciones/registrar">Añadir</a>
-		<table>
+<section class="w3-section">
+	<h2 class="w3-xlarge">Inscripciones</h2>
+	<a class="w3-button w3-pink w3-round-medium" href="<?= $root ?>/inscripciones/registrar">Añadir</a>
+	<div class="w3-responsive w3-section">
+		<table class="w3-table-all">
 			<thead>
 				<tr>
 					<th>Estudiante</th>
@@ -18,11 +18,13 @@
 			</thead>
 			<tbody>
 				<?php foreach ($inscriptions as $inscription) echo <<<HTML
-					<tr>
-						<td>{$inscription->student->names}</td>
-						<td>{$inscription->level->code}</td>
-						<td>{$inscription->period->startYear}</td>
-					</tr>
-				HTML ?>
+						<tr>
+							<td>{$inscription->student->names}</td>
+							<td>{$inscription->period->startYear}</td>
+							<td>{$inscription->level->code}</td>
+						</tr>
+					HTML ?>
 			</tbody>
 		</table>
+	</div>
+</section>
