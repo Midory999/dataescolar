@@ -30,6 +30,11 @@
 			<span class="input__label">Fecha de Nacimiento:</span>
 		</label>
 
+		<label class="input-group input-group--animate">
+			<input class="input" type="number" id="edad" name="edad" required>
+			<span class="input__label">Edad:</span>
+		</label>
+
 		<label class="input-group">
 			<span class="input__label">Genero:</span>
 			<div class="select-container">
@@ -48,6 +53,7 @@
 			<input class="input" name="especialidad" required />
 			<span class="input__label">Especialidad:</span>
 		</label>
+
 		<label class="input-group">
 			<span class="input__label">Estatus:</span>
 			<div class="select-container">
@@ -60,6 +66,7 @@
 				</select>
 			</div>
 		</label>
+
 		<label class="input-group">
 			<span class="input__label">Area:</span>
 			<div class="select-container">
