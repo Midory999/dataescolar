@@ -119,14 +119,14 @@ CREATE TABLE IF NOT EXISTS Informes(
 	FOREIGN KEY (id_Nivel) REFERENCES Niveles(id)
 );
 
-CREATE TABLE IF NOT EXISTS Inscripciones(
+CREATE TABLE IF NOT EXISTS Inscripciones (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	id_Estudiante INTEGER NOT NULL,
-	id_Periodo INTEGER NOT NULL,
-	id_Nivel INTEGER NOT NULL,
-	FOREIGN KEY (id_Estudiante) REFERENCES Estudiantes(id),
-	FOREIGN KEY (id_Periodo) REFERENCES Periodos(id),
-	FOREIGN KEY (id_Nivel) REFERENCES Niveles(id)
+	id_estudiante INTEGER NOT NULL,
+	id_periodo INTEGER NOT NULL,
+	id_nivel INTEGER NOT NULL,
+	FOREIGN KEY (id_estudiante) REFERENCES Estudiantes(id),
+	FOREIGN KEY (id_periodo) REFERENCES Periodos(id),
+	FOREIGN KEY (id_nivel) REFERENCES Niveles(id)
 );
 
 -- REGISTROS

@@ -1,6 +1,6 @@
 <?php
 function getWeekDay() {
-	$days = [1 => 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+	$days = [1 => 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 0 => 'Domingo'];
 
 	return $days[date('w')];
 }

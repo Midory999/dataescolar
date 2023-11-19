@@ -86,6 +86,8 @@ if ($user->isAdmin()) {
 					</a>
 				</li>
 			</ul>
+		</details>
+		<details class="menu__link">
 			<summary class="menu__text">Representantes</summary>
 			<ul class="menu__submenu">
 				<li class="menu__submenu-item">
@@ -97,6 +99,8 @@ if ($user->isAdmin()) {
 					</a>
 				</li>
 			</ul>
+		</details>
+		<details class="menu__link">
 			<summary class="menu__text">Estudiantes</summary>
 			<ul class="menu__submenu">
 				<li class="menu__submenu-item">

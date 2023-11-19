@@ -43,73 +43,47 @@
 			<span class="input__label">Direccion:</span>
 		</label>
 
-		<label class="input-group input-group--animate">
-			<input class="input" type="email" name="correo" required />
-			<span class="input__label">Correo:</span>
-		</label>
+		<label for="correo">Correo Electrónico:</label>
+		<input type="email" id="correo" name="correo" required>
 
-		<label class="input-group input-group--animate">
-			<input class="input" type="tel" name="telefono" required />
-			<span class="input__label">Teléfono:</span>
-	</fieldset>
+		<label for="telefono">Teléfono:</label>
+		<input type="tel" id="telefono" name="telefono" required>
 
-	<fieldset class="form__group">
-		<legend class="form__group-legend">Dato medico</legend>
-		<label class="input-group">
-			<span class="input__label">Tipo de Sangre:</span>
-			<div class="select-container">
-				<select class="input" id="tipo_sangre" name="tipo_sangre" required>
-					<option selected disabled>Seleccionar</option>
-					<option value="AB+">AB+</option>
-					<option value="AB-">AB-</option>
-					<option value="A+">A+</option>
-					<option value="A-">A-</option>
-					<option value="B+">B+</option>
-					<option value="B-">B-</option>
-					<option value="O+">O+</option>
-					<option value="O-">O-</option>
-				</select>
-			</div>
-		</label>
-	</fieldset>
+		<label for="estudio">Nivel de Instrución:</label>
+		<select id="estudio" name="estudio" required>
+			<option selected disabled>Seleccionar</option>
+			<option value="primaria">Primaria</option>
+			<option value="bachillerato">Bachillerato</option>
+			<option value="universidad">Universidad</option>
+			<option value="tecnico">Tecnico</option>
+			<option value="sin_estudio">Sin estudio</option>
+		</select>
 
-	<fieldset class="form__group">
-		<legend class="form__group-legend">Dato opcionale</legend>
-		<label class="input-group input-group--animate">
-			<input class="input" id="ocupacion" name="ocupacion" required>
-			<span class="input__label">Ocupación:</span>
-		</label>
+		<label for="tipo_sangre">Tipo de Sangre:</label>
+		<select id="tipo_sangre" name="tipo_sangre" required>
+			<option selected disabled>Seleccionar</option>
+			<option value="AB+">AB+</option>
+			<option value="AB-">AB-</option>
+			<option value="A+">A+</option>
+			<option value="A-">A-</option>
+			<option value="B+">B+</option>
+			<option value="B-">B-</option>
+			<option value="O+">O+</option>
+			<option value="O-">O-</option>
+		</select>
 
-		<label class="input-group input-group--animate">
-			<input class="input" id="lugar_trabajo" name="lugar_trabajo" required>
-			<span class="input__label">Lugar de Trabajo:</span>
-		</label>
+		<label for="ocupacion">Ocupación:</label>
+		<input id="ocupacion" name="ocupacion" required>
 
-		<label class="input-group">
-			<span class="input__label">Nivel de Estudio:</span>
-			<div class="select-container">
-				<select class="input" id="estudio" name="estudio" required>
-					<option selected disabled>Seleccionar</option>
-					<option value="primaria">Primaria</option>
-					<option value="bachillerato">Bachillerato</option>
-					<option value="universidad">Universidad</option>
-					<option value="tecnico">Tecnico</option>
-					<option value="sin_estudio">Sin estudio</option>
-				</select>
-			</div>
-		</label>
+		<label for="lugar_trabajo">Lugar de Trabajo:</label>
+		<input id="lugar_trabajo" name="lugar_trabajo" required>
 
-		<label class="input-group">
-			<span class="input__label">Estudio Socioeconómico:</span>
-			<div class="select-container">
-				<select class="input" id="estudio_economico" name="estudio_economico" required>
-					<option selected disabled>Seleccionar</option>
-					<option value="bajos_recursos">Bajos Recursos</option>
-					<option value="normal">Normal</option>
-				</select>
-			</div>
-		</label>
-	</fieldset>
+		<label for="estudio_economico">Estudio Socioeconómico:</label>
+		<select id="estudio_economico" name="estudio_economico" required>
+			<option selected disabled>Seleccionar</option>
+			<option value="bajos_recursos">Bajos Recursos</option>
+			<option value="normal">Normal</option>
+		</select>
 
-	<button>Registrar</button>
+		<button>Registrar</button>
 </form>

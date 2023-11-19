@@ -1,29 +1,30 @@
 <?php
-	/** @var string $root */
+
+/** @var string $root */
 ?>
 
 <form action="<?= $root ?>/informes" method="post">
 	<h1>Registro de informe</h1>
 
-	 <label for="id">ID:</label>
-<input type="text" id="id" name="id" required><br>
+	<label for="id">ID:</label>
+	<input type="text" id="id" name="id" required><br>
 
-<label for="diagnostico">Diagnóstico:</label>
-<textarea name="diagnostico" required></textarea><br>
+	<label for="diagnostico">Diagnóstico:</label>
+	<textarea name="diagnostico" required></textarea><br>
 
-<label for="lapso1">Lapso 1:</label>
-<textarea name="lapso1" required></textarea><br>
+	<label for="lapso1">Lapso 1:</label>
+	<textarea name="lapso1" required></textarea><br>
 
-<label for="lapso2">Lapso 2:</label>
-<textarea name="lapso2" required></textarea><br>
+	<label for="lapso2">Lapso 2:</label>
+	<textarea name="lapso2" required></textarea><br>
 
-<label for="lapso3">Lapso 3:</label>
-<textarea name="lapso3" required></textarea><br>
+	<label for="lapso3">Lapso 3:</label>
+	<textarea name="lapso3" required></textarea><br>
 
-<label for="informe_final">Informe Final:</label>
-<textarea name="informe_final" required></textarea><br>
+	<label for="informe_final">Informe Final:</label>
+	<textarea name="informe_final" required></textarea><br>
 
-<label for="id_estudiante">ID de Estudiante:</label>
+	<label for="id_estudiante">ID de Estudiante:</label>
 	<select name="id_estudiante" id="id_estudiante">
 		<option selected disabled>Seleccionar</option>
 		<?php foreach ($students as $student) echo <<<HTML
@@ -33,8 +34,8 @@
 		HTML ?>
 	</select>
 
-	<label for="id_profesore">ID de Profesore:</label>
-	<select name="id_profesore" id="id_profesore">
+	<label for="id_profesor">ID de Profesor:</label>
+	<select name="id_profesor" id="id_profesor">
 		<option selected disabled>Seleccionar</option>
 		<?php foreach ($teachers as $teacher) echo <<<HTML
 		<option value="{$teacher->id}">
@@ -63,5 +64,5 @@
 		HTML ?>
 	</select>
 
- <button>Registrar</button>
+	<button>Registrar</button>
 </form>
