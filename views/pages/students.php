@@ -8,12 +8,12 @@ use App\Models\Student;
 
 ?>
 
-<section>
+<section class="w3-section">
 	<h2>Estudiante</h2>
-	<a href="<?= $root ?>/estudiantes/registrar">Añadir</a>
-	<button onclick="new PDF().fromElementID('student-list')">Imprimir</button>
-	<div id=student-list">
-		<table>
+	<a class="w3-button w3-pink w3-round-medium" href="<?= $root ?>/estudiantes/registrar">Añadir</a>
+	<button class="w3-button w3-pale-red w3-round-medium" onclick="new PDF().fromElementID('student-list')">Imprimir</button>
+	<div id="student-list" class="w3-responsive w3-section">
+		<table class="w3-table-all">
 			<thead>
 				<tr>
 					<th>Cédula</th>
@@ -38,27 +38,27 @@ use App\Models\Student;
 			</thead>
 			<tbody>
 				<?php foreach ($students as $student) echo <<<HTML
-		<tr>
-			<td>{$student->idCard}</td>
-			<td>{$student->names}</td>
-			<td>{$student->lastnames}</td>
-			<td>{$student->birthDate}</td>
-			<td>{$student->birthPlace}</td>
-			<td>{$student->age}</td>
-			<td>{$student->birthType}</td>
-			<td>{$student->compromises}</td>
-			<td>{$student->medicines}</td>
-			<td>{$student->bloodType}</td>
-			<td>{$student->gender}</td>
-			<td>{$student->direction}</td>
-			<td>{$student->measurements}</td>
-			<td>{$student->vaccines}</td>
-			<td>{$student->socialPrograms}</td>
-			<td>{$student->admission}</td>
-			<td>{$student->status}</td>
-			<td>{$student->description}</td>
-		</tr>
-		HTML ?>
+					<tr>
+						<td>{$student->idCard}</td>
+						<td>{$student->names}</td>
+						<td>{$student->lastnames}</td>
+						<td>{$student->birthDate}</td>
+						<td>{$student->birthPlace}</td>
+						<td>{$student->age}</td>
+						<td>{$student->birthType}</td>
+						<td>{$student->compromises}</td>
+						<td>{$student->medicines}</td>
+						<td>{$student->bloodType}</td>
+						<td>{$student->gender}</td>
+						<td>{$student->direction}</td>
+						<td>{$student->measurements}</td>
+						<td>{$student->vaccines}</td>
+						<td>{$student->socialPrograms}</td>
+						<td>{$student->admission}</td>
+						<td>{$student->status}</td>
+						<td>{$student->description}</td>
+					</tr>
+				HTML ?>
 			</tbody>
 		</table>
 	</div>

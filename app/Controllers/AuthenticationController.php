@@ -17,7 +17,9 @@ class AuthenticationController {
 		UI::changeLayout(UI::VISITOR_LAYOUT);
 
 		UI::render('login-and-user-register', [
-			'roles' => Role::cases(),
+			'roles' => array_filter(Role::cases(), function (Role $role): bool {
+				return $role !== Role::ADMIN && $role !== Role::PRINCIPAL;
+			}),
 			'error' => Flight::request()->query['error']
 		]);
 	}
@@ -90,6 +92,7 @@ class AuthenticationController {
 			return true;
 		}
 
+		Session::set('error', 'Acceso denegado');
 		Flight::redirect('/');
 		return false;
 	}

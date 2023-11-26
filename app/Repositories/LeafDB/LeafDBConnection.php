@@ -19,7 +19,8 @@ abstract class LeafDBConnection {
 		}
 	}
 
-	protected static function db(): Db {
+	// protected static function db(): Db {
+	public static function db(): Db {
 		return self::$db;
 	}
 

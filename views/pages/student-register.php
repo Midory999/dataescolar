@@ -76,7 +76,7 @@
 			</div>
 		</label>
 		<label class="input-group input-group--animate">
-			<input class="input" name="medicamentos" required></input>
+			<input class="input" name="medicamentos" required />
 			<span class="input__label">Medicamentos:</span>
 		</label>
 
@@ -90,6 +90,24 @@
 					<option value="deficiencia_visual">Deficiencia Visual</option>
 					<option value="deficiencia:auditiva">Deficiencia Auditiva</option>
 					<option value="impedimento_fisico">Impedimento Físico</option>
+				</select>
+			</div>
+		</label>
+
+		<label class="input-group">
+			<span class="input__label">Vacunas:</span>
+			<div class="select-container select-container--simple">
+				<select class="select" name="vacunas" multiple>
+					<option value="hepatitis_b">Hepatitis B</option>
+					<option value="dtap">DTaP</option>
+					<option value="hib">Hib</option>
+					<option value="rotavirus">Rotavirus</option>
+					<option value="covid_19">COVID-19</option>
+					<option value="gripe">Gripe</option>
+					<option value="varicela">Varicela</option>
+					<option value="mmr">MMR</option>
+					<option value="hepatitis_a">Hepatitis A</option>
+					<option value="vph">VPH</option>
 				</select>
 			</div>
 		</label>
@@ -110,25 +128,6 @@
 				</select>
 			</div>
 		</label>
-	</fieldset>
-
-	<label class="input-group">
-		<span class="input__label">Vacunas:</span>
-		<div class="select-container select-container--simple">
-			<select class="select" name="vacunas" multiple>
-				<option value="hepatitis_b">Hepatitis B</option>
-				<option value="dtap">DTaP</option>
-				<option value="hib">Hib</option>
-				<option value="rotavirus">Rotavirus</option>
-				<option value="covid_19">COVID-19</option>
-				<option value="gripe">Gripe</option>
-				<option value="varicela">Varicela</option>
-				<option value="mmr">MMR</option>
-				<option value="hepatitis_a">Hepatitis A</option>
-				<option value="vph">VPH</option>
-			</select>
-		</div>
-	</label>
 	</fieldset>
 
 	<fieldset class="form__group">

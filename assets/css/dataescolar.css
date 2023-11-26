@@ -48,6 +48,16 @@ a {
   text-decoration: none;
 }
 
+th {
+  white-space: nowrap;
+}
+
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .app {
   position: relative;
   min-height: 100vh;
@@ -210,6 +220,10 @@ a {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px 2em;
+}
+
+.cards--2col {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .cards--3col {
@@ -449,6 +463,12 @@ details[open] {
 
 .input-group--animate {
   margin-top: 1.75em;
+  position: relative;
+  display: block;
+  height: 45px;
+  border: thin solid lightgray;
+  box-sizing: border-box;
+  border-radius: 5px;
 }
 
 .input-group--animate .input__label {
@@ -460,15 +480,6 @@ details[open] {
 .input-group--animate .input {
   border: none;
   height: 100%;
-}
-
-.input-group--animate {
-  position: relative;
-  display: block;
-  height: 45px;
-  border: thin solid lightgray;
-  box-sizing: border-box;
-  border-radius: 5px;
 }
 
 .form__group--padding-top {
@@ -483,6 +494,10 @@ details[open] {
   top: calc(50% - 2em);
   background: white;
   transform: scale(0.75);
+}
+
+.input-group--2x {
+  grid-column: 1 / -1;
 }
 
 .select-container {

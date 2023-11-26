@@ -73,7 +73,6 @@
 	</fieldset>
 
 	<fieldset class="form__group">
-		<legend class="form__group-legend">Datos descriptivo</legend>
 		<label class="input-group input-group--animate">
 			<input class="input" name="ocupacion" required>
 			<span class="input__label">Ocupación:</span>
@@ -84,16 +83,16 @@
 			<span class="input__label">Lugar de Trabajo:</span>
 		</label>
 
-		<label class="input-group input-group--animate">
-			<label class="input-group">
-				<span class="input__label">Estudio Socioeconómico:</span>
-				<div class="select-container">
-					<select class="input" name="estudio_economico" required>
-						<option selected disabled>Seleccionar</option>
-						<option value="bajos_recursos">Bajos Recursos</option>
-						<option value="normal">Normal</option>
-					</select>
-				</div>
-			</label>
-			<button class="button button--half">Registrar</button>
+		<label class="input-group">
+			<span class="input__label">Estudio Socioeconómico:</span>
+			<div class="select-container">
+				<select class="select" name="estudio_economico" required>
+					<option selected disabled>Seleccionar</option>
+					<option value="bajos_recursos">Bajos Recursos</option>
+					<option value="normal">Normal</option>
+				</select>
+			</div>
+		</label>
+	</fieldset>
+	<button class="button button--half">Registrar</button>
 </form>

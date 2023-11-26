@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Core\Session;
 use App\Core\UI;
 
 /**
@@ -11,6 +12,12 @@ use App\Core\UI;
 class HomeController {
 	/** Muestra la página principal */
 	static function showHome(): void {
-		UI::render('home');
+		$error = Session::get('error');
+
+		if ($error) {
+			Session::delete('error');
+		}
+
+		UI::render('home', compact('error'));
 	}
 }

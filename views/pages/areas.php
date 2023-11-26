@@ -5,11 +5,10 @@
 /** @var null|string $message */
 ?>
 
-<section>
+<section class="w3-section">
 	<h2>Áreas</h2>
-	<a href="<?= $root ?>/areas/registrar">Añadir</a>
-	<hr />
-	<div class="cards cards--4col">
+	<a class="w3-button w3-pink w3-round-medium" href="<?= $root ?>/areas/registrar">Añadir</a>
+	<div class="cards cards--4col w3-section">
 		<?php foreach ($areas as $area) echo <<<HTML
 			<a href="$root/areas/{$area->getSlug()}" class="card">
 				<figure>

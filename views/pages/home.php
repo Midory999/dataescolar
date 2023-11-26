@@ -2,6 +2,21 @@
 
 /** @var string $root */
 /** @var App\Models\User $user */
+/** @var ?string $error */
+
+if ($error) echo <<<HTML
+	<script>
+		Swal.fire({
+			title: '$error',
+			icon: 'error',
+			toast: true,
+			position: 'top-right',
+			showConfirmButton: false,
+			timer: 5000,
+			timerProgressBar: true
+		})
+	</script>
+HTML;
 ?>
 
 <!-- <a href="#" class="card">

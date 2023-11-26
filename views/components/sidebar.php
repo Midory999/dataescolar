@@ -180,17 +180,6 @@ if ($user->isAdmin()) {
 				</li>
 				<?= $links['period']['register'] ?? '' ?>
 			</ul>
-			<summary class="menu__text">Lapsos</summary>
-			<ul class="menu__submenu">
-				<li class="menu__submenu-item">
-					<a href="<?= $root ?>/lapsos">Listado</a>
-				</li>
-				<li class="menu__submenu-item">
-					<a class="menu__submenu-text" href="<?= $root ?>/lapsos/registrar">
-						Registrar
-					</a>
-				</li>
-			</ul>
 		</details>
 		<details class="menu__link">
 			<summary class="menu__text">Profesores</summary>

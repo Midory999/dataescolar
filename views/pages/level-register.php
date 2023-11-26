@@ -3,19 +3,13 @@
 /** @var string $root */
 ?>
 
-<form action="<?= $root ?>/niveles" method="post">
-	<h1>Registro de Nivel</h1>
+<form class="form" action="<?= $root ?>/niveles" method="post">
+	<h2>Registro de Nivel</h2>
 
-	<label>
-		<span>Código:</span>
-		<input type="number" name="codigo" min="1" required />
+	<label class="input-group input-group--animate">
+		<input class="input" type="number" name="codigo" min="1" required />
+		<span class="input__label">Código:</span>
 	</label>
 
-	<label for="nombre">Nivel:</label>
-	<select id="nombre" name="nombre" required>
-		<option selected disabled>Seleccionar</option>
-		<option value="nivel_1">Nivel 1</option>
-		<option value="nivel_2">Nivel 2</option>
-	</select>
-	<button>Asignar</button>
+	<button class="button button--half">Asignar</button>
 </form>

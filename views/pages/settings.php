@@ -1,21 +1,21 @@
 <?php
-	/** @var string $root */
-	/** @var ?string $error */
-	/** @var bool $thereIsBackup */
+
+/** @var string $root */
+/** @var ?string $error */
+/** @var bool $thereIsBackup */
 ?>
 
-<h2>Configuraciones</h2>
+<section class="w3-section">
+	<h2>Configuraciones</h2>
+	<hr />
+	<h3>Respaldo y Restauración</h3>
+	<a class="w3-button w3-pink w3-round-medium" href="<?= $root ?>/configuracion/respaldar">Respaldar</a>
+	<?php if ($thereIsBackup) : ?>
+		<a class="w3-button w3-pink w3-round-medium" href="<?= $root ?>/configuracion/restaurar">Restaurar</a>
+	<?php endif ?>
+	<hr />
 
-<h3>Respaldo y Restauración</h3>
-<a class="navLink" href="<?= $root ?>/configuracion/respaldar">
-	<button>Respaldar</button>
-</a>
-<?php if ($thereIsBackup): ?>
-	<a class="navLink" href="<?= $root ?>/configuracion/restaurar">
-		<button>Restaurar</button>
-	</a>
-<?php endif ?>
-
-<?php if ($error) echo <<<HTML
-	<script>alert('$error')</script>
-HTML ?>
+	<?php if ($error) echo <<<HTML
+		<script>alert('$error')</script>
+	HTML ?>
+</section>

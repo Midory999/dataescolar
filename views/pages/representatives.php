@@ -7,10 +7,10 @@
 
 <section>
 	<h2>Representantes</h2>
-	<a href="<?= $root ?>/representantes/registrar">Añadir</a>
-	<button onclick="new PDF().fromElementID('representative-list')">Imprimir</button>
-	<div id="representative-list">
-		<table>
+	<a class="w3-button w3-pink w3-round-medium" href="<?= $root ?>/representantes/registrar">Añadir</a>
+	<button class="w3-button w3-pale-red w3-round-medium" onclick="new PDF().fromElementID('representative-list')">Imprimir</button>
+	<div id="representative-list" class="w3-responsive w3-section">
+		<table class="w3-table-all">
 			<thead>
 				<tr>
 					<th>Cédula</th>

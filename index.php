@@ -7,7 +7,6 @@ require 'vendor/autoload.php';
 try {
 	require 'app/config.php';
 	require 'app/Routes/all.php';
-	require 'app/routes.php';
 
 	Flight::start();
 } catch (Throwable $error) {

@@ -20,6 +20,11 @@
 	<script src="<?= $assets ?>/libs/sweetalert2/sweetalert2.min.js"></script>
 	<script src="<?= $assets ?>/libs/html2pdf/html2pdf.bundle.min.js"></script>
 	<script src="<?= $assets ?>/libs/html2pdf/pdf.js"></script>
+	<style>
+		.swal2-shown.swal2-height-auto {
+			padding-right: 0 !important;
+		}
+	</style>
 </head>
 
 <body>
