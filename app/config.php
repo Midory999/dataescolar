@@ -17,3 +17,7 @@ Flight::map('notFound', function () {
 	UI::changeLayout(UI::VISITOR_LAYOUT);
 	UI::render('404');
 });
+
+$root = str_replace('/index.php', '', $_SERVER['PHP_SELF']);
+UI::setData('root', $root);
+UI::setData('assets', "$root/assets");

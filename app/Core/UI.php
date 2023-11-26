@@ -12,10 +12,7 @@ class UI {
 
 	private static string $layout = self::APP_LAYOUT;
 	/** @var array<string, mixed> Datos compartidos entre páginas */
-	private static array $sharedData = [
-		'root' => '/dataescolar',
-		'assets' => '/dataescolar/assets'
-	];
+	private static array $sharedData = [];
 
 	/**
 	 * Renderiza una página del sistema
