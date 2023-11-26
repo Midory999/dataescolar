@@ -1,81 +1,203 @@
 <?php
-	/** @var string $root */
+
+/** @var string $root */
+/** @var string $assets */
+/** @var App\Models\Representative[] $representatives */
 ?>
 
-<form action="<?= $root ?>/estudiantes" method="post">
-	<h1>Registro de estudiante</h1>
+<form class="form" action="<?= $root ?>/estudiantes" method="post">
+	<h2>Registro de Estudiante</h2>
 
-	 <label for="id">ID:</label>
-<input type="text" id="id" name="id" required><br>
+	<fieldset class="form__group form__group--padding-top">
+		<legend class="form__group-legend">Datos personales</legend>
+		<label class="input-group">
+			<span class="input__label">Representante:</span>
+			<div class="select-container">
+				<select class="select" name="id_representante">
+					<option selected disabled>Seleccionar</option>
+					<?php foreach ($representatives as $representative) echo <<<HTML
+					<option value="{$representative->id}">
+						{$representative->idCard} - {$representative->names}
+					</option>
+					HTML ?>
+				</select>
+			</div>
+		</label>
 
-   <label for="id_representante">ID Representante:</label>
-<input type="text" id="id_representante" name="id_representante" required><br>
+		<label class="input-group input-group--animate">
+			<input class="input" type="number" name="cedula" required />
+			<span class="input__label">Cédula:</span>
+		</label>
 
-   <label for="cedula">Cédula:</label>
-<input type="text" id="cedula" name="cedula" required><br>
+		<label class="input-group input-group--animate">
+			<input class="input" name="nombre" required />
+			<span class="input__label">Nombre:</span>
+		</label>
 
-   <label for="nombre">Nombre:</label>
-<input type="text" id="nombre" name="nombre" required><br>
+		<label class="input-group input-group--animate">
+			<input class="input" name="apellido" required />
+			<span class="input__label">Apellido:</span>
+		</label>
 
-   <label for="apellido">Apellido:</label>
-<input type="text" id="apellido" name="apellido" required><br>
+		<label class="input-group">
+			<input class="input" type="date" name="fecha_nacimiento" required />
+			<span class="input__label">Fecha de Nacimiento:</span>
+		</label>
 
-   <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-<input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br>
+		<label class="input-group input-group--animate">
+			<input class="input" name="lugar_nacimiento" required>
+			<span class="input__label">Lugar de Nacimiento:</span>
+		</label>
+		<label class="input-group input-group--animate">
+			<input class="input" name="direccion" required />
+			<span class="input__label">Dirección:</span>
+		</label>
+		<label class="input-group">
+			<span class="input__label">Genero:</span>
+			<div class="select-container">
+				<select class="select" name="genero" required>
+					<option disabled selected>Seleccionar</option>
+					<option value="masculino">Masculino</option>
+					<option value="femenino">Femenino</option>
+				</select>
+			</div>
+		</label>
+	</fieldset>
+	<fieldset class="form__group form__group--padding-top">
+		<legend class="form__group-legend">Datos médicos</legend>
+		<label class="input-group">
+			<span class="input__label">Tipo de Parto:</span>
+			<div class="select-container">
+				<select class="select" name="tipo_parto" required>
+					<option value="normal">Normal</option>
+					<option value="cesarea">Cesárea</option>
+					<option value="complicado">Complicado</option>
+				</select>
+			</div>
+		</label>
+		<label class="input-group input-group--animate">
+			<input class="input" name="medicamentos" required></input>
+			<span class="input__label">Medicamentos:</span>
+		</label>
 
-   <label for="lugar_nacimiento">Lugar de Nacimiento:</label>
-<input type="text" id="lugar_nacimiento" name="lugar_nacimiento" required><br>
+		<label class="input-group">
+			<span class="input__label">Compromiso:</span>
+			<div class="select-container select-container--simple">
+				<select class="select" name="compromiso" multiple>
+					<option value="retardo_mental">Retardo Mental</option>
+					<option value="sindrome_down">Síndrome de Down</option>
+					<option value="autismo">Autismo</option>
+					<option value="deficiencia_visual">Deficiencia Visual</option>
+					<option value="deficiencia:auditiva">Deficiencia Auditiva</option>
+					<option value="impedimento_fisico">Impedimento Físico</option>
+				</select>
+			</div>
+		</label>
 
-   <label for="edad">Edad:</label>
-<input type="number" id="edad" name="edad" required><br>
+		<label class="input-group">
+			<span class="input__label">Tipo de Sangre:</span>
+			<div class="select-container">
+				<select class="select" name="tipo_sangre" required>
+					<option selected disabled>Seleccionar</option>
+					<option value="A+">A+</option>
+					<option value="A-">A-</option>
+					<option value="B+">B+</option>
+					<option value="B-">B-</option>
+					<option value="O+">O+</option>
+					<option value="O-">O-</option>
+					<option value="AB+">AB+</option>
+					<option value="AB-">AB-</option>
+				</select>
+			</div>
+		</label>
+	</fieldset>
 
-   <label for="tipo_parto">Tipo de Parto:</label>
-<select id="tipo_parto" name="tipo_parto" required><br>
-  <option value="">Seleccionar</option>
-  <option value="normal">Normal</option>
-  <option value="cesarea">Cesárea</option>
-</select>
+	<label class="input-group">
+		<span class="input__label">Vacunas:</span>
+		<div class="select-container select-container--simple">
+			<select class="select" name="vacunas" multiple>
+				<option value="hepatitis_b">Hepatitis B</option>
+				<option value="dtap">DTaP</option>
+				<option value="hib">Hib</option>
+				<option value="rotavirus">Rotavirus</option>
+				<option value="covid_19">COVID-19</option>
+				<option value="gripe">Gripe</option>
+				<option value="varicela">Varicela</option>
+				<option value="mmr">MMR</option>
+				<option value="hepatitis_a">Hepatitis A</option>
+				<option value="vph">VPH</option>
+			</select>
+		</div>
+	</label>
+	</fieldset>
 
-   <label for="compromiso">Compromiso:</label>
-<textarea id="compromiso" name="compromiso" required><br></textarea>
+	<fieldset class="form__group">
+		<legend class="form__group-legend">Medidas Antropométricas</legend>
+		<label class="input-group input-group--animate">
+			<input class="input" name="pregunta1">
+			<span class="input__label">Peso Corporal(kg):</span>
+		</label>
 
-   <label for="medicamentos">Medicamentos:</label>
-<textarea id="medicamentos" name="medicamentos" required><br></textarea>
+		<label class="input-group input-group--animate">
+			<input class="input" name="pregunta2">
+			<span class="input__label">Talla(cm):</span>
+		</label>
 
-   <label for="tipo_sangre">Tipo de Sangre:</label>
-<input type="text" id="tipo_sangre" name="tipo_sangre" required><br>
+		<label class="input-group input-group--animate">
+			<input class="input" name="pregunta3">
+			<span class="input__label">Talla de calzado:</span>
+		</label>
 
-   <label for="genero">Género:</label>
-<select id="genero" name="genero" required><br>
-  <option value="">Seleccionar</option>
-  <option value="masculino">Masculino</option>
-  <option value="femenino">Femenino</option>
-</select>
+		<label class="input-group input-group--animate">
+			<input class="input" name="pregunta4">
+			<span class="input__label">Talla de pantalón:</span>
+		</label>
 
-   <label for="direccion">Dirección:</label>
-<textarea id="direccion" name="direccion" required><br></textarea>
+		<label class="input-group">
+			<input class="input" name="pregunta5">
+			<span class="input__label">Circunferencia de Brazo Izquierdo(mm):</span>
+		</label>
 
-   <label for="medidas">Medidas:</label>
-<textarea id="medidas"name="medidas" required><br></textarea>
 
-   <label for="vacunas">Vacunas:</label>
-<textarea id="vacunas" name="vacunas" required><br></textarea>
+		<label class="input-group">
+			<input class="input" name="pregunta6">
+			<span class="input__label">Clasificación Nutricional Antropometrica:</span>
+		</label>
+	</fieldset>
 
-   <label for="programas_sociales">Programas Sociales:</label>
-<textarea id="programas_sociales" name="programas_sociales" required><br></textarea>
+	<fieldset class="form__group form__group--padding-top">
+		<legend class="form__group-legend">Datos académicos</legend>
+		<label class="input-group">
+			<input class="input" type="date" name="ingreso" required>
+			<span class="input__label">Fecha de Ingreso:</span>
+		</label>
+		<label class="input-group">
+			<span class="input__label">Estatus:</span>
+			<div class="select-container">
+				<select class="select" name="estatus" required>
+					<option selected disabled>Seleccionar</option>
+					<option value="activo">Activo</option>
+					<option value="retirado">Retirado</option>
+					<option value="suspendido">Suspendido</option>
+					<option value="expulsado">Expulsado</option>
+				</select>
+			</div>
+		</label>
+		<label class="input-group">
+			<span class="input__label">Programas Sociales:</span>
+			<div class="select-container select-container--simple">
+				<select class="select" name="programas_sociales" multiple>
+					<option value="jgh">José Gregorio Hernández</option>
+					<option value="escolaridad">Escolaridad (Patria)</option>
+					<option value="ninguna">Ninguna</option>
+				</select>
+			</div>
+		</label>
+		<label class="input-group input-group--animate">
+			<textarea class="input" name="descripcion" required></textarea>
+			<span class="input__label">Descripción:</span>
+		</label>
+	</fieldset>
 
-   <label for="ingreso">Ingreso:</label>
-<input type="number" id="ingreso" name="ingreso" required><br>
-
-   <label for="estatus">Estatus:</label>
-<select id="estatus" name="estatus" required><br>
-  <option value="">Seleccionar</option>
-  <option value="activo">Activo</option>
-  <option value="inactivo">Inactivo</option>
-</select>
-
-   <label for="descripcion">Descripción:</label>
-<textarea id="descripcion" name="descripcion" required><br></textarea>
-
-   <button>Registrar</button>
+	<button class="button button--half">Registrar</button>
 </form>

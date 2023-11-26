@@ -4,6 +4,8 @@ namespace App\Repositories\LeafDB;
 
 use App\Core\Env;
 use App\Core\Logger;
+use App\Models\School;
+use App\Models\SchoolCodes;
 use App\Repositories\SettingRepository;
 use ErrorException;
 
@@ -12,7 +14,7 @@ class LeafDBSettingRepository extends LeafDBConnection implements SettingReposit
 		switch ($this->getConnectionType()) {
 			case 'sqlite':
 				$dbPath = __DIR__ . '/../SQLite/' . Env::get('DB_DATABASE');
-				parent::$db = null;;
+				parent::$db = null;
 				copy($dbPath, "$dbPath.bak");
 				return true;
 
@@ -59,8 +61,26 @@ class LeafDBSettingRepository extends LeafDBConnection implements SettingReposit
 				return file_exists("$dbPath.bak");
 			case 'mysql':
 				return false;
-			default: return false;
+			default:
+				return false;
 		}
+	}
+
+	function getSchool(): School {
+		$schoolInfo = json_decode(file_get_contents(__DIR__ . '/../JSON/school.json'), true);
+
+		$schoolCodes = new SchoolCodes;
+		$schoolCodes->circuit = (int) $schoolInfo['codes']['circuit'];
+		$schoolCodes->pae = (int) $schoolInfo['codes']['pae'];
+		$schoolCodes->dea = (int) $schoolInfo['codes']['dea'];
+
+		$school = new School;
+		$school->name = $schoolInfo['name'];
+		$school->rif = $schoolInfo['rif'];
+		$school->phone = $schoolInfo['phone'];
+		$school->codes = $schoolCodes;
+
+		return $school;
 	}
 
 	private function getConnectionType(): string {

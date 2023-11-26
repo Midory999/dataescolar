@@ -1,16 +1,16 @@
 <?php
 
-# Autocargador de clases
+use App\Core\Logger;
+
 require 'vendor/autoload.php';
 
 try {
 	require 'app/config.php';
-	# Rutas de la aplicación
+	require 'app/Routes/all.php';
 	require 'app/routes.php';
 
-	# Iniciando escucha de peticiones
 	Flight::start();
 } catch (Throwable $error) {
-	# Captura cualquier error
+	Logger::log($error->getMessage());
 	Flight::error($error);
 }

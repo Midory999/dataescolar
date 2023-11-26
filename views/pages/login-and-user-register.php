@@ -1,7 +1,8 @@
 <?php
-	/** @var \App\Models\Role[] $roles */
-	/** @var string $root */
-	/** @var ?string $error */
+
+/** @var \App\Models\Role[] $roles */
+/** @var string $root */
+/** @var ?string $error */
 ?>
 
 <main>
@@ -23,60 +24,17 @@
 			<!-- login -->
 			<form method="post" class="formulario__login">
 				<h2>Iniciar Sesión</h2>
-				<input
-					type="number"
-					name="cedula"
-					placeholder="Cédula"
-					required
-					min="1"
-					title="Introduce una cédula válida"
-				/>
-				<input
-					name="clave"
-					type="password"
-					placeholder="Contraseña"
-					required
-					minlength="8"
-					title="La contraseña debe tener al menos 8 letras, números y símbolos"
-				/>
+				<input type="number" name="cedula" placeholder="Cédula" required min="1" title="Introduce una cédula válida" />
+				<input name="clave" type="password" placeholder="Contraseña" required minlength="8" title="La contraseña debe tener al menos 8 letras, números y símbolos" />
 				<button>Entrar</button>
 			</form>
 			<!-- registro -->
 			<form action="<?= $root ?>/usuarios" method="POST" class="formulario__register">
 				<h2>Registrarse</h2>
-				<input
-					name="nombre"
-					placeholder="Nombre"
-					required
-					minlength="3"
-					maxlength="20"
-					pattern="[A-Za-zÁáÉéÍíÓóÚúñÑ]{3,20}"
-					title="Sólo se permiten entre 3 y 20 letras"
-				/>
-				<input
-					name="apellido"
-					placeholder="Apellido"
-					required
-					minlength="3"
-					maxlength="20"
-					pattern="[A-Za-zÁáÉéÍíÓóÚúñÑ]{3,20}"
-					title="Sólo se permiten entre 3 y 20 letras"
-				/>
-				<input
-					name="cedula"
-					placeholder="Cédula"
-					required
-					min="1"
-					title="Introduce una cédula válida"
-				/>
-				<input
-					name="clave"
-					type="password"
-					placeholder="Contraseña"
-					required
-					minlength="8"
-					title="La contraseña debe tener al menos 8 letras, números y símbolos"
-				/>
+				<input name="nombre" placeholder="Nombre" required minlength="3" maxlength="20" pattern="[A-Za-zÁáÉéÍíÓóÚúñÑ]{3,20}" title="Sólo se permiten entre 3 y 20 letras" />
+				<input name="apellido" placeholder="Apellido" required minlength="3" maxlength="20" pattern="[A-Za-zÁáÉéÍíÓóÚúñÑ]{3,20}" title="Sólo se permiten entre 3 y 20 letras" />
+				<input type="number" name="cedula" placeholder="Cédula" required min="1" title="Introduce una cédula válida" />
+				<input name="clave" type="password" placeholder="Contraseña" required minlength="8" title="La contraseña debe tener al menos 8 letras, números y símbolos" />
 				<select name="rol" required>
 					<option selected disabled>Seleccione un rol</option>
 					<?php foreach ($roles as $rol) echo <<<HTML
@@ -84,22 +42,17 @@
 					HTML ?>
 				</select>
 				<hr />
-				<input
-					name="pregunta"
-					type="password"
-					placeholder="Pregunta de seguridad"
-					required
-					pattern="[A-Za-zÁáÉéÍíÓóÚúñÑ]{2,20}"
-					title="Sólo se permiten entre 2 y 20 letras"
-				/>
-				<input
-					name="respuesta"
-					type="password"
-					placeholder="Respuesta de seguridad"
-					required
-					pattern="[A-Za-zÁáÉéÍíÓóÚúñÑ]{2,20}"
-					title="Sólo se permiten entre 2 y 20 letras"
-				/>
+				<select name="pregunta">
+					<option selected disabled>Selecciona una opción</option>
+					<option value="color favorito">¿Postre favorito?</option>
+					<option value="color favorito">¿Ciudad dónde se conocieron tus padres?</option>
+					<option value="color favorito">¿Cual es el segundo apellido de tu madre?</option>
+					<option value="color favorito">¿En dónde naciste?</option>
+					<option value="color favorito">¿En qué colegio estudiaste la secundaria?</option>
+					<option value="color favorito">¿Nombre de tu mejor amiga(o) de la escuela?</option>
+					<option value="color favorito">¿Cual es el nombre de tu primera mascota?</option>
+				</select>
+				<input name="respuesta" type="password" placeholder="Respuesta de seguridad" required pattern="[A-Za-zÁáÉéÍíÓóÚúñÑ]{2,20}" title="Sólo se permiten entre 2 y 20 letras" />
 				<button>Registrarse</button>
 			</form>
 		</div>
@@ -137,5 +90,16 @@
 </script>
 
 <?php if ($error !== null) echo <<<HTML
-	<script>alert('$error')</script>
+	<script>
+		Swal.fire({
+			title: '$error',
+			footer: 'Por favor, inténtelo de nuevo',
+			icon: 'error',
+			toast: true,
+			position: 'top-right',
+			showConfirmButton: false,
+			timer: 5000,
+			timerProgressBar: true
+		})
+	</script>
 HTML ?>

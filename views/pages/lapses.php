@@ -1,24 +1,31 @@
 <?php
-	use App\Models\Lapse;
-	/** @var Lapse[] $lapses */
-	/** @var string $root */
+
+/** @var App\Models\Lapse[] $lapses */
+/** @var string $root */
+/** @var null|string $message */
 ?>
 
-<h2>Lapse</h2>
+<h2>Lapso</h2>
 <a href="<?= $root ?>/lapsos/registrar">
 	<button>Añadir</button>
-	</a>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>ID Periodo</th>
-        <th>Inicio</th>
-        <th>Fin</th>
-        <th>Nombre</th>
-      </tr>
-    </thead>
-    <tbody id="lapse-list">
-      <!-- Aquí se mostrarán los estudiantes -->
-    </tbody>
-  </table>
+</a>
+<table>
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Fecha de Inicio</th>
+			<th>Fecha de Fin</th>
+			<th>Periodo</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ($lapses as $lapse) echo <<<HTML
+		<tr>
+			<td>{$lapse->name}</td>
+			<td>{$lapse->start}</td>
+			<td>{$lapse->end}</td>
+			<td>{$lapse->period}</td>
+		</tr>
+		HTML ?>
+	</tbody>
+</table>

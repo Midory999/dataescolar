@@ -2,44 +2,44 @@
 
 namespace App\Controllers;
 
-use App\Core\Dependencies;
-use App\Core\UI;
+use App\Core\{Dependencies, UI};
 use App\Models\Student;
 use Flight;
 
 class StudentController {
-	function showStudents(): void {
+	static function showStudents(): void {
 		$students = Dependencies::getStudentRepository()->getAll();
 
-		UI::render('students', compact('students'));
+		$message = Flight::request()->query['message'];
+
+		UI::render('students', compact('students', 'message'));
 	}
 
-	function showRegisterForm(): void {
+	static function showRegisterForm(): void {
 		$representatives = Dependencies::getRepresentativeRepository()->getAll();
 
 		UI::render('student-register', compact('representatives'));
 	}
 
-	function registerStudent(): void {
+	static function registerStudent(): void {
 		$info = Flight::request()->data->getData();
+		$representative = Dependencies::getRepresentativeRepository()->getByID($info['id_representante']);
 
 		$student = new Student;
-		$student->representative = Dependencies::getRepresentativeRepository()->getByID(
-			$info['id_representante']
-		);
+		$student->representative = $representative;
 		$student->idCard = $info['cedula'];
 		$student->names = $info['nombre'];
 		$student->lastnames = $info['apellido'];
 		$student->birthDate = $info['fecha_nacimiento'];
 		$student->birthPlace = $info['lugar_nacimiento'];
-		$student->age = $info['edad'];
+		$student->age = date('Y') - (explode('-', $info['fecha_nacimiento'])[0]);
 		$student->birthType = $info['tipo_parto'];
 		$student->compromises = $info['compromiso'];
 		$student->medicines = $info['medicamentos'];
 		$student->bloodType = $info['tipo_sangre'];
 		$student->gender = $info['genero'];
 		$student->direction = $info['direccion'];
-		$student->measurements = $info['medidas'];
+		$student->measurements = "{$info['pregunta1']},{$info['pregunta2']},{$info['pregunta3']},{$info['pregunta4']},{$info['pregunta5']},{$info['pregunta6']}";
 		$student->vaccines = $info['vacunas'];
 		$student->socialPrograms = $info['programas_sociales'];
 		$student->admission = $info['ingreso'];
@@ -47,6 +47,8 @@ class StudentController {
 		$student->description = $info['descripcion'];
 
 		Dependencies::getStudentRepository()->save($student);
-		Flight::redirect('/estudiantes');
+
+		$message = urlencode('Estudiante registrado exitósamente');
+		Flight::redirect("/estudiantes?message=$message");
 	}
 }

@@ -2,6 +2,23 @@
 	"folders": [
 		{
 			"path": ".",
+			"file_exclude_patterns": [
+				".env",
+				".eslintrc.json",
+				".gitignore",
+				".htaccess",
+				// ".stylelintrc.json",
+				"*.lock",
+				"*.sublime-workspace",
+				"jsconfig.json",
+				"phpunit.xml",
+				"README.md",
+				"rome.json"
+			],
+			"folder_exclude_patterns": [
+				".vscode",
+				"vendor"
+			],
 		}
 	],
 	"settings": {
@@ -11,13 +28,19 @@
 					"hoverProvider": true,
 					"completionProvider": true,
 					"colorProvider": true,
+					"documentLinkProvider": true,
 				},
 			},
 			"LSP-tailwindcss": {
 				"enabled": false,
 			},
 			"formatters": {
-				"embedding.php": "LSP-intelephense"
+				"embedding.php": "LSP-intelephense",
+				"source.css": "LSP-stylelint",
+			},
+			"LSP-eslint":
+			{
+				"enabled": true,
 			},
 		},
 	},

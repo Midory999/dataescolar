@@ -3,7 +3,15 @@
 namespace App\Models;
 
 class Inscription {
-	public object $estudiante;
-	public object $periodo;
-	public object $nivel;
+	public int $id;
+	public Student $student;
+	public Period $period;
+	public Level $level;
+
+	public function __construct($id, $student, $period, $level) {
+		$this->id = $id;
+		$this->student = $student;
+		$this->period = $period;
+		$this->level = $level;
+	}
 }

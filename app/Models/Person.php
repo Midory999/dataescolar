@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Person{
+abstract class Person extends Model {
 	public int $id;
 	public string $names;
 	public string $lastnames;

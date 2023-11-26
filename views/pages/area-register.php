@@ -1,15 +1,20 @@
 <?php
-	/** @var string $root */
+
+/** @var string $root */
+/** @var string $assets */
 ?>
 
-<form action="<?= $root ?>/areas" method="post">
-	<h1>Registro de área</h1>
-
-	<label for="codigo_area">Código:</label>
-<input type="text" id="codigo_area" name="codigo_area" required><br>
-
-	 <label for="nombre">Nombre:</label>
-<input type="text" id="nombre" name="nombre" required><br>
-
-   <button>Registrar</button>
+<form class="form" action="<?= $root ?>/areas" method="post">
+	<h2>Registro de Área</h2>
+	<div class="form__group">
+		<label class="input-group input-group--animate">
+			<input class="input" type="number" name="codigo" min="1" required />
+			<span class="input__label">Código:</span>
+		</label>
+		<label class="input-group input-group--animate">
+			<input class="input" name="nombre" required />
+			<span class="input__label">Nombre:</span>
+		</label>
+	</div>
+	<button class="button button--half">Registrar</button>
 </form>

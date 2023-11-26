@@ -1,21 +1,27 @@
 <?php
-	use App\Models\Level;
-	/** @var Level[] $levels */
-	/** @var string $root */
+
+/** @var App\Models\Level[] $levels */
+/** @var string $root */
+/** @var null|string $message */
 ?>
 
-<h2>Nivel</h2>
-<a href="<?= $root ?>/niveles/registrar">
-	<button>Añadir</button>
-</a>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Código</th>
-      </tr>
-    </thead>
-    <tbody id="level-list">
-      <!-- Aquí se mostrarán los estudiantes -->
-    </tbody>
-  </table>
+<article>
+	<h2>Nivel</h2>
+	<a href="<?= $root ?>/niveles/registrar">
+		<button>Añadir</button>
+	</a>
+	<table>
+		<thead>
+			<tr>
+				<th>Nivel</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach ($levels as $level) echo <<<HTML
+			<tr>
+				<td>{$level->code}</td>
+			HTML ?>
+		</tbody>
+		</tbody>
+	</table>
+</article>

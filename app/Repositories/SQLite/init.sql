@@ -29,24 +29,23 @@ CREATE TABLE IF NOT EXISTS Niveles(
 	codigo VARCHAR(10) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS Areas(
+CREATE TABLE IF NOT EXISTS Areas (
 	codigo INTEGER PRIMARY KEY AUTOINCREMENT,
-	nombre text NOT NULL
+	nombre TEXT NOT NULL UNIQUE
 );
 
-CREATE TABLE IF NOT EXISTS Periodos(
+CREATE TABLE IF NOT EXISTS Periodos (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	inicio INTEGER UNIQUE NOT NULL,
-	fin INTEGER UNIQUE NOT NULL
+	inicio INTEGER UNIQUE NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS Lapsos(
+CREATE TABLE IF NOT EXISTS Lapsos (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	nombre TEXT NOT NULL,
-	inicio DATE NOT NULL,
-	fin DATE NOT NULL,
-	id_Periodo INTEGER NOT NULL,
-	FOREIGN KEY (id_Periodo) REFERENCES Periodos(id)
+	inicio DATE NOT NULL UNIQUE,
+	fin DATE NOT NULL UNIQUE,
+	id_periodo INTEGER NOT NULL,
+	FOREIGN KEY (id_periodo) REFERENCES Periodos(id)
 );
 
 CREATE TABLE IF NOT EXISTS Estudiantes(
@@ -103,7 +102,7 @@ CREATE TABLE IF NOT EXISTS Aulas(
 	FOREIGN KEY (id_Estudiante) REFERENCES Estudiantes(id)
 );
 
-CREATE TABLE IF NOT EXISTS Informes(
+CREATE TABLE IF NOT EXISTS Informes (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	diagnostico TEXT NOT NULL,
 	lapso1 TEXT NOT NULL,
@@ -120,12 +119,16 @@ CREATE TABLE IF NOT EXISTS Informes(
 	FOREIGN KEY (id_Nivel) REFERENCES Niveles(id)
 );
 
-CREATE TABLE IF NOT EXISTS Inscripciones(
+CREATE TABLE IF NOT EXISTS Inscripciones (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	id_Estudiante INTEGER NOT NULL,
-	id_Periodo INTEGER NOT NULL,
-	id_Nivel INTEGER NOT NULL,
-	FOREIGN KEY (id_Estudiante) REFERENCES Estudiantes(id),
-	FOREIGN KEY (id_Periodo) REFERENCES Periodos(id),
-	FOREIGN KEY (id_Nivel) REFERENCES Niveles(id)
+	id_estudiante INTEGER NOT NULL,
+	id_periodo INTEGER NOT NULL,
+	id_nivel INTEGER NOT NULL,
+	FOREIGN KEY (id_estudiante) REFERENCES Estudiantes(id),
+	FOREIGN KEY (id_periodo) REFERENCES Periodos(id),
+	FOREIGN KEY (id_nivel) REFERENCES Niveles(id)
 );
+
+-- REGISTROS
+INSERT INTO Areas(codigo, nombre) VALUES (1, 'Lenguaje'), (2, 'Cognitiva'),
+(3, 'Motora'), (4, 'Moral y Espiritual'), (4, 'Comunicación'), (5, 'Afectiva');

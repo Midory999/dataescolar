@@ -2,11 +2,19 @@
 
 namespace App\Models;
 
-class Period {
-	function __construct(private ?int $id, private int $startYear) {}
+class Period extends Model {
 
-	function getStartYear(): int {
-		return $this->startYear;
+	private const MAX_LAPSES_COUNT = 3;
+
+	private ?int $id = null;
+	/** @var Lapse[] */
+	private array $lapses = [];
+
+	function __construct(public readonly int $startYear) {
+	}
+
+	function getLapse(int $number): ?Lapse {
+		return @$this->lapses[--$number];
 	}
 
 	function getEndYear(): int {
@@ -17,7 +25,26 @@ class Period {
 		return $this->id;
 	}
 
+	function setID(int $id): void {
+		$this->id = $id;
+	}
+
+	function addLapse(Lapse $lapse): void {
+		if (count($this->lapses) < self::MAX_LAPSES_COUNT) {
+			$this->lapses[] = $lapse;
+		}
+	}
+
+	function toArray(): array {
+		return [
+			'id' => $this->getID(),
+			'inicio' => $this->startYear,
+			'fin' => $this->getEndYear(),
+			'lapsos' => array_map(fn (Lapse $lapse) => $lapse->toArray(), $this->lapses)
+		];
+	}
+
 	function __toString(): string {
-		return "{$this->getStartYear()}-{$this->getEndYear()}";
+		return "{$this->startYear}-{$this->getEndYear()}";
 	}
 }

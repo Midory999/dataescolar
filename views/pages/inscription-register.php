@@ -1,21 +1,53 @@
 <?php
-	/** @var string $root */
+
+/** @var string $root */
+/** @var App\Models\Student[] $students */
+/** @var App\Models\Level[] $levels */
+/** @var App\Models\Period[] $periods */
 ?>
 
-<form action="<?= $root ?>/inscripciones" method="post">
-	<h1>Registro de inscripcione</h1>
+<form class="form" action="<?= $root ?>/inscripciones" method="post">
+	<h2>Inscribir estudiante</h2>
 
-	 <label for="id">ID:</label>
-<input type="text" id="id" name="id" required><br>
+	<label class="input-group">
+		<span class="input__label">Estudiante:</span>
+		<div class="select-container">
+			<select class="select" name="cedula_estudiante">
+				<option selected disabled>Seleccionar</option>
+				<?php foreach ($students as $student) echo <<<HTML
+				<option value="{$student->idCard}">
+					{$student->idCard} - {$student->names}
+				</option>
+				HTML ?>
+			</select>
+		</div>
+	</label>
 
-   <label for="id_estudiante">ID de Estudiante:</label>
-<input type="text" id="id_estudiante" name="id_estudiante" required><br>
+	<label class="input-group">
+		<span class="input__label">Nivel:</span>
+		<div class="select-container">
+			<select class="select" name="id_niveles">
+				<option selected disabled>Seleccionar</option>
+				<?php foreach ($levels as $level) echo <<<HTML
+				<option value="{$level->id}">
+					{$level->id} - {$level->code}
+				</option>
+				HTML ?>
+			</select>
+		</div>
+	</label>
 
-   <label for="id_periodo">ID de Periodo:</label>
-<input type="text" id="id_periodo" name="id_periodo" required><br>
+	<label class="input-group">
+		<span class="input__label">Periodo:</span>
+		<div class="select-container">
+			<select class="select" name="id_periodo">
+				<option selected disabled>Seleccionar</option>
+				<?php foreach ($periods as $period) echo <<<HTML
+				<option value="{$period->getID()}">{$period}</option>
+				HTML ?>
+			</select>
+		</div>
+	</label>
 
-   <label for="id_nivel">ID de Nivel:</label>
-<input type="text" id="id_nivel" name="id_nivel" required><br>
-
-   <button>Registrar</button>
+	<button class="button button--half">Registrar</button>
 </form>

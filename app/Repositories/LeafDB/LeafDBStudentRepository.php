@@ -13,7 +13,9 @@ extends LeafDBConnection
 implements StudentRepository {
 	function __construct(
 		private readonly RepresentativeRepository $representativeRepository
-	) {}
+	) {
+		parent::__construct();
+	}
 
 	function getAll(): array {
 		assert(self::$db !== null);
@@ -23,15 +25,11 @@ implements StudentRepository {
 	}
 
 	function getByIDCard(int $idCard): ?Student {
-		assert(self::$db !== null);
+		return $this->searchByCriteria('cedula', $idCard);
+	}
 
-		$studentInfo = self::$db->select('estudiantes')->where('cedula', $idCard)->assoc();
-
-		if ($studentInfo === false) {
-			return null;
-		}
-
-		return $this->mapper($studentInfo);
+	function getByID(int $id): ?Student {
+		return $this->searchByCriteria(self::PRIMARY_KEY, $id);
 	}
 
 	function save(Student $student): bool {
@@ -41,25 +39,25 @@ implements StudentRepository {
 			self::$db
 				->insert('Estudiantes')
 				->params([
-					'nombres'   => $student->names,
-					'apellidos' => $student->lastnames,
-					'cedula'    => $student->idCard,
+					'nombres'             => $student->names,
+					'apellidos'           => $student->lastnames,
+					'cedula'              => $student->idCard,
 					'fecha_nacimiento'    => $student->birthDate,
-					'lugar_nacimiento' => $student->birthPlace,
-					'edad'    => $student->age,
-					'genero'  => $student->gender,
-					'tipo_parto' => $student->birthType,
-					'compromisos'   => $student->compromises,
-					'medicamentos'     => $student->medicines,
-					'tipo_sangre' => $student->bloodType,
-					'direccion' => $student->direction,
-					'medidas' => $student->measurements,
-					'vacunas' => $student->vaccines,
-					'programas_sociales' => $student->socialPrograms,
-					'ingreso' => $student->admission,
-					'estatus' => $student->status,
-					'descripcion' => $student->description,
-					'id_Representante' => $student->representative->id,
+					'lugar_nacimiento'    => $student->birthPlace,
+					'edad'                => $student->age,
+					'genero'              => $student->gender,
+					'tipo_parto'          => $student->birthType,
+					'compromisos'         => $student->compromises,
+					'medicamentos'        => $student->medicines,
+					'tipo_sangre'         => $student->bloodType,
+					'direccion'           => $student->direction,
+					'medidas'             => $student->measurements,
+					'vacunas'             => $student->vaccines,
+					'programas_sociales'  => $student->socialPrograms,
+					'ingreso'             => $student->admission,
+					'estatus'             => $student->status,
+					'descripcion'         => $student->description,
+					'id_Representante'    => $student->representative->id,
 				])
 				->execute();
 
@@ -70,28 +68,38 @@ implements StudentRepository {
 		}
 	}
 
+	private function searchByCriteria(string $criteria, int|string|bool $value): ?Student {
+		$info = self::db()->select('estudiantes')->where($criteria, $value)->assoc();
+
+		if ($info === false) {
+			return null;
+		}
+
+		return $this->mapper($info);
+	}
+
 	/** @param array<string, string> $info */
 	private function mapper(array $info): Student {
 		$student = new Student;
-		$student->id = $info['id'];
-		$student->names = $info['nombres'];
-		$student->lastnames = $info['apellidos'];
-		$student->idCard = $info['cedula'];
-		$student->birthDate = $info['fecha_nacimiento'];
-		$student->birthPlace = $info['lugar_nacimiento'];
-		$student->age = $info['edad'];
-		$student->gender = $info['genero'];
-		$student->birthType = $info['tipo_parto'];
-		$student->compromises = $info['compromisos'];
-		$student->medicines = $info['medicamentos'];
-		$student->bloodType = $info['tipo_sangre'];
-		$student->direction = $info['direccion'];
-		$student->measurements = $info['medidas'];
-		$student->vaccines = $info['vacunas'];
+		$student->id             = $info['id'];
+		$student->names          = $info['nombres'];
+		$student->lastnames      = $info['apellidos'];
+		$student->idCard         = $info['cedula'];
+		$student->birthDate      = $info['fecha_nacimiento'];
+		$student->birthPlace     = $info['lugar_nacimiento'];
+		$student->age            = $info['edad'];
+		$student->gender         = $info['genero'];
+		$student->birthType      = $info['tipo_parto'];
+		$student->compromises    = $info['compromisos'];
+		$student->medicines      = $info['medicamentos'];
+		$student->bloodType      = $info['tipo_sangre'];
+		$student->direction      = $info['direccion'];
+		$student->measurements   = $info['medidas'];
+		$student->vaccines       = $info['vacunas'];
 		$student->socialPrograms = $info['programas_sociales'];
-		$student->admission = $info['ingreso'];
-		$student->status = $info['estatus'];
-		$student->description = $info['descripcion'];
+		$student->admission      = $info['ingreso'];
+		$student->status         = $info['estatus'];
+		$student->description    = $info['descripcion'];
 
 		$representative = $this->representativeRepository->getByID(
 			$info['id_Representante']
