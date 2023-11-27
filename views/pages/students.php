@@ -6,11 +6,25 @@ use App\Models\Student;
 /** @var string $root */
 /** @var null|string $message */
 
+if ($message) echo <<<HTML
+<script>
+	Swal.fire({
+		title: '$message',
+		icon: 'success',
+		toast: true,
+		position: 'bottom-right',
+		timer: 3000,
+		timerProgressBar: true,
+		showConfirmButton: false
+	})
+</script>
+HTML;
 ?>
 
 <section class="w3-section">
 	<h2>Estudiante</h2>
-	<a class="w3-button w3-pink w3-round-medium" href="<?= $root ?>/estudiantes/registrar">Añadir</a>
+	<a class="w3-button w3-pink w3-round-medium" href="<?= $root ?>/estudiantes/registrar">Añadir estudiante</a>
+	<a class="w3-button w3-pink w3-round-medium" href="<?= $root ?>/inscripciones/registrar">Inscribir estudiante</a>
 	<button class="w3-button w3-pale-red w3-round-medium" onclick="new PDF().fromElementID('student-list')">Imprimir</button>
 	<div id="student-list" class="w3-responsive w3-section">
 		<table class="w3-table-all">
@@ -19,8 +33,7 @@ use App\Models\Student;
 					<th>Cédula</th>
 					<th>Nombre</th>
 					<th>Apellido</th>
-					<th>Fecha de Nacimiento</th>
-					<th>Lugar de Nacimiento</th>
+					<th>Nacimiento</th>
 					<th>Edad</th>
 					<th>Tipo de Parto</th>
 					<th>Compromiso</th>
@@ -28,7 +41,6 @@ use App\Models\Student;
 					<th>Tipo de Sangre</th>
 					<th>Género</th>
 					<th>Dirección</th>
-					<th>Medidas</th>
 					<th>Vacunas</th>
 					<th>Programas Sociales</th>
 					<th>Fecha de Ingreso</th>
@@ -42,20 +54,18 @@ use App\Models\Student;
 						<td>{$student->idCard}</td>
 						<td>{$student->names}</td>
 						<td>{$student->lastnames}</td>
-						<td>{$student->birthDate}</td>
-						<td>{$student->birthPlace}</td>
+						<td>{$student->birthDate} - {$student->birthPlace}</td>
 						<td>{$student->age}</td>
-						<td>{$student->birthType}</td>
-						<td>{$student->compromises}</td>
+						<td>{$student->getBirthType()}</td>
+						<td>{$student->getCompromises()}</td>
 						<td>{$student->medicines}</td>
 						<td>{$student->bloodType}</td>
-						<td>{$student->gender}</td>
+						<td>{$student->getGender()}</td>
 						<td>{$student->direction}</td>
-						<td>{$student->measurements}</td>
-						<td>{$student->vaccines}</td>
-						<td>{$student->socialPrograms}</td>
+						<td>{$student->getVaccines()}</td>
+						<td>{$student->getSocialPrograms()}</td>
 						<td>{$student->admission}</td>
-						<td>{$student->status}</td>
+						<td>{$student->getStatus()}</td>
 						<td>{$student->description}</td>
 					</tr>
 				HTML ?>

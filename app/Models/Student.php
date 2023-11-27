@@ -22,4 +22,24 @@ class Student extends Person {
 	function __toString(): string {
 		return '';
 	}
+
+	function getBirthType(): string {
+		return ucfirst($this->birthType);
+	}
+
+	function getCompromises(): string {
+		return ucfirst(str_replace('_', ' ', $this->compromises));
+	}
+
+	function getVaccines(): string {
+		return ucfirst($this->vaccines);
+	}
+
+	function getSocialPrograms(): string {
+		return ucfirst($this->socialPrograms === 'ninguna' ? 'ninguno' : $this->socialPrograms);
+	}
+
+	function getStatus(): string {
+		return $this->status ? 'Activo' : 'Retirado';
+	}
 }

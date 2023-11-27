@@ -5,28 +5,40 @@
 /** @var App\Models\Representative[] $representatives */
 ?>
 
+<style>
+	.input__label .w3-button {
+		transition: 250ms all;
+	}
+</style>
+
 <form class="form" action="<?= $root ?>/estudiantes" method="post">
 	<h2>Registro de Estudiante</h2>
 
 	<fieldset class="form__group form__group--padding-top">
 		<legend class="form__group-legend">Datos personales</legend>
 		<label class="input-group">
-			<span class="input__label">Representante:</span>
+			<span class="input__label">
+				Representante:
+				<a class="w3-button w3-pale-red w3-round-medium w3-hover-white w3-padding-small" href="<?= $root ?>/representantes/registrar">Registrar</a>
+			</span>
 			<div class="select-container">
 				<select class="select" name="id_representante">
 					<option selected disabled>Seleccionar</option>
 					<?php foreach ($representatives as $representative) echo <<<HTML
 					<option value="{$representative->id}">
-						{$representative->idCard} - {$representative->names}
+						v{$representative->idCard} - {$representative->names} {$representative->lastnames}
 					</option>
 					HTML ?>
 				</select>
 			</div>
 		</label>
 
-		<label class="input-group input-group--animate">
+		<label class="input-group">
 			<input class="input" type="number" name="cedula" required />
-			<span class="input__label">Cédula:</span>
+			<span class="input__label">
+				Cédula del estudiante:
+				<a class="w3-button w3-pale-red w3-round-medium w3-hover-white w3-padding-small" style="visibility: hidden">&nbsp;</a>
+			</span>
 		</label>
 
 		<label class="input-group input-group--animate">
@@ -48,7 +60,7 @@
 			<input class="input" name="lugar_nacimiento" required>
 			<span class="input__label">Lugar de Nacimiento:</span>
 		</label>
-		<label class="input-group input-group--animate">
+		<label class="input-group">
 			<input class="input" name="direccion" required />
 			<span class="input__label">Dirección:</span>
 		</label>

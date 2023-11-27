@@ -16,4 +16,8 @@ class Representative extends Person {
 	function __toString(): string {
 		return '';
 	}
+
+	function getStudies(): string {
+		return ucfirst($this->studies);
+	}
 }

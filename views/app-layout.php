@@ -24,6 +24,10 @@
 		.swal2-shown.swal2-height-auto {
 			padding-right: 0 !important;
 		}
+
+		.w3-button {
+			transition: 250ms all;
+		}
 	</style>
 </head>
 
@@ -45,7 +49,7 @@
 			<?php include __DIR__ . '/components/sidebar.php' ?>
 		</main>
 		<footer class="footer" data-pushbar-target="authors">
-			&copy; UPTM &hearts; - Yasmin Gallo & José Mendoza
+			<div>&copy; UPTM &hearts; - Yasmin Gallo & José Mendoza</div>
 			<?php include __DIR__ . '/components/about.php' ?>
 			<?php include __DIR__ . '/components/authors.php' ?>
 		</footer>

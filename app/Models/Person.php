@@ -13,4 +13,8 @@ abstract class Person extends Model {
 	public string $birthDate;
 	public string $birthPlace;
 	public int $age;
+
+	function getGender(): string {
+		return ucfirst($this->gender);
+	}
 }
