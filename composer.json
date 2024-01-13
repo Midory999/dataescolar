@@ -1,5 +1,4 @@
 {
-	"name": "midory999/dataescolar",
 	"authors": [
 		{
 			"name": "Franyer Sánchez",
@@ -21,12 +20,12 @@
 		}
 	],
 	"require": {
-		"mikecao/flight": "^2.0",
-		"symfony/uid": "^6.3",
-		"symfony/dotenv": "^6.3",
+		"flightphp/core": "^3.0",
+		"symfony/uid": "^7.0",
+		"symfony/dotenv": "^7.0",
 		"leafs/db": "^2.1",
 		"leafs/anchor": "^1.5",
-		"leafs/form": "^2.0"
+		"leafs/form": "^2.1"
 	},
 	"autoload": {
 		"psr-4": {
@@ -34,7 +33,7 @@
 		}
 	},
 	"require-dev": {
-		"phpunit/phpunit": "^10.4",
+		"phpunit/phpunit": "^10.5",
 		"phpstan/phpstan": "^1.10",
 		"phpstan/extension-installer": "^1.3",
 		"phpstan/phpstan-strict-rules": "^1.5"

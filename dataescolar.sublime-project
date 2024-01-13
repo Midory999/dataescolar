@@ -7,13 +7,14 @@
 				".eslintrc.json",
 				".gitignore",
 				".htaccess",
-				// ".stylelintrc.json",
+				".stylelintrc.json",
 				"*.lock",
 				"*.sublime-workspace",
 				"jsconfig.json",
 				"phpunit.xml",
 				"README.md",
-				"rome.json"
+				"rome.json",
+				"*-lock.json"
 			],
 			"folder_exclude_patterns": [
 				".vscode",
@@ -47,17 +48,17 @@
 	"build_systems": [
 		{
 			"name": "Test",
-			"shell_cmd": "composer test",
+			"shell_cmd": "composer test -- --colors=never",
 			"quiet": true,
 		},
 		{
 			"name": "Lint",
-			"shell_cmd": "composer lint",
+			"shell_cmd": "composer lint -- --no-ansi",
 			"quiet": true,
 		},
 		{
 			"name": "Lint - Save errors",
-			"shell_cmd": "composer lint:save",
+			"shell_cmd": "composer lint:save -- --no-ansi",
 			"quiet": true,
 		},
 	],
