@@ -62,7 +62,7 @@ class User {
 			$post['apellido'],
 			(int) $post['cedula'],
 			Dependencies::getEncryptor()->encrypt($post['clave']),
-			Role::from($post['rol']),
+			Role::from($post['rol'] ?? 'Director'),
 			$post['pregunta'],
 			Dependencies::getEncryptor()->encrypt($post['respuesta'])
 		);
