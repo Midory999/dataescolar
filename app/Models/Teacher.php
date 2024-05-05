@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use AllowDynamicProperties;
+
+#[AllowDynamicProperties]
 class Teacher extends Person {
 	public string $status;
 	public string $specialty;
@@ -46,6 +49,6 @@ class Teacher extends Person {
 	}
 
 	function __toString(): string {
-		return '';
+		return "$this->names $this->lastnames";
 	}
 }

@@ -36,7 +36,6 @@ class TeacherController {
 		$teacher->phone = $teacherInfo['telefono'];
 		$teacher->income = $teacherInfo['ingreso'];
 		$teacher->birthDate = $teacherInfo['fecha_nacimiento'];
-		$teacher->age = $teacherInfo['edad'];
 		$teacher->gender = $teacherInfo['genero'];
 		$teacher->vaccines = join('|',$teacherInfo['vacunas']);
 		$teacher->socialPrograms = $teacherInfo['carga_horaria'];
