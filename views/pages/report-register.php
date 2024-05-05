@@ -9,26 +9,26 @@
 	<h2>Registro de informe</h2>
 
 	<div class="form__group">
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" type="number" name="id" required>
 			<span class="input__label">ID:</span>
 		</label>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<textarea class="input" name="diagnostico" required></textarea>
 			<span class="input__label">Diagnóstico:</span>
 		</label>
 	</div>
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Lapsos</legend>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input name="lapso1" class="input" required />
 			<span class="input__label">Lapso 1:</span>
 		</label>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input name="lapso2" class="input" required />
 			<span class="input__label">Lapso 2:</span>
 		</label>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input name="lapso3" class="input" required />
 			<span class="input__label">Lapso 3:</span>
 		</label>
@@ -87,7 +87,7 @@
 			</div>
 		</label>
 	</fieldset>
-	<label class="input-group input-group--animate">
+	<label class="input-group ">
 		<textarea class="input" name="informe_final" required></textarea>
 		<span class="input__label">Informe final:</span>
 	</label>

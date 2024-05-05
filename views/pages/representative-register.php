@@ -9,17 +9,17 @@
 
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos personales</legend>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" type="number" name="cedula" required />
 			<span class="input__label">Cédula:</span>
 		</label>
 
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="nombre" required />
 			<span class="input__label">Nombre:</span>
 		</label>
 
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="apellido" required />
 			<span class="input__label">Apellido:</span>
 		</label>
@@ -38,17 +38,17 @@
 
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos contacto</legend>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="direccion" required />
 			<span class="input__label">Direccion:</span>
 		</label>
 
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" type="email" name="correo" required />
 			<span class="input__label">Correo Electrónico:</span>
 		</label>
 
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" type="tel" name="telefono" required />
 			<span class="input__label">Teléfono:</span>
 		</label>
@@ -73,12 +73,12 @@
 	</fieldset>
 
 	<fieldset class="form__group">
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="ocupacion" required>
 			<span class="input__label">Ocupación:</span>
 		</label>
 
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="lugar_trabajo" required>
 			<span class="input__label">Lugar de Trabajo:</span>
 		</label>

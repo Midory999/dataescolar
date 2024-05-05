@@ -8,7 +8,7 @@
 	<h1>Registro de Aula</h1>
 
 	<div class="form__group">
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="nombre" required />
 			<span class="input__label">Nombre:</span>
 		</label>

@@ -9,15 +9,15 @@
 	<h2>Registro de Profesor/a</h2>
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos personales</legend>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" type="number" name="cedula" required />
 			<span class="input__label">Cédula:</span>
 		</label>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="nombre" required />
 			<span class="input__label">Nombre:</span>
 		</label>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="apellido" required />
 			<span class="input__label">Apellido:</span>
 		</label>
@@ -26,7 +26,7 @@
 			<span class="input__label">Fecha de Nacimiento:</span>
 		</label>
 
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" type="number" name="edad" required>
 			<span class="input__label">Edad:</span>
 		</label>
@@ -44,7 +44,7 @@
 	</fieldset>
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos referencia</legend>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="especialidad" required />
 			<span class="input__label">Especialidad:</span>
 		</label>
@@ -80,15 +80,15 @@
 	</fieldset>
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Datos contacto</legend>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="direccion" required />
 			<span class="input__label">Direccion:</span>
 		</label>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" type="email" name="correo" required />
 			<span class="input__label">Correo:</span>
 		</label>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" type="tel" name="telefono" required />
 			<span class="input__label">Teléfono:</span>
 		</label>
@@ -107,11 +107,11 @@
 			</div>
 		</label>
 	</fieldset>
-	<label class="input-group input-group--animate">
+	<label class="input-group ">
 		<input class="input" name="carga_horaria" required />
 		<span class="input__label">Carga Horaria:</span>
 	</label>
-	<label class="input-group input-group--animate">
+	<label class="input-group ">
 		<input class="input" name="codigo_independencia" required />
 		<span class="input__label">Código de Independencia:</span>
 	</label>

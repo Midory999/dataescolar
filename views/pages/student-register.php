@@ -41,12 +41,12 @@
 			</span>
 		</label>
 
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="nombre" required />
 			<span class="input__label">Nombre:</span>
 		</label>
 
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="apellido" required />
 			<span class="input__label">Apellido:</span>
 		</label>
@@ -56,7 +56,7 @@
 			<span class="input__label">Fecha de Nacimiento:</span>
 		</label>
 
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="lugar_nacimiento" required>
 			<span class="input__label">Lugar de Nacimiento:</span>
 		</label>
@@ -87,7 +87,7 @@
 				</select>
 			</div>
 		</label>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="medicamentos" required />
 			<span class="input__label">Medicamentos:</span>
 		</label>
@@ -144,22 +144,22 @@
 
 	<fieldset class="form__group">
 		<legend class="form__group-legend">Medidas Antropométricas</legend>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="pregunta1">
 			<span class="input__label">Peso Corporal(kg):</span>
 		</label>
 
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="pregunta2">
 			<span class="input__label">Talla(cm):</span>
 		</label>
 
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="pregunta3">
 			<span class="input__label">Talla de calzado:</span>
 		</label>
 
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<input class="input" name="pregunta4">
 			<span class="input__label">Talla de pantalón:</span>
 		</label>
@@ -204,7 +204,7 @@
 				</select>
 			</div>
 		</label>
-		<label class="input-group input-group--animate">
+		<label class="input-group ">
 			<textarea class="input" name="descripcion" required></textarea>
 			<span class="input__label">Descripción:</span>
 		</label>

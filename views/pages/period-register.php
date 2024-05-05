@@ -6,7 +6,7 @@
 <form class="form" action="<?= $root ?>/periodos" method="post">
 	<h2>Registro de Periodo</h2>
 
-	<label class="input-group input-group--animate">
+	<label class="input-group ">
 		<input class="input" type="year" name="inicio" required min="1970" max="<?= date('Y') ?>" />
 		<span class="input__label">Año de inicio:</span>
 	</label>

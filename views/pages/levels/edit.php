@@ -10,7 +10,7 @@ use App\Models\Level;
 <form class="form" method="post">
 	<h2>Editar nivel</h2>
 
-	<label class="input-group input-group--animate">
+	<label class="input-group ">
 		<input class="input" name="codigo" required value="<?= $level->code ?>" />
 		<span class="input__label">Código:</span>
 	</label>
