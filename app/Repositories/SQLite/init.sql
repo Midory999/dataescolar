@@ -131,4 +131,4 @@ CREATE TABLE IF NOT EXISTS Inscripciones (
 
 -- REGISTROS
 INSERT INTO Areas(codigo, nombre) VALUES (1, 'Lenguaje'), (2, 'Cognitiva'),
-(3, 'Motora'), (4, 'Moral y Espiritual'), (4, 'Comunicación'), (5, 'Afectiva');
+(3, 'Motora'), (4, 'Moral y Espiritual'), (6, 'Comunicación'), (5, 'Afectiva');
