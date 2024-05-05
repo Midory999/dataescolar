@@ -7,9 +7,9 @@
 	<h2>Registro de Nivel</h2>
 
 	<label class="input-group input-group--animate">
-		<input class="input" type="number" name="codigo" min="1" required />
+		<input class="input" name="codigo" required />
 		<span class="input__label">Código:</span>
 	</label>
 
-	<button class="button button--half">Asignar</button>
+	<button class="button button--half">Registro</button>
 </form>

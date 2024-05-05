@@ -61,6 +61,44 @@
 			overlay: true
 		})
 	</script>
+
+	<?php
+
+	/** @var string $root */
+	/** @var ?string $mensaje */
+
+	$mensaje ??= @$_GET['mensaje'];
+	$error ??= @$_GET['error'];
+
+	if ($mensaje) echo <<<HTML
+	<script>
+		Swal.fire({
+			title: '$mensaje',
+			icon: 'success',
+			toast: true,
+			position: 'bottom-right',
+			timer: 3000,
+			timerProgressBar: true,
+			showConfirmButton: false
+		})
+	</script>
+	HTML;
+
+	if ($error) echo <<<HTML
+		<script>
+			Swal.fire({
+				title: '$error',
+				icon: 'error',
+				toast: true,
+				position: 'top-right',
+				showConfirmButton: false,
+				timer: 5000,
+				timerProgressBar: true
+			})
+		</script>
+	HTML;
+
+	?>
 </body>
 
 </html>

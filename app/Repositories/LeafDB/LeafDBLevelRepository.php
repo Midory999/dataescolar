@@ -15,8 +15,8 @@ implements LevelRepository {
 		return array_map([$this, 'mapper'], $levels);
 	}
 
-	function getByCode(int $id): ?Level {
-		return $this->getByCriteria('codigo', $id);
+	function getByCode(string $code): ?Level {
+		return $this->getByCriteria('codigo', $code);
 	}
 
 	function getByID(int $id): ?Level {
@@ -24,6 +24,16 @@ implements LevelRepository {
 	}
 
 	function save(Level $level): bool {
+		if ($level->hasId()) {
+			self::db()
+				->update('Niveles')
+				->params(['codigo' => $level->code])
+				->where('id', $level->id)
+				->execute();
+
+			return true;
+		}
+
 		try {
 			self::db()
 				->insert('Niveles')
@@ -44,8 +54,6 @@ implements LevelRepository {
 		string $criteria,
 		float|string $value
 	): ?Level {
-		assert(self::$db !== null);
-
 		$levelInfo = self::db()->select('Niveles')->where(
 			$criteria,
 			$value

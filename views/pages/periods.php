@@ -1,22 +1,7 @@
 <?php
 
 /** @var App\Models\Period[] $periods */
-/** @var string $root */
-/** @var ?string $mensaje */
 
-if ($mensaje) echo <<<HTML
-<script>
-	Swal.fire({
-		title: '$mensaje',
-		icon: 'success',
-		toast: true,
-		position: 'bottom-right',
-		timer: 3000,
-		timerProgressBar: true,
-		showConfirmButton: false
-	})
-</script>
-HTML;
 ?>
 
 <section class="w3-section">

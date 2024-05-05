@@ -28,4 +28,20 @@ class LevelController {
 		Dependencies::getLevelRepository()->save($level);
 		Flight::redirect('/niveles');
 	}
+
+	function showEdit(string $id): void {
+		$level = Dependencies::getLevelRepository()->getByID($id);
+
+		UI::render('levels/edit', compact('level'));
+	}
+
+	function handleEdit(string $id): void {
+		$info = Flight::request()->data;
+		$level = Dependencies::getLevelRepository()->getById($id);
+		$level->code = $info['codigo'];
+
+		Dependencies::getLevelRepository()->save($level);
+		$message = urlencode('Nivel actualizado exitósamente');
+		Flight::redirect("/niveles?mensaje=$message");
+	}
 }

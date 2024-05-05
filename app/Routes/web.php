@@ -99,6 +99,8 @@ Flight::route('GET /profesores/@id', [TeacherController::class, 'showTeacherInfo
 
 Flight::route('GET /niveles/registrar', [$levelController, 'showRegisterForm']);
 Flight::route('POST /niveles', [$levelController, 'registerLevel']);
+Flight::route('GET /niveles/@id', [$levelController, 'showEdit']);
+Flight::route('POST /niveles/@id', [$levelController, 'handleEdit']);
 
 Flight::route('GET /lapsos/registrar', 'App\Controllers\LapseController::showRegisterForm');
 Flight::route('POST /lapsos', 'App\Controllers\LapseController::registerLapse');

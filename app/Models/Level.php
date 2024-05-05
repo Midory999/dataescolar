@@ -3,7 +3,7 @@
 namespace App\Models;
 
 class Level {
-	public int $id;
+	public ?int $id = null;
 
 	public string $code;
 
@@ -12,5 +12,9 @@ class Level {
 		$level->code = $code;
 		$level->id = $id;
 		return $level;
+	}
+
+	function hasId(): bool {
+		return $this->id !== null;
 	}
 }
