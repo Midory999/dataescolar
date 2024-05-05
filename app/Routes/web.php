@@ -9,6 +9,7 @@ use Flight;
 use App\Controllers\{
 	AuthenticationController,
 	LevelController,
+	TeacherController,
 	UserController
 };
 use App\Core\Dependencies;
@@ -94,6 +95,7 @@ Flight::route('POST /estudiantes', 'App\Controllers\StudentController::registerS
 
 Flight::route('GET /profesores/registrar', 'App\Controllers\TeacherController::showRegisterForm');
 Flight::route('POST /profesores', 'App\Controllers\TeacherController::registerTeacher');
+Flight::route('GET /profesores/@id', [TeacherController::class, 'showTeacherInfo']);
 
 Flight::route('GET /niveles/registrar', [$levelController, 'showRegisterForm']);
 Flight::route('POST /niveles', [$levelController, 'registerLevel']);

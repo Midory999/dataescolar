@@ -7,11 +7,15 @@ class Area extends Model {
 	private ?Teacher $teacher = null;
 	private ?Classroom $classroom = null;
 
-	function __construct(public readonly string $name) {
+	function __construct(private string $name) {
 	}
 
 	static function parseSlug(string $slug): string {
 		return str_replace('-', ' ', $slug);
+	}
+
+	function hasCode(): bool {
+		return $this->code !== null;
 	}
 
 	function getSlug(): string {
@@ -42,6 +46,10 @@ class Area extends Model {
 		return $this->classroom;
 	}
 
+	function setName(string $name): void {
+		$this->name = $name;
+	}
+
 	function toArray(): array {
 		return [
 			'codigo' => $this->code,
@@ -53,5 +61,9 @@ class Area extends Model {
 
 	function __toString(): string {
 		return "$this->code - $this->name";
+	}
+
+	function __get(string $property): ?string {
+		return $property === 'name' ? $this->name : null;
 	}
 }

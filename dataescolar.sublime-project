@@ -2,23 +2,8 @@
 	"folders": [
 		{
 			"path": ".",
-			"file_exclude_patterns": [
-				".env",
-				".eslintrc.json",
-				".gitignore",
-				".htaccess",
-				// ".stylelintrc.json",
-				"*.lock",
-				"*.sublime-workspace",
-				"jsconfig.json",
-				"phpunit.xml",
-				"README.md",
-				"rome.json"
-			],
-			"folder_exclude_patterns": [
-				".vscode",
-				"vendor"
-			],
+			"file_exclude_patterns": [],
+			"folder_exclude_patterns": [],
 		}
 	],
 	"settings": {
@@ -37,10 +22,16 @@
 			"formatters": {
 				"embedding.php": "LSP-intelephense",
 				"source.css": "LSP-stylelint",
+				"source.json.sublime": "LSP-json",
 			},
-			"LSP-eslint":
-			{
+			"LSP-eslint": {
 				"enabled": true,
+			},
+			"LSP-intelephense": {
+				"settings": {
+					"intelephense.format.braces": "k&r",
+					"intelephense.environment.phpVersion": "8.2.18",
+				},
 			},
 		},
 	},
@@ -61,4 +52,10 @@
 			"quiet": true,
 		},
 	],
+	"connections": {
+		"dataescolar": {
+			"type": "sqlite",
+			"database": "C:/xampp/htdocs/proyectos/dataescolar/app/Repositories/SQLite/dataescolar.db",
+		},
+	},
 }

@@ -48,6 +48,16 @@ class LeafDBAreaRepository extends LeafDBConnection implements AreaRepository {
 	}
 
 	function save(Area $area): Area {
+		if ($area->hasCode()) {
+			self::db()
+				->update(self::TABLE)
+				->params(['nombre' => $area->name])
+				->where('codigo', $area->getCode())
+				->execute();
+
+			return $area;
+		}
+
 		try {
 			$this->ensureAreaDoesNotExists($area); // README: Reemplazar esto con una restricción UNIQUE en el init.sql > Areas:nombre
 			self::db()

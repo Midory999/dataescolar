@@ -32,9 +32,25 @@ class AreaController {
 	}
 
 	static function showEdit(string $slug): void {
+		$title = 'Editar area';
+		$area = Dependencies::getAreaRepository()
+			->setTeacherRepository(Dependencies::getTeacherRepository())
+			->setClassroomRepository(Dependencies::getClassroomRepository())
+			->getBySlug($slug);
+
+		$teachers = Dependencies::getTeacherRepository()->getAll();
+		$classrooms = Dependencies::getClassroomRepository()->getAll();
+
+		UI::render('areas/edit', compact('area', 'title', 'teachers', 'classrooms'));
 	}
 
 	static function edit(string $slug): void {
+		$info = Flight::request()->data;
+		$area = Dependencies::getAreaRepository()->getBySlug($slug);
+		$area->setName($info['nombre']);
+		Dependencies::getAreaRepository()->save($area);
+		$mensaje = urlencode('Area actualizada exitósamente');
+		Flight::redirect("/areas?mensaje=$mensaje");
 	}
 
 	static function showRegisterForm(): void {
