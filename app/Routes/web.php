@@ -12,13 +12,9 @@ use App\Controllers\{
 	TeacherController,
 	UserController
 };
-use App\Core\Dependencies;
 use App\Core\UI;
-use App\Models\Lapse;
-use App\Repositories\LeafDB\LeafDBConnection;
 use App\Repositories\LeafDB\LeafDBLapseRepository;
 use App\Repositories\LeafDB\LeafDBPeriodRepository;
-use PHPUnit\Framework\Attributes\Depends;
 
 $userController     = new UserController;
 $authenticationController = new AuthenticationController;
