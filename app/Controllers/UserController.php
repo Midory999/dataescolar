@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Core\Dependencies;
-use App\Core\Session;
 use App\Core\UI;
 use App\Exceptions\DuplicatedIDCardException;
 use App\Models\User;
@@ -16,7 +15,12 @@ class UserController {
 	/** Muestra la lista de usuarios */
 	function showUsersList(): void {
 		UI::changeLayout(UI::APP_LAYOUT);
-		UI::render('users', ['users' => Dependencies::getUserRepository()->getAll()]);
+		UI::render('users/list', ['users' => Dependencies::getUserRepository()->getAll()]);
+	}
+
+	function showRegisterForm(): void {
+		UI::changeLayout(UI::APP_LAYOUT);
+		UI::render('users/register');
 	}
 
 	/** Maneja el proceso de registro y persistencia del usuario */

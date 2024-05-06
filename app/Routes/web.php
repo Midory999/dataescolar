@@ -106,6 +106,7 @@ Flight::route('POST /aulas', 'App\Controllers\ClassroomController::registerClass
 
 Flight::route('GET /usuarios',  [$userController, 'showUsersList']);
 Flight::route('POST /usuarios', [$userController, 'registerUser']);
+Flight::route('GET /usuarios/añadir', [$userController, 'showRegisterForm']);
 
 Flight::route('GET /configuracion', 'App\Controllers\SettingsController::showSettings');
 Flight::route('GET /configuracion/respaldar', 'App\Controllers\SettingsController::backup');

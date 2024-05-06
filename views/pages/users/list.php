@@ -6,7 +6,9 @@
 
 <section>
 	<h2>Usuarios</h2>
-	<a class="w3-button w3-round-medium w3-pink" href="<?= $root ?>/ingresar">Añadir</a>
+	<a class="w3-button w3-round-medium w3-pink" href="<?= $root ?>/usuarios/añadir">
+		Añadir
+	</a>
 	<div class="w3-responsive w3-section">
 		<table class="w3-table-all">
 			<thead>

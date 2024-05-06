@@ -61,7 +61,7 @@ td {
 .app {
   position: relative;
   min-height: 100vh;
-  max-width: 542px;
+  max-width: 800px;
   padding: 100px 2em 50px;
   margin: auto;
   display: grid;
