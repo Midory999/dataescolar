@@ -20,7 +20,7 @@ class PeriodController {
 		$mensaje = Flight::request()->query['mensaje'];
 		$title = 'Periodos';
 
-		UI::render('periods', compact('periods', 'mensaje', 'title'));
+		UI::render('periods/list', compact('periods', 'mensaje', 'title'));
 	}
 
 	static function showRegisterForm(): void {
@@ -29,7 +29,7 @@ class PeriodController {
 			->getAll();
 
 		$title = 'Registrar periodo';
-		UI::render('period-register', compact('periods', 'title'));
+		UI::render('periods/register', compact('periods', 'title'));
 	}
 
 	static function register(): void {

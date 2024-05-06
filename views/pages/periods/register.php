@@ -1,13 +1,14 @@
 <?php
 
-/** @var string $root */
+assert(is_string($root));
+
 ?>
 
 <form class="form" action="<?= $root ?>/periodos" method="post">
 	<h2>Registro de Periodo</h2>
 
 	<label class="input-group ">
-		<input class="input" type="year" name="inicio" required min="1970" max="<?= date('Y') ?>" />
+		<input onblur="setYear(this)" class="input" type="year" name="inicio" required min="1970" max="<?= date('Y') ?>" />
 		<span class="input__label">Año de inicio:</span>
 	</label>
 
@@ -51,3 +52,13 @@
 	</fieldset>
 	<button class="button button--half">Registrar</button>
 </form>
+
+<script>
+	function setYear(inputYear) {
+		inputYear.form.querySelectorAll('input[type="date"]').forEach(input => {
+			const value = inputYear.value + '-01-01'
+
+			input.value = value
+		})
+	}
+</script>
