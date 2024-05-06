@@ -16,11 +16,11 @@ class AreaController {
 		UI::render('areas', compact('areas'));
 	}
 
-	static function showInfo(string $slug): bool {
+	static function showInfo(string $code): bool {
 		$area = Dependencies::getAreaRepository()
 			->setTeacherRepository(Dependencies::getTeacherRepository())
 			->setClassroomRepository(Dependencies::getClassroomRepository())
-			->getBySlug($slug);
+			->getByCode($code);
 
 		if (!$area) {
 			return true;
@@ -31,12 +31,12 @@ class AreaController {
 		return false;
 	}
 
-	static function showEdit(string $slug): void {
+	static function showEdit(string $code): void {
 		$title = 'Editar area';
 		$area = Dependencies::getAreaRepository()
 			->setTeacherRepository(Dependencies::getTeacherRepository())
 			->setClassroomRepository(Dependencies::getClassroomRepository())
-			->getBySlug($slug);
+			->getByCode($code);
 
 		$teachers = Dependencies::getTeacherRepository()->getAll();
 		$classrooms = Dependencies::getClassroomRepository()->getAll();
@@ -44,9 +44,9 @@ class AreaController {
 		UI::render('areas/edit', compact('area', 'title', 'teachers', 'classrooms'));
 	}
 
-	static function edit(string $slug): void {
+	static function edit(string $code): void {
 		$info = Flight::request()->data;
-		$area = Dependencies::getAreaRepository()->getBySlug($slug);
+		$area = Dependencies::getAreaRepository()->getByCode($code);
 		$area->setName($info['nombre']);
 		Dependencies::getAreaRepository()->save($area);
 		$mensaje = urlencode('Area actualizada exitósamente');

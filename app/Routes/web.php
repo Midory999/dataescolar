@@ -67,9 +67,9 @@ Flight::route('GET /aulas', 'App\Controllers\ClassroomController::showClassrooms
 Flight::route('GET /areas', [AreaController::class, 'showAll']);
 Flight::route('POST /areas', [AreaController::class, 'register']);
 Flight::route('GET /areas/registrar', [AreaController::class, 'showRegisterForm']);
-Flight::route('GET /areas/@slug', [AreaController::class, 'showInfo']);
-Flight::route('GET /areas/@slug/editar', [AreaController::class, 'showEdit']);
-Flight::route('POST /areas/@slug', [AreaController::class, 'edit']);
+Flight::route('GET /areas/@code', [AreaController::class, 'showInfo']);
+Flight::route('GET /areas/@code/editar', [AreaController::class, 'showEdit']);
+Flight::route('POST /areas/@code', [AreaController::class, 'edit']);
 Flight::route('GET /periodos', [PeriodController::class, 'showAll']);
 
 

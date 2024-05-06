@@ -19,8 +19,11 @@ class LeafDBSettingRepository extends LeafDBConnection implements SettingReposit
 				return true;
 
 			case 'mysql':
-				// TODO: Implementar respaldo de mysql
-				return false;
+				$backupPath = dirname(__DIR__) . '/MySQL/backup.sql';
+				$command = "mysqldump --user={$_ENV['DB_USERNAME']} --password={$_ENV['DB_PASSWORD']} {$_ENV['DB_DATABASE']} > '$backupPath'";
+				$result = exec($command, $output, $code);
+				dd($command, $result, $output, $code);
+				return true;
 
 			default:
 				return false;
