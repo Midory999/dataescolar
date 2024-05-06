@@ -53,9 +53,18 @@
 		},
 	],
 	"connections": {
-		"dataescolar": {
+		"dataescolar-sqlite": {
 			"type": "sqlite",
 			"database": "C:/xampp/htdocs/proyectos/dataescolar/app/Repositories/SQLite/dataescolar.db",
+		},
+		"dataescolar-mysql": {
+		  "type": "mysql",
+		  "host": "localhost",
+		  "port": 3306,
+		  "database": "dataescolar",
+		  "username": "root",
+		  "password": "",
+		  "encoding": "utf-8"
 		},
 	},
 }
