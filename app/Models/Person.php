@@ -25,7 +25,7 @@ abstract class Person extends Model {
 			$fechaNacimiento = $fechaNacimiento->getTimestamp();
 			$fechaActual = time();
 			$diferencia = $fechaActual - $fechaNacimiento;
-			$edad = date('Y', $diferencia) - 1970;
+			$edad = date('Y', (int) $diferencia) - 1970;
 
 			return $edad;
 		}
