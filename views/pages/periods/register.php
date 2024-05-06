@@ -46,7 +46,7 @@ assert(is_string($root));
 		</label>
 
 		<label class="input-group">
-			<span class="input__label">Fecha de inicio:</span>
+			<span class="input__label">Fecha de fin:</span>
 			<input class="input" type="date" name="lapsos[tercer][fin]" required />
 		</label>
 	</fieldset>

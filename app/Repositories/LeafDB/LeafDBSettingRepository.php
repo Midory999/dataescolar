@@ -8,6 +8,7 @@ use App\Models\School;
 use App\Models\SchoolCodes;
 use App\Repositories\SettingRepository;
 use ErrorException;
+use PDO;
 
 class LeafDBSettingRepository extends LeafDBConnection implements SettingRepository {
 	function backup(): bool {
@@ -20,9 +21,9 @@ class LeafDBSettingRepository extends LeafDBConnection implements SettingReposit
 
 			case 'mysql':
 				$backupPath = dirname(__DIR__) . '/MySQL/backup.sql';
-				$command = "mysqldump --user={$_ENV['DB_USERNAME']} --password={$_ENV['DB_PASSWORD']} {$_ENV['DB_DATABASE']} > '$backupPath'";
-				$result = exec($command, $output, $code);
-				dd($command, $result, $output, $code);
+				$output = `{$_ENV['MYSQLDUMP_PATH']} --user={$_ENV['DB_USERNAME']} --password={$_ENV['DB_PASSWORD']} {$_ENV['DB_DATABASE']}`;
+				file_put_contents($backupPath, $output);
+
 				return true;
 
 			default:
@@ -49,9 +50,18 @@ class LeafDBSettingRepository extends LeafDBConnection implements SettingReposit
 				}
 
 				return true;
-			case 'mysql:':
-				// TODO: Implementar restauración de mysql
-				return false;
+			case 'mysql':
+				$backupPath = dirname(__DIR__) . '/MySQL/backup.sql';
+				$queries = file_get_contents($backupPath);
+
+				$pdo = self::db()->connection();
+				assert($pdo instanceof PDO);
+
+				foreach (explode(';', $queries) as $query) {
+					$query && $pdo->query($query);
+				}
+
+				return true;
 			default:
 				return false;
 		}
@@ -63,7 +73,9 @@ class LeafDBSettingRepository extends LeafDBConnection implements SettingReposit
 				$dbPath = __DIR__ . '/../SQLite/' . Env::get('DB_DATABASE');
 				return file_exists("$dbPath.bak");
 			case 'mysql':
-				return false;
+				$backupPath = dirname(__DIR__) . '/MySQL/backup.sql';
+
+				return file_exists($backupPath);
 			default:
 				return false;
 		}
