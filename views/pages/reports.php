@@ -24,11 +24,11 @@
 			<tbody>
 				<?php foreach ($reports as $report) echo <<<HTML
 				<tr>
-					<td>{diagnostico}</td>
-					<td>{lapso1}</td>
-					<td>{lapso2}</td>
-					<td>{lapso3}</td>
-					<td>{informe final}</td>
+					<td>{$report->diagnostic}</td>
+					<td>{$report->lapse1}</td>
+					<td>{$report->lapse2}</td>
+					<td>{$report->lapse3}</td>
+					<td>{$report->finalInform}</td>
 					<td>{$report->area->getCode()}</td>
 				</tr>
 				HTML ?>

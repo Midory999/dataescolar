@@ -11,7 +11,7 @@ use App\Repositories\LevelRepository;
 use App\Repositories\ReportRepository;
 use PDOException;
 
-class LeafDBReportRepository
+final class LeafDBReportRepository
 extends LeafDBConnection
 implements ReportRepository {
 	function __construct(
@@ -25,6 +25,7 @@ implements ReportRepository {
 
 	function getAll(): array {
 		$reports = self::db()->select(self::TABLE)->all();
+
 		return array_map([$this, 'mapper'], $reports);
 	}
 
@@ -40,15 +41,21 @@ implements ReportRepository {
 
 	function save(Report $report): void {
 		try {
-			self::db()
+			$stmt = self::db()
 				->insert(self::TABLE)
 				->params([
 					self::STUDENT_FOREIGN_KEY => $report->student->id,
 					self::TEACHER_FOREIGN_KEY => $report->teacher->id,
-					self::AREA_FOREIGN_KEY => $report->area->code,
-					self::LEVEL_FOREIGN_KEY => $report->level->code,
-				])
-				->execute();
+					self::AREA_FOREIGN_KEY => $report->area->getCode(),
+					self::LEVEL_FOREIGN_KEY => $report->level->id,
+					'diagnostico' => $report->diagnostic,
+					'lapso1' => $report->lapse1,
+					'lapso2' => $report->lapse2,
+					'lapso3' => $report->lapse3,
+					'informes_final' => $report->finalInform
+				]);
+
+			$stmt->execute();
 		} catch (PDOException $error) {
 			Logger::log($error);
 		}
@@ -60,7 +67,19 @@ implements ReportRepository {
 		$teacher = $this->teacherRepository->getByID($info[self::TEACHER_FOREIGN_KEY]);
 		$area = $this->areaRepository->getByCode($info[self::AREA_FOREIGN_KEY]);
 		$level = $this->levelRepository->getByID($info[self::LEVEL_FOREIGN_KEY]);
-		$report = new Report($info[self::PRIMARY_KEY], $student, $teacher, $area, $level);
+
+		$report = new Report(
+			$info[self::PRIMARY_KEY],
+			$student,
+			$teacher,
+			$area,
+			$level,
+			$info['diagnostico'],
+			$info['lapso1'],
+			$info['lapso2'],
+			$info['lapso3'],
+			$info['informes_final']
+		);
 
 		return $report;
 	}

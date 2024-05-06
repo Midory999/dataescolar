@@ -12,6 +12,7 @@ interface ReportRepository {
 	const AREA_FOREIGN_KEY = 'codigo_Area';
 	const LEVEL_FOREIGN_KEY = 'id_Nivel';
 
+	/** @return Report[] */
 	function getAll(): array;
 	function getByID($id): ?Report;
 	function save(Report $report): void;

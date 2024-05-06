@@ -25,23 +25,29 @@ class ReportController {
 		UI::render('report-register', compact('students', 'teachers', 'areas', 'levels'));
 	}
 
-
 	static function registerReport(): void {
 		$info = Flight::request()->data->getData();
-		$student = Dependencies::getStudentRepository()->getByIDCard($info['id_estudiante']);
-		$teacher = Dependencies::getTeacherRepository()->getByID($info['id_teacher']);
-		$area = Dependencies::getAreaRepository()->getByCode($info['cod_area']);
-		$level = Dependencies::getLevelRepository()->getByID($info['id_level']);
+		$student = Dependencies::getStudentRepository()->getByID($info['id_estudiante']);
+		$teacher = Dependencies::getTeacherRepository()->getByID($info['id_profesor']);
+		$area = Dependencies::getAreaRepository()->getByCode($info['codigo_area']);
+		$level = Dependencies::getLevelRepository()->getByID($info['id_nivel']);
 
-		$report = new Report;
-		$report->student = $student;
-		$report->teacher = $teacher;
-		$report->area = $area;
-		$report->level = $level;
+		$report = new Report(
+			$info['id'],
+			$student,
+			$teacher,
+			$area,
+			$level,
+			$info['diagnostico'],
+			$info['lapso1'],
+			$info['lapso2'],
+			$info['lapso3'],
+			$info['informe_final']
+		);
 
 		Dependencies::getReportRepository()->save($report);
 
 		$message = urlencode('Informe registrado exitósamente');
-		Flight::redirect("/reports?message=$message");
+		Flight::redirect("/informes?message=$message");
 	}
 }
