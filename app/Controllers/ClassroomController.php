@@ -6,7 +6,7 @@ use App\Core\{Dependencies, UI};
 use App\Models\Classroom;
 use Flight;
 
-class ClassroomController {
+final readonly class ClassroomController {
 	static function showClassrooms(): void {
 		$classrooms = Dependencies::getClassroomRepository()->getAll();
 
@@ -31,5 +31,11 @@ class ClassroomController {
 
 		$message = urlencode('Aula registrado exitósamente');
 		Flight::redirect("/aulas?mensaje=$message");
+	}
+
+	static function showInfo(string $id): void {
+		$classroom = Dependencies::getClassroomRepository()->getByID($id);
+
+		UI::render('classrooms/info', compact('classroom'));
 	}
 }

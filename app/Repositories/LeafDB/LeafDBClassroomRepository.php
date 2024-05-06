@@ -16,9 +16,8 @@ implements ClassroomRepository {
 	}
 
 	function getAll(): array {
-		assert(self::$db !== null);
+		$classrooms = self::db()->select('aulas')->all();
 
-		$classrooms = self::$db->select('aulas')->all();
 		return array_map([$this, 'mapper'], $classrooms);
 	}
 
@@ -59,6 +58,8 @@ implements ClassroomRepository {
 			$info['nombre'],
 			$this->teacherRepository->getByID($info['id_Profesor'])
 		);
+
+		$classroom->setID($info['id']);
 
 		return $classroom;
 	}

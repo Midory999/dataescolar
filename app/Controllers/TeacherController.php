@@ -45,7 +45,9 @@ class TeacherController {
 		Flight::redirect('/profesores');
 	}
 
-	static function showTeacherInfo(int $id): void {
+	static function showTeacherInfo(string $id): void {
+		$teacher = Dependencies::getTeacherRepository()->getByID($id);
 
+		UI::render('teachers/info', compact('teacher'));
 	}
 }

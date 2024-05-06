@@ -8,7 +8,8 @@ use Flight;
 
 use App\Controllers\{
 	AuthenticationController,
-	LevelController,
+    ClassroomController,
+    LevelController,
 	TeacherController,
 	UserController
 };
@@ -103,6 +104,7 @@ Flight::route('POST /lapsos', 'App\Controllers\LapseController::registerLapse');
 
 Flight::route('GET /aulas/registrar', 'App\Controllers\ClassroomController::showRegisterForm');
 Flight::route('POST /aulas', 'App\Controllers\ClassroomController::registerClassroom');
+Flight::route('GET /aulas/@id', [ClassroomController::class, 'showInfo']);
 
 Flight::route('GET /usuarios',  [$userController, 'showUsersList']);
 Flight::route('POST /usuarios', [$userController, 'registerUser']);

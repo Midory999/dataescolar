@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Classroom extends Model {
+final class Classroom extends Model {
 	private ?int $id = null;
 
 	function __construct(
