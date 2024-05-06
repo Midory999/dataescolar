@@ -4,14 +4,13 @@ namespace App\Repositories\LeafDB;
 
 use App\Core\Logger;
 use App\Models\Inscription;
-use App\Models\Student;
 use App\Repositories\StudentRepository;
 use App\Repositories\PeriodRepository;
 use App\Repositories\LevelRepository;
 use App\Repositories\InscriptionRepository;
 use PDOException;
 
-class LeafDBInscriptionRepository
+final class LeafDBInscriptionRepository
 extends LeafDBConnection
 implements InscriptionRepository {
 	function __construct(
@@ -48,7 +47,7 @@ implements InscriptionRepository {
 				->params([
 					self::STUDENT_FOREIGN_KEY => $inscription->student->id,
 					self::PERIOD_FOREIGN_KEY  => $inscription->period->getID(),
-					self::LEVEL_FOREIGN_KEY   => $inscription->level->code,
+					self::LEVEL_FOREIGN_KEY   => $inscription->level->id,
 				])
 				->execute();
 
