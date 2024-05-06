@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
-class Student extends Person {
+use AllowDynamicProperties;
+
+#[AllowDynamicProperties]
+final class Student extends Person {
 	public string $birthType;
 	public string $compromises;
 	public string $medicines;
