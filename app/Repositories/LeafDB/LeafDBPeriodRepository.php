@@ -68,33 +68,33 @@ class LeafDBPeriodRepository extends LeafDBConnection implements PeriodRepositor
 	}
 
 	function ensureThereIsOnePeriod(): static {
-		if (!$this->getLatest()) {
-			$period = $this->save(new Period(date('Y')));
-			$lapses = [
-				new Lapse(
-					'1er Lapso',
-					"{$period->startYear}-01-01",
-					"{$period->startYear}-04-01",
-					$period
-				),
-				new Lapse(
-					'2do Lapso',
-					"{$period->startYear}-05-01",
-					"{$period->startYear}-08-01",
-					$period
-				),
-				new Lapse(
-					'3er Lapso',
-					"{$period->startYear}-09-01",
-					"{$period->startYear}-12-01",
-					$period
-				)
-			];
+		// if (!$this->getLatest()) {
+		// 	$period = $this->save(new Period(date('Y')));
+		// 	$lapses = [
+		// 		new Lapse(
+		// 			'1er Lapso',
+		// 			"{$period->startYear}-01-01",
+		// 			"{$period->startYear}-04-01",
+		// 			$period
+		// 		),
+		// 		new Lapse(
+		// 			'2do Lapso',
+		// 			"{$period->startYear}-05-01",
+		// 			"{$period->startYear}-08-01",
+		// 			$period
+		// 		),
+		// 		new Lapse(
+		// 			'3er Lapso',
+		// 			"{$period->startYear}-09-01",
+		// 			"{$period->startYear}-12-01",
+		// 			$period
+		// 		)
+		// 	];
 
-			foreach ($lapses as $lapse) {
-				$this->lapseRepository->save($lapse);
-			}
-		}
+		// 	foreach ($lapses as $lapse) {
+		// 		$this->lapseRepository->save($lapse);
+		// 	}
+		// }
 
 		return $this;
 	}
