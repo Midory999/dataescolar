@@ -67,7 +67,7 @@
 	/** @var string $root */
 	/** @var ?string $mensaje */
 
-	$mensaje ??= @$_GET['mensaje'];
+	$mensaje ??= @$_GET['mensaje'] ?? @$_GET['message'];
 	$error ??= @$_GET['error'];
 
 	if ($mensaje) echo <<<HTML

@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS Estudiantes(
 	apellidos VARCHAR(30) NOT NULL,
 	cedula INT UNIQUE NOT NULL,
 	fecha_nacimiento DATE NOT NULL,
-	lugar_nacimiento DATE NOT NULL,
+	lugar_nacimiento TEXT NOT NULL,
 	edad INTEGER NOT NULL,
 	genero VARCHAR(1) NOT NULL,
 	tipo_parto TEXT NOT NULL,

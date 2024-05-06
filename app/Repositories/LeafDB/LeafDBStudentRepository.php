@@ -33,10 +33,8 @@ implements StudentRepository {
 	}
 
 	function save(Student $student): bool {
-		assert(self::$db !== null);
-
 		try {
-			self::$db
+			self::db()
 				->insert('Estudiantes')
 				->params([
 					'nombres'             => $student->names,
