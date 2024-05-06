@@ -10,15 +10,13 @@ class ClassroomController {
 	static function showClassrooms(): void {
 		$classrooms = Dependencies::getClassroomRepository()->getAll();
 
-		$message = Flight::request()->query['message'];
-
-		UI::render('classrooms', compact('classrooms', 'message'));
+		UI::render('classrooms/list', compact('classrooms'));
 	}
 
 	static function showRegisterForm(): void {
 		$teachers = Dependencies::getTeacherRepository()->getAll();
 
-		UI::render('classroom-register', compact('teachers'));
+		UI::render('classrooms/register', compact('teachers'));
 	}
 
 	static function registerClassroom(): void {
@@ -32,6 +30,6 @@ class ClassroomController {
 		Dependencies::getClassroomRepository()->save($classroom);
 
 		$message = urlencode('Aula registrado exitósamente');
-		Flight::redirect("/aulas?message=$message");
+		Flight::redirect("/aulas?mensaje=$message");
 	}
 }

@@ -33,7 +33,8 @@ abstract class LeafDBConnection {
 				'dbname' => Env::get('DB_DATABASE'),
 				'host' => Env::get('DB_HOST'),
 				'user' => Env::get('DB_USERNAME'),
-				'password' => Env::get('DB_PASSWORD')
+				'password' => Env::get('DB_PASSWORD'),
+				'charset' => Env::get('DB_CHARSET')
 			];
 		}
 

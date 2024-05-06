@@ -11,7 +11,7 @@ class Classroom extends Model {
 	) {
 	}
 
-	function getID(): int {
+	function getID(): ?int {
 		return $this->id;
 	}
 

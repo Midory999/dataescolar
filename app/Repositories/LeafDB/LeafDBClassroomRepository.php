@@ -42,7 +42,7 @@ implements ClassroomRepository {
 				->insert('Aulas')
 				->params([
 					'nombre'        => $classroom->name,
-					'id_profesores' => $classroom->teacher->getID(),
+					'id_Profesor' => $classroom->teacher->getID(),
 				])
 				->execute();
 

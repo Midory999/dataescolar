@@ -19,7 +19,9 @@
 		<label class="input-group">
 			<span class="input__label">
 				Representante:
-				<a class="w3-button w3-pale-red w3-round-medium w3-hover-white w3-padding-small" href="<?= $root ?>/representantes/registrar">Registrar</a>
+				<a class="w3-button w3-pale-red w3-round-medium w3-hover-white w3-padding-small" href="<?= $root ?>/representantes/registrar">
+					Registrar
+				</a>
 			</span>
 			<div class="select-container">
 				<select class="select" name="id_representante">

@@ -101,9 +101,7 @@ CREATE TABLE Aulas (
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	nombre TEXT NOT NULL,
 	id_Profesor INTEGER NOT NULL,
-	id_Estudiante INTEGER NOT NULL,
-	FOREIGN KEY (id_Profesor) REFERENCES Profesores(id),
-	FOREIGN KEY (id_Estudiante) REFERENCES Estudiantes(id)
+	FOREIGN KEY (id_Profesor) REFERENCES Profesores(id)
 );
 
 CREATE TABLE Informes (

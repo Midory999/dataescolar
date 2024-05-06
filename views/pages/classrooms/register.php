@@ -13,7 +13,12 @@
 			<span class="input__label">Nombre:</span>
 		</label>
 		<label class="input-group">
-			<span class="input__label">Profesor:</span>
+			<span class="input__label">
+				Asignar profesor:
+				<a class="w3-button w3-pale-red w3-round-medium w3-hover-white w3-padding-small" href="<?= $root ?>/profesores/registrar">
+					Registrar
+				</a>
+			</span>
 			<div class="select-container">
 				<select class="select" name="id_profesores" required>
 					<option selected disabled>Seleccionar</option>
