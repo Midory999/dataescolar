@@ -23,7 +23,7 @@ class LeafDBUserRepository extends LeafDBConnection implements UserRepository {
 					'cedula'    => $user->idCard,
 					'clave'     => $user->password,
 					'rol'       => $user->role,
-					'pregunta'  => $user->question,
+					'pregunta'  => "$user->question~$user->nationality",
 					'respuesta' => $user->answer
 				])
 				->execute();
@@ -31,7 +31,6 @@ class LeafDBUserRepository extends LeafDBConnection implements UserRepository {
 			return true;
 		} catch (PDOException $error) {
 			if (strpos($error->getMessage(), 'UNIQUE') !== -1) {
-				// README: El error es por falla de un campo único (cédula)
 				throw new DuplicatedIDCardException;
 			}
 
@@ -69,6 +68,11 @@ class LeafDBUserRepository extends LeafDBConnection implements UserRepository {
 
 	/** @param array<string, string> $info */
 	private function mapper(array $info): User {
+		[$question, $nationality] = explode('~', $info['pregunta']);
+
+		$info['pregunta'] = $question;
+		$info['nacionalidad'] = $nationality;
+
 		return User::fromRepository($info);
 	}
 }

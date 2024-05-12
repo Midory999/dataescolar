@@ -4,6 +4,12 @@ namespace App\Core;
 
 /** Operaciones de escritura y lectura de valores en Sesión */
 class Session {
+	static function has(string $key): bool {
+		self::restore();
+
+		return isset($_SESSION[$key]);
+	}
+
 	/**
 	 * Operación de lectura de una variable de sesión
 	 * @param  string $key Nombre de la variable
@@ -13,6 +19,13 @@ class Session {
 		self::restore();
 		$value = @$_SESSION[$key];
 		return is_string($value) ? $value : null;
+	}
+
+	static function getAndDelete(string $key): ?string {
+		$value = self::get($key);
+		self::delete($key);
+
+		return $value;
 	}
 
 	/**

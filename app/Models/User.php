@@ -14,8 +14,9 @@ use App\Core\{Dependencies, UUID};
  * @property-read string $role
  * @property-read string $question
  * @property-read string $answer
+ * @property-read string $nationality
  */
-class User {
+final readonly class User {
 	function __construct(
 		private UUID $id,
 		private string $name,
@@ -24,7 +25,8 @@ class User {
 		private string $password,
 		private Role $_role,
 		private string $question,
-		private string $answer
+		private string $answer,
+		private Nationality $_nationality
 	) {
 	}
 
@@ -39,6 +41,7 @@ class User {
 			'password' => $this->password,
 			'question' => $this->question,
 			'answer' => $this->answer,
+			'nationality' => $this->_nationality->value,
 			default => null
 		};
 	}
@@ -56,15 +59,18 @@ class User {
 	 * @param array<string, string> $post
 	 */
 	static function fromPOST(array $post): self {
+		[$nationality, $idCard] = explode('-', strtolower($post['cedula']));
+
 		return new self(
 			new UUID,
-			$post['nombre'],
-			$post['apellido'],
-			(int) $post['cedula'],
+			mb_convert_case($post['nombre'], MB_CASE_TITLE),
+			mb_convert_case($post['apellido'], MB_CASE_TITLE),
+			$idCard,
 			Dependencies::getEncryptor()->encrypt($post['clave']),
 			Role::from($post['rol'] ?? 'Director'),
 			$post['pregunta'],
-			Dependencies::getEncryptor()->encrypt($post['respuesta'])
+			Dependencies::getEncryptor()->encrypt($post['respuesta']),
+			Nationality::from($nationality)
 		);
 	}
 
@@ -77,11 +83,12 @@ class User {
 			new UUID($info['id']),
 			$info['nombre'],
 			$info['apellido'],
-			(int) $info['cedula'],
+			$info['cedula'],
 			$info['clave'],
 			Role::from($info['rol']),
 			$info['pregunta'],
-			$info['respuesta']
+			$info['respuesta'],
+			Nationality::from($info['nacionalidad'])
 		);
 	}
 

@@ -1,5 +1,5 @@
 {
-	"required": "{Field} is required",
+	"required": "{Field} es requerido",
 	"email": "{Field} must be a valid email address",
 	"alpha": "{Field} must contain only alphabets and spaces",
 	"text": "{Field} must contain only alphabets and spaces",

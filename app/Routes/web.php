@@ -8,39 +8,29 @@ use Flight;
 
 use App\Controllers\{
 	AuthenticationController,
-    ClassroomController,
-    LevelController,
+	ClassroomController,
+	LevelController,
 	TeacherController,
 	UserController
 };
+
 use App\Core\UI;
 use App\Repositories\LeafDB\LeafDBLapseRepository;
 use App\Repositories\LeafDB\LeafDBPeriodRepository;
 
-$userController     = new UserController;
+$userController = new UserController;
 $authenticationController = new AuthenticationController;
 $levelController = new LevelController;
 
 ////////////////////
 // RUTAS PÚBLICAS //
 ////////////////////
-Flight::route(
-	'GET /ingresar',
-	[$authenticationController, 'showLogin']
-);
-Flight::route(
-	'POST /ingresar',
-	[$authenticationController, 'verifyCredentials']
-);
-Flight::route(
-	'/salir',
-	[$authenticationController, 'logout']
-);
+Flight::route('GET /ingresar', [AuthenticationController::class, 'showLogin']);
+Flight::route('POST /ingresar', [AuthenticationController::class, 'verifyCredentials']);
+Flight::route('/salir', [AuthenticationController::class, 'logout']);
 
-Flight::route(
-	'POST /usuarios',
-	[$userController, 'registerUser']
-); // WARNING: Esto es temporal
+// WARNING: Esto es temporal
+Flight::route('POST /usuarios', [$userController, 'registerUser']);
 
 //////////////////////
 // RUTAS PROTEGIDAS //

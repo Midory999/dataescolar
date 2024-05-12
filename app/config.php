@@ -28,7 +28,37 @@ Form::addRule('year', function (mixed $value): bool {
 	return $value >= 1970 && $value <= $year;
 });
 
-Form::addRule('name', '/^[a-zA-ZáÁéÉíÍóÓúÚñÑ]+$/', '{Field} debe tener sólo letras sin espacios');
+Form::addRule(
+	'name',
+	'/^[a-zA-ZáÁéÉíÍóÓúÚñÑ]+$/',
+	'{Field} debe tener sólo letras sin espacios'
+);
+
+Form::addRule(
+	'answer',
+	'/^[A-Za-zÁáÉéÍíÓóÚúñÑ ]{2,20}$/',
+	'{Field} debe tener entre 2 y 20 letras'
+);
+
+Form::addRule('idCard', function (string $idCard): bool {
+	$idCard = strtolower($idCard);
+	$idCard = str_replace(['v', 'e', '-'], '', $idCard);
+
+
+	if (!is_numeric($idCard)) {
+		return false;
+	}
+
+	$idCard = (int) $idCard;
+
+	return $idCard >= 5_000_000 && $idCard <= 31_000_000;
+}, '{Field} debe ser una cédula válida (V-________ o E-________)');
+
+Form::addRule(
+	'password',
+	'/^(?=.*\d)(?=.*[A-Z])(?=.*\W).{8,}$/',
+	'{Field} debe tener al menos 8 letras, 1 mayúscula, 1 símbolo y 1 número'
+);
 
 ////////////////////////////////
 // DATOS COMPARTIDOS EN LA UI //

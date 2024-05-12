@@ -3,15 +3,18 @@
 namespace App\Controllers;
 
 use App\Core\Dependencies;
+use App\Core\Session;
 use App\Core\UI;
 use App\Exceptions\DuplicatedIDCardException;
 use App\Models\User;
 use Flight;
+use Leaf\Anchor;
+use Leaf\Form;
 
 /**
  * Controlador de las operaciones relacionadas con la lectura y escritura de usuarios.
  */
-class UserController {
+final readonly class UserController {
 	/** Muestra la lista de usuarios */
 	function showUsersList(): void {
 		UI::changeLayout(UI::APP_LAYOUT);
@@ -26,21 +29,40 @@ class UserController {
 	/** Maneja el proceso de registro y persistencia del usuario */
 	function registerUser(): void {
 		$post = Flight::request()->data->getData();
+
+		$post = Form::validate($post, [
+			'nombre' => 'name',
+			'apellido' => 'name',
+			'cedula' => 'idCard',
+			'clave' => 'password',
+			'pregunta' => 'required',
+			'respuesta' => 'answer'
+		]);
+
+		Anchor::sanitize($post);
+
+		if (!$post) {
+			$errors = '';
+
+			foreach (Form::errors() as $error) {
+				$errors .= @$error[0] . '<br />';
+			}
+
+			Session::set('error', $errors);
+			exit(Flight::redirect(Flight::request()->referrer, 400));
+		}
+
 		$user = User::fromPOST($post);
 
 		try {
-			$result = Dependencies::getUserRepository()->save($user);
-
-			if ($result) {
-				Flight::redirect('/usuarios');
-				return;
-			}
-
-			$error = urlencode('Ha ocurrido un error');
+			Dependencies::getUserRepository()->save($user);
+			Session::set('success', "$user->role registrado exitósamente");
 		} catch (DuplicatedIDCardException) {
-			$error = urlencode('Ya existe usuario con la cédula ' . $user->idCard);
+			Session::set('error', "Ya existe usuario con la cédula $user->idCard");
+
+			exit(Flight::redirect(Flight::request()->referrer, 409));
 		}
 
-		Flight::redirect("/ingresar?error=$error");
+		Flight::redirect('/usuarios');
 	}
 }
