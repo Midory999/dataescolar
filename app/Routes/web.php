@@ -11,6 +11,7 @@ use App\Controllers\{
 	ClassroomController,
 	HomeController,
 	LevelController,
+	SettingsController,
 	TeacherController,
 	UserController
 };
@@ -102,9 +103,9 @@ Flight::route('GET /usuarios',  [$userController, 'showUsersList']);
 Flight::route('POST /usuarios', [$userController, 'registerUser']);
 Flight::route('GET /usuarios/añadir', [$userController, 'showRegisterForm']);
 
-Flight::route('GET /configuracion', 'App\Controllers\SettingsController::showSettings');
-Flight::route('GET /configuracion/respaldar', 'App\Controllers\SettingsController::backup');
-Flight::route('GET /configuracion/restaurar', 'App\Controllers\SettingsController::restore');
+Flight::route('GET /configuracion', [SettingsController::class, 'showSettings']);
+Flight::route('GET /configuracion/respaldar', [SettingsController::class, 'backup']);
+Flight::route('GET /configuracion/restaurar', [SettingsController::class, 'restore']);
 
 //////////////
 // PERIODOS //

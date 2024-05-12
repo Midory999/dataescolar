@@ -3,10 +3,11 @@
 namespace App\Controllers;
 
 use App\Core\Dependencies;
+use App\Core\Session;
 use App\Core\UI;
 use Flight;
 
-class SettingsController {
+final readonly class SettingsController {
 	static function showSettings(): void {
 		UI::setData('error', Flight::request()->query['error']);
 		UI::setData('thereIsBackup', Dependencies::getSettingRepository()->hasBackup());
@@ -15,21 +16,23 @@ class SettingsController {
 
 	static function backup(): void {
 		if (Dependencies::getSettingRepository()->backup()) {
-			Flight::redirect('/configuracion');
-			return;
+			Session::set('success', 'Base de datos respaldada exitósamente');
+			exit(Flight::redirect('/configuracion'));
 		}
 
-		$error = urlencode('Ha ocurrido un error');
-		Flight::redirect("/configuracion?error=$error");
+		Session::set('error', 'Ha ocurrido un error');
+		Flight::redirect('/configuracion');
 	}
 
 	static function restore(): void {
 		if (Dependencies::getSettingRepository()->restore()) {
-			Flight::redirect('/salir');
-			return;
+			Session::delete('userID');
+			Session::set('success', 'Base de datos restaurada exitósamente');
+
+			exit(Flight::redirect('/ingresar'));
 		}
 
-		$error = urlencode('Ha ocurrido un error');
-		Flight::redirect("/configuracion?error=$error");
+		Session::set('error', 'Ha ocurrido un error');
+		Flight::redirect('/configuracion');
 	}
 }

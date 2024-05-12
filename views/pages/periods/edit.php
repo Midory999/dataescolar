@@ -11,7 +11,7 @@ use App\Models\Period;
 	<h2>Editar Periodo</h2>
 
 	<label class="input-group">
-		<input class="input" type="year" name="inicio" required min="1970" max="<?= date('Y') ?>" value="<?= $period->startYear ?>" />
+		<input onchange="setYear(this)" class="input" type="year" name="inicio" required min="1970" max="<?= date('Y') ?>" value="<?= $period->startYear ?>" />
 		<span class="input__label">Año de inicio:</span>
 	</label>
 
@@ -55,3 +55,14 @@ use App\Models\Period;
 	</fieldset>
 	<button class="button button--half">Actualizar</button>
 </form>
+
+<script>
+	function setYear(inputYear) {
+		inputYear.form.querySelectorAll('input[type="date"]').forEach(input => {
+			const [, month, day] = input.value.split('-')
+			const value = `${inputYear.value}-${month}-${day}`
+
+			input.value = value
+		})
+	}
+</script>
