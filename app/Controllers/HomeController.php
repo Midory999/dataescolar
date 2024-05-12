@@ -10,19 +10,13 @@ use App\Core\UI;
  * Controlador general del sistema con las operaciones relacionadas con la página
  * de inicio.
  */
-class HomeController {
+final readonly class HomeController {
 	/** Muestra la página principal */
 	static function showHome(): void {
 		Dependencies::getPeriodRepository()
 			->setLapseRepository(Dependencies::getLapseRepository())
 			->ensureThereIsOnePeriod();
 
-		$error = Session::get('error');
-
-		if ($error) {
-			Session::delete('error');
-		}
-
-		UI::render('home', compact('error'));
+		UI::render('home');
 	}
 }

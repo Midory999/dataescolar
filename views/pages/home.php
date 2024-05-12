@@ -11,13 +11,13 @@
 	</div>
 </a> -->
 <!-- <a href="#" class="card">
-	<img class="card__image animated--zoom" src="<?= $assets ?>/images/card6.png" />
+	<img class="card__image animated--zoom" src="./assets/images/card6.png" />
 </a> -->
 <!-- <a href="#" class="card">
-	<img class="card__image animated--zoom" src="<?= $assets ?>/images/card6.png" />
+	<img class="card__image animated--zoom" src="./assets/images/card6.png" />
 </a> -->
 <!-- <article class="card card--2y">
-	<img class="card__image animated--zoom" src="<?= $assets ?>/images/card5.png" />
+	<img class="card__image animated--zoom" src="./assets/images/card5.png" />
 	<form action="#" class="checkboxes">
 		<label>
 			<input type="checkbox" checked />
@@ -46,83 +46,83 @@
 		</label>
 	</form>
 </article> -->
-<div class="cards">
-	<a href="<?= $root ?>/inscripciones" class="card">
+<div class="cards cards--4col">
+	<a href="./inscripciones" class="card">
 		<figure>
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card8.png" />
+			<img class="card__image animated--zoom" src="./assets/images/card8.png" />
 			<figcaption>
-				<img src="<?= $assets ?>/images/flower3.png" />
+				<img src="./assets/images/flower3.png" />
 				Inscripciones
 			</figcaption>
 		</figure>
 	</a>
-	<a href="<?= $root ?>/representantes" class="card">
+	<a href="./representantes" class="card">
 		<figure>
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card8.png" />
+			<img class="card__image animated--zoom" src="./assets/images/card8.png" />
 			<figcaption>
-				<img src="<?= $assets ?>/images/flower3.png" />
+				<img src="./assets/images/flower3.png" />
 				Representantes
 			</figcaption>
 		</figure>
 	</a>
-	<a href="<?= $root ?>/niveles" class="card">
+	<a href="./niveles" class="card">
 		<figure>
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card10.png" />
+			<img class="card__image animated--zoom" src="./assets/images/card10.png" />
 			<figcaption>
-				<img src="<?= $assets ?>/images/flower3.png" />
+				<img src="./assets/images/flower3.png" />
 				Niveles
 			</figcaption>
 		</figure>
-		<a href="<?= $root ?>/areas" class="card">
+		<a href="./areas" class="card">
 			<figure>
-				<img class="card__image animated--zoom" src="<?= $assets ?>/images/card10.png" />
+				<img class="card__image animated--zoom" src="./assets/images/card10.png" />
 				<figcaption>
-					<img src="<?= $assets ?>/images/flower3.png" />
+					<img src="./assets/images/flower3.png" />
 					Area de Aprendizaje
 				</figcaption>
 			</figure>
 		</a>
-		<a href="<?= $root ?>/periodos" class="card">
+		<a href="./periodos" class="card">
 			<figure>
-				<img class="card__image animated--zoom" src="<?= $assets ?>/images/card7.png" />
+				<img class="card__image animated--zoom" src="./assets/images/card7.png" />
 				<figcaption>
-					<img src="<?= $assets ?>/images/flower3.png" />
+					<img src="./assets/images/flower3.png" />
 					Periodos
 				</figcaption>
 			</figure>
 		</a>
-		<a href="<?= $root ?>/estudiantes" class="card">
+		<a href="./estudiantes" class="card">
 			<figure>
-				<img class="card__image animated--zoom" src="<?= $assets ?>/images/card7.png" />
+				<img class="card__image animated--zoom" src="./assets/images/card7.png" />
 				<figcaption>
-					<img src="<?= $assets ?>/images/flower3.png" />
+					<img src="./assets/images/flower3.png" />
 					Estudiantes
 				</figcaption>
 			</figure>
 		</a>
-		<a href="<?= $root ?>/profesores" class="card">
+		<a href="./profesores" class="card">
 			<figure>
-				<img class="card__image animated--zoom" src="<?= $assets ?>/images/card9.png" />
+				<img class="card__image animated--zoom" src="./assets/images/card9.png" />
 				<figcaption>
-					<img src="<?= $assets ?>/images/flower3.png" />
+					<img src="./assets/images/flower3.png" />
 					Profesores
 				</figcaption>
 			</figure>
 		</a>
 		<!-- <a href="#" class="gastos">
 		<figure>
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card3.png" />
+			<img class="card__image animated--zoom" src="./assets/images/card3.png" />
 			<figcaption>
-				<img src="<?= $assets ?>/images/flower3.png" />
+				<img src="./assets/images/flower3.png" />
 				Gastos
 			</figcaption>
 		</figure>
 	</a> -->
 		<!-- <a href="#" class="card">
 		<figure>
-			<img class="card__image animated--zoom" src="<?= $assets ?>/images/card4.png" />
+			<img class="card__image animated--zoom" src="./assets/images/card4.png" />
 			<figcaption>
-				<img src="<?= $assets ?>/images/flower3.png" />
+				<img src="./assets/images/flower3.png" />
 				Plan para exámenes
 			</figcaption>
 		</figure>

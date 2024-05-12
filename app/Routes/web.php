@@ -9,6 +9,7 @@ use Flight;
 use App\Controllers\{
 	AuthenticationController,
 	ClassroomController,
+	HomeController,
 	LevelController,
 	TeacherController,
 	UserController
@@ -35,9 +36,10 @@ Flight::route('POST /usuarios', [$userController, 'registerUser']);
 //////////////////////
 // RUTAS PROTEGIDAS //
 //////////////////////
-Flight::route('*', [$authenticationController, 'ensureIsAuthenticated']);
+Flight::route('*', [AuthenticationController::class, 'ensureIsAuthenticated']);
+Flight::route('*', [PeriodController::class, 'ensureThereIsAtLeastOnePeriod']);
 
-Flight::route('GET /', 'App\Controllers\HomeController::showHome');
+Flight::route('GET /', [HomeController::class, 'showHome']);
 
 Flight::route('GET /representantes', 'App\Controllers\RepresentativeController::showRepresentatives');
 
@@ -112,55 +114,6 @@ Flight::route(
 	'GET /periodos/registrar',
 	[PeriodController::class, 'showRegisterForm']
 );
-Flight::route(
-	'GET /periodos/@startYear/eliminar',
-	function (string $startYear) {
-		$db = (new LeafDBPeriodRepository)->db();
 
-		$period = $db->select('periodos')->where('inicio', $startYear)->obj();
-		$db->delete('periodos')->where('id', $period->id)->execute();
-		$db->delete('lapsos')->where('id_periodo', $period->id)->execute();
-		$message = urlencode('Periodo eliminado exitósamente');
-		Flight::redirect("/periodos?mensaje=$message");
-	}
-);
-Flight::route(
-	'GET /periodos/@startYear/editar',
-	function (string $startYear) {
-		$repository = (new LeafDBPeriodRepository)->setLapseRepository(new LeafDBLapseRepository(new LeafDBPeriodRepository));
-		$db = $repository->db();
-
-		$period = $db->select('periodos')->where('inicio', $startYear)->assoc();
-		$period = $repository->mapper($period);
-
-		$title = 'Editar periodo';
-		UI::render('periods/edit', compact('period', 'title'));
-	}
-);
-Flight::route(
-	'POST /periodos/@startYear',
-	function (string $startYear) {
-		$lapses = Flight::request()->data['lapsos'];
-		$repository = new LeafDBLapseRepository(new LeafDBPeriodRepository);
-		$period = $repository->db()->select('periodos')->where('inicio', $startYear)->assoc();
-		$period = (new LeafDBPeriodRepository)->mapper($period);
-
-		$repository->db()->update('lapsos')->params([
-			'inicio' => $lapses['primer']['inicio'],
-			'fin' => $lapses['primer']['fin']
-		])->where('nombre', '1er Lapso')->where('id_periodo', $period->getID())->execute();
-
-		$repository->db()->update('lapsos')->params([
-			'inicio' => $lapses['segundo']['inicio'],
-			'fin' => $lapses['segundo']['fin']
-		])->where('nombre', '2do Lapso')->where('id_periodo', $period->getID())->execute();
-
-		$repository->db()->update('lapsos')->params([
-			'inicio' => $lapses['tercer']['inicio'],
-			'fin' => $lapses['tercer']['fin']
-		])->where('nombre', '3er Lapso')->where('id_periodo', $period->getID())->execute();
-
-		$message = urlencode('Periodo actualizado exitósamente');
-		Flight::redirect("/periodos?mensaje=$message");
-	}
-);
+Flight::route('GET /periodos/@id/editar', [PeriodController::class, 'showEditForm']);
+Flight::route('POST /periodos/@id', [PeriodController::class, 'handleEdit']);

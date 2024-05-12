@@ -1,17 +1,24 @@
 <?php
 
-/** @var App\Models\Period[] $periods */
+use App\Models\Period;
+
+/**
+ * @var Period[] $periods
+ * @var Period $currentPeriod
+ */
 
 ?>
 
 <section class="w3-section">
 	<h2>Periodos</h2>
-	<a class="w3-button w3-pink w3-round-medium" href="<?= $root ?>/periodos/registrar">Añadir</a>
+	<a class="w3-button w3-pink w3-round-medium" href="./periodos/registrar">Añadir</a>
 	<div class="cards cards--2col w3-section">
-		<?php foreach ($periods as $period) echo <<<HTML
-			<div class="card w3-border">
-				<h3 class="w3-center">{$period}</h3>
-				<a href="$root/periodos/{$period->startYear}">
+		<?php foreach ($periods as $period):
+			$actual = $period->getID() === $currentPeriod->getID() ? 'w3-pale-red' : '';
+			echo <<<HTML
+			<div class="card w3-border $actual">
+				<a href="./periodos/{$period->getID()}/editar">
+					<h3 class="w3-center">{$period}</h3>
 					<ul class="w3-ul">
 						<li class="w3-row-padding">
 							<div class="w3-third">
@@ -39,35 +46,7 @@
 						</li>
 					</ul>
 				</a>
-				<hr />
-				<div class="w3-container">
-					<small>
-						<button class="w3-button w3-round-medium" onclick="confirmarEliminar(`$root/periodos/{$period->startYear}/eliminar`)">
-							Eliminar
-						</button>
-					</small>
-					<small>
-						<a href="$root/periodos/{$period->startYear}/editar" class="w3-button w3-round-medium">
-							Editar
-						</a>
-					</small>
-				</div>
 			</div>
-		HTML ?>
+		HTML; endforeach ?>
 	</div>
 </section>
-
-<script>
-	function confirmarEliminar(url = location.href) {
-		Swal.fire({
-			title: '¿Confirma que desea eliminar?',
-			showCancelButton: true,
-			confirmButtonText: 'Confirmar',
-			cancelButtonText: 'Cancelar',
-		}).then(result => {
-			if (result.isConfirmed) {
-				location.href = url
-			}
-		})
-	}
-</script>

@@ -7,11 +7,11 @@ use App\Models\Period;
 
 ?>
 
-<form class="form" action="<?= $root ?>/periodos/<?= $period->startYear ?>" method="post">
+<form class="form" action="./periodos/<?= $period->getID() ?>" method="post">
 	<h2>Editar Periodo</h2>
 
 	<label class="input-group">
-		<input readonly class="input" type="year" name="inicio" required min="1970" max="<?= date('Y') ?>" value="<?= $period->startYear ?>" />
+		<input class="input" type="year" name="inicio" required min="1970" max="<?= date('Y') ?>" value="<?= $period->startYear ?>" />
 		<span class="input__label">Año de inicio:</span>
 	</label>
 

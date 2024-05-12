@@ -1,8 +1,11 @@
 <?php
 
-/** @var string $assets */
+use App\Core\Session;
+use App\Models\School;
+
 /** @var string $content */
-/** @var App\Models\School $school */
+/** @var School $school */
+
 ?>
 
 <!DOCTYPE html>
@@ -12,14 +15,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
 	<title><?= $title ?> - DataEscolar</title>
-	<link rel="icon" href="<?= $assets ?>/images/favicon.png" />
-	<link rel="stylesheet" href="<?= $assets ?>/libs/w3css/w3.css" />
-	<link rel="stylesheet" href="<?= $assets ?>/libs/sweetalert2/material-ui.css" />
-	<link rel="stylesheet" href="<?= $assets ?>/libs/pushbar/pushbar.css" />
-	<link rel="stylesheet" href="<?= $assets ?>/css/dataescolar.css" />
-	<script src="<?= $assets ?>/libs/sweetalert2/sweetalert2.min.js"></script>
-	<script src="<?= $assets ?>/libs/html2pdf/html2pdf.bundle.min.js"></script>
-	<script src="<?= $assets ?>/libs/html2pdf/pdf.js"></script>
+	<base href="<?= str_replace('index.php', '', $_SERVER['SCRIPT_NAME']) ?>" />
+	<link rel="icon" href="./assets/images/favicon.png" />
+	<link rel="stylesheet" href="./assets/libs/w3css/w3.css" />
+	<link rel="stylesheet" href="./assets/libs/sweetalert2/material-ui.css" />
+	<link rel="stylesheet" href="./assets/libs/pushbar/pushbar.css" />
+	<link rel="stylesheet" href="./assets/css/dataescolar.css" />
+	<script src="./assets/libs/html2pdf/html2pdf.bundle.min.js"></script>
+	<script src="./assets/libs/html2pdf/pdf.js"></script>
 	<style>
 		.swal2-shown.swal2-height-auto {
 			padding-right: 0 !important;
@@ -33,17 +36,7 @@
 
 <body>
 	<div class="app">
-		<header class="header">
-			<button data-pushbar-target="about" class="header__about-icon animated--zoom">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 17 28">
-					<path d="M11 19.625v3.75c0 0.344-0.281 0.625-0.625 0.625h-3.75c-0.344 0-0.625-0.281-0.625-0.625v-3.75c0-0.344 0.281-0.625 0.625-0.625h3.75c0.344 0 0.625 0.281 0.625 0.625zM15.937 10.25c0 2.969-2.016 4.109-3.5 4.937-0.922 0.531-1.5 1.609-1.5 2.063v0c0 0.344-0.266 0.75-0.625 0.75h-3.75c-0.344 0-0.562-0.531-0.562-0.875v-0.703c0-1.891 1.875-3.516 3.25-4.141 1.203-0.547 1.703-1.062 1.703-2.063 0-0.875-1.141-1.656-2.406-1.656-0.703 0-1.344 0.219-1.687 0.453-0.375 0.266-0.75 0.641-1.672 1.797-0.125 0.156-0.313 0.25-0.484 0.25-0.141 0-0.266-0.047-0.391-0.125l-2.562-1.953c-0.266-0.203-0.328-0.547-0.156-0.828 1.687-2.797 4.062-4.156 7.25-4.156 3.344 0 7.094 2.672 7.094 6.25z"></path>
-				</svg>
-			</button>
-			<img src="<?= $assets ?>/images/flower1.png" width="75" height="75" />
-			<h1 class="header__title"><?= $school->name ?></h1>
-			<?php include __DIR__ . '/components/navigation.php' ?>
-			<hr class="header__separator" />
-		</header>
+		<?php include __DIR__ . '/components/header.php' ?>
 		<main class="main">
 			<?= $content ?>
 			<?php include __DIR__ . '/components/sidebar.php' ?>
@@ -54,40 +47,19 @@
 			<?php include __DIR__ . '/components/authors.php' ?>
 		</footer>
 	</div>
-	<script src="<?= $assets ?>/libs/pushbar/pushbar.js"></script>
+	<script src="./assets/libs/sweetalert2/sweetalert2.min.js"></script>
+	<script src="./assets/libs/pushbar/pushbar.js"></script>
 	<script>
 		new Pushbar({
 			blur: true,
 			overlay: true
 		})
 	</script>
-
-	<?php
-
-	/** @var string $root */
-	/** @var ?string $mensaje */
-
-	$mensaje ??= @$_GET['mensaje'] ?? @$_GET['message'];
-	$error ??= @$_GET['error'];
-
-	if ($mensaje) echo <<<HTML
-	<script>
-		Swal.fire({
-			title: '$mensaje',
-			icon: 'success',
-			toast: true,
-			position: 'bottom-right',
-			timer: 3000,
-			timerProgressBar: true,
-			showConfirmButton: false
-		})
-	</script>
-	HTML;
-
-	if ($error) echo <<<HTML
+	<?php if (Session::has('error')): ?>
 		<script>
 			Swal.fire({
-				title: '$error',
+				title: `<?= Session::getAndDelete('error') ?>`,
+				footer: 'Por favor, inténtelo de nuevo',
 				icon: 'error',
 				toast: true,
 				position: 'top-right',
@@ -96,9 +68,19 @@
 				timerProgressBar: true
 			})
 		</script>
-	HTML;
-
-	?>
+	<?php elseif (Session::has('success')): ?>
+		<script>
+			Swal.fire({
+				title: `<?= Session::getAndDelete('success') ?>`,
+				icon: 'success',
+				toast: true,
+				position: 'top-right',
+				showConfirmButton: false,
+				timer: 5000,
+				timerProgressBar: true
+			})
+		</script>
+	<?php endif ?>
 </body>
 
 </html>
