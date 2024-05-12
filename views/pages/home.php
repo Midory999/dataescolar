@@ -84,7 +84,7 @@
 		</a>
 		<a href="./periodos" class="card">
 			<figure>
-				<img class="card__image animated--zoom" src="./assets/images/card7.png" />
+				<img class="card__image animated--zoom" src="./assets/images/periodos.png" />
 				<figcaption>
 					<img src="./assets/images/flower3.png" />
 					Periodos

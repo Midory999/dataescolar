@@ -8,7 +8,7 @@ assert(is_string($root));
 	<h2>Registro de Periodo</h2>
 
 	<label class="input-group ">
-		<input onblur="setYear(this)" class="input" type="year" name="inicio" required min="1970" max="<?= date('Y') ?>" />
+		<input onchange="setYear(this)" class="input" type="year" name="inicio" required min="1970" max="<?= date('Y') ?>" />
 		<span class="input__label">Año de inicio:</span>
 	</label>
 

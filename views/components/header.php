@@ -15,10 +15,10 @@ use App\Models\Period;
 	</button>
 	<img src="./assets/images/flower1.png" width="75" height="75" />
 	<h1 class="header__title"><?= $school->name ?></h1>
-	<h2 class="header__title">
+	<h4>
 		Periodo actual:
-		<?= $currentPeriod ?? '<strong>No establecido</strong>' ?>
-	</h2>
+		<strong><?= $currentPeriod ?? 'No establecido' ?></strong>
+	</h4>
 	<?php include __DIR__ . '/navigation.php' ?>
 	<hr class="header__separator" />
 </header>
