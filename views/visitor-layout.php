@@ -17,18 +17,11 @@ use App\Core\Session;
 	<link rel="icon" href="./assets/images/favicon.png" />
 	<link rel="stylesheet" href="./assets/libs/sweetalert2/material-ui.css" />
 	<link rel="stylesheet" href="./assets/css/app.css" />
-	<style>
-		input[type="number"] {
-			appearance: textfield;
-			-moz-appearance: textfield;
-		}
-	</style>
 </head>
 
 <body>
 	<?= $content ?>
 	<script src="./assets/libs/sweetalert2/sweetalert2.min.js"></script>
-	<script src="./assets/js/app.js"></script>
 	<?php if (Session::has('error')): ?>
 		<script>
 			Swal.fire({
