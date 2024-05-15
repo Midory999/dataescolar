@@ -1,7 +1,8 @@
-DROP DATABASE IF EXISTS dataescolar;
-CREATE DATABASE dataescolar;
-USE dataescolar;
+DROP DATABASE IF EXISTS {DB_DATABASE};
+CREATE DATABASE {DB_DATABASE};
+USE {DB_DATABASE};
 
+DROP TABLE IF EXISTS usuarios;
 CREATE TABLE usuarios (
 	id VARCHAR(255) PRIMARY KEY,
 	nombre TEXT NOT NULL,
@@ -13,7 +14,8 @@ CREATE TABLE usuarios (
 	respuesta TEXT NOT NULL
 );
 
-CREATE TABLE Representantes(
+DROP TABLE IF EXISTS Representantes;
+CREATE TABLE Representantes (
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	nombres VARCHAR(30) NOT NULL,
 	apellidos VARCHAR(30) NOT NULL,
@@ -28,31 +30,37 @@ CREATE TABLE Representantes(
 	lugar_trabajo TEXT NOT NULL
 );
 
-CREATE TABLE Niveles(
+DROP TABLE IF EXISTS Niveles;
+CREATE TABLE Niveles (
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	codigo VARCHAR(10) NOT NULL
 );
 
+DROP TABLE IF EXISTS Areas;
 CREATE TABLE Areas (
 	codigo INTEGER PRIMARY KEY AUTO_INCREMENT,
 	nombre VARCHAR(255) NOT NULL UNIQUE
 );
 
+DROP TABLE IF EXISTS Periodos;
 CREATE TABLE Periodos (
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	inicio INTEGER UNIQUE NOT NULL
 );
 
+DROP TABLE IF EXISTS Lapsos;
 CREATE TABLE Lapsos (
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	nombre TEXT NOT NULL,
 	inicio DATE NOT NULL UNIQUE,
 	fin DATE NOT NULL UNIQUE,
 	id_periodo INTEGER NOT NULL,
+
 	FOREIGN KEY (id_periodo) REFERENCES Periodos(id)
 );
 
-CREATE TABLE Estudiantes(
+DROP TABLE IF EXISTS Estudiantes;
+CREATE TABLE Estudiantes (
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	nombres VARCHAR(20) NOT NULL,
 	apellidos VARCHAR(30) NOT NULL,
@@ -73,17 +81,19 @@ CREATE TABLE Estudiantes(
 	estatus VARCHAR(10) NOT NULL,
 	descripcion TEXT NOT NULL,
 	id_Representante INTEGER NOT NULL,
+
 	FOREIGN KEY (id_Representante) REFERENCES Representantes(id)
 );
 
-CREATE TABLE Profesores(
+DROP TABLE IF EXISTS Profesores;
+CREATE TABLE Profesores (
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	nombres VARCHAR(25) NOT NULL,
 	apellidos VARCHAR(30) NOT NULL,
 	cedula INT UNIQUE NOT NULL,
 	estatus VARCHAR(10) NOT NULL,
 	especialidad TEXT NOT NULL,
-	direccion VARCHAR(255) NOT NULL UNIQUE,
+	direccion TEXT NOT NULL,
 	correo VARCHAR(50) NOT NULL UNIQUE,
 	telefono VARCHAR(15) NOT NULL UNIQUE,
 	fecha_ingreso date NOT NULL,
@@ -94,16 +104,20 @@ CREATE TABLE Profesores(
 	carga_horaria VARCHAR(20) NOT NULL,
 	codigo_idependencia VARCHAR(20) NOT NULL,
 	codigo_Area INTEGER NOT NULL,
+
 	FOREIGN KEY (codigo_Area) REFERENCES Areas(codigo)
 );
 
+DROP TABLE IF EXISTS Aulas;
 CREATE TABLE Aulas (
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	nombre TEXT NOT NULL,
 	id_Profesor INTEGER NOT NULL,
+
 	FOREIGN KEY (id_Profesor) REFERENCES Profesores(id)
 );
 
+DROP TABLE IF EXISTS Informes;
 CREATE TABLE Informes (
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	diagnostico TEXT NOT NULL,
@@ -115,22 +129,25 @@ CREATE TABLE Informes (
 	id_Profesor INTEGER NOT NULL,
 	codigo_Area INTEGER NOT NULL,
 	id_Nivel INTEGER NOT NULL,
+
 	FOREIGN KEY (id_Estudiante) REFERENCES Estudiantes(id),
 	FOREIGN KEY (id_Profesor) REFERENCES Profesores(id),
 	FOREIGN KEY (codigo_Area) REFERENCES Areas(codigo),
 	FOREIGN KEY (id_Nivel) REFERENCES Niveles(id)
 );
 
+DROP TABLE IF EXISTS Inscripciones;
 CREATE TABLE Inscripciones (
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	id_estudiante INTEGER NOT NULL,
 	id_periodo INTEGER NOT NULL,
 	id_nivel INTEGER NOT NULL,
+
 	FOREIGN KEY (id_estudiante) REFERENCES Estudiantes(id),
 	FOREIGN KEY (id_periodo) REFERENCES Periodos(id),
 	FOREIGN KEY (id_nivel) REFERENCES Niveles(id)
 );
 
 -- REGISTROS
-INSERT INTO Areas(codigo, nombre) VALUES (1, 'Lenguaje'), (2, 'Cognitiva'),
+INSERT INTO Areas (codigo, nombre) VALUES (1, 'Lenguaje'), (2, 'Cognitiva'),
 (3, 'Motora'), (4, 'Moral y Espiritual'), (6, 'Comunicación'), (5, 'Afectiva');
