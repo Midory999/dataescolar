@@ -1,14 +1,27 @@
 <?php
 
-/** @var string $root */
-/** @var string $assets */
+use App\Models\Area;
+
+/**
+ * @var ?Area $lastArea
+ */
+
 ?>
 
-<form class="form" action="<?= $root ?>/areas" method="post">
+<form class="form" action="./areas" method="post">
 	<h2>Registro de Área</h2>
 	<div class="form__group">
 		<label class="input-group ">
-			<input class="input" type="number" name="codigo" min="1" required />
+			<input
+				readonly
+				disabled
+				value="<?= $lastArea?->getCode() ?>"
+				class="input"
+				type="number"
+				name="codigo"
+				min="1"
+				required
+			/>
 			<span class="input__label">Código:</span>
 		</label>
 		<label class="input-group ">

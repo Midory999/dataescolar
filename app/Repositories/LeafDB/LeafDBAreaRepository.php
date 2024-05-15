@@ -47,6 +47,12 @@ class LeafDBAreaRepository extends LeafDBConnection implements AreaRepository {
 		return $this->searchByCriteria('nombre', Area::parseSlug($slug));
 	}
 
+	function getRecent(): ?Area {
+		$info = $this->db()->select(self::TABLE)->orderBy(self::PRIMARY_KEY)->assoc();
+
+		return $info ? $this->mapper($info) : null;
+	}
+
 	function save(Area $area): Area {
 		if ($area->hasCode()) {
 			self::db()

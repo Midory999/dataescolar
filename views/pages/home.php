@@ -73,12 +73,12 @@
 				Niveles
 			</figcaption>
 		</figure>
-		<a href="./areas" class="card">
+		<a href="./areas#listado" class="card">
 			<figure>
-				<img class="card__image animated--zoom" src="./assets/images/card10.png" />
+				<img class="card__image animated--zoom" src="./assets/images/areas.jpg" />
 				<figcaption>
 					<img src="./assets/images/flower3.png" />
-					Area de Aprendizaje
+					Áreas de aprendizaje
 				</figcaption>
 			</figure>
 		</a>

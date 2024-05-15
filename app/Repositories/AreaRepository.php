@@ -15,6 +15,7 @@ interface AreaRepository {
 	function getAllAsArray(): array;
 	function getByCode(int $code): ?Area;
 	function getBySlug(string $slug): ?Area;
+	function getRecent(): ?Area;
 	/** @throws DuplicatedRecordException */
 	function save(Area $area): Area;
 	/** @param array<string, string> $info */

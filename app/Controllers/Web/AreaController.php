@@ -9,7 +9,7 @@ use App\Models\Area;
 use Flight;
 use Leaf\Form;
 
-class AreaController {
+final readonly class AreaController {
 	static function showAll(): void {
 		$areas = Dependencies::getAreaRepository()->getAll();
 
@@ -54,9 +54,9 @@ class AreaController {
 	}
 
 	static function showRegisterForm(): void {
-		$areas = Dependencies::getAreaRepository()->getAll();
+		$lastArea = Dependencies::getAreaRepository()->getRecent();
 
-		UI::render('area-register', compact('areas'));
+		UI::render('area-register', compact('lastArea'));
 	}
 
 	static function register(): void {
