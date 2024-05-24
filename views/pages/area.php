@@ -8,7 +8,7 @@
 <section class="w3-section">
 	<a class="w3-button w3-pink w3-round-medium" href="<?= $root ?>/areas">Volver</a>
 	<h2><?= $area->name ?></h2>
-	<a class="w3-button w3-pink w3-round-medium" href="<?= $area->getSlug() ?>/editar">
+	<a class="w3-button w3-pink w3-round-medium" href="<?= $root . '/areas/' . $area->getCode() ?>/editar">
 		Editar
 	</a>
 	<hr />
