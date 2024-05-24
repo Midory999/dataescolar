@@ -49,7 +49,7 @@ use App\Models\Period;
 		</label>
 
 		<label class="input-group">
-			<span class="input__label">Fecha de inicio:</span>
+			<span class="input__label">Fecha de fin:</span>
 			<input class="input" type="date" name="lapsos[tercer][fin]" required value="<?= $period->getLapse(3)?->endDate ?>" />
 		</label>
 	</fieldset>
@@ -58,9 +58,16 @@ use App\Models\Period;
 
 <script>
 	function setYear(inputYear) {
-		inputYear.form.querySelectorAll('input[type="date"]').forEach(input => {
+		inputYear.form.querySelectorAll('input[type="date"]').forEach((input, index) => {
 			const [, month, day] = input.value.split('-')
-			const value = `${inputYear.value}-${month}-${day}`
+			let value = 0;
+			
+			if (index <= 1) {
+				value = `${inputYear.value}-${month}-${day}`
+			} else {
+				value = `${parseInt(inputYear.value) + 1}-${month}-${day}`
+			}
+			
 
 			input.value = value
 		})
