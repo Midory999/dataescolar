@@ -16,10 +16,6 @@ use App\Controllers\{
 	UserController
 };
 
-use App\Core\UI;
-use App\Repositories\LeafDB\LeafDBLapseRepository;
-use App\Repositories\LeafDB\LeafDBPeriodRepository;
-
 $userController = new UserController;
 $authenticationController = new AuthenticationController;
 $levelController = new LevelController;

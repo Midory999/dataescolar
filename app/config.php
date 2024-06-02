@@ -44,7 +44,6 @@ Form::addRule('idCard', function (string $idCard): bool {
 	$idCard = strtolower($idCard);
 	$idCard = str_replace(['v', 'e', '-'], '', $idCard);
 
-
 	if (!is_numeric($idCard)) {
 		return false;
 	}
@@ -70,3 +69,5 @@ UI::setData('currentPeriod', Dependencies::getPeriodRepository()->getLatest());
 UI::setData('root', Flight::get('root'));
 UI::setData('assets', Flight::get('root') . '/assets');
 UI::setData('school', Dependencies::getSettingRepository()->getSchool());
+
+header('Access-Control-Allow-Origin: *');
