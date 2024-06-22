@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use AllowDynamicProperties;
+use DateTimeImmutable;
 
 #[AllowDynamicProperties]
 class Teacher extends Person {
@@ -47,6 +48,17 @@ class Teacher extends Person {
 				$this->getSecondLastName(),
 			]
 		];
+	}
+
+	function isAdmin(): false {
+		return false;
+	}
+
+	function isValidPassword(string $password): bool {
+		$birthDate = new DateTimeImmutable($this->birthDate);
+		$format = "$this->idCard-{$birthDate->format('Y')}-$this->independenceCode";
+
+		return $password === $format;
 	}
 
 	function __toString(): string {

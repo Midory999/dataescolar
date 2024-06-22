@@ -3,9 +3,11 @@
 namespace App\Controllers;
 
 use App\Core\{Dependencies, Session, UI, UUID};
-use App\Models\{User};
+use App\Models\{Teacher, User};
 use Flight;
+use InvalidArgumentException;
 use Leaf\{Anchor, Form};
+use Throwable;
 
 /**
  * Controlador de la autenticación de usuarios, controla las operaciones relacionadas
@@ -48,6 +50,18 @@ final readonly class AuthenticationController {
 		}
 
 		$user = Dependencies::getUserRepository()->getByIDCard($post['cedula']);
+		$teacher = Dependencies::getTeacherRepository()->getByIDCard($post['cedula']);
+
+		if ($teacher) {
+			if ($teacher->isValidPassword($post['clave'])) {
+				Session::set('userID', $teacher->id);
+				Flight::redirect('/');
+
+				return;
+			}
+
+			$denyAccess();
+		}
 
 		if (!$user || !$user->isValidPassword($post['clave'])) {
 			$denyAccess();
@@ -96,9 +110,15 @@ final readonly class AuthenticationController {
 	}
 
 	/** Obtiene la información del usuario que inició sesión */
-	static function getLoggedUser(): ?User {
-		$userID = new UUID(Session::get('userID'));
+	static function getLoggedUser(): null|User|Teacher {
+		try {
+			$userID = new UUID(Session::get('userID'));
 
-		return Dependencies::getUserRepository()->getByID($userID);
+			return Dependencies::getUserRepository()->getByID($userID);
+		} catch (InvalidArgumentException) {
+			$teacherID = Session::get('userID');
+
+			return Dependencies::getTeacherRepository()->getByID($teacherID);
+		}
 	}
 }
