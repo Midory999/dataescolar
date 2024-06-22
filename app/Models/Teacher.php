@@ -14,6 +14,7 @@ class Teacher extends Person {
 	public string $vaccines;
 	public string $socialPrograms;
 	public Area $area;
+	public string $independenceCode;
 
 	function getFirstName(): string {
 		return mb_convert_case(explode(' ', $this->names)[0], MB_CASE_TITLE);

@@ -48,6 +48,7 @@
 				<td>{$teacher->gender}</td>
 				<td>{$teacher->vaccines}</td>
 				<td>{$teacher->socialPrograms}</td>
+				<td>{$teacher->independenceCode}</td>
 				<td></td>
 				<td>{$teacher->area->name}</td>
 				</tr>

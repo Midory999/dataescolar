@@ -71,7 +71,7 @@ implements TeacherRepository {
 					'genero'  => $teacher->gender,
 					'vacunas' => $teacher->vaccines,
 					'carga_horaria'    => $teacher->socialPrograms,
-					'codigo_idependencia' => '', // WARNING: Añadir un campo para el código de independencia
+					'codigo_idependencia' => $teacher->independenceCode,
 					'codigo_Area' => $teacher->area->getCode()
 				])
 				->execute();
@@ -101,6 +101,7 @@ implements TeacherRepository {
 		$teacher->gender    = $info['genero'];
 		$teacher->vaccines  = $info['vacunas'];
 		$teacher->socialPrograms = $info['carga_horaria'];
+		$teacher->independenceCode = $info['codigo_idependencia'] ?? '';
 		$teacher->area = $this->areaRepository->getByCode($info['codigo_Area']);
 
 		return $teacher;
