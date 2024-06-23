@@ -11,6 +11,7 @@ use App\Controllers\{
 	ClassroomController,
 	HomeController,
 	LevelController,
+	ReportController,
 	SettingsController,
 	TeacherController,
 	UserController
@@ -72,6 +73,7 @@ Flight::route('POST /inscripciones', 'App\Controllers\InscriptionController::reg
 
 Flight::route('GET /informes/registrar', 'App\Controllers\ReportController::showRegisterForm');
 Flight::route('POST /informes', 'App\Controllers\ReportController::registerReport');
+Flight::route('GET /informes/@id', [ReportController::class, 'showReport']);
 
 Flight::route('GET /representantes/registrar', 'App\Controllers\RepresentativeController::showRegisterForm');
 Flight::route('POST /representantes', 'App\Controllers\RepresentativeController::registerRepresentative');

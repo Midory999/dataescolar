@@ -13,6 +13,7 @@
 		<table class="w3-table-all">
 			<thead>
 				<tr>
+					<th></th>
 					<th>Diagnóstico</th>
 					<th>Lapso 1</th>
 					<th>Lapso 2</th>
@@ -24,6 +25,11 @@
 			<tbody>
 				<?php foreach ($reports as $report) echo <<<HTML
 				<tr>
+					<td>
+						<a class="w3-button w3-pink w3-round-medium" href="$root/informes/{$report->id}">
+							Imprimir
+						</a>
+					</td>
 					<td>{$report->diagnostic}</td>
 					<td>{$report->lapse1}</td>
 					<td>{$report->lapse2}</td>

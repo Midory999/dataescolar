@@ -50,4 +50,10 @@ class ReportController {
 		$message = urlencode('Informe registrado exitósamente');
 		Flight::redirect("/informes?message=$message");
 	}
+
+	static function showReport(string $id): void {
+		$report = Dependencies::getReportRepository()->getByID($id);
+
+		Flight::render('pages/reports/detail', compact('report'));
+	}
 }

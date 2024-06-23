@@ -35,8 +35,14 @@ use App\Models\School;
 		}
 
 		* {
-			font-family: 'Dancing Script', 'Gochi Hand', cursive !important;
-			font-size: 20px;
+			font-family: 'Gochi Hand', 'Dancing Script', cursive !important;
+			/*font-size: 20px;*/
+			font-size: 18px;
+		}
+
+		th,
+		td {
+			vertical-align: middle !important;
 		}
 	</style>
 </head>
