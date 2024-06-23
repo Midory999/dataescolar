@@ -23,6 +23,8 @@ use App\Models\School;
 	<link rel="stylesheet" href="./assets/css/dataescolar.css" />
 	<script src="./assets/libs/html2pdf/html2pdf.bundle.min.js"></script>
 	<script src="./assets/libs/html2pdf/pdf.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" />
 	<style>
 		.swal2-shown.swal2-height-auto {
 			padding-right: 0 !important;
@@ -30,6 +32,11 @@ use App\Models\School;
 
 		.w3-button {
 			transition: 250ms all;
+		}
+
+		* {
+			font-family: 'Dancing Script', 'Gochi Hand', cursive !important;
+			font-size: 20px;
 		}
 	</style>
 </head>
