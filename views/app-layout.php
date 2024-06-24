@@ -35,9 +35,18 @@ use App\Models\School;
 		}
 
 		* {
-			font-family: 'Gochi Hand', 'Dancing Script', cursive !important;
+			font-family: cursive !important;
 			/*font-size: 20px;*/
-			font-size: 18px;
+			/*font-size: 18px;*/
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-family: 'Gochi Hand' !important;
 		}
 
 		th,
@@ -68,7 +77,7 @@ use App\Models\School;
 			overlay: true
 		})
 	</script>
-	<?php if (Session::has('error')): ?>
+	<?php if (Session::has('error')) : ?>
 		<script>
 			Swal.fire({
 				title: `<?= Session::getAndDelete('error') ?>`,
@@ -81,7 +90,7 @@ use App\Models\School;
 				timerProgressBar: true
 			})
 		</script>
-	<?php elseif (Session::has('success')): ?>
+	<?php elseif (Session::has('success')) : ?>
 		<script>
 			Swal.fire({
 				title: `<?= Session::getAndDelete('success') ?>`,

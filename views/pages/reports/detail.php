@@ -70,7 +70,7 @@ $meses = [
 			<b>INFORME DESCRIPTIVO DEL RENDIMIENTO ESTUDIANTIL</b>
 		</h1>
 		<span class="w3-block w3-center w3-large">Año escolar: <?= $currentPeriod ?></span>
-		<section class="w3-panel w3-justify w3-padding-large">
+		<section class="w3-margin-top w3-justify w3-padding-large">
 			Apellidos y nombres: <u class="dancing w3-xlarge"><?= str_repeat('&nbsp;', 20) . join(' ', array_reverse(explode(' ', $report->student))) . str_repeat('&nbsp;', 20) ?></u>
 			Edad: <u class="dancing w3-xlarge"><?= str_repeat('&nbsp;', 10) . $report->student->age . str_repeat('&nbsp;', 10) ?></u>
 			Cédula: <u class="dancing w3-xlarge"><?= str_repeat('&nbsp;', 10) . $report->student->idCard . str_repeat('&nbsp;', 10) ?></u>
@@ -81,6 +81,12 @@ $meses = [
 			del <u class="dancing w3-xlarge"><?= str_repeat('&nbsp;', 10) . $report->student->getBirthDate('Y') . str_repeat('&nbsp;', 10) ?></u>
 			Representante: <u class="dancing w3-xlarge"><?= str_repeat('&nbsp;', 15) . $report->student->representative . str_repeat('&nbsp;', 15) ?></u>
 			Docente: <u class="dancing w3-xlarge"><?= str_repeat('&nbsp;', 10) . $report->teacher . str_repeat('&nbsp;', 10) ?></u>
+		</section>
+		<section class="w3-justify w3-padding-large">
+			<h2>
+				<b>INFORME FINAL</b>
+			</h2>
+			<u class="dancing w3-xlarge"><?= $report->finalInform ?></u>
 		</section>
 	</main>
 	<footer></footer>
