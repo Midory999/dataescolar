@@ -4,6 +4,7 @@ namespace App\Models;
 
 use DateTimeImmutable;
 
+/** @property int $age */
 abstract class Person extends Model {
 	public int $id;
 	public string $names;
@@ -17,6 +18,10 @@ abstract class Person extends Model {
 
 	function getGender(): string {
 		return ucfirst($this->gender);
+	}
+
+	function getBirthDate(string $format): string {
+		return date($format, strtotime($this->birthDate));
 	}
 
 	function __get(string $property): mixed {

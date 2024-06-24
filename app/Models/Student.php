@@ -23,7 +23,7 @@ final class Student extends Person {
 	}
 
 	function __toString(): string {
-		return '';
+		return "$this->names $this->lastnames";
 	}
 
 	function getBirthType(): string {

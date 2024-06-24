@@ -38,6 +38,10 @@ class Area extends Model {
 		return $this->teacher;
 	}
 
+	function getName(): string {
+		return $this->name;
+	}
+
 	function setClassroom(Classroom $classroom): void {
 		$this->classroom = $classroom;
 	}
